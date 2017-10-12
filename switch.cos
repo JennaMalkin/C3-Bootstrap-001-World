@@ -1,0 +1,100 @@
+setv va00 0
+reps 2
+	addv va00 1
+	new: simp 3 8 3 "switch" 2 0 1000
+	attr 199
+	puhl -1 40 0
+	perm 60
+	clac 0
+	elas 10
+	tick 0
+	fric 100
+	aero 5
+	accg 4
+	bhvr 41
+	setv ov61 100
+	doif va00 = 1
+		mvto 2100 364
+	elif va00 = 2
+		mvto 2210 3250
+	endi
+	anim [0]
+	pose 0
+	prt: inew 0 "light in" "light setting" 24 47 1000
+	prt: onew 0 "light out" "light setting" 20 34
+	emit 18 0.2
+repe
+
+scrp 3 8 3 1000
+	anim [0]
+	snde "beep"
+	over
+	setv ov70 _p1_
+	doif ov70 <> 0
+		anim [1]
+		prt: send 0 ov70
+		tick 20
+		clac 1
+	endi
+	doif ov70 = 0
+		anim [0]
+		prt: send 0 0
+		tick 0
+		clac 0
+	endi
+
+endm
+
+scrp 3 8 3 1
+	anim [1]
+	stim writ from 90 1
+	prt: send 0 255
+	setv ov70 255
+	tick 20
+	clac 1
+endm
+
+scrp 3 8 3 2
+	anim [0]
+	tick 0
+	clac 0
+endm
+
+
+scrp 3 8 3 3
+	targ from
+	doif fmly = 4 and gnus = 2
+
+		targ ownr
+		prt: bang rand 60 100
+
+	endi
+	targ ownr
+	stim writ from 92 1
+endm
+
+
+scrp 3 8 3 4
+	targ from
+	doif fmly = 4
+		stim writ targ 91 1
+	endi
+endm
+
+scrp 3 8 3 9
+	snde "beep"
+	anim [0]
+	over
+	prt: send 0 ov70
+	anim [1]
+endm
+
+rscr
+enum 3 8 3
+	kill targ
+next
+
+scrx 3 8 3 1
+scrx 3 8 3 2
+scrx 3 8 3 9
+scrx 3 8 3 1000

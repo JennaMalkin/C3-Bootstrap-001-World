@@ -1,0 +1,228 @@
+new: simp 1 2 24 "blnk" 0 0 0
+attr 16
+
+scrp 1 2 24 127
+	inst
+
+	setv va00 hist type _p1_ _p2_
+	doif va00 = 7
+
+		setv va01 0
+	elif va00 = 11
+
+		setv va01 1
+	elif va00 = 3
+
+		setv va01 2
+	elif va00 = 8
+
+		setv va01 3
+	else
+		stop
+	endi
+
+
+
+	seta va02 mtoc _p1_
+	doif va00 = 3 and va02 <> null
+		new: simp 1 2 37 "blnk" 0 0 0
+		seta ov00 va02
+		sets ov01 _p1_
+
+
+		tick rand 90 120
+	endi
+	targ ownr
+
+	doif game "Grettin" = 0
+
+		doif 1 <> hist gnus _p1_
+			doif va00 = 7
+				hist utxt _p1_ _p2_ "don't register"
+			endi
+			stop
+		endi
+	endi
+
+
+	doif va00 = 3
+		strk 30 "events.mng\\Birth"
+	elif va00 = 7
+		strk 20 "events.mng\\Death"
+	endi
+
+	setv va10 3
+	setv va12 0
+	enum 1 2 25
+		setv va11 posl
+		subv va11 wndl
+		doif va11 >= va10
+			setv va10 va11
+			addv va10 wdth
+			setv va12 ov99
+		endi
+	next
+
+
+	new: simp 1 2 25 "life_events" 4 0 8505
+	clac 1000
+	pose va01
+	attr 308
+	plne 9000
+	flto va10 90
+	seta va23 targ
+	setv ov99 va12
+	doif ov99 > 0
+		tick 1
+	endi
+	setv ov98 0
+
+
+	seta ov00 mtoc _p1_
+	doif ov00 = null
+		seta ov00 mtoa _p1_
+	endi
+	doif ov00 <> null
+		targ ov00
+		doif room targ = -1 or carr = game "c3_inventory"
+			setv va21 0
+			setv va22 0
+		else
+			setv va21 posx
+			setv va22 posy
+		endi
+	else
+		setv va21 0
+		setv va22 0
+	endi
+
+	targ va23
+	setv ov01 va21
+	setv ov02 va22
+	setv ov03 va00
+
+
+	setv va50 wndw
+	divv va50 2
+	doif va10 > va50
+		enum 1 2 25
+			tick 1
+			setv va51 posl
+			subv va51 wndl
+			subv va51 ov99
+			doif va51 < wdth
+				setv ov98 1
+			endi
+			addv ov99 wdth
+		next
+	endi
+endm
+
+
+
+scrp 1 2 37 9
+	inst
+	doif ov00 <> null
+		sets va00 ov01
+		adds va00 "-"
+		adds va00 vtos hist coun ov01
+		targ ov00
+		snap va00 posx posy 119 139 100
+		targ ownr
+		hist evnt ov01 13 "" ""
+		setv va01 hist coun ov01
+		subv va01 1
+		dbg: asrt 13 = hist type ov01 va01
+		hist foto ov01 va01 va00
+	endi
+	kill ownr
+endm
+
+scrp 1 2 25 1000
+	inst
+	setv va10 posl
+
+
+
+
+	enum 1 2 25
+
+
+
+		doif posl >= va10
+			addv ov99 wdth
+			tick 1
+		endi
+	next
+	targ ownr
+
+
+
+	doif ov00 = null
+		cmrp ov01 ov02 0
+	else
+		targ ov00
+		doif room targ ne -1 and carr ne game "c3_inventory"
+			cmrt 0
+
+			doif type ov00 = 7
+				targ ov00
+				norn ov00
+			endi
+		else
+			cmrp ov01 ov02 0
+		endi
+	endi
+	inst
+
+
+
+	doif ov03 = 3
+		doif ov00 <> null
+			targ ov00
+			setv ov81 1
+		endi
+	endi
+	kill ownr
+endm
+
+scrp 1 2 25 9
+	inst
+	doif ov99 >= 8
+		mvby -8 0
+		subv ov99 8
+	else
+		negv ov99
+		mvby ov99 0
+		setv ov99 0
+	endi
+	doif ov99 = 0
+		tick 0
+
+		doif ov98 <> 0
+
+			inst
+
+
+
+			doif ov03 = 3
+				doif ov00 <> null
+					targ ov00
+					setv ov81 1
+				endi
+			endi
+			kill ownr
+		endi
+	endi
+endm
+
+rscr
+enum 1 2 24
+	kill targ
+next
+enum 1 2 25
+	kill targ
+next
+enum 1 2 37
+	kill targ
+next

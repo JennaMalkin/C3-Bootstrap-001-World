@@ -1,0 +1,268 @@
+
+
+iscr
+setv va88 0
+setv va51 3300
+reps 3
+	new: simp 3 8 11 "lightmod" 12 0 5000
+	perm 60
+	mvto 1560 va51
+	attr 199
+	clac 0
+	elas 10
+	tick 0
+	bhvr 41
+	aero 5
+	fric 100
+	accg 4
+	velo 0 0
+	seta ov01 null
+	setv ov61 100
+	base 0
+	anim [0]
+	prt: inew 0 "light in" "light setting" 3 17 1000
+	prt: onew 0 "light out" "light setting" 8 28
+
+
+	subv va51 50
+	tick 1
+	emit 18 0.2
+repe
+
+setv va88 0
+setv va51 500
+reps 3
+	new: simp 3 8 11 "lightmod" 12 0 5000
+	mvto 1900 va51
+	attr 199
+	perm 60
+	clac 0
+	elas 10
+	tick 0
+	aero 5
+	bhvr 41
+	fric 100
+	accg 4
+	velo 0 0
+	seta ov01 null
+	setv ov61 100
+	base 0
+	anim [0]
+	prt: inew 0 "light in" "light setting" 3 17 1000
+	prt: onew 0 "light out" "light setting" 8 28
+	subv va51 50
+	emit 18 0.2
+	tick 1
+repe
+
+scrp 3 8 11 1000
+	anim [0]
+	setv ov70 _p1_
+	setv ov71 ov70
+	absv ov71
+	over
+	prt: send 0 ov70
+	doif ov71 > 0 and ov71 <= 85
+		anim [1 0 1 0 1 0 1 0 1 0]
+		prt: send 0 ov70
+		tick 20
+
+	endi
+	doif ov71 > 85 and ov71 <= 170
+		anim [2 0 2 0 2 0 2 0 2 0]
+		prt: send 0 ov70
+		tick 20
+
+	endi
+	doif ov71 > 170 and ov71 <= 255
+		anim [3 0 3 0 3 0 3 0 3 0]
+		prt: send 0 ov70
+		tick 20
+
+	endi
+	doif ov71 < 0 and ov71 >= -85
+		anim [1 0 1 0 1 0 1 0 1 0]
+		prt: send 0 ov70
+		tick 20
+
+	endi
+	doif ov71 < -85 and ov71 >= -170
+		anim [2 0 2 0 2 0 2 0 2 0]
+		prt: send 0 ov70
+		tick 20
+
+	endi
+	doif ov71 < -170 and ov71 >= -255
+		anim [3 0 3 0 3 0 3 0 3 0]
+		prt: send 0 ov70
+		tick 20
+
+	endi
+
+	doif ov71 = 0
+		mesg writ ownr 2000
+	endi
+
+
+endm
+
+
+scrp 3 8 11 4
+	targ from
+	doif fmly eq 4
+		stim writ targ 91 1
+	endi
+	targ ownr
+	tick 0
+	seta va04 targ
+	inst
+	enum 3 8 11
+		doif ov01 = va04 and targ <> ownr
+			tick 1
+		endi
+	next
+	slow
+
+endm
+
+scrp 3 8 11 2000
+	anim [0]
+	tick 0
+	clac 0
+	prt: send 0 0
+
+endm
+
+
+scrp 3 8 11 3
+	sndc "hit_"
+	prt: bang rand 60 100
+	stim writ from 92 1
+endm
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+scrp 3 8 11 5
+	etch 3 8 11
+		addv va00 1
+	next
+	doif va00 <= 1
+		tick 1
+	endi
+	accg 4
+endm
+
+
+scrp 3 8 11 1
+	snde "lg_1"
+	stim writ from 90 1
+	doif ov00 = 0
+		setv ov00 4
+	elif ov00 = 4
+		setv ov00 8
+	elif ov00 = 8
+		setv ov00 0
+	elif ov00 <> 0 and ov00 <> 4 and ov00 <> 8
+		setv ov00 8
+	endi
+	anim []
+	base ov00
+	anim [0]
+
+
+
+
+
+
+
+endm
+
+scrp 3 8 11 9
+	doif ov01 <> null
+		targ ov01
+		setv va50 posx
+		setv va51 posy
+		targ ownr
+
+	endi
+	inst
+	seta va03 null
+	seta va88 null
+	etch 3 8 11
+		doif targ <> ownr and carr = null
+			setv va01 rely ownr targ
+			doif va01 > 0
+				setv va00 1
+				setv va02 post
+				seta va88 targ
+			endi
+		endi
+	next
+	seta ov01 va88
+
+	doif va00 = 0
+		seta ov01 null
+	endi
+
+	doif va00 = 1
+		gsub stak
+	endi
+
+	doif obst 3 gt 0
+		gsub fall
+	endi
+	doif obst 3 = 0
+		tick 0
+	endi
+
+	subr stak
+		accg 0
+		subv va02 30
+		velo 0 0
+		doif tmvt posl va02 <> 1
+			mvsf posl va02
+		else
+			mvto posl va02
+		endi
+		tick 0
+		stop
+	retn
+
+	subr fall
+		inst
+		seta va04 targ
+		enum 3 8 11
+			doif ov01 = va04
+				tick 1
+			endi
+		next
+		accg 4
+		stop
+	retn
+	slow
+endm
+
+
+rscr
+enum 3 8 11
+	kill targ
+next
+
+scrx 3 8 11 1
+scrx 3 8 11 2
+scrx 3 8 11 4
+scrx 3 8 11 5
+scrx 3 8 11 9
+scrx 3 8 11 1000
+scrx 3 8 11 2000

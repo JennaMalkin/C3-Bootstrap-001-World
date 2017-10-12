@@ -1,0 +1,107 @@
+
+
+new: simp 1 1 121 "blnk" 1 0 0
+imsk 1
+mvto 0 0
+
+
+
+
+scrp 1 1 121 73
+	inst
+	doif keyd 17 eq 1 and keyd 16 eq 1
+		doif _p1_ eq 'X'
+			doif ov01 eq 1
+				rtar 1 1 18
+				doif targ ne null
+					kill targ
+				endi
+				targ ownr
+				setv ov01 0
+			endi
+			doif ov00 eq 0
+				new: comp 1 1 59 "blank" 1 0 9000
+				attr 32
+				frel pntr
+				pat: fixd 1 "blank" 0 0 0 0 "whiteontransparentchars"
+				flto 30 30
+				tick 1
+				targ ownr
+				setv ov00 1
+			else
+				rtar 1 1 59
+				doif targ ne null
+					kill targ
+				endi
+				targ ownr
+				setv ov00 0
+			endi
+		elif _p1_ eq 'R'
+			doif ov00 eq 1
+				rtar 1 1 59
+				doif targ ne null
+					kill targ
+				endi
+				targ ownr
+				setv ov00 0
+			endi
+			doif ov01 eq 0
+				new: comp 1 1 18 "blank" 1 0 9000
+				attr 32
+				frel pntr
+				pat: fixd 1 "blank" 0 0 0 0 "whiteontransparentchars"
+				flto 30 30
+				tick 1
+				targ ownr
+				setv ov01 1
+			else
+				rtar 1 1 18
+				doif targ ne null
+					kill targ
+				endi
+				targ ownr
+				setv ov01 0
+			endi
+		endi
+	endi
+endm
+
+scrp 1 1 59 9
+	inst
+	targ pntr
+	setv va00 posl
+	setv va01 post
+	slow
+	targ ownr
+	sets va99 vtos va00
+	adds va99 " "
+	adds va99 vtos va01
+
+	part 1
+	ptxt va99
+endm
+
+scrp 1 1 18 9
+	inst
+	targ pntr
+	setv va00 posl
+	setv va01 post
+	slow
+	targ ownr
+	setv va99 grap va00 va01
+
+	part 1
+	ptxt vtos va99
+
+endm
+
+rscr
+enum 1 1 59
+	kill targ
+next
+enum 1 1 121
+	kill targ
+next
+enum 1 1 18
+	kill targ
+next

@@ -1,0 +1,209 @@
+
+new: simp 1 1 95 "hand" 2 15 8000
+mvto -1000 -1000
+attr 32
+
+scrp 2 1 1 117
+	inst
+	doif _p1_ eq 1
+		rtar 1 1 95
+		doif targ ne null
+			pose 1
+			frel pntr
+			flto 10 -20
+		endi
+	elif _p1_ eq 2
+		rtar 1 1 95
+		doif targ ne null
+			pose 0
+			frel pntr
+			flto 10 -20
+		endi
+	elif _p1_ eq 0
+		rtar 1 1 95
+		doif targ ne null
+			frel null
+			flto -10000 -10000
+		endi
+	endi
+endm
+
+
+scrp 2 1 1 1000
+	inst
+	doif _p1_ <> null
+		mesg writ _p1_ 4
+	endi
+endm
+
+
+
+scrp 1 0 0 101
+	anim [1 0]
+endm
+
+scrp 1 0 0 102
+	anim [0 1 0]
+endm
+
+scrp 1 0 0 103
+	anim [0 1 0]
+endm
+
+scrp 1 0 0 104
+	anim [7 7 6]
+endm
+
+scrp 1 0 0 105
+	anim [6 7 7 7 0]
+endm
+
+
+
+
+
+scrp 2 0 0 101
+	anim [1 0]
+endm
+
+scrp 2 0 0 102
+	anim [0 1 0]
+endm
+
+scrp 2 0 0 103
+	anim [0 1 0]
+endm
+
+scrp 2 0 0 104
+	anim [7 7 6]
+endm
+
+scrp 2 0 0 105
+	anim [6 7 7 7 0]
+endm
+
+scrp 2 0 0 1000
+	anim [1 0]
+endm
+scrp 2 0 0 1001
+	anim [1 0]
+endm
+scrp 2 0 0 1002
+	anim [1 0]
+endm
+scrp 2 0 0 1003
+	anim [1 0]
+endm
+scrp 2 0 0 1004
+	anim [1 0]
+endm
+scrp 2 0 0 1005
+	anim [1 0]
+endm
+
+scrp 2 0 0 2000
+	anim [1 0]
+endm
+scrp 2 0 0 2001
+	anim [1 0]
+endm
+scrp 2 0 0 2002
+	anim [1 0]
+endm
+scrp 2 0 0 2003
+	anim [1 0]
+endm
+scrp 2 0 0 2004
+	anim [1 0]
+endm
+scrp 2 0 0 2005
+	anim [1 0]
+endm
+
+
+scrp 2 0 0 2006
+	mesg writ _p1_ 92
+endm
+
+
+scrp 3 0 0 101
+	anim [1 0]
+endm
+
+scrp 3 0 0 102
+	anim [0 1 0]
+endm
+
+scrp 3 0 0 103
+	anim [0 1 0]
+endm
+
+scrp 3 0 0 104
+	anim [7 7 6]
+endm
+
+scrp 3 0 0 105
+	anim [6 7 7 7 0]
+endm
+
+scrp 4 0 0 101
+	doif keyd 46 eq 1
+
+		targ from
+		doif drea eq 1
+			drea 0
+		else
+			aslp 0
+		endi
+		targ ownr
+
+		anim [4 5 5 0]
+		mesg writ from 2
+		snde "spnk"
+	else
+		anim [2 3 2 3 2 3 2 3 0]
+		mesg writ from 0
+		snde "tckl"
+	endi
+endm
+
+scrp 4 0 0 103
+	doif keyd 45 eq 1
+		anim [2 3 2 3 2 3 2 3 0]
+		mesg writ from 0
+		snde "tckl"
+	else
+
+		targ from
+		doif drea eq 1
+			drea 0
+		else
+			aslp 0
+		endi
+		targ ownr
+
+		anim [4 5 5 0]
+		mesg writ from 2
+		snde "spnk"
+	endi
+endm
+
+scrp 4 0 0 104
+	anim [7 7 6]
+endm
+
+scrp 4 0 0 105
+	anim [6 7 7 7 0]
+endm
+
+
+
+
+
+
+
+
+rscr
+enum 1 1 95
+	kill targ
+next

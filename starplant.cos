@@ -1,0 +1,35 @@
+
+inst
+reps 5
+	new: simp 2 4 5 "starplant" 10 0 100
+	attr 192
+
+	bhvr 1
+	tick rand 20 80
+	mvto rand 1740 2740 674
+	elas 0
+repe
+
+scrp 2 4 5 1
+	targ from
+stim writ from 62 1
+endm
+
+scrp 2 4 5 9
+	doif pose lt 9
+		setv va00 pose
+		addv va00 1
+		pose va00
+	endi
+endm
+
+
+
+
+
+
+rscr
+enum 2 4 5
+	kill targ
+next
+scrx 2 4 5 9

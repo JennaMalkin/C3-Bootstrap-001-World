@@ -1,0 +1,350 @@
+inst
+
+new: comp 3 8 14 "smell_machines" 8 0 5000
+
+pat: butt 1 "smell_machines" 8 5 26 1 0 [] 1000 0
+
+pat: butt 2 "smell_machines" 13 2 37 53 0 [] 0 0
+
+pat: butt 3 "smell_machines" 42 17 26 24 0 [] 1001 0
+
+prt: inew 0 "Emitter input" " " 68 60 1002
+prt: onew 0 "Emitter output" " " 13 60
+
+
+
+
+
+
+setv ov61 100
+
+setv ov70 1
+
+setv ov71 1
+bhvr 40
+attr 195
+perm 60
+elas 0
+accg 3
+mvto 6000 4170
+emit 18 0.2
+
+
+new: comp 3 8 15 "smell_machines" 6 29 5000
+
+pat: dull 1 "smell_machines" 35 37 12 0
+
+pat: butt 2 "smell_machines" 40 2 48 59 0 [] 0 0
+
+pat: butt 3 "smell_machines" 42 17 37 29 0 [] 1001 0
+
+prt: inew 0 "Detector input" " " 80 65 1002
+prt: onew 0 "Detector output" " " 24 65
+
+
+
+
+
+
+setv ov61 100
+
+
+
+setv ov71 1
+bhvr 40
+attr 195
+perm 60
+elas 0
+accg 3
+mvto 5400 2000
+
+
+
+
+
+
+scrp 3 8 15 1002
+
+
+	inst
+	doif _p1_ lt 0
+		mesg writ ownr 0
+		stop
+	endi
+	doif _p1_ eq 0
+		stop
+	endi
+	setv va00 _p1_
+	divv va00 15
+
+	doif va00 eq 11
+		setv va00 12
+	endi
+	setv ov71 va00
+	subv va00 1
+	doif va00 lt 0
+		setv va00 0
+	endi
+	part 3
+	pose va00
+
+endm
+
+
+scrp 3 8 15 1
+	sndc "sc_2"
+	lock
+	doif ov00 eq 0
+		part 2
+		pose 1
+		part 0
+		anim [0 1 2 3 4 5 255]
+		tick 5
+		setv ov00 1
+	else
+		setv ov00 0
+		tick 0
+		part 2
+		pose 0
+		part 0
+		anim [5 4 3 2 1]
+		over
+		emit 10 0.2
+	endi
+endm
+
+
+scrp 3 8 15 9
+	sndc "scd1"
+	inst
+	doif carr ne null
+		stop
+	endi
+	setv va00 prop room targ ov71
+	doif va00 lt 0.2
+		setv va01 0
+	elif va00 lt 0.4
+		setv va01 1
+	elif va00 lt 0.6
+		setv va01 2
+	elif va00 lt 0.8
+		setv va01 3
+	elif va00 lt 1
+		setv va01 4
+	endi
+	part 1
+	pose va01
+
+	mulv va00 255
+	prt: send 0 va00
+
+endm
+
+
+scrp 3 8 15 1001
+	sndc "sc_1"
+	addv ov71 1
+
+	doif ov71 gt 17
+		setv ov71 1
+	endi
+
+	doif ov71 eq 11
+		setv ov71 12
+	endi
+	setv va00 ov71
+	subv va00 1
+	part 3
+	pose va00
+endm
+
+
+
+scrp 3 8 14 1002
+
+
+	inst
+
+	doif _p1_ lt 0
+		setv va00 _p1_
+		negv va00
+		divv va00 52
+		setv ov70 va00
+		part 1
+		pose ov70
+	endi
+
+	doif _p1_ eq 0
+		stop
+	endi
+
+	doif _p1_ gt 0
+		setv va00 ftoi _p1_
+		divv va00 15
+
+		doif va00 eq 11
+			setv va00 12
+		endi
+		setv ov71 va00
+		subv va00 1
+		doif va00 gt 0
+			part 3
+			pose va00
+		endi
+	endi
+endm
+
+
+
+scrp 3 8 14 1
+	sndc "sc_2"
+	lock
+
+	doif ov00 eq 0
+		part 2
+		pose 1
+		part 0
+
+		tick 5
+		setv ov00 1
+	else
+
+		emit ov71 0
+		setv ov00 0
+		tick 0
+		part 2
+		pose 0
+		part 0
+		anim [7 6 5 4 3 2 1 0]
+		over
+		emit 10 0.2
+	endi
+endm
+
+
+scrp 3 8 14 9
+	sndc "sce1"
+	lock
+	doif carr ne null
+		stop
+	endi
+	anim [0 1 2 3]
+	over
+	inst
+	tick 8
+	setv va00 posl
+	setv va01 posl
+	setv va02 post
+	subv va00 51
+	addv va01 70
+	subv va02 10
+
+	new: simp 1 1 37 "smell_machines" 7 15 5001
+	attr 16
+	mvto va01 va02
+	anim [0 1 2 3 4 5 6]
+	tick 1
+
+	new: simp 1 1 37 "smell_machines" 7 22 5001
+	attr 16
+	mvto va00 va02
+	anim [0 1 2 3 4 5 6]
+	tick 1
+	targ ownr
+	anim [4 5 6 7 0]
+	setv va00 ov70
+	divv va00 5
+	emit ov71 va00
+
+
+	setv va99 ov70
+	mulv va99 50
+	prt: send 0 va99
+endm
+
+
+
+scrp 1 1 37 9
+	doif pose eq 6
+		kill ownr
+	endi
+endm
+
+
+scrp 3 8 14 1000
+	sndc "clak"
+	inst
+	doif ov70 lt 5
+		addv ov70 1
+		part 1
+		setv va00 pose
+		addv va00 1
+		part 1
+		pose va00
+	else
+		part 1
+		pose 0
+		setv ov70 1
+	endi
+endm
+
+
+scrp 3 8 14 1001
+	sndc "sc_1"
+	inst
+	addv ov71 1
+
+	doif ov71 gt 17
+		setv ov71 1
+	endi
+
+	doif ov71 eq 11
+		setv ov71 12
+	endi
+	setv va00 ov71
+	subv va00 1
+	part 3
+	pose va00
+endm
+
+
+scrp 3 8 14 4
+	targ from
+	doif fmly eq 4
+		stim writ targ 91 1
+	endi
+endm
+
+scrp 3 8 15 4
+	targ from
+	doif fmly eq 4
+		stim writ targ 91 1
+	endi
+endm
+
+scrp 3 8 14 3
+	sndc "hit_"
+	velo 0 rand -5 -10
+	prt: bang rand 60 100
+	stim writ from 92 1
+endm
+
+scrp 3 8 15 3
+	sndc "hit_"
+	velo 0 rand -5 -10
+	prt: bang rand 60 100
+	stim writ from 92 1
+endm
+
+
+
+
+rscr
+enum 3 8 14
+	kill targ
+next
+enum 3 8 15
+	kill targ
+next
+scrx 3 8 14 1
+scrx 1 1 37 1000

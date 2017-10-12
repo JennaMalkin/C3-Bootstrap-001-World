@@ -1,0 +1,216 @@
+
+new: simp 2 2 20 "norn to grendel door" 8 0 1
+attr 4
+bhvr 1
+clac 0
+mvto 4000 149
+setv va00 room targ
+
+
+new: simp 2 2 21 "norn to grendel door" 8 8 1
+attr 4
+bhvr 1
+clac 0
+mvto 312 1497
+setv va01 room targ
+
+
+link va00 va01 75
+
+
+scrp 2 2 20 1
+	lock
+	snde "open"
+
+	clac -1
+	anim [0 1 2 3 4 5 6 7]
+
+	inst
+	doif from ne null
+		targ from
+		doif fmly eq 4
+
+
+			stim writ targ 75 1
+		endi
+	endi
+	slow
+	targ ownr
+
+	wait 20
+	anim [7 6 5 4 3 2 1 0]
+	rtar 2 2 21
+	anim [0 1 2 3 4 5 6 7]
+	setv va00 posx
+	setv va01 posy
+	setv va12 posx
+	setv va13 posy
+	doif from eq pntr
+		setv va02 wndw
+		divv va02 2
+		subv va00 va02
+		setv va03 wndh
+		divv va03 2
+		subv va01 va03
+		inst
+		etch 4 0 0
+			doif hhld ne targ
+				doif carr eq null
+					nohh
+					doif tmvf 364 1618 = 1
+						mvft 364 1618
+					else
+						mvsf 364 1618
+					endi
+					velo 0 0
+				endi
+			endi
+		next
+
+		doif hhld <> null
+			targ hhld
+			nohh
+		endi
+		slow
+		rtar 2 2 21
+		cmrt 0
+	else
+		inst
+		doif from ne null
+			targ from
+
+			doif hhld ne from
+				doif carr eq null
+					nohh
+					doif tmvf 364 1618 = 1
+						mvft 364 1618
+					else
+						mvsf 364 1618
+					endi
+					velo 0 0
+				endi
+			endi
+		endi
+		slow
+	endi
+
+
+	rtar 2 2 21
+	anim [7 6 5 4 3 2 1 0]
+	targ ownr
+	clac 0
+
+	inst
+	doif from ne null
+		targ from
+		doif fmly eq 4
+
+			stim writ targ 95 1
+		endi
+	endi
+	slow
+
+endm
+
+
+scrp 2 2 21 1
+	lock
+	snde "open"
+	clac -1
+	anim [0 1 2 3 4 5 6 7]
+
+	inst
+	doif from ne null
+		targ from
+		doif fmly eq 4
+
+			stim writ targ 75 1
+		endi
+	endi
+	slow
+
+	targ ownr
+
+	wait 10
+	anim [7 6 5 4 3 2 1 0]
+	rtar 2 2 20
+	anim [0 1 2 3 4 5 6 7]
+	setv va00 posx
+	setv va01 posy
+	setv va12 posx
+	setv va13 posy
+	doif from eq pntr
+		setv va02 wndw
+		divv va02 2
+		subv va00 va02
+		setv va03 wndh
+		divv va03 2
+		subv va01 va03
+		inst
+		etch 4 0 0
+			doif hhld ne targ
+				doif carr eq null
+					nohh
+					doif tmvf 4008 292 = 1
+						mvft 4008 292
+					else
+						mvsf 4008 292
+					endi
+					velo 0 0
+				endi
+			endi
+		next
+		doif hhld <> null
+			targ hhld
+			nohh
+		endi
+		slow
+
+		rtar 2 2 20
+		cmrt 0
+	else
+		inst
+		doif from ne null
+			targ from
+			doif hhld ne from
+				doif carr eq null
+					nohh
+					doif tmvf 4008 292 = 1
+						mvft 4008 292
+					else
+						mvsf 4008 292
+					endi
+					velo 0 0
+				endi
+			endi
+		endi
+		slow
+	endi
+
+	rtar 2 2 20
+	anim [7 6 5 4 3 2 1 0]
+	targ ownr
+	clac 0
+
+	inst
+	doif from ne null
+		targ from
+		doif fmly eq 4
+
+			stim writ targ 95 1
+		endi
+	endi
+	slow
+endm
+
+
+
+rscr
+enum 2 2 20
+	kill targ
+next
+enum 2 2 21
+	kill targ
+next
+SCRX 2 2 21 1
+SCRX 2 2 20 1

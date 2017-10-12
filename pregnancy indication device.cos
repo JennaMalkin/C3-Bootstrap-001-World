@@ -1,0 +1,162 @@
+
+
+
+
+
+
+
+
+
+new: simp 3 8 17 "pregnancy indication device" 0 0 5004
+attr 199
+bhvr 41
+elas 20
+perm 64
+accg 20
+aero 20
+
+prt: inew 0 "input" "numeric output tool input" 58 54 2000
+prt: onew 0 "output" "numeric output tool output" 12 54
+mvto 1699 3664
+SETV OV61 100
+emit 18 .35
+
+seta ov16 null
+seta ov17 null
+
+scrp 3 8 17 1
+	stim writ from 90 1
+	lock
+	doif ov00 = 0
+		snde "pi_1"
+		anim [0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15]
+		over
+		tick 1
+		setv ov00 1
+	elif ov00 = 1
+		snde "pi_1"
+		anim [19 20 21 22 23 24 25 26 0]
+		over
+		setv ov00 0
+		doif ov16 <> null
+			targ ov16
+			kill targ
+			targ ownr
+		endi
+		tick 0
+	endi
+endm
+scrp 3 8 17 9
+	setv va00 0
+	setv va50 0
+	seta va16 null
+	inst
+	etch 4 0 0
+		doif targ <> null
+			addv va00 1
+			doif va00 = 1
+				seta va16 targ
+
+			endi
+		endi
+	next
+	slow
+	targ ownr
+	doif ov17 <> va16 and ov16 <> null
+		targ ov16
+		kill targ
+	endi
+	targ ownr
+	seta ov17 va16
+	doif va00 = 1 and ov16 = null
+		inst
+		doif va16 <> null
+			targ va16
+			setv va49 loci 1 1 2 1
+			setv va50 chem 48
+			targ ownr
+			inst
+			new: simp 1 1 116 "pregnancy indication device" 11 27 1000
+			attr 48
+			frel va16
+			seta va16 targ
+			anim [0 1 2 3 4 5 6 7 8 9 255]
+			flto -5 -5
+			slow
+			targ ownr
+			seta ov16 va16
+			doif va49 = 1
+				doif va50 > 0.01 and va50 <= .33
+					pose 16
+				elif va50 > .33 and va50 <= .66
+					pose 17
+				elif va50 > .66 and va50 <= 1
+					pose 18
+				endi
+			endi
+			prt: send 0 va50
+		endi
+		slow
+	elif va00 = 1 and ov16 <> null
+		inst
+		doif va16 <> null
+			targ va16
+			setv va49 loci 1 1 2 1
+			setv va50 chem 48
+			targ ownr
+			doif va49 = 1
+				doif va50 > 0.01 and va50 <= .33
+					pose 16
+				elif va50 > .33 and va50 <= .66
+					pose 17
+				elif va50 > .66 and va50 <= 1
+					pose 18
+				endi
+			endi
+			prt: send 0 va50
+		endi
+		slow
+	elif va00 = 0
+		doif ov16 <> null
+			targ ov16
+			kill targ
+			targ ownr
+			seta ov16 null
+			pose 15
+		endi
+	endi
+endm
+scrp 3 8 17 2000
+	setv va00 _p1_
+	doif va00 > 0 and ov00 = 0
+		doif ov00 = 0
+			snde "pi_1"
+			anim [0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15]
+			over
+			tick 1
+			setv ov00 1
+		endi
+	endi
+endm
+
+scrp 3 8 17 3
+	sndc "hit_"
+	velo 0 rand -5 -10
+	prt: bang rand 60 100
+	stim writ from 92 1
+endm
+
+scrp 3 8 17 4
+	targ from
+	doif fmly = 4
+		stim writ targ 91 1
+	endi
+endm
+
+rscr
+enum 3 8 17
+	kill targ
+next
+enum 1 1 116
+	kill targ
+next

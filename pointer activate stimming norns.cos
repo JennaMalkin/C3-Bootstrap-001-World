@@ -1,0 +1,20 @@
+
+
+
+new: simp 1 1 123 "blnk" 0 0 0
+imsk 8
+attr 16
+
+scrp 1 1 123 76
+	inst
+	seta va00 hots
+	doif va00 ne null
+		targ va00
+		urge shou 0.5 -1 -1.0
+	endi
+endm
+
+rscr
+scrx 1 1 123 76
+rtar 1 1 123
+kill targ

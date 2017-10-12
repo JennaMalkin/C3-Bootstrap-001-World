@@ -1,0 +1,436 @@
+iscr
+
+new: vhcl 3 3 25 "replicator" 48 0 10
+attr 8
+perm 60
+mvto 6112 3505
+clac -1
+bhvr 0
+cabn 75 0 180 110
+cabp 50
+
+setv ov02 19
+
+setv ov90 0
+prt: inew 0 "detect in" "activation value" 5 32 1000
+prt: onew 0 "detect out" "creature (type or range?)" 4 48
+part 0
+anim [0]
+
+
+pat: butt 1 "replicator" 1 2 115 111 1 [] 2000 0
+part 1
+anim [0 0 0 0 0 0 0 0 0 0 0 1 255]
+
+
+pat: butt 2 "replicator" 3 3 300 46 2 [] 2001 0
+part 2
+anim [0]
+
+
+pat: dull 3 "replicator" 10 225 10 1
+part 3
+anim [19]
+
+
+pat: dull 4 "replicator" 31 310 60 1
+part 4
+anim [0]
+
+
+
+
+
+
+
+pat: dull 5 "replicator" 37 364 57 1
+part 5
+anim [0]
+
+
+
+pat: dull 6 "replicator" 38 64 -42 1
+part 6
+anim [0]
+
+
+pat: dull 7 "replicator" 55 61 5 7990
+part 7
+anim [0]
+
+pat: dull 8 "replicator" 72 359 58 7990
+part 8
+anim [1]
+
+
+new: simp 3 3 28 "replicator" 2 6 11
+attr 0
+
+setv ov90 0
+mvto 6400 3670
+clac -1
+seta va01 targ
+
+
+new: simp 3 3 29 "replicator" 2 8 11
+attr 0
+
+setv ov90 0
+mvto 6400 3690
+clac -1
+seta va02 targ
+
+
+rtar 3 3 25
+seta ov18 va01
+seta ov19 va02
+
+
+endm
+
+
+scrp 3 3 25 2000
+	inst
+	doif ov00 = 0
+		snde "bp_1"
+		sndl "cyc2"
+		part 1
+		anim [1]
+		part 6
+		anim [1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 255]
+		part 7
+		anim [1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 255]
+		mesg wrt+ ov18 500 150 1 0
+		setv ov00 1
+		doif ov02 < 19
+			tick 10
+		endi
+
+		setv va88 0
+		epas 0 0 0
+			addv va88 1
+		next
+		doif ov01 = 0 and ov02 = 19 and ov00 = 1 and va88 > 0
+			seta va16 null
+			epas 0 0 0
+				seta va16 targ
+			next
+			doif va16 <> null
+				targ va16
+				sets va69 wild fmly gnus spcs "Agent Help" 0
+				enum 1 1 91
+					doif ov00 = 2
+						mesg wrt+ targ 1001 va69 0 0
+					endi
+				next
+				targ ownr
+			endi
+		endi
+		mesg writ ownr 124
+	else
+		snde "bp_1"
+		mesg wrt+ ov18 500 0 0 0
+		mesg wrt+ ov19 500 0 0 0
+		targ ownr
+		part 6
+		anim [0]
+		part 7
+		anim [0 0 0 0 0 0 1 255]
+		part 1
+		fade
+		anim [0 0 0 0 0 0 0 0 0 0 0 1 255]
+		setv ov00 0
+		setv ov01 0
+		doif ov02 < 19
+			tick 10
+		endi
+	endi
+endm
+
+
+scrp 3 3 25 2001
+inst
+	setv va88 0
+	snde "sc_2"
+	epas 0 0 0
+		addv va88 1
+	next
+
+	targ ov18
+	setv va52 posx
+	targ ownr
+	targ ov19
+	setv va53 posx
+	targ ownr
+	doif ov00 = 1
+		epas 0 0 0
+			doif fmly = 4
+				rpas ownr targ
+				stop
+			endi
+		next
+	endi
+
+	doif ov01 = 0 and ov02 = 19 and ov00 = 1 and va88 > 0 and va52 >= va53
+		part 2
+		anim [1 2 1 2 1 2]
+		part 3
+		snde "stm1"
+		anim [19 18 17 16 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1 0]
+		part 8
+		anim [0]
+		part 4
+		anim [0 1 2 3 4 5]
+		over
+		seta va16 null
+		inst
+		epas 0 0 0
+			seta va16 targ
+		next
+		doif va16 <> null
+			snde "crea"
+			targ va16
+			seta va18 targ
+			doif fmly = 1 and gnus = 1 and spcs = 100
+
+				setv va50 0
+				setv va51 1
+				setv va52 2
+				loop
+
+					rtar avar va18 va50 avar va18 va51 avar va18 va52
+
+
+
+					doif targ <> null and game "Bioenergy" >= 100
+
+						setv va90 attr
+						andv va90 2
+						doif va90 = 2
+							subv game "Bioenergy" 100
+							seta va16 targ
+							stpt
+							targ ownr
+							mesg writ ov18 500
+							mesg wrt+ ov19 500 100 0 0
+							seta va17 twin va16 1
+							targ va17
+							setv ov60 0
+							doif tmvt 6443 3596 <> 1
+								mvto 6116 3520
+								velo 0 0
+							else
+								mvto 6443 3596
+								velo -20 -15
+							endi
+
+							doif fmly = 3 and gnus = 3 and spcs = 16
+								tick 1
+							endi
+						else
+							enum 1 1 91
+								doif ov00 = 2
+									mesg wrt+ targ 1001 read "Energy" 2 0 0
+								endi
+							next
+
+						endi
+					else
+
+						enum 1 1 91
+							doif ov00 = 2
+								mesg wrt+ targ 1001 read "Energy" 0 0 0
+							endi
+						next
+						targ ownr
+
+						doif ov00 = 1
+							part 2
+							anim [2 1 2 1 0 1 0]
+							setv ov01 0
+							tick 10
+						endi
+
+
+
+					endi
+					addv va50 3
+					addv va51 3
+					addv va52 3
+				untl avar va18 va50 = 0
+
+				targ ownr
+			else
+				targ ownr
+				targ va16
+				setv va89 ov61
+				stpt
+				targ ownr
+				subv game "Bioenergy" va89
+				seta va17 twin va16 1
+				targ va17
+				setv ov60 0
+				mvto 6443 3596
+				velo -20 -15
+			endi
+		endi
+		targ ownr
+		setv ov01 1
+		setv ov02 0
+		tick 10
+		over
+		wait 10
+		part 8
+		anim [1]
+		part 4
+		anim [5 4 3 2 1 0]
+	else
+		targ ownr
+		doif ov00 = 1
+			enum 1 1 91
+				doif ov00 = 2
+					mesg wrt+ targ 1001 read "Energy" 0 0 0
+				endi
+			next
+
+			targ ownr
+
+
+			part 2
+			anim [2 1 2 1 0 1 0]
+			setv ov01 0
+			tick 10
+		endi
+	endi
+endm
+
+
+scrp 3 3 25 9
+	addv ov02 1
+	doif ov02 <= 19 and ov02 >= 0
+		part 3
+		pose ov02
+	endi
+	doif ov02 >= 20
+		setv ov02 19
+		tick 0
+		setv ov01 0
+	endi
+
+endm
+
+
+
+scrp 3 3 25 124
+	inst
+
+	setv va88 0
+	epas 0 0 0
+		addv va88 1
+	next
+
+	doif ov01 = 0 and ov00 = 1 and va88 > 0
+
+		seta va16 null
+		epas 0 0 0
+			seta va16 targ
+		next
+		doif va16 <> null
+			targ va16
+			sets va69 wild fmly gnus spcs "Agent Help" 0
+
+			doif fmly = 1 and gnus = 1 and spcs = 100
+				setv va89 ov97
+			else
+				setv va89 ov61
+			endi
+			enum 1 1 91
+				doif ov00 = 2
+					mesg wrt+ targ 1001 va69 0 0
+				endi
+			next
+			targ ownr
+			mesg writ ov18 500
+			mesg wrt+ ov19 500 va89 0 0
+		endi
+	endi
+
+endm
+
+
+
+scrp 3 3 28 500
+	inst
+	rtar 3 3 25
+	seta va16 targ
+	targ ownr
+	doif avar va16 0 = 1
+
+		enum 1 1 91
+			doif ov00 = 2
+				setv va77 ov02
+			endi
+		next
+		setv va50 6400
+		setv va51 3670
+		setv va00 150.0
+		divv va00 1000
+		doif game "Bioenergy" > 1000
+			setv game "Bioenergy" 1000
+		endi
+		divv va77 100.0
+		mulv va00 game "Bioenergy"
+		mulv va00 va77
+		addv va50 va00
+		mvto va50 va51
+	else
+		mvto 6400 3670
+	endi
+endm
+
+
+scrp 3 3 29 500
+	setv va50 6400
+	setv va51 3690
+
+
+	setv va00 _p1_
+
+	setv va01 150.0
+	divv va01 1000
+	mulv va01 va00
+	addv va50 va01
+	mvto va50 va51
+	doif va50 <= 6400 and va50 >= 6555
+		mvto va50 va51
+	elif va50 > 6555
+		mvto 6555 va51
+	elif va50 < 6400
+		mvto 6400 va51
+	endi
+endm
+
+
+
+
+
+rscr
+enum 3 3 25
+	kill targ
+next
+scrx 3 3 25 1
+scrx 3 3 25 2
+scrx 3 3 25 9
+scrx 3 3 25 1000
+scrx 3 3 25 2000
+scrx 3 3 25 2001
+scrx 3 3 25 2002
+scrx 3 3 25 2003
+
+enum 3 3 28
+	kill targ
+next
+enum 3 3 29
+	kill targ
+next
+endm

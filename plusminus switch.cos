@@ -1,0 +1,70 @@
+
+inst
+setv va50 1740
+reps 2
+	new: comp 3 3 14 "plusminus" 4 0 5000
+	attr 194
+	bhvr 40
+	elas 0
+	perm 60
+	fric 100
+	accg 3
+	bhvr 41
+	setv ov61 100
+
+	pat: butt 1 "plusminus" 3 1 20 13 1 [] 0 0
+
+	pat: butt 2 "plusminus" 3 1 20 34 1 [] 1 0
+	prt: inew 0 " " " " 41 31 1000
+	prt: onew 0 " " " " 41 47
+	emit 10 0.2
+	mvto va50 3300
+	addv va50 70
+repe
+
+
+scrp 3 3 14 4
+	targ from
+	doif fmly eq 4
+		stim writ targ 91 1
+	endi
+endm
+
+
+scrp 3 3 14 1
+	snde "pl_2"
+	stim writ from 68 1
+	part 0
+	anim [0 1 0 1 0 1 0 1 0 1 0]
+	prt: send 0 255
+
+endm
+
+scrp 3 3 14 2
+	snde "pl_1"
+	part 0
+	anim [0 2 0 2 0 2 0 2 0 2 0]
+	prt: send 0 -255
+endm
+
+
+scrp 3 3 14 3
+	sndc "hit_"
+	velo 0 rand -5 -10
+	prt: bang rand 60 100
+	stim writ from 92 1
+endm
+
+scrp 3 3 14 1000
+	doif _p1_ lt 0
+		prt: send 0 255
+	elif _p1_ gt 0
+		prt: send 0 -255
+	endi
+endm
+
+
+rscr
+enum 3 3 14
+	kill targ
+next

@@ -1,0 +1,8 @@
+inst
+new: simp 1 1 1 "rockcut1" 1 0 8100
+mvto 3170 840
+
+rscr
+enum 1 1 1
+	kill targ
+next

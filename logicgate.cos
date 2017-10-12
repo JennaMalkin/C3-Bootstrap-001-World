@@ -1,0 +1,176 @@
+inst
+reps 2
+	new: comp 3 8 6 "logicgates" 1 0 5000
+	attr 199
+	clac 0
+	elas 0
+	accg 3
+	perm 60
+	bhvr 41
+
+	setv ov61 100
+
+
+	setv ov00 1
+
+	setv ov01 999
+	setv ov02 999
+
+
+	pat: dull 1 "logicgates" 3 10 1 1
+
+	pat: dull 2 "logicgates" 5 9 18 1
+
+	pat: dull 3 "logicgates" 7 34 10 1
+
+	pat: dull 4 "logicgates" 1 16 5 1
+
+	prt: inew 0 "Logic input 1" " " 2 6 1000
+	prt: inew 1 "Logic input 2" " " 2 20 1001
+	prt: onew 0 "Logic Output" " " 44 12
+
+	mvto rand 770 1570 3432
+	emit 18 0.2
+repe
+
+
+scrp 3 8 6 1
+
+
+	sndc "lg_1"
+	inst
+	stim writ from 90 1
+	doif ov00 lt 0
+		part 4
+		pose 0
+	else
+		part 4
+		pose 1
+	endi
+	negv ov00
+endm
+
+scrp 3 8 6 1000
+
+
+
+	setv ov01 _p1_
+	part 1
+	pose 1
+
+	doif ov02 ne 999 or ov00 = -1
+		mesg wrt+ ownr 1002 0 0 0
+	else
+		wait 40
+		inst
+		part 1
+		pose 0
+		setv ov01 999
+	endi
+endm
+
+scrp 3 8 6 1001
+
+	setv ov02 _p1_
+	part 2
+	pose 1
+	doif ov01 ne 999 or ov00 = -1
+		mesg wrt+ ownr 1002 0 0 0
+	else
+		wait 40
+		inst
+		part 2
+		pose 0
+		setv ov02 999
+	endi
+endm
+
+scrp 3 8 6 1002
+	snde "lg_o"
+	part 3
+	anim [0 1 0 1 0 1 0 1 0]
+	inst
+	setv va00 ov01
+	setv va01 ov02
+
+	setv va98 0
+	setv va99 0
+
+
+	doif ov00 eq -1
+		doif va00 ne 0 and va00 ne 999
+			setv va98 1
+		endi
+		doif va01 ne 0 and va01 ne 999
+			setv va99 1
+		endi
+		doif va98 eq 1 or va99 eq 1
+			prt: send 0 255
+		endi
+
+		doif va00 eq 0 and va01 eq 0
+			prt: send 0 0
+		endi
+	endi
+
+
+	doif ov00 eq 1
+		doif va00 ne 0 and va00 ne 99
+			setv va98 1
+		endi
+		doif va01 ne 0 and va01 ne 999
+			setv va99 1
+		endi
+		doif va98 eq 1 and va99 eq 1
+			prt: send 0 255
+		endi
+
+
+		doif va00 eq 0 and va01 eq 0
+			prt: send 0 0
+		endi
+	endi
+	inst
+	setv ov01 999
+	part 1
+	pose 0
+	setv ov02 999
+	part 2
+	pose 0
+endm
+
+
+scrp 3 8 6 3
+	sndc "hit_"
+	velo 0 rand -5 -10
+	prt: bang rand 60 100
+	stim writ from 92 1
+endm
+
+
+scrp 3 8 6 4
+	targ from
+	doif fmly eq 4
+		stim writ targ 91 1
+	endi
+endm
+
+
+
+
+
+
+
+
+
+
+
+
+
+rscr
+enum 3 8 6
+	kill targ
+next
+scrx 3 8 6 1000
+scrx 3 8 6 1001
+scrx 3 8 6 1002

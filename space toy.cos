@@ -1,0 +1,90 @@
+
+inst
+
+new: simp 2 21 9 "spacetoy" 18 0 4998
+attr 199
+bhvr 35
+clac 0
+
+elas 0
+fric 100
+perm 60
+mvto 1500 700
+setv ov61 100
+
+
+new: simp 2 21 9 "spacetoy" 18 0 4998
+attr 199
+bhvr 35
+clac 0
+
+elas 0
+fric 100
+perm 60
+mvto 700 1869
+setv ov61 100
+
+
+scrp 2 21 9 1
+	stim writ from 97 1
+	sndc "st_1"
+
+	urge sign 0.5 -1 0.0
+	anim [0 1 2 3 4 5 6 7]
+	setv vely -10
+	over
+
+	setv ov99 rand 30 60
+
+	setv ov10 rand 0 1
+	doif ov10 eq 0
+		setv ov10 -1
+	endi
+	anim [8 9 10 11 12 13 14 15 16 17 255]
+	sndl "st_2"
+	tick 2
+endm
+
+
+scrp 2 21 9 9
+	setv va00 ov10
+	mulv va00 rand 2 4
+	velo va00 rand 1 -1
+	subv ov99 1
+	doif ov99 le 0
+		fade
+		sndc "st_3"
+		setv vely 0
+		tick 0
+		anim [7 6 5 4 3 2 1 0]
+	endi
+endm
+
+
+scrp 2 21 9 2
+	stim writ from 97 1
+	sndc "st_1"
+
+	urge sign 0.5 -1 0.0
+	anim [0 1 2 3 4 5 6 7]
+	setv vely -10
+	over
+
+	setv ov99 rand 30 60
+
+	setv ov10 rand 0 1
+	doif ov10 eq 0
+		setv ov10 -1
+	endi
+	anim [8 9 10 11 12 13 14 15 16 17 255]
+	sndl "st_2"
+	tick 2
+endm
+
+
+
+
+rscr
+enum 2 21 9
+	kill targ
+next

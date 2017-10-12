@@ -1,0 +1,245 @@
+inst
+
+
+
+
+new: simp 1 1 23 "nornatmos" 10 0 2
+mvto 3612 104
+
+anim [0 1 2 3 4 5 6 7 8 9 255]
+tick 100
+
+tran 0 0
+prt: inew 0 "Atmosphere In-port" " " 101 130 1000
+prt: onew 0 "Atmosphere Out-port" " " 85 133
+
+
+
+
+new: simp 1 1 17 "blnk" 1 0 9000
+attr 48
+setv va00 wndw
+setv va01 wndh
+divv va00 2
+divv va01 2
+setv va10 wdth
+divv va10 2
+setv va11 hght
+divv va11 2
+subv va00 va10
+subv va01 va11
+flto va00 va01
+tick 100
+
+
+
+
+
+
+
+scrp 1 1 17 9
+	setv va00 0
+	inst
+	enum 2 19 2
+		doif visi 0 eq 1
+			setv va00 1
+		endi
+		doif fall eq 0
+			kill targ
+		endi
+	next
+	slow
+	doif va00 eq 1 and ov00 eq 0
+		setv ov00 1
+		sndl "rain"
+	elif va00 eq 0 and ov00 eq 1
+		fade
+		setv ov00 0
+	endi
+endm
+
+scrp 1 1 23 1000
+	doif _p1_ ne 0
+		tick 1
+	endi
+	prt: send 0 _p1_
+endm
+
+
+scrp 1 1 23 9
+
+
+
+
+
+
+
+
+
+
+	inst
+
+
+	setv va00 1800
+
+	rtar 3 3 55
+	doif targ ne null
+		setv va01 ov03
+	else
+		setv va01 3
+	endi
+	targ ownr
+	addv va01 1
+	mulv va01 va01
+	mulv va01 50
+
+	subv va00 va01
+
+
+
+
+
+
+
+	tick va00
+
+
+	setv va00 posl
+	addv va00 61
+	subv va00 89
+	setv va01 post
+	addv va01 151
+	subv va01 59
+
+	reps 5
+		targ ownr
+		prt: send 0 255
+		snde "atms"
+		new: simp 2 19 3 "nornatmos" 7 10 7001
+		mvto va00 va01
+		slow
+		anim [0 1 2 3 4 5 6]
+		over
+		kill targ
+
+
+
+
+
+
+
+		inst
+		new: simp 2 19 1 "nornatmos" 4 17 7000
+		attr 64
+		pose rand 0 3
+		mvto va00 va01
+		velo -3 -1
+		tick rand 5 15
+
+		setv ov99 rand 10 60
+
+
+		slow
+		wait rand 50 150
+	repe
+endm
+
+scrp 2 19 1 9
+	pose rand 0 3
+	velo -3 -1
+	subv ov99 1
+	doif ov99 le 0
+		setv va01 posl
+
+		setv va02 posr
+		subv va02 30
+		setv va03 posy
+		inst
+
+		doif sean eq 0
+			setv va99 8
+		elif sean eq 1
+			setv va99 4
+		elif sean eq 2
+			setv va99 6
+		elif sean eq 3
+			setv va99 5
+		endi
+
+
+
+		reps va99
+
+			new: simp 2 19 2 "nornatmos" 5 21 6999
+			attr 192
+			elas 0
+			setv va00 rand 0 5
+			doif va00 eq 0
+				accg 0.2
+			elif va00 eq 1
+				accg 0.3
+			elif va00 eq 2
+				accg 0.4
+			elif va00 eq 3
+				accg 0.5
+			elif va00 eq 4
+				accg 0.6
+			else
+				accg 0.7
+			endi
+
+			perm rand 0 70
+			setv va31 rand va01 va02
+			doif tmvt va31 va03 eq 1
+				mvto va31 va03
+			else
+				kill targ
+			endi
+
+		repe
+		slow
+	endi
+	doif ov99 le -30
+		wait 50
+		kill ownr
+	endi
+	doif obst down le 300
+		wait 50
+		kill ownr
+	endi
+endm
+
+scrp 2 19 2 6
+
+	anim [0 1 2 3 4]
+	doif room targ <> -1 and carr = null
+		altr room ownr 3 0.05
+		altr room ownr 4 0.001
+	endi
+	over
+	kill ownr
+
+endm
+
+
+
+rscr
+enum 1 1 23
+	kill targ
+next
+enum 2 19 3
+	kill targ
+next
+enum 2 19 1
+	kill targ
+next
+enum 2 19 2
+	kill targ
+next
+enum 1 1 17
+	kill targ
+next
+scrx 1 1 17 9
+scrx 1 1 23 9
+scrx 2 19 2 9
+scrx 2 19 2 6

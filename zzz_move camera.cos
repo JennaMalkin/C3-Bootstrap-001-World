@@ -1,0 +1,6 @@
+
+
+rtar 2 22 3
+doif targ ne null
+	cmrt 0
+endi

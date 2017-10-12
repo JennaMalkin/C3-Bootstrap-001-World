@@ -1,0 +1,174 @@
+inst
+new: comp 3 8 10 "mediscan" 22 0 5000
+attr 199
+accg 4
+perm 60
+mvto 1240 500
+elas 0
+fric 80
+bhvr 41
+clac 0
+setv ov90 14
+setv ov00 0
+setv ov01 0
+setv ov02 0
+setv ov90 0
+setv ov61 100
+prt: inew 0 "scan in" "activation value" 45 37 1000
+prt: onew 0 "scan out" "creature health" 42 49
+emit 18 0.2
+part 0
+anim [0]
+
+pat: dull 1 "mediscan" 1 16 2 0
+part 1
+anim [0]
+
+pat: butt 2 "mediscan" 16 2 1 12 0 [] 2000 0
+
+part 2
+anim [0]
+
+pat: dull 3 "mediscan" 18 44 9 0
+part 3
+anim [0]
+pat: dull 4 "mediscan" 20 44 22 0
+part 4
+anim [0]
+
+scrp 3 8 10 1
+	snde "beep"
+	stim writ from 90 1
+	doif ov00 = 0
+		mesg writ targ 2000
+	endi
+endm
+
+
+scrp 3 8 10 3
+	sndc "hit_"
+	velo 0 rand -5 -10
+	prt: bang rand 60 100
+	stim writ from 92 1
+endm
+
+scrp 3 8 10 2
+	doif ov00 = 1
+		mesg writ targ 2000
+	endi
+endm
+
+
+scrp 3 8 10 4
+	targ from
+	doif fmly = 4
+		stim writ targ 91 1
+	endi
+endm
+
+
+
+scrp 3 8 10 9
+	setv va88 0
+	inst
+	setv va88 0
+	setv va89 0
+	etch 4 0 0
+		setv va00 chem 34
+		setv va88 1
+
+		doif chem 66 > 0.1 or chem 67 > 0.1 or chem 68 > 0.1 or chem 69 > 0.1 or chem 70 > 0.1 or chem 75 > 0.1 or chem 78 > 0.1 or chem 82 > 0.15 or chem 83 > 0.15 or chem 84 > 0.15 or chem 85 > 0.15 or chem 86 > 0.15 or chem 87 > 0.15 or chem 88 > 0.15 or chem 89 > 0.15 or chem 30 < 0.5
+			setv va89 1
+		endi
+	next
+	doif va88 = 1
+		doif va00 > .6
+			setv va00 .6
+		endi
+		setv ov90 va00
+		setv ov91 va00
+		mulv ov90 23
+		mulv ov91 425
+		part 1
+		setv ov90 ftoi ov90
+		pose ov90
+		doif va89 = 1
+			snde "epng"
+			sets va99 vtos ov90
+			adds va99 " 0 255"
+			anms va99
+		endi
+		setv va66 pose
+		part 3
+		doif va66 < 7 and va66 > 3
+			anim [1]
+		elif va66 <= 3
+			anim [0 1 255]
+		else
+			anim [0]
+		endi
+		part 4
+		doif va66 > 10
+			anim [1]
+		else
+			anim [0]
+		endi
+		prt: send 0 ov91
+	else
+		part 1
+		anim [0]
+		part 3
+		anim [0]
+		part 4
+		anim [0]
+	endi
+endm
+
+scrp 3 8 10 1000
+	snde "beep"
+	part 0
+	setv ov02 _p1_
+	doif ov00 = 0
+		doif _p1_ <> 0
+			mesg writ ownr 2000
+		endi
+	else
+		doif _p1_ = 0
+			mesg writ ownr 2000
+		endi
+	endi
+endm
+
+scrp 3 8 10 2000
+	snde "beep"
+	doif ov00 = 0
+		setv ov00 1
+		part 2
+		anim [0 1 255]
+		tick 10
+	else
+		part 1
+		anim [0]
+		part 2
+		anim [0]
+		part 3
+		anim [0]
+		part 4
+		anim [0]
+		tick 0
+		setv ov00 0
+	endi
+
+endm
+
+
+rscr
+enum 3 8 10
+	kill targ
+next
+scrx 3 8 10 1
+scrx 3 8 10 2
+scrx 3 8 10 9
+scrx 3 8 10 1000
+scrx 3 8 10 2000
+scrx 3 8 10 2001

@@ -1,0 +1,375 @@
+
+
+
+setv va70 grap 5002 2219
+setv va71 grap 5065 2219
+setv va72 grap 5116 2221
+new: simp 3 3 40 "airlock_right" 10 0 10
+attr 4
+clac 6464
+elas 10
+fric 10
+perm 100
+accg 2
+aero 0
+mvto 5013 2169
+setv ov00 0
+setv ov70 va70
+setv ov71 va71
+setv ov72 va72
+tick 1
+
+door ov70 ov71 0
+door ov72 ov71 0
+
+link ov70 ov71 100
+link ov72 ov71 100
+
+
+
+setv va70 grap 4290 2245
+setv va71 grap 4337 2236
+setv va72 grap 4379 2237
+new: simp 3 3 38 "airlock_left" 10 0 10
+attr 4
+clac 6464
+elas 10
+fric 10
+perm 100
+accg 2
+aero 0
+mvto 4296 2190
+setv ov00 0
+setv ov70 va70
+setv ov71 va71
+setv ov72 va72
+tick 1
+
+door ov70 ov71 0
+door ov72 ov71 0
+
+link ov70 ov71 100
+link ov72 ov71 100
+
+
+setv va70 grap 4666 2253
+setv va71 grap 4702 2253
+setv va72 grap 4765 2216
+new: simp 3 3 39 "airlock_mid" 10 0 10
+attr 4
+clac 6464
+elas 10
+fric 10
+perm 100
+accg 2
+aero 0
+mvto 4654 2182
+setv ov00 0
+setv ov70 va70
+setv ov71 va71
+setv ov72 va72
+tick 1
+
+door ov70 ov71 0
+door ov72 ov71 0
+
+link ov70 ov71 100
+link ov72 ov71 100
+
+
+
+scrp 3 3 38 6464
+
+	lock
+	snde "copn"
+	doif ov00 = 0
+
+		anim [0 0 1 1 2 2 3 3 4 4 5 5 6 6 7 7 8 8 9 9]
+		inst
+		door ov71 ov70 100
+		door ov71 ov72 100
+
+
+		link ov70 ov71 0
+		link ov72 ov71 0
+		slow
+
+		setv ov00 1
+		rtar 1 1 90
+		doif targ <> null
+			tick 1
+		endi
+		targ ownr
+	elif ov00 = 1
+
+
+		inst
+
+		etch 0 0 0
+			doif targ <> null
+				setv va00 attr
+				andv va00 32
+				doif va00 = 0
+					setv va01 attr
+					andv va01 3
+					doif va01 <> 0 and fmly <> 4
+						velo -20 rand -1 1
+					elif fmly = 4
+						velo 100 0
+					endi
+				endi
+			endi
+		next
+		slow
+
+		wait 10
+		inst
+		etch 0 0 0
+			doif targ <> null
+				setv va00 attr
+				andv va00 32
+				doif va00 = 0 and carr = null
+					setv va01 attr
+					andv va01 3
+					doif va01 <> 0 and fmly <> 4
+						doif tmvt 4159 2268 = 1
+							mvto 4159 2268
+						else
+							mvsf 4159 2268
+						endi
+						velo 0 0
+						targ ownr
+						snde "tele"
+					elif fmly = 4
+						doif tmvf 4531 2293 = 1
+							mvft 4531 2293
+						else
+							mvsf 4531 2293
+						endi
+						velo 0 0
+						targ ownr
+						snde "tele"
+					endi
+				endi
+			endi
+		next
+		inst
+		door ov71 ov70 0
+		door ov71 ov72 0
+
+
+		link ov70 ov71 100
+		link ov72 ov71 100
+		slow
+
+		setv ov00 0
+		rtar 1 1 90
+		doif targ <> null
+			tick 1
+		endi
+		targ ownr
+		anim [9 9 8 8 7 7 6 6 5 5 4 4 3 3 2 2 1 1 0 0]
+		over
+	endi
+endm
+
+scrp 3 3 39 6464
+
+	lock
+	snde "copn"
+	doif ov00 = 0
+
+		anim [0 0 1 1 2 2 3 3 4 4 5 5 6 6 7 7 8 8 9 9]
+		inst
+		door ov71 ov70 100
+		door ov71 ov72 100
+
+		link ov70 ov71 0
+		link ov72 ov71 0
+		slow
+		setv ov00 1
+		rtar 1 1 90
+		doif targ <> null
+			tick 1
+		endi
+		targ ownr
+	elif ov00 = 1
+
+
+		inst
+		etch 0 0 0
+			doif targ <> null
+				setv va00 attr
+				andv va00 32
+				doif va00 = 0
+					setv va01 attr
+					andv va01 3
+					doif va01 <> 0 and fmly <> 4
+						setv va00 rand 1 2
+						doif va00 = 1
+							velo -20 rand -1 1
+						elif va00 = 2
+							velo 20 rand -1 1
+						endi
+					elif fmly = 4
+						velo -100 0
+					endi
+				endi
+			endi
+		next
+		slow
+		inst
+
+		wait 10
+		inst
+		etch 0 0 0
+			doif targ <> null
+				setv va00 attr
+				andv va00 32
+				doif va00 = 0 and carr = null
+					setv va01 attr
+					andv va01 3
+					doif va01 <> 0 and fmly <> 4
+						doif tmvt 4537 2176 = 1
+							mvto 4537 2176
+						else
+							mvsf 4537 2176
+						endi
+						velo 0 0
+						targ ownr
+						snde "tele"
+					elif fmly = 4
+						doif tmvf 4531 2293 = 1
+							mvft 4531 2293
+						else
+							mvsf 4531 2293
+						endi
+						velo 0 0
+						targ ownr
+						snde "tele"
+					endi
+				endi
+			endi
+		next
+
+		inst
+		door ov71 ov70 0
+		door ov71 ov72 0
+
+		link ov70 ov71 100
+		link ov72 ov71 100
+		slow
+		setv ov00 0
+		rtar 1 1 90
+		doif targ <> null
+			tick 1
+		endi
+		targ ownr
+		anim [9 9 8 8 7 7 6 6 5 5 4 4 3 3 2 2 1 1 0 0]
+		over
+	endi
+endm
+
+scrp 3 3 40 6464
+
+	lock
+	snde "copn"
+	doif ov00 = 0
+
+		anim [0 0 1 1 2 2 3 3 4 4 5 5 6 6 7 7 8 8 9 9]
+		inst
+		door ov71 ov70 100
+		door ov71 ov72 100
+
+		link ov70 ov71 0
+		link ov72 ov71 0
+		slow
+		setv ov00 1
+		rtar 1 1 90
+		doif targ <> null
+			tick 1
+		endi
+		targ ownr
+	elif ov00 = 1
+
+		inst
+		etch 0 0 0
+			doif targ <> null
+				setv va00 attr
+				andv va00 32
+				doif va00 = 0
+					setv va01 attr
+					andv va01 3
+					doif va01 <> 0 and fmly <> 4
+						velo 20 rand -1 1
+					elif fmly = 4
+						velo 100 0
+					endi
+				endi
+			endi
+		next
+		slow
+
+		wait 10
+		inst
+		etch 0 0 0
+			doif targ <> null
+				setv va00 attr
+				andv va00 32
+				doif va00 = 0 and carr = null
+					setv va01 attr
+					andv va01 3
+					doif va01 <> 0 and fmly <> 4
+						doif tmvt 5218 2280 = 1
+							mvto 5218 2280
+						else
+							mvsf 5218 2280
+						endi
+						velo 0 0
+						targ ownr
+						snde "tele"
+					elif fmly = 4
+						doif tmvf 4860 2280 = 1
+							mvft 4860 2280
+						else
+							mvsf 4860 2280
+						endi
+						velo 0 0
+						targ ownr
+						snde "tele"
+					endi
+				endi
+			endi
+		next
+		inst
+		door ov71 ov70 0
+		door ov71 ov72 0
+
+		link ov70 ov71 100
+		link ov72 ov71 100
+		slow
+		setv ov00 0
+		rtar 1 1 90
+		doif targ <> null
+			tick 1
+		endi
+		targ ownr
+		anim [9 9 8 8 7 7 6 6 5 5 4 4 3 3 2 2 1 1 0 0]
+		over
+	endi
+endm
+
+rscr
+enum 3 3 39
+	kill targ
+next
+enum 3 3 40
+	kill targ
+next
+enum 3 3 38
+	kill targ
+next
+scrx 3 3 40 6464
+scrx 3 3 38 6464
+scrx 3 3 39 6464
+endm

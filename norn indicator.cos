@@ -1,0 +1,31 @@
+inst
+new: simp 1 2 1 "indicator" 11 10 8300
+attr 272
+tick 1
+mvto 100 100
+pose 10
+setv ov00 0
+
+scrp 1 2 1 9
+	inst
+	doif norn ne null
+		targ norn
+		seta va00 targ
+		targ ownr
+		frel va00
+		flto 10 -20
+		doif ov00 eq 0
+			setv ov00 1
+			anim [0 1 2 3 4 5 6 7 8 9 255]
+		endi
+	else
+		pose 10
+		setv ov00 0
+	endi
+endm
+
+rscr
+enum 1 2 1
+	kill targ
+next
+scrx 1 2 1 9

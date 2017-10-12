@@ -1,0 +1,21 @@
+
+new: simp 1 1 98 "norn platform" 1 0 8100
+attr 16
+mvto 2521 0
+
+
+
+
+
+
+
+
+
+
+
+
+rscr
+enum 1 1 98
+	kill targ
+next
+scrx 1 1 98 9

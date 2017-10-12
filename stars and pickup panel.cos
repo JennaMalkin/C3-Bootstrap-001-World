@@ -1,0 +1,162 @@
+scrp 2 0 0 12345
+
+
+
+
+	inst
+	snde "pkup"
+	setv va00 posx
+	setv va01 post
+
+	reps _p1_
+		setv va02 rand 0 3
+		mulv va02 10
+		new: simp 1 1 46 "andtheworldexplodedintostars" 5 40 9000
+		doif tmvt va00 va01 <> 1
+			kill targ
+			stop
+		endi
+		mvto va00 va01
+		doif _p2_ eq 1
+			setv vely rand -5 -15
+			setv velx rand -5 5
+		elif _p2_ eq 2
+			setv vely rand -10 -25
+			setv velx rand -10 10
+		elif _p2_ eq 3
+			setv vely rand -15 -35
+			setv velx rand -20 20
+		elif _p2_ eq 4
+			setv vely rand -25 -40
+			setv velx rand -30 30
+		elif _p2_ eq 5
+			setv vely rand -35 -55
+			setv velx rand -40 40
+		else
+
+			setv vely rand -20 -30
+			setv velx rand -30 30
+		endi
+		attr 192
+		accg 8
+		elas 40
+		pose rand 0 4
+		tick rand 30 40
+	repe
+	targ ownr
+
+
+	doif fmly = 2 and gnus = 24 and spcs = 4
+		setv va01 ov01
+		doif va01 <= 4
+			sets va44 read "Pick-ups" va01
+			adds va44 read "Pick-ups" 0
+			enum 1 1 91
+				doif ov00 = va01
+					setv va66 ov02
+					mesg writ targ 1000
+				endi
+			next
+			addv va66 25
+			doif va01 = 4
+				setv va66 100
+			endi
+			adds va44 vtos va66
+			adds va44 "% "
+			adds va44 read "Pick-ups" 5
+		elif va01 = 7
+
+			setv game "Grettin" 1
+
+
+
+			setv game "c3_max_norns" 14
+			sets va44 read "Pick-ups" va01
+		elif va01 = 8
+
+			sets va44 read "Pick-ups" va01
+		elif va01 = 9
+
+			setv game "engine_creature_pickup_status" 3
+			rgam
+			sets va44 read "Pick-ups" va01
+		endi
+
+
+
+
+
+
+		inst
+		doif totl 1 2 22 > 0
+			enum 1 2 22
+				kill targ
+			next
+		endi
+
+		new: comp 1 2 22 "pick-ups2" 6 24 8500
+		pat: dull 1 "pick-ups2" 24 30 80 0
+		part 1
+		pose va01
+		doif va01 = 4
+			pose 10
+		endi
+		attr 308
+		clac 0
+		pat: fixd 2 "pick-ups2" 28 110 60 0 "WhiteOnTransparentChars"
+		part 2
+		ptxt va44
+		pat: butt 3 "pick-ups2" 29 2 295 19 0 [] 2002 0
+		part 3
+		anim [0]
+		part 0
+		setv va50 wndw
+		setv va51 wndh
+		divv va50 2
+		subv va50 150
+		divv va51 2
+		subv va51 70
+		flto va50 va51
+		tick 120
+		kill ownr
+	endi
+endm
+
+scrp 1 2 22 2002
+	part 3
+	anim [1]
+	over
+	kill ownr
+endm
+
+
+scrp 1 2 22 123
+	setv va50 wndw
+	setv va51 wndh
+	divv va50 2
+	subv va50 150
+	divv va51 2
+	subv va51 70
+	flto va50 va51
+endm
+
+
+scrp 1 1 46 9
+	kill targ
+endm
+
+scrp 1 2 22 9
+	kill targ
+endm
+
+
+rscr
+enum 1 1 46
+	kill targ
+next
+
+enum 1 2 22
+	kill targ
+next
+
+endm

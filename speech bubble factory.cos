@@ -1,0 +1,111 @@
+
+
+
+
+new: simp 1 2 10 "blnk" 0 1 0
+attr 48
+
+
+
+scrp 1 2 10 126
+	inst
+	doif null = _p2_
+		stop
+	endi
+	targ _p2_
+
+
+	doif targ <> pntr
+		setv va90 posx
+	else
+		setv va90 posl
+	endi
+	setv va91 post
+	subv va91 30
+
+
+	setv va92 wndl
+	setv va93 wndr
+	addv va92 va93
+	divv va92 2
+
+	doif va90 lt va92
+		setv va95 0
+	else
+		setv va95 1
+	endi
+
+
+	setv va10 plne
+	doif va10 >= 8500
+
+
+
+		setv va10 10005
+	else
+
+
+
+		setv va10 8490
+	endi
+
+	new: comp 1 2 9 "speech_bubbles" 2 2 va10
+	tick 20
+	attr 48
+	part 0
+	pose va95
+	pat: fixd 1 "speech_bubbles" 2 0 0 0 "BlackOnTransparentChars"
+	part 1
+	frmt 12 12 12 5 0 0 0
+	pose va95
+	ptxt _p1_
+	setv va94 102
+	doif npgs ne 1
+		pat: kill 1
+		pat: fixd 1 "speech_bubbles" 4 0 0 0 "BlackOnTransparentChars"
+		part 1
+		frmt 12 12 12 5 0 0 0
+		pose va95
+		ptxt _p1_
+		setv va94 155
+		doif npgs ne 1
+			pat: kill 1
+			pat: fixd 1 "speech_bubbles" 6 0 0 0 "BlackOnTransparentChars"
+			part 1
+			frmt 12 12 12 5 0 0 0
+			pose va95
+			ptxt _p1_
+			setv va94 230
+			doif npgs ne 1
+				pat: kill 1
+				pat: fixd 1 "speech_bubbles" 8 0 0 0 "BlackOnTransparentChars"
+				part 1
+				frmt 12 12 12 5 0 0 0
+				pose va95
+				ptxt _p1_
+				setv va94 319
+			endi
+		endi
+	endi
+	frel _p2_
+
+	doif va90 >= va92
+		subv va90 va94
+	endi
+
+	mvto va90 va91
+endm
+
+scrp 1 2 9 9
+	kill ownr
+endm
+
+rscr
+enum 1 2 9
+	kill targ
+next
+enum 1 2 10
+	kill targ
+next
+scrx 1 2 9 9
+scrx 1 2 10 126

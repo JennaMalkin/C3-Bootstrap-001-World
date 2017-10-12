@@ -1,0 +1,105 @@
+
+
+
+scrp 2 7 1 300
+	inst
+	setv va00 pose
+	addv va00 1
+	pose va00
+	targ ov17
+	addv ov69 1
+endm
+
+
+scrp 2 7 1 301
+	inst
+
+
+	doif pose le ov31
+		setv va00 ov31
+		setv va01 ov32
+		addv va00 va01
+		pose va00
+		targ ov17
+		subv ov69 1
+	else
+
+		setv va00 pose
+		subv va00 1
+		pose va00
+		targ ov17
+		subv ov69 1
+	endi
+endm
+
+
+scrp 2 7 1 302
+	inst
+
+	doif pose eq ov31
+		pose ov34
+		targ ov17
+		subv ov69 1
+	else
+
+		setv va00 pose
+		addv va00 1
+		pose va00
+		targ ov17
+		subv ov69 1
+	endi
+
+	setv va00 rand 25 28
+	setv va01 plne
+	subv va01 1
+	setv va02 posx
+	setv va03 posy
+	setv va66 0
+	esee 2 3 1
+		addv va66 1
+	next
+	doif va66 < 20
+		new: simp 2 3 1 "fxgl" 1 va00 va01
+		attr 195
+		bhvr 48
+		elas 50
+		fric 100
+		accg 1
+		mvto va02 va03
+		velo rand -10 10 rand -5 0
+
+		setv ov00 1
+
+		setv ov70 10
+		setv ov71 100
+
+		setv ov72 50
+
+		setv ov02 100
+
+		setv ov80 1
+		setv ov81 0.1
+
+		setv ov82 1
+		setv ov83 0.01
+		setv ov84 0.001
+
+		setv ov85 1
+		setv ov86 0.1
+		tick ov70
+	endi
+endm
+
+
+scrp 2 7 1 303
+
+	inst
+	doif pose = ov31
+		targ ov17
+		doif targ ne null
+			doif ov00 eq 2
+				setv ov00 4
+			endi
+		endi
+	endi
+endm

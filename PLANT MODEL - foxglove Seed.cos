@@ -1,0 +1,227 @@
+
+
+inst
+reps 10
+	new: simp 2 3 1 "fxgl" 1 rand 25 28 200
+	attr 193
+	bhvr 48
+	elas 50
+	fric 100
+	accg 1
+
+
+	setv ov00 1
+
+	setv ov70 100
+	setv ov71 1000
+
+	setv ov72 50
+
+	setv ov02 100
+
+
+	setv ov80 1
+	setv ov81 0.1
+
+	setv ov82 1
+	setv ov83 0.01
+	setv ov84 0.001
+
+	setv ov85 1
+	setv ov86 0.1
+
+	mvto 1360 480
+	velo rand -10 10 rand -10 0
+	tick ov70
+repe
+
+
+
+scrp 2 3 1 9
+
+
+
+
+
+
+	doif ov00 eq 1 and carr eq null and fall eq 0
+
+
+		doif rtyp room targ lt 5 or rtyp room targ eq 8 or rtyp room targ eq 9
+
+			gsub nope
+		elif prop room targ 1 gt ov80 or prop room targ 1 lt ov81
+
+			gsub nope
+		elif prop room targ 3 gt ov85 or prop room targ 3 lt ov86
+
+			gsub nope
+		elif prop room targ 2 gt ov84 and prop room targ 2 lt ov83
+
+			gsub nope
+			gsub dorm
+		elif prop room targ 2 gt ov82 or prop room targ 2 lt ov83
+
+			gsub nope
+		else
+			rnge 300
+
+			setv va00 0
+			esee 2 4 1
+				addv va00 1
+			next
+			doif va00 ge 4
+
+				gsub dorm
+			else
+
+				gsub grow
+			endi
+		endi
+	endi
+
+
+	subr grow
+
+		inst
+
+		setv va00 posl
+		setv va01 post
+		setv va02 wdth
+		setv va03 hght
+
+		new: simp 2 4 1 "fxgl" 12 0 rand 200 500
+
+
+
+		seta ov17 null
+		seta ov18 null
+
+		setv ov30 5
+
+		setv ov31 11
+
+		setv ov32 6
+
+		setv ov50 0.1
+
+		setv ov51 0.005
+
+		setv ov52 0.5
+
+		setv ov53 1
+
+		setv ov54 10
+
+		setv ov55 0.1
+
+		setv ov56 0.0001
+
+		setv ov57 0.5
+
+		setv ov58 0.001
+
+		setv ov60 0
+
+		setv ov61 10
+
+		setv ov62 0.0002
+
+		setv ov63 500
+
+		setv ov65 1
+
+
+		setv ov66 30
+
+		setv ov67 30
+
+		setv ov68 3
+
+		setv ov69 0
+
+
+
+		setv ov70 0.0001
+		setv ov71 0.001
+		setv ov72 0.001
+
+		setv ov73 30
+		setv ov74 30
+
+		setv ov80 300
+		setv ov82 100
+
+
+		setv va04 wdth
+		subv va04 va02
+		divv va04 2
+		setv va05 hght
+
+		subv va05 va03
+		subv va00 va04
+		subv va01 va05
+
+		mvto va00 va01
+
+		tick ov80
+
+		kill ownr
+	retn
+
+	subr dorm
+		doif ov72 le 0
+			tick ov71
+		else
+			tick ov70
+		endi
+	retn
+
+	subr nope
+		subv ov72 1
+		subv ov02 1
+		doif ov02 le 0
+			gsub dead
+		endi
+	retn
+
+	subr dead
+
+		altr room targ 3 0.0001
+		altr room targ 4 0.0001
+		kill targ
+	retn
+endm
+
+
+
+
+scrp 2 3 1 12
+	lock
+	stim writ from 77 1
+	wait 1
+	kill ownr
+endm
+
+
+
+
+
+rscr
+enum 2 3 1
+	kill targ
+next
+enum 2 4 1
+	kill targ
+next
+enum 2 6 2
+	kill targ
+next
+enum 2 7 1
+	kill targ
+next
+scrx 2 6 2 300
+scrx 2 6 2 301
+scrx 2 6 2 12
+scrx 2 4 1 9
+scrx 2 3 1 9

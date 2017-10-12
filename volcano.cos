@@ -1,0 +1,498 @@
+
+
+inst
+
+new: simp 1 1 28 "volcano" 22 32 0
+attr 16
+mvto 4681 214
+seta va99 targ
+
+
+new: simp 1 1 28 "blnk" 1 0 0
+attr 16
+mvto 4924 400
+emit 1 1
+
+new: simp 1 1 28 "blnk" 1 0 0
+attr 16
+mvto 4924 400
+emit 2 1
+
+
+
+new: comp 3 3 41 "volcano" 12 0 0
+
+pat: butt 1 "volcano" 12 2 223 117 0 [] 0 0
+part 1
+anim [0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 255]
+
+tick rand 1200 12000
+
+bhvr 9
+
+
+pat: dull 2 "volcano" 17 65 -5 0
+
+pat: dull 3 "volcano" 14 226 139 0
+mvto 4857 638
+seta ov16 va99
+
+prt: inew 0 "Volcano Input" "High enough signal will make the volcano erupt" 232 160 1000
+prt: onew 0 "Vocano Output" "Will send high signal when volcano erupts" 232 148
+
+
+scrp 3 3 41 1000
+	doif _p1_ gt 200
+		mesg writ ownr 0
+	endi
+endm
+
+
+scrp 3 3 41 9
+	tick rand 1200 6000
+
+	setv va00 totl 2 20 1
+	addv va00 totl 2 21 4
+	doif va00 lt 10
+		mesg writ ownr 0
+	endi
+
+endm
+
+
+scrp 3 3 41 1
+	lock
+	sndl "alar"
+	wait 10
+	part 1
+	anim [0 1 255]
+	part 0
+	frat 3
+	anim [0 1 2 3 4 5 6]
+	over
+	part 2
+	frat 6
+	anim [0 1 2 3 4 5 6 7 8 9 10 11 12 13 14]
+	sndc "warn"
+	over
+	part 0
+	frat 6
+	anim [7 8 9 10 11]
+
+	over
+	mesg writ ov16 1000
+	prt: send 0 255
+	sndl "alar"
+	part 2
+	anim [14 13 12 11 10 9 8 7 6 5 4 3 2 1 0]
+	over
+	part 0
+	anim [6 5 4 3 2 1 0]
+	over
+	fade
+	part 1
+	anim [0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 255]
+endm
+
+
+
+scrp 1 1 28 1000
+	sndc "exp1"
+
+
+	sway shou 10 0.6 5 0.3 -1 0.0 -1 0.0
+	esee 4 0 0
+		aslp 0
+	next
+
+	anim [0 1 2 3]
+	setv va00 posl
+	setv va01 post
+	addv va00 228
+	addv va01 138
+
+	over
+
+
+	setv va99 totl 2 21 4
+	doif va99 ge 100
+		setv va99 0
+	else
+		setv va99 1
+	endi
+	doif va99 eq 1
+		gsub rock
+	endi
+
+	inst
+	esee 2 21 4
+		velo 0 rand -30 -10
+	next
+	slow
+	targ ownr
+
+	anim [4]
+
+	doif rand 0 1 eq 0
+		doif va99 eq 1
+			gsub rock
+		endi
+	endi
+
+	anim [5]
+
+	doif rand 0 1 eq 0
+		doif va99 eq 1
+			gsub rock
+		endi
+	endi
+
+	inst
+	esee 2 21 4
+		velo 0 rand -30 -10
+	next
+	slow
+	targ ownr
+
+	anim [6]
+
+	doif rand 0 1 eq 0
+		doif va99 eq 1
+			gsub rock
+		endi
+	endi
+
+	anim [7]
+
+	targ ownr
+	anim [8 9 10 11 12 13 14 15 16 17 18 19 20 21 0]
+
+
+	subr rock
+		inst
+
+		new: simp 2 20 1 "volcano" 10 54 2000
+		attr 195
+		bhvr 43
+		perm 99
+		accg 3
+		mvto va00 va01
+		pose 0
+		aero 0
+		fric 60
+		elas 20
+		setv ov00 0
+		setv ov99 1
+		setv va99 rand 2 7
+		sndc "exp2"
+		doif rand 0 3 eq 0
+			mulv va99 -1
+		endi
+		mulv va99 5
+
+		velo va99 rand -35 -25
+		tick 2
+
+		slow
+		targ ownr
+	retn
+endm
+
+
+
+scrp 1 1 28 1001
+	inst
+	esee 2 21 4
+		velo 0 rand -30 -10
+	next
+endm
+
+
+scrp 2 20 1 9
+
+
+
+
+
+
+
+
+
+
+	emit 2 ov99
+
+	inst
+
+	doif rtyp room targ eq 8 or rtyp room targ eq 9
+		snde "quen"
+		setv ov00 1
+		pose 7
+		tick 0
+		emit 2 0
+		altr room targ 2 1
+		setv va00 posl
+		setv va01 post
+		setv va02 posl
+		subv va02 20
+		new: simp 1 1 29 "volcano" 4 73 1
+		tick 2
+		mvto va02 va01
+		inst
+		new: simp 2 21 4 "volcano" 10 54 2000
+		attr 195
+		perm 99
+		accg 5
+		doif tmvt va00 va01 eq 1
+			mvto va00 va01
+		else
+			mvsf va00 va01
+		endi
+		pose 7
+		aero 0
+		fric 60
+		elas 50
+		setv ov00 1
+		tick 0
+		setv ov99 0
+		emit 2 0
+		kill ownr
+	endi
+
+	doif fall eq 1
+		setv va00 posl
+		setv va01 post
+		subv va00 20
+		new: simp 1 1 29 "volcano" 4 73 1
+		tick 3
+		mvto va00 va01
+	else
+		tick 3
+		addv ov90 1
+		doif ov90 ge 20
+			setv ov90 0
+			doif pose lt 7
+				setv va00 pose
+				addv va00 1
+				pose va00
+				subv ov99 0.1
+			else
+				inst
+				setv va00 posl
+				setv va01 post
+				new: simp 2 21 4 "volcano" 10 54 2000
+				attr 195
+				perm 99
+				accg 5
+				mvto va00 va01
+				pose 7
+				aero 0
+				fric 60
+				elas 50
+				setv ov00 1
+				tick 0
+				setv ov99 0
+				emit 2 0
+				kill ownr
+			endi
+		endi
+	endi
+endm
+
+
+
+scrp 1 1 29 9
+	doif pose lt 3
+		setv va00 pose
+		addv va00 1
+		pose va00
+	else
+		kill ownr
+	endi
+endm
+
+
+
+scrp 2 20 1 6
+
+	inst
+	doif ov00 eq 0
+		stop
+	endi
+	setv va00 posx
+	setv va01 posy
+	subv va00 10
+	subv va01 10
+	setv va10 _p1_
+	setv va11 _p2_
+	absv va10
+	absv va11
+	doif va10 > 30 or va11 > 30
+
+		doif ov00 = 1
+			snde "rok2"
+			reps 3
+				new: simp 2 21 4 "volcano" 1 62 2000
+				attr 195
+				perm 99
+
+				accg 5
+				mvto va00 va01
+				pose 0
+				aero 0
+				fric 60
+				elas 50
+				setv ov00 2
+				velo rand -10 10 rand -5 -10
+
+			repe
+			kill ownr
+		elif ov00 eq 2
+			snde "rok2"
+			reps 3
+				new: simp 2 21 4 "volcano" 10 63 2000
+				attr 195
+				perm 99
+
+				accg 5
+				mvto va00 va01
+				pose 0
+				aero 0
+				fric 60
+				elas 10
+				setv ov00 3
+				velo rand -10 10 rand -5 -10
+
+			repe
+			kill ownr
+		elif ov00 eq 3
+			snde "rok2"
+			anim [0 1 2 3 4 5 6 7 8 9]
+			over
+			kill ownr
+		endi
+	else
+		snde "rok1"
+	endi
+	targ ownr
+	slow
+endm
+
+
+scrp 2 21 4 6
+	inst
+	doif carr ne null
+		stop
+	endi
+	lock
+	doif ov00 eq 0
+		stop
+	endi
+	setv va00 posx
+	setv va01 posy
+	subv va00 10
+	subv va01 10
+	setv va10 _p1_
+	setv va11 _p2_
+	absv va10
+	absv va11
+	doif va10 > 30 or va11 > 30
+
+		doif ov00 = 1
+			snde "rok2"
+			reps 3
+				new: simp 2 21 4 "volcano" 1 62 2000
+				attr 195
+				perm 99
+
+				accg 5
+				mvto va00 va01
+				pose 0
+				aero 0
+				fric 60
+				elas 50
+				setv ov00 2
+				velo rand -10 10 rand -20 -10
+
+			repe
+			kill ownr
+		elif ov00 eq 2
+			snde "rok2"
+			reps 3
+				new: simp 2 21 4 "volcano" 10 63 2000
+				attr 195
+				perm 99
+
+				accg 5
+				mvto va00 va01
+				pose 0
+				aero 0
+				fric 60
+				elas 10
+				setv ov00 3
+				velo rand -10 10 rand -20 -10
+
+			repe
+			kill ownr
+		elif ov00 eq 3
+			snde "rok2"
+			anim [0 1 2 3 4 5 6 7 8 9]
+			over
+			kill ownr
+		endi
+	else
+		snde "rok1"
+	endi
+	targ ownr
+	slow
+endm
+
+
+
+scrp 2 20 1 1
+	chem 148 0.3
+
+endm
+
+scrp 2 20 1 2
+	chem 148 0.3
+
+endm
+
+scrp 2 20 1 3
+	chem 148 0.3
+
+endm
+
+scrp 2 20 1 4
+	chem 148 0.3
+
+endm
+
+
+scrp 3 3 41 3
+	prt: bang rand 60 100
+	stim writ from 92 1
+endm
+
+
+
+rscr
+enum 1 1 28
+	kill targ
+next
+enum 3 3 41
+	kill targ
+next
+enum 2 23 10
+	kill targ
+next
+enum 1 1 29
+	kill targ
+next
+enum 2 21 4
+	kill targ
+next
+scrx 3 3 41 1
+scrx 1 1 28 1000
+scrx 2 20 1 9
+scrx 1 1 29 9

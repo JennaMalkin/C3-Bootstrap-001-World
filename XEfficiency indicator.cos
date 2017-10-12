@@ -1,0 +1,191 @@
+
+
+new: comp 1 1 91 "infobar" 3 0 50
+attr 0
+perm 0
+mvto 5330 3515
+
+setv ov02 0
+pat: fixd 1 "infobar" 2 20 15 0 "WhiteOnTransparentChars"
+sets va44 read "Efficiency" 1
+adds va44 read "Efficiency" 0
+adds va44 vtos ov02
+adds va44 "%"
+part 1
+frmt 1 1 1 1 1 1 2
+ptxt va44
+setv ov00 1
+seta va88 targ
+rtar 3 3 21
+seta va66 targ
+targ va88
+seta ov16 va66
+
+
+
+
+new: comp 1 1 91 "infobar" 3 0 5
+attr 0
+perm 0
+mvto 6100 3515
+
+setv ov02 0
+pat: fixd 1 "infobar" 2 20 15 0 "WhiteOnTransparentChars"
+sets va44 read "Efficiency" 2
+adds va44 read "Efficiency" 0
+adds va44 vtos ov02
+adds va44 "%"
+part 1
+frmt 1 1 1 1 1 1 2
+ptxt va44
+setv ov00 2
+seta va88 targ
+rtar 3 3 25
+seta va66 targ
+targ va88
+seta ov16 va66
+
+
+
+
+new: comp 1 1 91 "infobar" 3 0 50
+attr 0
+perm 0
+mvto 2285 920
+
+setv ov02 0
+pat: fixd 1 "infobar" 2 20 15 0 "WhiteOnTransparentChars"
+sets va44 read "Efficiency" 3
+adds va44 read "Efficiency" 0
+adds va44 vtos ov02
+adds va44 "%"
+part 1
+frmt 1 1 1 1 1 1 2
+ptxt va44
+setv ov00 3
+seta va88 targ
+rtar 3 3 38
+seta va66 targ
+targ va88
+seta ov16 va66
+
+
+
+new: comp 1 1 91 "infobar" 3 0 0
+attr 0
+perm 0
+mvto 5360 3754
+
+setv ov02 0
+pat: fixd 1 "infobar" 2 20 15 0 "WhiteOnTransparentChars"
+sets va44 read "Efficiency" 4
+adds va44 read "Efficiency" 0
+adds va44 vtos ov02
+adds va44 "%"
+part 1
+frmt 1 1 1 1 1 1 2
+ptxt va44
+setv ov00 4
+seta va88 targ
+rtar 3 3 38
+seta va66 targ
+targ va88
+seta ov16 va66
+
+
+new: comp 1 1 91 "infobar" 3 0 50
+
+perm 0
+mvto 1800 2160
+
+setv ov02 100
+pat: fixd 1 "infobar" 2 20 15 0 "WhiteOnTransparentChars"
+sets va44 read "Efficiency" 5
+adds va44 read "Efficiency" 0
+adds va44 vtos ov02
+adds va44 "%"
+part 1
+frmt 1 1 1 1 1 1 2
+ptxt va44
+setv ov00 5
+seta va88 targ
+
+rtar 2 5 1
+doif targ ne null
+	seta va66 targ
+endi
+targ va88
+seta ov16 va66
+
+
+new: comp 1 1 91 "infobar" 3 0 50
+attr 2
+perm 0
+mvto 5603 600
+
+setv ov02 100
+pat: fixd 1 "infobar" 2 20 15 0 "WhiteOnTransparentChars"
+sets va44 read "Efficiency" 5
+adds va44 read "Efficiency" 0
+adds va44 vtos ov02
+adds va44 "%"
+part 1
+frmt 1 1 1 1 1 1 2
+ptxt va44
+setv ov00 6
+seta va88 targ
+
+rtar 3 3 69
+doif targ ne null
+	seta va66 targ
+endi
+targ va88
+seta ov16 va66
+
+
+
+
+
+
+
+
+
+scrp 1 1 91 1000
+	sets va44 read "Efficiency" ov00
+	adds va44 read "Efficiency" 0
+	addv ov02 25
+	doif ov00 = 4
+		setv ov02 100
+	endi
+	adds va44 vtos ov02
+	adds va44 "%"
+	part 1
+	frmt 1 1 1 1 1 1 2
+	ptxt va44
+endm
+
+scrp 1 1 91 1001
+	sets va44 _p1_
+	part 1
+	frmt 1 1 1 1 1 1 2
+	ptxt va44
+	wait 100
+	mesg writ ownr 1002
+endm
+
+scrp 1 1 91 1002
+	sets va44 read "Efficiency" ov00
+	adds va44 read "Efficiency" 0
+	adds va44 vtos ov02
+	adds va44 "%"
+	part 1
+	frmt 1 1 1 1 1 1 2
+	ptxt va44
+endm
+
+
+
+rscr
+enum 1 1 91
+	kill targ
+next

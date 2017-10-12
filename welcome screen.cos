@@ -1,0 +1,217 @@
+
+
+
+setv va00 stoi read "Euro Welcome Screen" 0
+new: comp 1 2 26 "euro welcome screen" 1 va00 8950
+attr 288
+clac 0
+
+
+pat: butt 1 "welcome screen" 1 2 102 213 0 [] 1001 0
+part 1
+pose 1
+
+
+pat: butt 2 "welcome screen" 3 2 353 213 0 [] 1002 0
+part 2
+pose 1
+
+sets va00 wnam
+
+pat: fixd 4 "welcome screen" 5 37 110 1 "WhiteOnTransparentChars"
+part 4
+sets va44 read "Welcome Screen" 0
+adds va44 va00
+sets va00 read "Welcome Screen" 1
+adds va44 va00
+frmt 5 10 5 5 3 1 0
+ptxt va44
+
+setv va50 wndw
+setv va51 wndh
+divv va50 2
+subv va50 260
+divv va51 2
+subv va51 157
+flto va50 va51
+
+scrp 1 2 26 1001
+	lock
+	part 1
+	anim [0]
+	over
+	anim [0]
+
+	targ ownr
+	flto 7777 500
+
+
+	strk 40 "events.mng\\Birth"
+
+	inst
+
+	pray refr
+	sets va00 ""
+	setv va10 1065
+
+	reps 2
+
+		sets va00 pray next "SFAM" va00
+
+		hist evnt va00 0 "" ""
+
+		setv va11 772
+		new: simp 1 1 43 "teleport" 9 11 5001
+		setv va12 wdth
+		setv va13 hght
+		divv va12 2
+		divv va13 2
+		negv va12
+		negv va13
+		addv va12 va10
+		addv va13 va11
+		subv va13 35
+		addv va12 10
+		mvto va12 va13
+		cmrp 975 784 0
+		wait 1
+		snde "tele"
+		anim [0 0 1 1 2 2 2 3 3 3 4 4 4 5 5 5 6 6 6]
+		over
+		anim [6 6 6 5 5 5 4 4 4 3 3 3 2 2 2 1 1 0 0]
+		over
+		seta va12 targ
+
+
+		inst
+		setv va99 pray impo va00 1 1
+		snde "cmc3"
+		seta va20 targ
+		doif va99 <= 1
+
+			dbg: asrt va99 = 1
+			targ va20
+
+			hist evnt gtos 0 100 "" ""
+
+			mvft va10 va11
+			doif va10 <> 800
+				norn targ
+				cmrp 975 784 0
+			endi
+
+			seta va23 targ
+			sets va24 gtos 0
+			new: simp 1 2 37 "blnk" 0 0 0
+			seta ov00 va23
+			sets ov01 va24
+
+
+			tick rand 90 120
+		endi
+		slow
+
+		targ va12
+
+		kill targ
+
+		setv va10 800
+	repe
+	slow
+
+	targ game "c3_default_focus"
+	part game "c3_default_focus_part"
+	fcus
+
+	kill ownr
+	unlk
+endm
+
+
+scrp 1 2 26 1002
+	lock
+	part 2
+	anim [0]
+	over
+
+	targ ownr
+	flto 7777 500
+
+	rtar 2 22 3
+	doif targ ne null
+		cmrt 0
+	endi
+
+	rtar 3 3 31
+
+	setv va02 rand 0 1
+	setv va01 0
+	reps 2
+		doif va01 = 1
+			wait 20
+		endi
+
+		loop
+			wait 2
+		untl code = -1
+
+
+		doif va01 = va02
+			mesg writ targ 1004
+		elif va01 <> va02
+			mesg writ targ 1003
+		endi
+		loop
+			wait 2
+		untl code = -1
+
+
+		addv va01 1
+		setv va00 rand 0 2
+		doif va00 > 0
+			mesg writ targ 1000
+			loop
+				wait 2
+			untl code = -1
+			doif va00 > 1
+				mesg writ targ 1000
+				loop
+					wait 2
+				untl code = -1
+			endi
+		endi
+
+
+		mesg writ targ 1001
+	repe
+
+	targ game "c3_default_focus"
+	part game "c3_default_focus_part"
+	fcus
+
+	kill ownr
+	unlk
+endm
+
+scrp 1 2 26 123
+	setv va50 wndw
+	setv va51 wndh
+	divv va50 2
+	subv va50 260
+	divv va51 2
+	subv va51 157
+	flto va50 va51
+
+endm
+
+rscr
+enum 1 2 26
+	kill targ
+next
+enum 1 1 43
+	kill targ
+next
+enum 4 0 0
+	kill targ
+next
+trck null 0 0 0 0

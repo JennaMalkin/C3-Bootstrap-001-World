@@ -1,0 +1,17 @@
+new: simp 1 1 105 "blnk" 0 0 0
+mvto 1000 300
+tick 100
+
+scrp 1 1 105 9
+	doif game "Bioenergy" < 1000
+		addv game "Bioenergy" 1
+	else
+		setv game "Bioenergy" 1000
+	endi
+	rtar 3 3 22
+	mesg writ targ 500
+	rtar 3 3 28
+	mesg writ targ 500
+
+
+endm

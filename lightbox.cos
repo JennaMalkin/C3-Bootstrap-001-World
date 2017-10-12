@@ -1,0 +1,142 @@
+setv va00 0
+reps 2
+	addv va00 1
+	new: simp 3 8 4 "lightbox" 4 0 1000
+	attr 199
+	perm 60
+	clac 0
+	elas 10
+	tick 0
+	aero 5
+	accg 4
+	bhvr 41
+	setv ov61 100
+
+	doif va00 = 1
+		mvto 670 460
+	elif va00 = 2
+		mvto 2600 3200
+	endi
+	anim [0]
+	prt: inew 0 "light in" "light setting" 14 36 1000
+	prt: onew 0 "light out" "light setting" 40 36
+	emit 18 0.2
+repe
+setv va00 0
+reps 2
+	addv va00 1
+	new: simp 3 8 4 "lightbox" 4 0 1000
+	attr 199
+	perm 60
+	clac 0
+	elas 10
+	tick 0
+	aero 5
+	accg 4
+	bhvr 41
+	setv ov61 100
+	doif va00 = 1
+		mvto 1452 3925
+	elif va00 = 2
+		mvto 1900 1600
+	endi
+	anim [0]
+	prt: inew 0 "light in" "light setting" 14 36 1000
+	prt: onew 0 "light out" "light setting" 40 36
+	emit 18 0.2
+repe
+
+scrp 3 8 4 1000
+	anim [0]
+	setv ov70 _p1_
+	setv ov71 ov70
+	absv ov71
+	over
+	prt: send 0 ov70
+	doif ov71 > 0 and ov71 <= 85
+		anim [1 0 1 0 1 0 1 0 1 0]
+		prt: send 0 ov70
+		tick 20
+		clac 0
+	endi
+	doif ov71 > 85 and ov71 <= 170
+		anim [2 0 2 0 2 0 2 0 2 0]
+		prt: send 0 ov70
+		tick 20
+		clac 1
+	endi
+	doif ov71 > 170 and ov71 <= 255
+		anim [3 0 3 0 3 0 3 0 3 0]
+		prt: send 0 ov70
+		tick 20
+		clac 0
+	endi
+
+	doif ov71 < 0 and ov71 >= -85
+		anim [1 0 1 0 1 0 1 0 1 0]
+		prt: send 0 ov70
+		tick 20
+		clac 0
+	endi
+	doif ov71 < -85 and ov71 >= -170
+		anim [2 0 2 0 2 0 2 0 2 0]
+		prt: send 0 ov70
+		tick 20
+		clac 0
+	endi
+	doif ov71 < -170 and ov71 >= -255
+		anim [3 0 3 0 3 0 3 0 3 0]
+		prt: send 0 ov70
+		tick 20
+		clac 0
+	endi
+
+	doif ov71 = 0
+		mesg writ ownr 2000
+	endi
+
+
+endm
+
+scrp 3 8 4 1
+	stim writ from 90 1
+	mesg wrt+ ownr 1000 255 0 0
+endm
+
+
+scrp 3 8 4 4
+	targ from
+	doif fmly eq 4
+		stim writ targ 91 1
+	endi
+endm
+
+
+
+scrp 3 8 4 3
+	sndc "hit_"
+	velo 0 rand -5 -10
+	prt: bang rand 60 100
+	stim writ from 92 1
+endm
+
+
+scrp 3 8 4 2000
+	anim [0]
+	tick 0
+	clac 0
+	prt: send 0 0
+
+endm
+
+rscr
+enum 3 8 4
+	kill targ
+next
+scrx 3 8 4 1
+scrx 3 8 4 2
+scrx 3 8 4 4
+scrx 3 8 4 5
+scrx 3 8 4 9
+scrx 3 8 4 1000
+scrx 3 8 4 2000

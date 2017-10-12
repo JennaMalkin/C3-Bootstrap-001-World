@@ -1,0 +1,178 @@
+new: comp 1 2 3 "agent_help" 18 0 0
+attr 48
+imsk 65
+frel null
+flto -100000 -100000
+base 9
+part 0
+pose 0
+
+plne 10010
+
+pat: text 1 "agent_help" 9 0 0 0 2000 "BlackOnTransparentChars"
+part 1
+frmt 12 12 12 12 0 0 0
+pose 0
+fcus
+
+sets ov00 ""
+
+setv va00 10
+loop
+	sets avar targ va00 ""
+	addv va00 1
+untl va00 = 100
+
+setv ov01 10
+
+setv ov02 10
+
+seta game "c3_default_focus" targ
+setv game "c3_default_focus_part" 1
+
+scrp 1 2 3 2000
+	inst
+	snde "text"
+
+	part 1
+	sets va00 ptxt
+	doif va00 <> "" and avar ownr ov01 <> va00
+		sets ov00 va00
+		addv ov01 1
+		doif ov01 > 99
+			setv ov01 10
+		endi
+		setv ov02 -1
+		sets avar ownr ov01 va00
+	endi
+	ptxt ""
+	frel null
+	flto -100000 -100000
+
+	doif va00 <> ""
+		rtar 1 2 10
+		mesg wrt+ targ 126 va00 pntr 0
+
+		targ pntr
+		ordr shou va00
+	endi
+endm
+
+
+scrp 1 2 3 73
+	inst
+
+	doif _p1_ = 83
+		doif keyd 17 = 1
+			doif ov00 <> ""
+				part 1
+				ptxt ov00
+				mesg writ ownr 2000
+			endi
+		endi
+	elif _p1_ eq 38
+		doif keyd 17 eq 1
+
+			doif ov02 = -1
+				setv ov02 ov01
+				setv va00 ov02
+			else
+				setv va00 ov02
+				subv ov02 1
+				doif ov02 < 10
+					setv ov02 99
+				endi
+				doif ov02 = ov01
+					setv ov02 va00
+				endi
+			endi
+			doif avar ownr ov02 <> ""
+				part 1
+				ptxt avar ownr ov02
+				mesg writ ownr 79
+			else
+				setv ov02 va00
+			endi
+		endi
+	elif _p1_ eq 40
+		doif keyd 17 eq 1
+
+			doif ov02 = -1
+				setv ov02 ov01
+			else
+				doif ov02 <> ov01
+					addv ov02 1
+				endi
+				doif ov02 > 99
+					setv ov02 10
+				endi
+			endi
+			doif avar ownr ov02 <> ""
+				part 1
+				ptxt avar ownr ov02
+				mesg writ ownr 79
+			endi
+		endi
+	endi
+endm
+
+
+scrp 1 2 3 79
+	inst
+
+	part 1
+	doif ptxt = ""
+		frel null
+		flto -100000 -100000
+	else
+		targ pntr
+		doif targ <> pntr
+			setv va90 posx
+		else
+			setv va90 posl
+		endi
+		setv va91 post
+		subv va91 30
+
+
+		setv va92 wndl
+		setv va93 wndr
+		addv va92 va93
+		divv va92 2
+
+		doif va90 lt va92
+			setv va95 0
+		else
+			setv va95 1
+			subv va90 230
+		endi
+
+		targ ownr
+		frel pntr
+
+		part 0
+		pose va95
+		part 1
+		pose va95
+
+		mvto va90 va91
+
+	endi
+endm
+
+
+
+scrp 1 2 3 1000
+	inst
+	part 1
+	ptxt _p1_
+	mesg writ ownr 2000
+endm
+
+rscr
+enum 1 2 3
+	kill targ
+next
+scrx 1 2 3 2000
+scrx 1 2 3 79
+scrx 1 2 3 1000

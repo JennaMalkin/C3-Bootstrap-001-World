@@ -1,0 +1,175 @@
+
+
+
+
+
+
+
+
+
+
+
+
+new: comp 3 8 18 "numeric output tool" 0 0 5002
+attr 199
+bhvr 41
+elas 20
+perm 64
+accg 20
+aero 20
+
+pat: fixd 1 "numeric output tool" 2 7 9 0 "WhiteOnTransparentChars"
+
+pat: fixd 2 "numeric output tool" 2 33 9 0 "WhiteOnTransparentChars"
+
+pat: fixd 3 "numeric output tool" 2 62 9 0 "WhiteOnTransparentChars"
+
+pat: butt 4 "numeric output tool" 2 1 7 9 1 [] 2001 0
+
+pat: butt 5 "numeric output tool" 2 1 33 9 1 [] 2002 0
+
+pat: butt 6 "numeric output tool" 2 1 62 9 1 [] 2003 0
+setv ov71 0
+setv ov72 0
+setv ov73 0
+SETV OV61 100
+tran 0 4
+tran 0 5
+tran 0 6
+
+part 1
+frmt 4 4 0 0 0 0 2
+sets va01 vtos ov71
+ptxt va01
+part 2
+frmt 4 4 0 0 0 0 2
+sets va02 vtos ov72
+ptxt va02
+part 3
+frmt 1 4 0 0 0 0 2
+sets va03 vtos ov73
+ptxt va03
+part 0
+
+
+prt: inew 0 "input" "numeric output tool input" 58 36 2005
+prt: onew 0 "output" "numeric output tool output" 33 36
+mvto 1795 3884
+emit 18 .35
+
+scrp 3 8 18 1
+	lock
+	snde "bep2"
+	part 0
+	anim [0 1 255]
+	sets va01 vtos ov71
+	adds va01 vtos ov72
+	adds va01 vtos ov73
+	setv va02 stoi va01
+	prt: send 0 va02
+	snde "bep2"
+	wait 1
+	snde "bep2"
+	wait 1
+	snde "bep2"
+	wait 4
+	part 0
+	anim [0]
+endm
+scrp 3 8 18 2001
+	snde "bep2"
+	lock
+	addv ov71 1
+	doif ov71 = 3
+		setv ov71 0
+	endi
+	unlk
+	mesg writ ownr 2004
+endm
+scrp 3 8 18 2002
+	snde "bep2"
+	lock
+	addv ov72 1
+	doif ov71 < 2 and ov72 = 10
+		setv ov72 0
+	elif ov71 = 2 and ov72 = 6
+		setv ov72 0
+	endi
+	unlk
+	mesg writ ownr 2004
+endm
+scrp 3 8 18 2003
+	snde "bep2"
+	lock
+	addv ov73 1
+	doif ov71 < 2 and ov73 = 10
+		setv ov73 0
+	elif ov71 = 2 and ov72 <> 5 and ov73 = 10
+		setv ov73 0
+	elif ov71 = 2 and ov72 = 5 and ov73 = 6
+		setv ov73 0
+	endi
+	unlk
+	mesg writ ownr 2004
+endm
+scrp 3 8 18 2004
+	lock
+	part 1
+	frmt 4 4 0 0 0 0 2
+	sets va01 vtos ov71
+	ptxt va01
+	part 2
+	frmt 4 4 0 0 0 0 2
+	sets va02 vtos ov72
+	ptxt va02
+	part 3
+	frmt 1 4 0 0 0 0 2
+	sets va03 vtos ov73
+	ptxt va03
+endm
+scrp 3 8 18 2005
+	lock
+	setv va00 _p1_
+	doif va00 > 0
+		snde "bep2"
+		part 0
+		anim [0 1 255]
+		sets va01 vtos ov71
+		adds va01 vtos ov72
+		adds va01 vtos ov73
+		setv va02 stoi va01
+		prt: send 0 va02
+		snde "bep2"
+		wait 1
+		snde "bep2"
+		wait 1
+		snde "bep2"
+		wait 4
+		part 0
+		anim [0]
+	endi
+endm
+
+scrp 3 8 18 3
+	sndc "hit_"
+	velo 0 rand -5 -10
+	prt: bang rand 60 100
+	stim writ from 92 1
+endm
+
+scrp 3 8 18 4
+	targ from
+	doif fmly = 4
+		stim writ targ 91 1
+	endi
+endm
+rscr
+enum 3 8 18
+	kill targ
+next
+scrx 3 8 18 1
+scrx 3 8 18 2001
+scrx 3 8 18 2002
+scrx 3 8 18 2003
+scrx 3 8 18 2004
+scrx 3 8 18 2005

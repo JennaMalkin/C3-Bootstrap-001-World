@@ -1,0 +1,44 @@
+inst
+new: simp 1 2 2 "attention" 11 0 8300
+
+attr 272
+tick 1
+mvto 100 100
+pose 10
+setv ov00 0
+
+scrp 1 2 2 9
+	inst
+	doif norn ne null
+		targ norn
+		doif iitt ne null
+			targ iitt
+			setv va01 post
+			setv va00 posx
+			subv va00 10
+			subv va01 20
+			targ ownr
+			mvto va00 va01
+
+			doif ov00 = 0
+				setv ov00 1
+				anim [0 1 2 3 4 5 6 7 8 9 255]
+			endi
+
+		else
+			targ ownr
+			pose 10
+			setv ov00 0
+		endi
+	else
+		targ ownr
+		pose 10
+		setv ov00 0
+	endi
+	slow
+endm
+rscr
+enum 1 2 2
+	kill targ
+next
+scrx 1 2 2 9

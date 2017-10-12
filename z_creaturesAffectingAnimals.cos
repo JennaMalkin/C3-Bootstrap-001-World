@@ -1,0 +1,27 @@
+iscr
+enum 2 0 0
+
+	setv va00 attr
+	andv va00 2
+
+	doif va00 ne 0
+
+		setv va00 bhvr
+		orrv va00 8
+		bhvr va00
+	endi
+next
+endm
+
+
+
+scrp 2 0 0 3
+	setv va00 rand -10 10
+	setv velx va00
+	setv va00 rand -10 -1
+	setv vely va00
+endm
+
+
+rscr
+scrx 2 0 0 3

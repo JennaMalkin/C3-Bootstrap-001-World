@@ -1,0 +1,284 @@
+
+
+
+
+
+new: comp 3 3 50 "euro scgg" 11 0 5003
+attr 199
+bhvr 8
+elas 20
+perm 64
+accg 20
+aero 20
+puhl -1 60 80
+
+pat: butt 1 "euro scgg" 14 1 71 109 1 [] 1000 0
+
+pat: fixd 2 "euro scgg" 12 7 101 0 "WhiteOnTransparentChars"
+
+prt: inew 0 "input" "single chemical graphing gadget input" 106 142 1001
+prt: onew 0 "output" "single chemical graphing gadget output" 51 142
+mvto 1915 3624
+emit 10 .35
+
+setv ov72 1
+SETV OV61 120
+seta ov16 null
+seta ov17 null
+tick 0
+
+scrp 3 3 50 1
+	mesg writ ownr 1000
+endm
+
+scrp 3 3 50 1000
+	lock
+	doif ov00 = 0
+		snde "bep2"
+		puhl -1 69 75
+		part 0
+		snde "pi_1"
+		anim [0 1 2 3 4 5 6]
+		over
+		pat: grph 4 "euro scgg" 11 18 19 0 31
+		part 4
+		grpl rand 70 255 rand 70 255 rand 70 255 0 1
+		setv ov00 1
+		seta ov16 null
+		seta ov17 null
+		setv ov71 34
+		tick 1
+	elif ov00 = 1
+		snde "bep2"
+		pat: kill 4
+		part 2
+		ptxt ""
+		part 0
+		snde "pi_1"
+		anim [6 5 4 3 2 1 0]
+		over
+		inst
+		doif ov17 <> null
+			targ ov17
+			kill targ
+		endi
+		targ ownr
+		doif ov16 <> null
+			targ ov16
+			kill targ
+		endi
+		targ ownr
+		slow
+		setv ov00 0
+		tick 0
+	endi
+endm
+
+scrp 3 3 50 1001
+	lock
+	setv va00 _p1_
+
+	doif va00 > 0 and va00 < 256
+		setv ov71 ftoi va00
+
+		doif ov00 = 0
+			snde "bep2"
+			puhl -1 69 75
+			part 0
+			snde "pi_1"
+			anim [0 1 2 3 4 5 6]
+			over
+			pat: grph 4 "euro scgg" 11 18 19 0 31
+			part 4
+			grpl rand 70 255 rand 70 255 rand 70 255 0 1
+			setv ov00 1
+			seta ov17 null
+			seta ov16 null
+			setv ov73 1
+			tick 1
+
+		endi
+		sets ov70 read "short_chemical_names" ov71
+		setv va44 stoi ov70
+		doif va44 = ov71
+			sets ov70 read "Unknown Chemical" 0
+		endi
+		sets va01 " ("
+		adds ov70 va01
+		adds ov70 vtos ov71
+		sets va01 ")"
+		adds ov70 va01
+		part 2
+		frmt 3 3 3 0 0 0 10
+		ptxt ov70
+		setv va00 0
+		setv va50 0
+		seta va16 null
+		inst
+		etch 4 0 0
+			doif targ <> null
+				addv va00 1
+				doif va00 = 1
+					seta va16 targ
+				endi
+			endi
+		next
+		slow
+		targ ownr
+		doif va00 = 1 and ov16 = null
+			setv va71 ov71
+			inst
+			doif va16 <> null
+				targ va16
+				setv va50 chem va71
+			endi
+			slow
+			targ ownr
+			inst
+			new: simp 1 1 118 "euro scgg" 11 15 1000
+			attr 48
+			frel va16
+			seta va16 targ
+			anim [0 1 2 3 4 5 6 7 8 9 255]
+			flto -5 -5
+			slow
+			targ ownr
+			seta ov16 va16
+			setv va51 va50
+			mulv va51 255
+			part 4
+			prt: send 0 va51
+			grpv 0 va50
+		elif va00 = 1 and ov16 <> null
+			setv va71 ov71
+			inst
+			doif va16 <> null
+				targ va16
+				setv va50 chem va71
+				targ ownr
+				setv va51 va50
+				mulv va51 255
+				prt: send 0 va51
+				part 4
+				grpv 0 va50
+			endi
+			slow
+		elif va00 = 0
+			inst
+			doif ov16 <> null
+				seta ov17 ov16
+				targ ov16
+				kill targ
+				targ ownr
+				seta ov16 null
+			endi
+			slow
+		endi
+
+	endi
+endm
+
+scrp 3 3 50 9
+	sets ov70 read "short_chemical_names" ov71
+	setv va44 stoi ov70
+	doif va44 = ov71
+		sets ov70 read "Unknown Chemical" 0
+	endi
+	sets va01 " ("
+	adds ov70 va01
+	adds ov70 vtos ov71
+	sets va01 ")"
+	adds ov70 va01
+	part 2
+	frmt 3 3 3 0 0 0 10
+	ptxt ov70
+	setv va00 0
+	setv va50 0
+	seta va16 null
+	etch 4 0 0
+		addv va00 1
+		doif va00 = 1
+			seta va16 targ
+		endi
+	next
+	targ ownr
+	doif va00 = 1 and ov16 = null
+		setv va71 ov71
+		inst
+		doif va16 <> null
+			targ va16
+			setv va50 chem va71
+		endi
+		slow
+		targ ownr
+		inst
+		new: simp 1 1 118 "euro scgg" 11 15 1000
+		attr 48
+		frel va16
+		seta va16 targ
+		anim [0 1 2 3 4 5 6 7 8 9 255]
+		flto -5 -5
+		slow
+		targ ownr
+		seta ov16 va16
+		setv va51 va50
+		mulv va51 255
+		part 4
+		prt: send 0 va51
+		grpv 0 va50
+	elif va00 = 1 and ov16 <> null
+		setv va71 ov71
+		inst
+		doif va16 <> null
+			targ va16
+			setv va50 chem va71
+			targ ownr
+			setv va51 va50
+			mulv va51 255
+			prt: send 0 va51
+			part 4
+			grpv 0 va50
+		endi
+		slow
+	elif va00 = 0
+		doif ov16 <> null
+			seta ov17 ov16
+			targ ov16
+			kill targ
+			targ ownr
+			seta ov16 null
+		endi
+	endi
+endm
+
+scrp 3 3 50 3
+	targ from
+	doif fmly = 4 and gnus = 2
+		prt: bang rand 60 100
+	endi
+	stim writ targ 92 1
+	targ ownr
+	sndc "hit_"
+	velo 0 rand -5 -10
+endm
+
+scrp 3 3 50 4
+	targ from
+	doif fmly = 4
+		stim writ targ 91 1
+	endi
+endm
+
+
+rscr
+enum 3 3 50
+	kill targ
+next
+enum 1 1 118
+	kill targ
+next
+scrx 3 3 50 1
+scrx 3 3 50 1000
+scrx 3 3 50 3
+scrx 3 3 50 4
+scrx 3 3 50 1001

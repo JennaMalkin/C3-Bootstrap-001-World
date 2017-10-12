@@ -1,0 +1,946 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+new: comp 2 23 2 "euro medicine maker" 0 0 200
+attr 4
+bhvr 3
+perm 100
+elas 0
+accg 30
+aero 25
+fric 100
+prt: inew 0 "input" "medicine maker input" 89 108 1000
+prt: onew 0 "output" "medicine maker output" 89 93
+
+pat: dull 1 "euro medicine maker" 4 2 53 0
+
+pat: butt 2 "euro medicine maker" 1 2 66 93 0 [] 1001 0
+
+pat: fixd 3 "euro medicine maker" 3 2 3 0 "WhiteOnTransparentChars"
+
+pat: butt 4 "euro medicine maker" 3 1 2 3 0 [] 1002 0
+
+pat: dull 5 "euro medicine maker" 10 18 61 2
+
+pat: butt 6 "euro medicine maker" 21 2 68 60 0 [] 1002 0
+
+
+setv ov70 5
+part 1
+pose ov70
+
+part 3
+frmt 3 4 3 3 0 0 10
+sets va00 read "medicine maker potions" 0
+ptxt va00
+setv ov00 1
+
+setv ov20 rand 0 3
+
+part 2
+pose 1
+part 6
+pose 1
+mvto 2596 3659
+
+tick 1250
+
+
+scrp 2 23 2 1
+	mesg writ ownr 1001
+endm
+
+
+scrp 2 23 2 2
+	mesg writ ownr 1002
+endm
+
+
+scrp 2 23 2 1000
+	lock
+	setv va00 _p1_
+	doif va00 > 0
+		unlk
+		mesg writ ownr 1001
+	endi
+	unlk
+endm
+
+
+scrp 2 23 2 1001
+	lock
+
+	doif ov70 > 0
+		part 2
+		anim [0 1 255]
+
+		subv ov70 1
+
+		part 1
+		pose ov70
+
+		snde "bep2"
+
+		setv va00 posl
+		setv va01 post
+		addv va00 24
+		addv va01 78
+		part 5
+		frat 2
+		anim [0 1 2 3 4 5]
+		snde "potn"
+		over
+		prt: send 0 255
+
+		doif ov00 = 1
+
+			inst
+			addv ov20 1
+			doif ov20 >= 4
+				setv ov20 0
+			endi
+			setv va20 ov20
+			new: simp 2 25 18 "potions" 1 va20 201
+			attr 199
+			BHVR 48
+			accg 0
+			perm 64
+			aero 3
+			elas 10
+			fric 100
+			SETV OV61 40
+			tint 240 20 20 128 128
+			doif tmvt va00 va01 = 1
+				mvto va00 va01
+			else
+				mvsf va00 va01
+			endi
+			tick 20
+			slow
+		elif ov00 = 2
+
+			inst
+			addv ov20 1
+			doif ov20 >= 4
+				setv ov20 0
+			endi
+			setv va20 ov20
+			new: simp 2 25 20 "potions" 1 va20 201
+			attr 199
+			BHVR 48
+			accg 0
+			perm 64
+			aero 3
+			elas 10
+			fric 100
+			SETV OV61 40
+			tint 255 129 17 128 128
+			doif tmvt va00 va01 = 1
+				mvto va00 va01
+			else
+				mvsf va00 va01
+			endi
+			tick 20
+			slow
+		elif ov00 = 3
+
+			inst
+			addv ov20 1
+			doif ov20 >= 4
+				setv ov20 0
+			endi
+			setv va20 ov20
+			new: simp 2 25 3 "potions" 1 va20 201
+			attr 199
+			BHVR 48
+			accg 0
+			perm 64
+			aero 3
+			elas 10
+			fric 100
+			SETV OV61 40
+			tint 190 120 120 128 128
+			doif tmvt va00 va01 = 1
+				mvto va00 va01
+			else
+				mvsf va00 va01
+			endi
+			tick 20
+			slow
+
+		elif ov00 = 4
+
+			inst
+			addv ov20 1
+			doif ov20 >= 4
+				setv ov20 0
+			endi
+			setv va20 ov20
+			new: simp 2 25 4 "potions" 1 va20 201
+			attr 199
+			BHVR 48
+			accg 0
+			perm 64
+			aero 3
+			elas 10
+			fric 100
+			SETV OV61 40
+			tint 255 255 0 128 128
+			doif tmvt va00 va01 = 1
+				mvto va00 va01
+			else
+				mvsf va00 va01
+			endi
+			tick 20
+			slow
+
+		elif ov00 = 5
+
+			inst
+			addv ov20 1
+			doif ov20 >= 4
+				setv ov20 0
+			endi
+			setv va20 ov20
+			new: simp 2 25 5 "potions" 1 va20 201
+			attr 199
+			BHVR 48
+			accg 0
+			perm 64
+			aero 3
+			elas 10
+			fric 100
+			SETV OV61 40
+			tint 100 100 200 128 128
+			doif tmvt va00 va01 = 1
+				mvto va00 va01
+			else
+				mvsf va00 va01
+			endi
+			tick 20
+			slow
+
+		elif ov00 = 6
+
+			inst
+			addv ov20 1
+			doif ov20 >= 4
+				setv ov20 0
+			endi
+			setv va20 ov20
+			new: simp 2 25 6 "potions" 1 va20 201
+			attr 199
+			BHVR 48
+			accg 0
+			perm 64
+			aero 3
+			elas 10
+			fric 100
+			SETV OV61 40
+			tint 190 100 200 128 128
+			doif tmvt va00 va01 = 1
+				mvto va00 va01
+			else
+				mvsf va00 va01
+			endi
+			tick 20
+			slow
+		elif ov00 = 7
+
+			inst
+			addv ov20 1
+			doif ov20 >= 4
+				setv ov20 0
+			endi
+			setv va20 ov20
+			new: simp 2 25 2 "potions" 1 va20 201
+			attr 199
+			BHVR 48
+			accg 0
+			perm 64
+			aero 3
+			elas 10
+			fric 100
+			SETV OV61 40
+			tint 230 180 130 128 128
+			doif tmvt va00 va01 = 1
+				mvto va00 va01
+			else
+				mvsf va00 va01
+			endi
+			tick 20
+			slow
+		elif ov00 = 8
+
+			inst
+			addv ov20 1
+			doif ov20 >= 4
+				setv ov20 0
+			endi
+			setv va20 ov20
+			new: simp 2 25 17 "potions" 1 va20 201
+			attr 199
+			BHVR 48
+			accg 0
+			perm 64
+			aero 3
+			elas 10
+			fric 100
+			SETV OV61 40
+			tint 240 210 200 128 128
+			doif tmvt va00 va01 = 1
+				mvto va00 va01
+			else
+				mvsf va00 va01
+			endi
+			tick 20
+			slow
+		elif ov00 = 9
+
+			inst
+			addv ov20 1
+			doif ov20 >= 4
+				setv ov20 0
+			endi
+			new: simp 2 25 1 "potions" 1 3 201
+			attr 199
+			BHVR 48
+			accg 0
+			perm 64
+			aero 3
+			elas 10
+			fric 100
+			SETV OV61 40
+			tint 220 100 170 128 128
+			doif tmvt va00 va01 = 1
+				mvto va00 va01
+			else
+				mvsf va00 va01
+			endi
+			tick 20
+			slow
+		elif ov00 = 10
+
+			inst
+			addv ov20 1
+			doif ov20 >= 4
+				setv ov20 0
+			endi
+			setv va20 ov20
+			new: simp 2 25 19 "potions" 1 va20 201
+			attr 199
+			BHVR 48
+			accg 0
+			perm 64
+			aero 3
+			elas 10
+			fric 100
+			SETV OV61 40
+			tint 170 130 200 128 128
+			doif tmvt va00 va01 = 1
+				mvto va00 va01
+			else
+				mvsf va00 va01
+			endi
+			tick 20
+			slow
+		elif ov00 = 11
+
+			inst
+			addv ov20 1
+			doif ov20 >= 4
+				setv ov20 0
+			endi
+			new: simp 2 25 15 "potions" 1 1 201
+			attr 199
+			BHVR 48
+			accg 0
+			perm 64
+			aero 3
+			elas 10
+			fric 100
+			SETV OV61 40
+			tint 240 160 160 128 128
+			doif tmvt va00 va01 = 1
+				mvto va00 va01
+			else
+				mvsf va00 va01
+			endi
+			tick 20
+			slow
+
+		elif ov00 = 12
+
+			addv ov20 1
+			doif ov20 >= 4
+				setv ov20 0
+			endi
+			new: simp 2 25 16 "potions" 1 0 201
+			attr 199
+			BHVR 48
+			accg 0
+			perm 64
+			aero 3
+			elas 10
+			fric 100
+			SETV OV61 40
+			tint 120 170 120 128 128
+			doif tmvt va00 va01 = 1
+				mvto va00 va01
+			else
+				mvsf va00 va01
+			endi
+			tick 20
+			slow
+
+		endi
+		targ ownr
+		part 5
+		frat 2
+		anim [6 7 8 9 10 0]
+		wait 5
+		part 2
+		anim [1]
+	else
+		snde "excl"
+	endi
+endm
+
+
+scrp 2 23 2 1002
+	lock
+	part 6
+	anim [0 1 255]
+	snde "bep2"
+	addv ov00 1
+	doif ov00 >= 13
+		setv ov00 1
+	endi
+	doif ov00 = 1
+		part 3
+		frmt 3 4 3 3 0 0 10
+		sets va00 read "medicine maker potions" 0
+		ptxt va00
+	elif ov00 = 2
+		part 3
+		frmt 3 4 3 3 0 0 10
+		sets va00 read "medicine maker potions" 1
+		ptxt va00
+	elif ov00 = 3
+		part 3
+		frmt 3 4 3 3 0 0 10
+		sets va00 read "medicine maker potions" 2
+		ptxt va00
+	elif ov00 = 4
+		part 3
+		frmt 3 4 3 3 0 0 10
+		sets va00 read "medicine maker potions" 3
+		ptxt va00
+	elif ov00 = 5
+		part 3
+		frmt 3 4 3 3 0 0 10
+		sets va00 read "medicine maker potions" 4
+		ptxt va00
+	elif ov00 = 6
+		part 3
+		frmt 3 4 3 3 0 0 10
+		sets va00 read "medicine maker potions" 5
+		ptxt va00
+	elif ov00 = 7
+		part 3
+		frmt 3 4 3 3 0 0 10
+		sets va00 read "medicine maker potions" 6
+		ptxt va00
+	elif ov00 = 8
+		part 3
+		frmt 3 4 3 3 0 0 10
+		sets va00 read "medicine maker potions" 7
+		ptxt va00
+	elif ov00 = 9
+		part 3
+		frmt 3 4 3 3 0 0 10
+		sets va00 read "medicine maker potions" 8
+		ptxt va00
+	elif ov00 = 10
+		part 3
+		frmt 3 4 3 3 0 0 10
+		sets va00 read "medicine maker potions" 9
+		ptxt va00
+	elif ov00 = 11
+		part 3
+		frmt 3 4 3 3 0 0 10
+		sets va00 read "medicine maker potions" 10
+		ptxt va00
+	elif ov00 = 12
+		part 3
+		frmt 3 4 3 3 0 0 10
+		sets va00 read "medicine maker potions" 11
+		ptxt va00
+	endi
+	part 6
+	anim [1]
+endm
+
+
+scrp 2 23 2 9
+	setv va00 totl 2 25 3
+	setv va01 game "Bioenergy"
+	doif va00 <= 100 and ov70 < 5 and va01 >= 40
+		part 2
+		anim [0 1 255]
+		part 6
+		anim [0 1 255]
+		addv ov70 1
+		subv game "Bioenergy" 40
+		part 1
+		pose ov70
+		wait 1
+		part 2
+		anim [1]
+		part 6
+		anim [1]
+	endi
+endm
+
+
+scrp 2 25 1 12
+	seta va16 from
+	snde "drnk"
+	inst
+	targ va16
+	chem 39 .4
+	chem 41 .4
+	slow
+	targ ownr
+	kill ownr
+endm
+
+
+scrp 2 25 2 12
+	seta va16 from
+	snde "drnk"
+	inst
+	targ va16
+	chem 97 1
+	slow
+	targ ownr
+	kill ownr
+endm
+
+
+scrp 2 25 3 12
+	seta va16 from
+	snde "drnk"
+	inst
+	targ va16
+	chem 95 1
+	slow
+	targ ownr
+	kill ownr
+endm
+
+
+scrp 2 25 4 12
+	seta va16 from
+	snde "drnk"
+	inst
+	targ va16
+	chem 92 1
+	slow
+	targ ownr
+	kill ownr
+endm
+
+
+scrp 2 25 5 12
+	seta va16 from
+	snde "drnk"
+	inst
+	targ va16
+	chem 93 1
+	slow
+	targ ownr
+	kill ownr
+endm
+
+
+scrp 2 25 6 12
+	seta va16 from
+	snde "drnk"
+	inst
+	targ va16
+	chem 96 1
+	slow
+	targ ownr
+	kill ownr
+endm
+
+
+scrp 2 25 15 12
+	seta va16 from
+	snde "drnk"
+	inst
+	targ va16
+	chem 75 .15
+	slow
+	targ ownr
+	kill ownr
+endm
+
+
+scrp 2 25 16 12
+	seta va16 from
+	snde "drnk"
+	inst
+	targ va16
+	chem 75 .45
+	slow
+	targ ownr
+	kill ownr
+endm
+
+
+scrp 2 25 17 12
+	seta va16 from
+	snde "drnk"
+	inst
+	targ va16
+	chem 155 1
+	chem 154 .5
+	chem 129 1
+	slow
+	targ ownr
+	kill ownr
+endm
+
+
+scrp 2 25 18 12
+	seta va16 from
+	snde "drnk"
+	inst
+	targ va16
+	chem 100 1
+	slow
+	targ ownr
+	kill ownr
+endm
+
+
+scrp 2 25 19 12
+	seta va16 from
+	snde "drnk"
+	inst
+	targ va16
+	chem 100 .15
+	chem 97 .15
+	chem 95 .15
+	chem 92 .15
+	chem 93 .15
+	chem 96 .15
+	chem 94 .15
+	chem 117 .45
+	slow
+	targ ownr
+	kill ownr
+endm
+
+
+scrp 2 25 20 12
+	seta va16 from
+	snde "drnk"
+	inst
+	targ va16
+	chem 98 .35
+	chem 99 .35
+	chem 94 .15
+	chem 3 .05
+	slow
+	targ ownr
+	kill ownr
+endm
+
+
+
+scrp 2 25 1 9
+	doif carr = null
+		accg 10
+		velo 0 0
+		plne 550
+		tick 0
+	else
+		tick 1
+	endi
+endm
+
+
+scrp 2 25 1 6
+	snde "dr10"
+endm
+
+
+scrp 2 25 2 9
+	doif carr = null
+		accg 10
+		velo 0 0
+		plne 550
+		tick 0
+	else
+		tick 1
+	endi
+endm
+
+
+scrp 2 25 2 6
+	snde "dr10"
+endm
+
+
+scrp 2 25 3 9
+	doif carr = null
+		accg 10
+		velo 0 0
+		plne 550
+		tick 0
+	else
+		tick 1
+	endi
+endm
+
+
+scrp 2 25 3 6
+	snde "dr10"
+endm
+
+
+scrp 2 25 4 9
+	doif carr = null
+		accg 10
+		velo 0 0
+		plne 550
+		tick 0
+	else
+		tick 1
+	endi
+endm
+
+
+scrp 2 25 4 6
+	snde "dr10"
+endm
+
+
+scrp 2 25 5 9
+	doif carr = null
+		accg 10
+		velo 0 0
+		plne 550
+		tick 0
+	else
+		tick 1
+	endi
+endm
+
+
+scrp 2 25 5 6
+	snde "dr10"
+endm
+
+
+scrp 2 25 6 9
+	doif carr = null
+		accg 10
+		velo 0 0
+		plne 550
+		tick 0
+	else
+		tick 1
+	endi
+endm
+
+
+scrp 2 25 6 6
+	snde "dr10"
+endm
+
+
+scrp 2 25 15 9
+	doif carr = null
+		accg 10
+		velo 0 0
+		plne 550
+		tick 0
+	else
+		tick 1
+	endi
+endm
+
+
+scrp 2 25 15 6
+	snde "dr10"
+endm
+
+scrp 2 25 16 9
+	doif carr = null
+		accg 10
+		velo 0 0
+		plne 550
+		tick 0
+	else
+		tick 1
+	endi
+endm
+
+
+scrp 2 25 16 6
+	snde "dr10"
+endm
+
+scrp 2 25 17 9
+	doif carr = null
+		accg 10
+		velo 0 0
+		plne 550
+		tick 0
+	else
+		tick 1
+	endi
+endm
+
+
+scrp 2 25 17 6
+	snde "dr10"
+endm
+
+scrp 2 25 18 9
+	doif carr = null
+		accg 10
+		velo 0 0
+		plne 550
+		tick 0
+	else
+		tick 1
+	endi
+endm
+
+
+scrp 2 25 18 6
+	snde "dr10"
+endm
+
+scrp 2 25 19 9
+	doif carr = null
+		accg 10
+		velo 0 0
+		plne 550
+		tick 0
+	else
+		tick 1
+	endi
+endm
+
+
+scrp 2 25 19 6
+	snde "dr10"
+endm
+
+scrp 2 25 20 9
+	doif carr = null
+		accg 10
+		velo 0 0
+		plne 550
+		tick 0
+	else
+		tick 1
+	endi
+endm
+
+scrp 2 25 20 6
+	snde "dr10"
+endm
+
+
+scrp 2 25 1 4
+	accg 10
+endm
+
+scrp 2 25 2 4
+	accg 10
+endm
+
+scrp 2 25 3 4
+	accg 10
+endm
+
+scrp 2 25 4 4
+	accg 10
+endm
+
+scrp 2 25 5 4
+	accg 10
+endm
+
+scrp 2 25 6 4
+	accg 10
+endm
+
+scrp 2 25 15 4
+	accg 10
+endm
+
+scrp 2 25 16 4
+	accg 10
+endm
+
+scrp 2 25 17 4
+	accg 10
+endm
+
+scrp 2 25 18 4
+	accg 10
+endm
+
+scrp 2 25 19 4
+	accg 10
+endm
+
+scrp 2 25 20 4
+	accg 10
+endm
+
+
+
+
+
+
+
+
+
+
+
+
+rscr
+enum 2 23 2
+	kill targ
+next
+scrx 2 23 2 1001
+scrx 2 23 2 1002
+scrx 2 23 2 9
+
+enum 2 25 0
+	kill targ
+next
+scrx 2 25 1 9
+scrx 2 25 1 12

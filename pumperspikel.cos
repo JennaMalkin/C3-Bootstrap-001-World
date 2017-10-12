@@ -1,0 +1,173 @@
+
+
+
+inst
+
+reps 5
+	new: simp 2 8 3 "pumperspikel" 21 0 25
+	attr 80
+	accg 4
+	elas 0
+	setv ov30 rand 1 5
+	doif ov30 = 5
+		perm 60
+	else
+		perm 10
+	endi
+	pose rand 0 10
+	mvto rand 2820 3320 rand 130 200
+	tick rand 200 800
+
+
+repe
+
+scrp 2 8 3 4
+	setv va00 attr
+	orrv va00 128
+	attr va00
+endm
+
+
+scrp 2 8 3 9
+	doif ov00 eq 0
+		doif pose lt 11
+			setv ov70 pose
+			addv ov70 1
+			pose ov70
+			doif pose eq 10
+				doif attr eq 80
+					attr 83
+				endi
+			endi
+		else
+			pose 11
+			doif attr ne 195
+				attr 195
+			endi
+			setv ov00 1
+		endi
+	endi
+endm
+
+scrp 2 8 3 6
+	doif wall eq 3
+		snde "splt"
+		anim [12 13 14]
+		over
+		setv va00 posx
+		setv va01 posy
+		setv va30 ov30
+		inst
+		doif totl 2 3 5 lt 10
+			setv va89 5
+		else
+			setv va89 2
+		endi
+		reps va89
+			targ ownr
+			new: simp 2 3 5 "pumperspikel" 9 21 10
+			attr 199
+			accg 5
+
+			bhvr 48
+			elas 50
+			fric 90
+			doif va30 = 1
+				perm 10
+			else
+				perm 60
+			endi
+
+			doif tmvt va00 va01 <> 1
+				mvsf va00 va01
+			else
+				mvto va00 va01
+			endi
+			setv vely rand -20 -5
+			setv velx rand -10 10
+			tick rand 200 600
+			anim [0 1 2 3 4 5 6 7 8]
+
+			setv ov61 20
+
+
+			emit 7 0.5
+
+
+		repe
+		slow
+		targ ownr
+		anim [15 16 17 18 19 20]
+		over
+		inst
+		new: simp 2 8 3 "pumperspikel" 21 0 25
+		attr 80
+
+		accg 4
+		elas 0
+		setv ov30 rand 1 5
+		doif ov30 = 5
+			perm 60
+		else
+			perm 10
+		endi
+		setv va50 rand 2820 3320
+		setv va51 rand 130 200
+		doif tmvt va50 va51 <> 1
+			kill targ
+		else
+			mvto va50 va51
+			tick rand 200 800
+
+
+			inst
+			doif room targ <> -1 and carr = null
+				altr room ownr 3 0.01
+				altr room ownr 4 0.01
+			endi
+		endi
+		kill ownr
+	endi
+endm
+
+
+scrp 2 3 5 9
+	inst
+	doif rtyp room ownr eq 8 or rtyp room ownr eq 9
+		kill ownr
+	endi
+	addv ov99 1
+	doif ov99 ge 20
+		doif room targ <> -1 and carr = null
+			altr room targ 3 0.01
+			altr room targ 4 0.01
+		endi
+		kill ownr
+	endi
+endm
+
+scrp 2 3 5 6
+	snde "clak"
+endm
+
+
+scrp 2 3 5 12
+	sndc "chwp"
+	targ from
+	doif fmly eq 4
+		stim writ targ 77 3
+	endi
+	wait 10
+	kill ownr
+endm
+
+
+rscr
+enum 2 3 5
+	kill targ
+next
+enum 2 8 3
+	kill targ
+next
+scrx 2 8 3 9
+scrx 2 8 3 6

@@ -1,0 +1,8 @@
+new: simp 1 1 97 "ocean_pod" 1 0 8100
+mvto 4140 1635
+
+
+rscr
+enum 1 1 97
+	kill targ
+next

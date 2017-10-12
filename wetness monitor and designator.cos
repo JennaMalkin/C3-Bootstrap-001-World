@@ -1,0 +1,85 @@
+
+iscr
+inst
+new: simp 1 1 106 "watr" 1 0 0
+tick 10
+attr 0
+setv ov00 0
+setv ov01 0
+mvto 2500 500
+endm
+
+scrp 1 1 106 9
+	enum 2 0 0
+		gsub get_wet
+	next
+	enum 3 0 0
+		gsub get_wet
+	next
+	subr get_wet
+		inst
+		doif targ <> null
+			setv va30 attr
+			andv va30 32
+			doif va30 = 0
+				setv va30 attr
+				andv va30 3
+				doif va30 <> 0
+					doif rtyp room targ = 8 or rtyp room targ = 9
+
+						addv ov60 1
+						doif ov60 gt 100
+							setv ov60 100
+						endi
+					endi
+					doif ov60 gt 0
+						doif rtyp room targ <> 8 and rtyp room targ <> 9
+
+							subv ov60 1
+							setv va50 posx
+							setv va51 posy
+							setv va52 plne
+							inst
+							new: simp 2 19 4 "watr" 5 1 va52
+							perm 100
+							attr 192
+							elas 0
+							accg 10
+							tick 30
+							doif tmvt va50 va51 <> 1
+								kill targ
+								stop
+							endi
+							mvto va50 va51
+							setv vely 0
+						endi
+					endi
+				endi
+			endi
+		endi
+		slow
+	retn
+endm
+
+scrp 2 19 4 6
+	anim [1 2 3 4]
+	over
+	kill targ
+endm
+
+scrp 2 19 4 9
+
+
+	kill targ
+endm
+
+rscr
+enum 1 1 106
+	kill targ
+next
+scrx 100 100 100 9
+
+enum 2 19 4
+	kill targ
+next
+scrx 2 19 4 6

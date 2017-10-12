@@ -1,0 +1,144 @@
+inst
+
+new: comp 3 3 35 "trapdoor" 1 6 0
+attr 4
+clac 0
+elas 0
+
+pat: butt 1 "trapdoor" 7 2 15 6 0 [] 1000 0
+part 1
+anim [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 255]
+
+prt: inew 0 "Trapdoor input" " " 39 39 1001
+prt: onew 0 "Trapdoor output" " " 15 39
+
+mvto 2814 2060
+
+
+
+new: simp 1 1 26 "trapdoor" 6 0 0
+attr 16
+elas 0
+
+mvto 2604 2098
+
+
+
+
+scrp 3 3 35 1001
+	doif _p1_ ne 0
+		mesg writ ownr 1000
+	endi
+endm
+
+scrp 3 3 35 1002
+	prt: send 0 _p1_
+endm
+
+
+scrp 3 3 35 1
+	sndc "beep"
+	mesg writ ownr 1000
+endm
+
+
+scrp 3 3 35 1000
+	part 1
+	anim [0 1 0 1 0 1 0]
+	rtar 1 1 26
+	doif targ ne null
+		mesg writ targ 1000
+	endi
+	targ ownr
+	over
+	anim [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 255]
+
+endm
+
+
+scrp 1 1 26 1000
+	lock
+	doif ov50 = 0
+		setv ov50 1
+		sndc "trap"
+
+		setv ov00 grap posx posy
+		setv ov01 grid targ _up_
+		setv ov02 grid targ down
+
+
+		rtar 3 3 35
+		doif targ ne null
+			mesg wrt+ targ 1002 255 0 0
+		endi
+		targ ownr
+		anim [0 1 2 3 4 5]
+		door ov00 ov01 100
+		door ov00 ov02 100
+		inst
+		etch 0 0 0
+			velo 0 0
+		next
+		slow
+		targ ownr
+		over
+		wait 30
+		inst
+		setv va66 0
+		etch 4 0 0
+			addv va66 1
+		next
+		doif va66 < 1
+			tick 0
+			setv ov50 0
+			anim [5 4 3 2 1 0]
+			sndc "trap"
+			door ov00 ov01 50
+			door ov00 ov02 50
+			over
+			rtar 3 3 35
+			doif targ ne null
+				mesg wrt+ targ 1002 0 0 0
+			endi
+		else
+			tick 20
+		endi
+	endi
+
+endm
+
+
+scrp 1 1 26 9
+	inst
+	lock
+	setv va66 0
+	etch 4 0 0
+		addv va66 1
+	next
+	doif va66 < 1
+		tick 0
+		setv ov50 0
+		anim [5 4 3 2 1 0]
+		sndc "trap"
+		door ov00 ov01 50
+		door ov00 ov02 50
+		over
+		rtar 3 3 35
+		doif targ ne null
+			mesg wrt+ targ 1002 0 0 0
+		endi
+	else
+		tick 20
+	endi
+endm
+
+
+rscr
+enum 3 3 35
+	kill targ
+next
+enum 1 1 26
+	kill targ
+next
+scrx 3 3 35 1000
+scrx 1 1 26 1000

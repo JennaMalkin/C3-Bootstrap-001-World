@@ -1,0 +1,28 @@
+inst
+new: simp 1 1 2 "norncut01" 1 0 8100
+attr 16
+mvto 1166 638
+
+
+new: simp 1 1 3 "norncut01" 1 1 8100
+attr 16
+mvto 2723 812
+
+
+new: simp 1 1 4 "norncut01" 1 2 8100
+attr 16
+mvto 1128 554
+
+
+
+
+rscr
+enum 1 1 2
+	kill targ
+next
+enum 1 1 3
+	kill targ
+next
+enum 1 1 4
+	kill targ
+next

@@ -1,0 +1,446 @@
+inst
+
+new: simp 1 1 606 "sidebar" 2 27 0
+
+
+
+mvto 131 357
+tick 30
+
+
+new: comp 1 1 605 "sidebar" 1 0 100
+mvto 7212 120
+
+pat: dull 1 "sidebar" 1 3 3 1
+pat: dull 2 "sidebar" 1 24 3 1
+pat: dull 3 "sidebar" 1 45 3 1
+
+pat: butt 4 "sidebar" 11 1 10 150 1 [] 1000 0
+
+pat: butt 5 "sidebar" 14 2 10 200 1 [] 1001 0
+part 5
+pose 0
+pat: butt 6 "sidebar" 16 2 30 200 1 [] 1002 0
+part 6
+pose 1
+pat: butt 7 "sidebar" 18 2 50 200 1 [] 1003 0
+part 7
+pose 1
+
+pat: dull 8 "sidebar" 23 5 60 1
+part 8
+pose 2
+
+pat: butt 9 "sidebar" 29 1 0 430 1 [] 1006 0
+
+setv ov00 2
+
+setv ov01 0
+
+setv ov02 0
+
+
+
+
+
+
+
+scrp 1 1 606 9
+	anim [0 0 1 0]
+	tick rand 100 600
+endm
+
+
+scrp 1 1 606 1
+	doif hhld <> null
+		targ hhld
+		nohh
+	endi
+	meta 6 -1 -1 game "c3_meta_transition"
+endm
+
+
+
+
+
+
+
+
+
+
+
+
+
+scrp 1 1 605 1001
+	inst
+	part 5
+	pose 0
+	part 6
+	pose 1
+	part 7
+	pose 1
+	setv ov02 0
+	enum 1 1 600
+		setv ov00 0
+	next
+endm
+
+scrp 1 1 605 1002
+	inst
+	part 5
+	pose 1
+	part 6
+	pose 0
+	part 7
+	pose 1
+	setv ov02 30
+	enum 1 1 600
+		setv ov00 30
+	next
+endm
+
+scrp 1 1 605 1003
+	inst
+	part 5
+	pose 1
+	part 6
+	pose 1
+	part 7
+	pose 0
+	setv ov02 40
+	enum 1 1 600
+		setv ov00 40
+	next
+endm
+
+scrp 1 1 605 1004
+	doif ov00 ne 0
+		subv ov00 1
+		part 8
+		pose ov00
+	endi
+endm
+
+scrp 1 1 605 1005
+	inst
+	doif ov01 lt 999
+		addv ov01 1
+
+		setv va00 ov01
+		setv va01 ov01
+
+		divv va00 100
+		modv va01 100
+
+		setv va02 va01
+		divv va02 10
+		modv va01 10
+
+
+		part 1
+		pose va00
+		part 2
+		pose va02
+		part 3
+		pose va01
+	endi
+endm
+
+scrp 1 1 605 1006
+	targ game "c3_default_focus"
+	part game "c3_default_focus_part"
+	fcus
+	doif hhld <> null
+		targ hhld
+		nohh
+	endi
+	meta 0 -1 -1 game "c3_meta_transition"
+endm
+
+scrp 1 1 605 9
+	doif totl 1 1 600 eq 0
+		inst
+		setv va00 7416
+		setv va01 150
+		setv va99 ov02
+		reps 3
+			reps 10
+				new: simp 1 1 600 "fairy" 10 29 300
+				attr 64
+				mvto va00 va01
+				tick 25
+				setv ov10 -1
+				setv ov00 va99
+				addv va00 50
+				anim [0 1 2 3 4 5 6 7 8 9 255]
+			repe
+			setv va00 7416
+			addv va01 60
+		repe
+	endi
+endm
+
+scrp 1 1 605 1000
+	doif game "scared" eq 1
+
+		inst
+		targ null
+		fcus
+		targ ownr
+		setv ov99 1
+		tick 10
+
+
+		enum 2 1 610
+			kill targ
+		next
+
+		setv ov00 2
+		part 8
+		pose ov00
+
+		setv ov01 0
+		part 1
+		pose 0
+		part 2
+		pose 0
+		part 3
+		pose 0
+
+		setv va99 ov02
+
+		rtar 1 1 601
+		doif targ ne null
+			kill targ
+		endi
+		new: simp 1 1 601 "sidebar" 2 12 200
+
+		attr 64
+		elas 0
+
+		mvto 7625 585
+		cmrt 0
+		imsk 1
+		setv ov00 3
+
+
+		enum 1 1 600
+			kill targ
+		next
+		setv va00 7416
+		setv va01 150
+		reps 3
+			reps 10
+				new: simp 1 1 600 "fairy" 10 29 300
+				attr 64
+				mvto va00 va01
+				tick 25
+				setv ov10 -1
+				setv ov00 va99
+				addv va00 50
+				anim [0 1 2 3 4 5 6 7 8 9 255]
+			repe
+			setv va00 7416
+			addv va01 60
+		repe
+	else
+		sndc "buzz"
+	endi
+endm
+
+scrp 1 1 600 9
+
+
+	inst
+	tick 5
+	doif obst left le 50 and ov10 lt 0
+		negv ov10
+		mvby 0 30
+	elif obst rght le 50 and ov10 gt 0
+		negv ov10
+		mvby 0 30
+	endi
+	doif totl 1 1 600 lt 5
+		setv va01 20
+	else
+		setv va01 10
+	endi
+	setv va00 ov10
+	mulv va00 va01
+	setv velx va00
+
+	doif rand ov00 50 gt 48
+		inst
+		setv va00 posx
+		setv va01 posy
+		new: simp 1 1 603 "sidebar" 3 20 100
+		attr 192
+		elas 0
+		anim [0 1 2 255]
+		accg 0.5
+		mvto va00 va01
+		tick 1
+	endi
+	rtar 1 1 601
+	doif touc targ ownr gt 0
+		mesg writ targ 1000
+	endi
+endm
+
+scrp 1 1 603 6
+	kill ownr
+endm
+
+scrp 1 1 603 9
+	etch 1 1 601
+		mesg writ targ 1000
+		wait 1
+		kill ownr
+	next
+endm
+
+
+
+scrp 1 1 601 1000
+
+	inst
+	anim [0 1 0 1 0]
+	doif ov00 ne 1
+		inst
+		setv va00 posx
+		setv va01 post
+		inst
+		new: simp 1 1 604 "deth" 5 22 300
+		mvto va00 va01
+		tick 30
+		targ ownr
+		subv ov00 1
+		rtar 1 1 605
+		mesg writ targ 1004
+		slow
+	else
+		reps 5
+			inst
+			new: simp 2 1 610 "sidebar" 1 26 8000
+			attr 192
+			mvto 7321 133
+			accg rand 1 3
+			setv velx rand -10 10
+
+			tick 100
+		repe
+		enum 1 1 600
+			setv velx 0
+			tick 0
+		next
+		enum 1 1 601
+			setv velx 0
+			pose 1
+		next
+		rtar 1 1 605
+		doif targ ne null
+			setv ov99 0
+		endi
+	endi
+endm
+
+scrp 2 1 610 9
+	kill ownr
+endm
+
+
+
+
+
+
+
+
+
+scrp 1 1 601 73
+	inst
+	rtar 1 1 605
+	doif targ ne null
+		doif ov99 eq 0
+			stop
+		endi
+	endi
+	targ ownr
+	doif ov00 ne 0
+		doif _p1_ eq 37
+			setv velx -10
+		elif _p1_ eq 39
+			setv velx 10
+		elif _p1_ eq 32
+			doif totl 1 1 602 le 3
+				setv va00 posx
+				setv va01 posy
+				inst
+				new: simp 1 1 602 "bone" 12 0 100
+				attr 64
+				tick 1
+				mvto va00 va01
+				setv vely -20
+				anim [0 1 2 3 4 5 6 7 8 9 10 11 255]
+			endi
+		endi
+	endi
+endm
+
+scrp 1 1 602 9
+	setv va00 0
+	inst
+	etch 1 1 600
+		kill targ
+		setv va00 1
+	next
+	doif va00 eq 1
+		rtar 1 1 605
+		mesg writ targ 1005
+		targ ownr
+		slow
+		wait 1
+		kill ownr
+	endi
+endm
+
+scrp 1 1 602 6
+	kill ownr
+endm
+
+scrp 1 1 604 9
+	kill ownr
+endm
+
+
+
+rscr
+enum 1 1 606
+	kill targ
+next
+enum 1 1 605
+	kill targ
+next
+enum 1 1 601
+	kill targ
+next
+enum 1 1 600
+	kill targ
+next
+enum 1 1 602
+	kill targ
+next
+enum 1 1 603
+	kill targ
+next
+enum 1 1 604
+	kill targ
+next
+enum 2 1 610
+	kill targ
+next
+scrx 1 1 600 9
+scrx 1 1 601 73
+scrx 1 1 601 74
+scrx 1 1 602 6
+scrx 1 1 606 1
+scrx 1 1 606 9

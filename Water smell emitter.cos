@@ -1,0 +1,76 @@
+inst
+
+
+
+setv va00 0
+
+
+new: simp 1 1 15 "targ" 2 0 0
+attr 16
+mvto 6707 570
+emit 5 1
+pose va00
+
+new: simp 1 1 15 "targ" 2 0 0
+attr 16
+mvto 6809 570
+emit 5 1
+pose va00
+
+new: simp 1 1 15 "targ" 2 0 0
+attr 16
+mvto 6919 574
+emit 5 1
+pose va00
+
+
+new: simp 1 1 15 "targ" 2 0 0
+attr 16
+mvto 3763 1029
+emit 5 1
+pose va00
+
+new: simp 1 1 15 "targ" 2 0 0
+attr 16
+mvto 3468 1040
+emit 5 1
+pose va00
+
+new: simp 1 1 15 "targ" 2 0 0
+attr 16
+mvto 3311 1040
+emit 5 1
+pose va00
+
+new: simp 1 1 15 "targ" 2 0 0
+attr 16
+mvto 3960 1027
+emit 5 1
+pose va00
+
+new: simp 1 1 15 "targ" 2 0 0
+attr 16
+mvto 3866 1022
+emit 5 1
+pose va00
+
+
+new: simp 1 1 15 "targ" 2 0 0
+attr 16
+mvto 2518 2186
+emit 5 1
+pose va00
+
+new: simp 1 1 15 "targ" 2 0 0
+attr 16
+mvto 2700 2186
+emit 5 1
+pose va00
+
+
+
+
+rscr
+enum 1 1 15
+	kill targ
+next

@@ -1,0 +1,275 @@
+
+new: simp 2 24 4 "pick-ups" 8 8 6000
+attr 196
+accg 4
+perm 80
+mvto 2320 2333
+elas 10
+fric 80
+clac 0
+bhvr 1
+anim [0 1 2 3 4 5 6 7 255]
+
+setv ov01 1
+
+
+new: simp 2 24 4 "pick-ups" 8 8 6000
+attr 196
+accg 4
+perm 80
+mvto 6880 500
+elas 10
+fric 80
+clac 0
+bhvr 1
+anim [0 1 2 3 4 5 6 7 255]
+
+setv ov01 1
+
+
+new: simp 2 24 4 "pick-ups" 8 8 6000
+attr 196
+accg 4
+perm 80
+mvto 2820 252
+elas 10
+fric 80
+clac 0
+bhvr 1
+anim [0 1 2 3 4 5 6 7 255]
+
+setv ov01 1
+
+
+new: simp 2 24 4 "pick-ups" 8 8 6000
+attr 196
+accg 4
+perm 80
+mvto 2880 3990
+elas 10
+fric 80
+clac 0
+bhvr 1
+anim [0 1 2 3 4 5 6 7 255]
+
+setv ov01 1
+
+
+
+new: simp 2 24 4 "pick-ups" 8 16 6000
+attr 196
+accg 4
+perm 80
+mvto 3800 20
+elas 10
+fric 80
+clac 0
+bhvr 1
+anim [0 1 2 3 4 5 6 7 255]
+
+setv ov01 2
+
+
+new: simp 2 24 4 "pick-ups" 8 16 6000
+attr 196
+accg 4
+perm 80
+mvto 1650 2520
+elas 10
+fric 80
+clac 0
+bhvr 1
+anim [0 1 2 3 4 5 6 7 255]
+
+setv ov01 2
+
+
+new: simp 2 24 4 "pick-ups" 8 16 6000
+attr 196
+accg 4
+perm 80
+mvto 4600 440
+elas 10
+fric 80
+clac 0
+bhvr 1
+anim [0 1 2 3 4 5 6 7 255]
+
+setv ov01 2
+
+
+new: simp 2 24 4 "pick-ups" 8 16 6000
+attr 196
+accg 4
+perm 80
+mvto 4380 2200
+elas 10
+fric 80
+clac 0
+bhvr 1
+anim [0 1 2 3 4 5 6 7 255]
+
+setv ov01 2
+
+
+
+new: simp 2 24 4 "pick-ups" 8 43 6000
+attr 196
+accg 4
+perm 80
+
+mvto 5600 933
+elas 10
+fric 80
+clac 0
+bhvr 1
+anim [0 1 2 3 4 5 6 7 255]
+
+setv ov01 3
+
+
+new: simp 2 24 4 "pick-ups" 8 43 6000
+attr 196
+accg 4
+perm 80
+
+
+mvto 4933 2390
+
+elas 10
+fric 80
+clac 0
+bhvr 1
+anim [0 1 2 3 4 5 6 7 255]
+
+setv ov01 3
+
+
+new: simp 2 24 4 "pick-ups" 8 43 6000
+attr 196
+accg 4
+perm 80
+
+mvto 4800 700
+elas 10
+fric 80
+clac 0
+bhvr 1
+anim [0 1 2 3 4 5 6 7 255]
+
+setv ov01 3
+
+
+new: simp 2 24 4 "pick-ups" 8 43 6000
+attr 196
+accg 4
+perm 80
+
+mvto 4000 1000
+elas 10
+fric 80
+clac 0
+bhvr 1
+anim [0 1 2 3 4 5 6 7 255]
+
+setv ov01 3
+
+
+
+new: simp 2 24 4 "pick-ups" 8 0 6000
+attr 196
+accg 4
+perm 80
+
+mvto 2860 2024
+elas 10
+fric 80
+clac 0
+bhvr 1
+anim [0 1 2 3 4 5 6 7 255]
+
+setv ov01 4
+
+
+
+
+new: simp 2 24 4 "pick-ups" 8 35 6000
+attr 196
+accg 4
+perm 80
+mvto 2700 1700
+elas 10
+fric 80
+clac 0
+bhvr 1
+anim [0 1 2 3 4 5 6 7 255]
+
+setv ov01 7
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+new: simp 2 24 4 "pick-ups" 8 67 6000
+attr 196
+accg 4
+perm 80
+
+mvto 5930 2330
+elas 10
+fric 80
+clac 0
+bhvr 1
+anim [0 1 2 3 4 5 6 7 255]
+
+setv ov01 9
+
+
+
+scrp 2 24 4 1
+	targ from
+	doif fmly = 4 and gnus = 1
+		targ ownr
+		mesg wrt+ ownr 12345 40 5 0
+	endi
+	targ ownr
+endm
+
+scrp 2 24 4 2
+	targ from
+	doif fmly = 4 and gnus = 1
+		targ ownr
+		mesg wrt+ ownr 12345 40 5 0
+	endi
+	targ ownr
+endm
+
+
+scrp 2 24 4 3
+	targ from
+	doif fmly = 4 and gnus = 1
+		targ ownr
+		mesg wrt+ ownr 12345 40 5 0
+	endi
+	targ ownr
+endm
+
+
+
+
+rscr
+enum 2 24 4
+	kill targ
+next
+scrx 2 24 4 1

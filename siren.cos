@@ -1,0 +1,104 @@
+
+iscr
+reps 1
+	new: simp 3 8 8 "siren" 20 0 5000
+	attr 199
+	perm 99
+	clac 0
+	elas 10
+	tick 0
+	aero 5
+	accg 4
+	bhvr 41
+	setv ov61 100
+	mvto 1800 700
+	anim [0]
+	prt: inew 0 "siren in" "siren" 24 36 1000
+	prt: onew 0 "siren out" "siren" 10 36
+	emit 18 0.2
+repe
+
+scrp 3 8 8 1
+	stim writ from 90 1
+	doif ov00 = 0
+		mesg wrt+ ownr 1000 255 0 0
+	else
+		mesg writ ownr 2000
+	endi
+endm
+scrp 3 8 8 2
+	doif ov00 = 0
+		mesg wrt+ ownr 1000 255 0 0
+	else
+		mesg writ ownr 2000
+	endi
+endm
+
+
+scrp 3 8 8 4
+	targ from
+	doif fmly eq 4
+		stim writ targ 91 1
+	endi
+endm
+
+
+
+scrp 3 8 8 3
+	sndc "hit_"
+	velo 0 rand -5 -10
+	prt: bang rand 60 100
+	stim writ from 92 1
+endm
+
+
+scrp 3 8 8 1000
+	setv ov70 _p1_
+	setv ov71 ov70
+	absv ov71
+	doif ov71 <> 0
+		doif ov00 = 0
+			setv ov00 1
+			anim [0 1 2]
+			over
+		endi
+		snde "sirn"
+
+		esee 4 0 0
+			aslp 0
+		next
+		targ ownr
+		anim [3 4 5 6 7 8 9 10 11 12 13 14 15]
+		over
+		anim [16 17 0]
+		over
+		clac 1
+		setv ov00 0
+		prt: send 0 ov70
+	endi
+	doif ov71 = 0
+		mesg writ ownr 2000
+	endi
+
+
+endm
+
+
+scrp 3 8 8 2000
+	anim [16 17 0]
+	over
+	setv ov00 0
+	clac 0
+	prt: send 0 0
+endm
+
+rscr
+enum 3 8 8
+	kill targ
+next
+
+scrx 3 8 8 1
+scrx 3 8 8 2
+scrx 3 8 8 9
+scrx 3 8 8 1000
+scrx 3 8 8 2000

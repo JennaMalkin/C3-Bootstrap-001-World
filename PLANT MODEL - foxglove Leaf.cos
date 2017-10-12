@@ -1,0 +1,92 @@
+
+
+
+
+
+scrp 2 6 2 300
+	inst
+	addv ov51 1
+	doif ov51 gt 5
+		doif ov00 eq 0 or ov00 eq 1
+			setv ov00 0
+			base ov30
+			pose 0
+		elif ov00 eq 2 or ov00 eq 3
+			setv ov00 2
+			base ov38
+			pose 0
+		endi
+	endi
+	setv ov99 1
+	targ ov17
+	addv ov60 1
+endm
+
+
+scrp 2 6 2 301
+
+	inst
+	doif _p1_ eq 0
+
+		doif ov00 eq 0 or ov00 eq 2
+			base ov30
+			pose 0
+			doif ov00 eq 2
+				setv ov00 0
+			endi
+		elif ov00 eq 1 or ov00 eq 3
+
+			base ov37
+			pose 0
+			doif ov00 eq 3
+				setv ov00 1
+			endi
+		endi
+	else
+
+
+		doif ov00 eq 0
+			base ov38
+			pose 0
+		elif ov00 eq 1
+			base ov39
+			pose 0
+		endi
+	endi
+endm
+
+
+scrp 2 6 2 302
+	inst
+	subv ov51 1
+	setv ov99 0
+	targ ov17
+	subv ov60 1
+endm
+
+
+scrp 2 6 2 12
+	inst
+	doif ov99 eq 0
+		stop
+	endi
+	subv ov51 1
+	doif ov51 le 1
+		setv ov99 0
+	endi
+	doif ov51 le 5
+		doif ov00 eq 0
+			setv ov00 1
+			base ov37
+			pose 0
+		elif ov00 eq 2
+			setv ov00 3
+			base ov38
+			pose 0
+		endi
+	endi
+	targ ov17
+	doif targ ne null
+		subv ov60 1
+	endi
+endm

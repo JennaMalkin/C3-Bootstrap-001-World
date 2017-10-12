@@ -1,0 +1,93 @@
+inst
+new: comp 1 2 500 "smalltextbox" 1 0 9000
+attr 288
+pat: fixd 1 "smalltextbox" 1 10 5 1 "BlackOnTransparentChars"
+imsk 1
+flto -1000 -1000
+plne 9999
+setv ov00 0
+
+setv game "c3_magic_delay" 1200
+
+endm
+
+scrp 1 2 500 9
+	inst
+	part 1
+	sets va00 "Prof\n"
+	setv va01 wtik
+	subv va01 ov30
+	setv va02 game "c3_magic_delay"
+	subv va02 va01
+	adds va00 vtos va02
+	ptxt va00
+
+	doif va02 > 0
+		stop
+	endi
+
+	sets va00 wnam
+	adds va00 "."
+	adds va00 vtos wtik
+	adds va00 ".csv"
+	file oope 0 va00 0
+	dbg: prof
+	file oflu
+	file oclo
+	tick 0
+	flto -1000 -1000
+	setv ov00 0
+	lock
+	slow
+	targ pntr
+	setv va00 128
+	setv va01 128
+	setv va02 128
+	setv va03 0
+	loop
+		tint rand 0 255 rand 0 255 rand 0 255 128 128
+		wait 1
+		addv va03 1
+	untl va03 > 10
+	tint 128 128 128 128 128
+endm
+
+scrp 1 2 500 73
+	inst
+	doif _p1_ = 'M'
+		doif keyd 17 = 1 and keyd 16 = 1
+			doif ov00 = 0
+				setv ov30 wtik
+				tick 1
+				setv va00 wndh
+				subv va00 hght
+				subv va00 hght
+				setv va01 0
+				flto va01 va00
+				setv ov00 1
+				dbg: cpro
+			else
+				tick 0
+				flto -1000 -1000
+				setv ov00 0
+			endi
+		endi
+	endi
+endm
+
+scrp 1 2 500 123
+	inst
+	doif ov00 = 1
+		setv va00 wndh
+		subv va00 hght
+		subv va00 hght
+		setv va01 0
+		flto va01 va00
+	endi
+endm
+
+rscr
+enum 1 2 500
+	kill targ
+next
+scrx 1 2 500 9

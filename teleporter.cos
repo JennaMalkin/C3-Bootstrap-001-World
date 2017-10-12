@@ -1,0 +1,376 @@
+
+setv va50 0
+enum 3 2 1
+	addv va50 1
+next
+new: comp 3 2 1 "teleport" 11 0 30
+elas 0
+attr 197
+bhvr 9
+accg 5
+clac -1
+perm 100
+pat: butt 1 "teleport" 20 1 151 60 0 [] 6400 0
+pat: butt 2 "teleport" 20 1 151 81 0 [] 6401 0
+mvto 1004 426
+
+prt: inew 0 "Activate" "When a non-zero signal is received the teleport will activate" 169 75 6404
+prt: onew 0 "Pass through" "Outputs 255 when teleport activates" 169 90
+
+
+setv ov00 0
+setv ov90 0
+setv ov95 0
+setv ov03 1
+tick 30
+mesg writ targ 6400
+
+new: comp 3 2 1 "teleport" 11 0 30
+elas 0
+attr 197
+bhvr 9
+accg 5
+perm 100
+clac -1
+pat: butt 1 "teleport" 20 1 151 60 0 [] 6400 0
+pat: butt 2 "teleport" 20 1 151 81 0 [] 6401 0
+mvto 2563 1647
+
+prt: inew 0 "Activate" "When a non-zero signal is received the teleport will activate" 169 75 6404
+prt: onew 0 "Pass through" "Outputs 255 when teleport activates" 169 90
+
+
+setv ov00 0
+setv ov90 0
+setv ov95 0
+setv ov03 3
+tick 30
+
+new: comp 3 2 1 "teleport" 11 0 30
+elas 0
+attr 197
+bhvr 9
+accg 5
+perm 100
+clac -1
+pat: butt 1 "teleport" 20 1 151 60 0 [] 6400 0
+pat: butt 2 "teleport" 20 1 151 81 0 [] 6401 0
+mvto 1635 3405
+
+prt: inew 0 "Activate" "When a non-zero signal is received the teleport will activate" 169 75 6404
+prt: onew 0 "Pass through" "Outputs 255 when teleport activates" 169 90
+
+
+setv ov00 0
+setv ov90 0
+setv ov95 0
+setv ov03 2
+tick 30
+
+new: comp 3 2 1 "teleport" 11 0 30
+elas 0
+attr 197
+bhvr 9
+accg 5
+perm 100
+clac -1
+pat: butt 1 "teleport" 20 1 151 60 0 [] 6400 0
+pat: butt 2 "teleport" 20 1 151 81 0 [] 6401 0
+mvto 6750 200
+
+prt: inew 0 "Activate" "When a non-zero signal is received the teleport will activate" 169 75 6404
+prt: onew 0 "Pass through" "Outputs 255 when teleport activates" 169 90
+
+
+setv ov00 0
+setv ov90 0
+setv ov95 0
+setv ov03 4
+tick 30
+endm
+
+scrp 3 2 1 0
+	mesg writ ownr 6401
+
+endm
+
+scrp 3 2 1 1
+	mesg writ ownr 6401
+
+endm
+
+scrp 3 2 1 6400
+	lock
+	mesg writ pntr 101
+	doif ov00 = 0
+		setv va77 rand 0 1
+
+		doif va77 = 0
+			snde "stup"
+			base 0
+			anim [0 1 0 1 0 0 1 1 0 1 1]
+			over
+		endi
+		pose 1
+		snde "bep2"
+		wait 10
+		snde "coil"
+		anim [2 2 2 3 3 3 4 4 4 5 5 5 6 6 6 7 7 7 8 8 8 9 9 9]
+		over
+		pose 9
+		setv ov00 1
+		inst
+	elif ov00 = 1
+
+		inst
+		etch 1 1 130
+			doif targ <> null
+				kill targ
+			endi
+		next
+		slow
+		snde "bep2"
+		wait 10
+		snde "col2"
+		anim [9 9 9 8 8 8 7 7 7 6 6 6 5 5 5 4 4 4 3 3 3 2 2 2]
+		over
+		pose 0
+		setv ov00 0
+	endi
+	unlk
+endm
+
+scrp 3 2 1 6401
+	lock
+	doif ov00 = 1 and ov70 = 0
+		mesg writ pntr 101
+		gsub actv
+	elif ov00 = 0
+
+	elif ov70 = 1
+
+		gsub deac
+		stop
+	endi
+	unlk
+	subr actv
+
+		setv ov70 1
+
+		snde "bep2"
+		pose 10
+		gsub zzap
+	retn
+	subr zzap
+
+
+		setv va80 posl
+		setv va81 post
+		setv va98 0
+		prt: send 0 255
+		new: simp 1 1 130 "teleport" 9 11 5001
+		mvto va80 va81
+		snde "beam"
+		anim [0 0 1 1 2 2 2 3 3 3 4 4 4 5 5 5 6 6 6 7 8]
+		gsub sele
+		doif va98 = 1
+
+			base 0
+			pose 9
+		else
+
+
+		endi
+	retn
+	subr sele
+
+		seta va16 null
+		setv va70 0
+		inst
+		enum 3 2 1
+			doif targ <> null
+				addv va70 1
+				doif ov00 = 1
+					addv va72 1
+				endi
+			endi
+		next
+		slow
+		setv va03 ov03
+		setv va90 ov03
+		doif va72 = 1
+
+			fade
+
+			gsub deac
+			stop
+		endi
+		setv va71 0
+		loop
+			addv va71 1
+			addv va03 1
+			inst
+			enum 3 2 1
+				doif targ <> null
+					doif va03 > va70
+						setv va03 1
+					endi
+					doif ov03 = va03 and ov00 = 1 and va03 <> va90
+						seta va16 targ
+						mesg writ targ 6402
+					endi
+				endi
+			next
+			slow
+		untl va16 <> null or va71 = 10
+		doif va16 <> null
+			seta ov16 va16
+			gsub move
+		else
+
+
+			gsub deac
+		endi
+	retn
+	subr move
+
+		targ ov16
+		setv va17 posx
+		setv va18 posb
+		subv va18 10
+		targ ownr
+
+		setv va44 0
+		setv va66 0
+		inst
+		etch 4 0 0
+			doif targ <> null
+				doif carr = null
+					addv va44 1
+					doif targ = norn and visi 0 = 1
+						setv va66 6
+					endi
+					nohh
+					doif tmvf va17 va18 = 1
+						mvft va17 va18
+					else
+						mvsf va17 va18
+					endi
+				endi
+			endi
+		next
+		slow
+
+		doif va44 <> 0
+
+			inst
+			doif ov16 <> null
+				targ ov16
+				doif va66 = 6
+					cmrp posx posy 0
+				endi
+			endi
+			slow
+		elif va44 = 0
+
+		endi
+		targ ownr
+		gsub deac
+		setv va98 1
+	retn
+	subr deac
+
+		lock
+		setv ov70 0
+		inst
+		etch 1 1 130
+			doif targ <> null
+				kill targ
+			endi
+		next
+		slow
+		pose 9
+
+		unlk
+	retn
+
+endm
+
+scrp 3 2 1 6402
+	lock
+	setv va80 posl
+	setv va81 post
+	new: simp 1 1 130 "teleport" 9 11 5001
+	mvto va80 va81
+	snde "beam"
+	anim [0 0 1 1 2 2 3 3 4 4 5 5 6 6 7 8]
+	over
+
+	kill targ
+	targ ownr
+	setv ov70 0
+	inst
+	etch 1 1 130
+		doif targ <> null
+			kill targ
+		endi
+	next
+	slow
+	pose 9
+
+	unlk
+endm
+
+scrp 3 2 1 6403
+	lock
+	setv ov70 0
+	inst
+	etch 1 1 130
+		doif targ <> null
+			kill targ
+		endi
+	next
+	slow
+	pose 9
+
+	unlk
+endm
+
+scrp 3 2 1 6404
+	doif _p1_ = 255
+		mesg writ ownr 6401
+	endi
+endm
+
+scrp 3 2 1 9
+	doif ov00 = 0
+		prt: send 0 0
+	elif ov00 = 1
+		prt: send 0 128
+	endi
+endm
+
+
+scrp 3 2 1 3
+	targ from
+	doif fmly = 4 and gnus = 2
+		prt: bang rand 60 100
+	endi
+	stim writ targ 92 1
+endm
+
+rscr
+enum 3 2 1
+	kill targ
+next
+enum 1 1 130
+	kill targ
+next
+scrx 3 2 1 0
+scrx 3 2 1 1
+scrx 3 2 1 6400
+scrx 3 2 1 6401
+scrx 3 2 1 6402
+scrx 3 2 1 6403
+scrx 3 2 1 6404
+scrx 3 2 1 9

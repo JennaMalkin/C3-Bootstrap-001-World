@@ -1,0 +1,416 @@
+
+
+
+
+
+scrp 2 4 1 9
+
+
+
+
+	gsub up_t
+
+	gsub loss
+
+	gsub what
+
+
+	doif ov00 eq 0
+		setv va00 ov30
+		subv va00 1
+		doif pose lt va00
+			setv va00 pose
+			addv va00 1
+			pose va00
+		else
+
+			doif ov61 gt 0 and ov60 eq 0
+				inst
+				setv va00 plne
+				addv va00 1
+				setv va01 posl
+				setv va02 post
+				setv va03 ov60
+				setv va04 ov61
+				new: simp 2 6 2 "fxgl" 4 21 va00
+				seta ov17 ownr
+				mvto va01 va02
+				seta va00 targ
+
+
+				setv ov30 0
+
+				setv ov37 1
+
+				setv ov38 2
+
+				setv ov39 3
+
+				setv ov50 va04
+				setv ov51 va03
+				targ ownr
+				seta ov17 va00
+				addv ov60 1
+
+
+
+				pose ov30
+				subv ov55 ov72
+			endi
+			setv ov00 1
+		endi
+
+		subv ov55 ov70
+	endi
+
+
+	doif ov00 eq 1
+
+		doif ov60 lt ov61
+
+			subv ov55 ov72
+			mesg writ ov17 300
+		endi
+		targ ownr
+
+		subv ov66 1
+		doif ov66 le 0
+			setv ov00 2
+		endi
+	endi
+
+
+	doif ov00 eq 2
+
+		doif ov60 lt ov61
+
+			subv ov55 ov72
+			mesg writ ov17 300
+		endi
+		targ ownr
+
+		doif ov68 ne 0 and ov69 eq 0
+
+			inst
+
+			setv va00 posl
+			setv va01 post
+			addv va00 35
+			subv va01 38
+			setv va02 plne
+			addv va02 1
+			new: simp 2 7 1 "fxgl" 9 12 va02
+			mvto va00 va01
+
+			setv ov30 0
+
+			setv ov31 2
+
+			setv ov32 3
+
+			setv ov33 5
+
+			setv ov34 6
+
+			setv ov35 8
+
+			seta va99 targ
+			seta ov17 ownr
+
+			targ ownr
+			seta ov18 va99
+			addv ov69 1
+			subv ov55 ov71
+		elif ov68 ne ov69
+			mesg writ ov18 300
+			subv ov55 ov71
+		endi
+		doif ov68 eq ov69
+
+			subv ov67 1
+		endi
+
+		targ ov18
+		setv va00 0
+		doif targ ne null
+			doif ov70 eq 1
+				setv va00 1
+			endi
+		endi
+		targ ownr
+		doif va00 eq 1
+			setv ov00 4
+		endi
+
+		doif ov67 le 0
+			setv ov00 3
+		endi
+	endi
+
+
+
+
+	doif ov00 eq 3
+
+		doif ov60 lt ov61
+
+			subv ov55 ov72
+			mesg writ ov17 300
+		endi
+		targ ownr
+
+
+
+		doif ov65 eq 1
+
+			doif ov69 ne 0
+
+				mesg writ ov18 301
+			else
+
+
+
+
+				doif rand 0 5 eq 0
+					inst
+					setv va02 posx
+					setv va03 post
+					new: simp 2 3 1 "fxgl" 1 va00 va01
+					attr 195
+					bhvr 48
+					elas 50
+					fric 100
+					accg 1
+					doif tmvt va02 va03 eq 1
+						mvto va02 va03
+					else
+						mvsf va02 va03
+					endi
+					velo rand -10 10 rand -5 0
+
+					setv ov00 1
+
+					setv ov70 10
+					setv ov71 100
+
+					setv ov72 50
+
+					setv ov02 100
+
+
+					setv ov80 1
+					setv ov81 0.1
+
+					setv ov82 1
+					setv ov83 0.01
+					setv ov84 0.001
+
+					setv ov85 1
+					setv ov86 0.1
+					tick ov70
+				endi
+				targ ownr
+
+				kill ov18
+				seta ov18 null
+
+
+				setv ov00 5
+			endi
+		else
+
+			setv ov00 4
+		endi
+	endi
+
+
+	doif ov00 eq 4
+
+		doif ov69 ne 0
+
+			mesg writ ov18 302
+		else
+
+			kill ov18
+			seta ov18 null
+			setv ov66 ov73
+			setv ov67 ov74
+
+
+
+
+
+
+
+			targ ownr
+			setv ov00 5
+
+
+		endi
+	endi
+
+
+
+	doif ov00 eq 5
+
+
+
+		tick ov82
+		doif pose eq ov32
+			kill targ
+		endi
+
+		doif ov69 gt 0
+			mesg writ ov18 301
+		else
+			doif ov18 ne null
+				kill ov18
+				seta ov18 null
+			endi
+
+			doif ov60 gt 0
+				mesg writ ov17 302
+			else
+				doif pose eq ov30
+					inst
+					kill ov17
+					pose ov31
+					slow
+				endi
+				setv va00 pose
+				subv va00 1
+				pose va00
+			endi
+		endi
+	endi
+
+
+
+
+
+	subr up_t
+
+		setv va01 prop room targ 1
+
+		setv va02 prop room targ 2
+
+		setv va03 prop room targ 3
+
+		setv va04 prop room targ 4
+
+
+
+		doif ov50 lt ov52
+
+			doif ov51 le va03
+				setv va90 ov51
+			else
+				setv va90 va03
+			endi
+
+			setv va00 va90
+			negv va00
+			altr room targ 3 va00
+
+			addv ov50 va90
+			setv va90 0
+		endi
+
+
+
+		doif ov55 lt ov57
+
+			doif ov56 le va04
+				setv va91 ov56
+			else
+				setv va91 va04
+			endi
+
+			setv va00 va91
+			negv va00
+
+
+			divv va00 2
+			altr room targ 4 va00
+
+			doif va01 lt ov58
+
+				divv va91 2
+			endi
+
+			addv ov55 va91
+			setv va91 0
+		endi
+
+
+		doif ov55 lt ov57
+
+			doif ov00 eq 1 and ov60 gt 0
+
+				doif va01 gt ov58
+
+					setv va91 ov62
+
+					mulv va91 ov60
+
+					addv ov55 va91
+				endi
+			endi
+		endi
+	retn
+
+
+
+	subr loss
+
+		setv va02 prop room targ 2
+
+
+		setv va92 ov60
+
+		addv va92 1
+
+		setv va00 va02
+		divv va00 ov63
+
+		mulv va92 va00
+
+		subv ov50 va92
+
+
+
+
+
+
+
+
+		divv va92 2
+		altr room targ 3 va92
+	retn
+
+
+
+	subr what
+
+		doif ov50 le 0 or ov55 le 0
+
+
+
+			setv ov00 5
+		endi
+
+		setv va03 ov52
+		divv va03 ov54
+
+		doif ov50 lt va03
+			setv ov64 1
+		else
+			setv ov64 0
+		endi
+
+		doif ov60 ne 0
+			mesg wrt+ ov17 301 ov64 0 0
+		endi
+	retn
+
+endm

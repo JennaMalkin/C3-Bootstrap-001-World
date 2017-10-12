@@ -1,0 +1,259 @@
+iscr
+
+
+
+addv game "Bioenergy" 200
+
+new: vhcl 1 1 38 "recycler2" 29 0 50
+attr 8
+perm 60
+mvto 2299 951
+clac -1
+bhvr 0
+cabn 10 10 205 98
+cabp -25
+seta va66 targ
+pat: dull 1 "recycler2" 28 93 92 0
+
+
+
+
+new: comp 2 12 9 "recycler2" 19 9 50
+attr 8
+perm 60
+seta ov16 va66
+
+setv ov90 0
+mvto 2552 950
+clac -1
+
+pat: butt 1 "recycler2" 10 12 5 9 0 [] 1001 0
+part 1
+anim [0]
+
+pat: butt 2 "recycler2" 22 4 6 39 0 [] 1002 0
+part 2
+anim [0]
+
+pat: butt 3 "recycler2" 25 3 13 57 0 [] 1003 0
+part 3
+anim [0]
+
+prt: inew 0 "recycler in" "activation value" 26 80 1000
+prt: onew 0 "recycler out" "output value" 10 80
+part 0
+anim [0]
+seta va67 targ
+
+enum 1 1 38
+	doif va66 = targ
+		seta ov16 va67
+	endi
+next
+
+scrp 2 12 9 1000
+	prt: send 0 _p1_
+	doif _p1_ > 0
+		mesg writ ownr 1001
+	else
+		mesg writ ownr 1003
+	endi
+endm
+
+
+scrp 2 12 9 1001
+	inst
+	lock
+	snde "lg_1"
+	clac -1
+	part 1
+	anim [1]
+
+
+	doif ov01 = 0
+
+		setv ov00 1
+		setv ov01 1
+		mesg wrt+ ov16 1001 ov00 ov01 0
+	endi
+endm
+
+
+
+scrp 1 1 38 1001
+
+	lock
+
+
+	enum 1 1 91
+		doif ov00 = 3
+			setv va89 ov02
+		endi
+	next
+	targ ownr
+	setv ov90 va89
+
+	doif ov00 = 0
+
+		setv ov00 1
+		attr 0
+		anim [0 1 2 3 4 5 6 7 8]
+		over
+
+		doif _p2_ = 1
+
+			sndl "recy"
+			inst
+
+			mesg writ ov16 2000
+			epas 0 0 0
+				doif ov61 <> 0
+					addv va02 ov61
+					kill targ
+				endi
+			next
+
+			slow
+			setv va77 va02
+			divv va77 100.0
+			mulv va77 ov90
+			setv va02 ftoi va77
+			addv game "Bioenergy" va02
+			sets va89 read "Energy" 1
+			adds va89 vtos game "Bioenergy"
+			enum 1 1 91
+				doif ov00 = 3
+					mesg wrt+ targ 1001 va89 0 0
+				endi
+			next
+
+
+
+			wait 50
+
+			anim [8 7 6 5 4 3 2 1 0]
+			fade
+			over
+			setv ov00 0
+			setv ov01 0
+			dpas 0 0 0
+			attr 8
+			mesg writ ov16 2001
+
+
+
+
+
+
+
+		endi
+
+	elif ov00 = 1 and _p2_ = 1
+
+		sndl "recy"
+
+		mesg writ ov16 2000
+		epas 0 0 0
+			doif ov61 <> 0
+				addv va02 ov61
+				kill targ
+			endi
+		next
+		addv game "Bioenergy" va02
+		wait 50
+
+		mesg writ ov16 2001
+		anim [8 7 6 5 4 3 2 1 0]
+		fade
+		over
+		setv ov00 0
+		setv ov01 0
+		attr 8
+		dpas 0 0 0
+	elif ov00 = 1 and _p2_ = 0
+
+
+		mesg writ ov16 2001
+
+		anim [8 7 6 5 4 3 2 1 0]
+		over
+		setv ov00 0
+		setv ov01 0
+		attr 8
+		dpas 0 0 0
+	endi
+
+endm
+
+scrp 1 1 38 1002
+	dpas 0 0 0
+endm
+
+
+scrp 2 12 9 2000
+	inst
+	lock
+	part 1
+	anim [1 2 3 4 5 6 7 8 9 10 11 255]
+endm
+
+
+scrp 2 12 9 2001
+	inst
+	lock
+	part 1
+	anim [0]
+	part 2
+	anim [0]
+	part 3
+	anim [0]
+
+	setv ov00 0
+	setv ov01 0
+	clac 0
+endm
+
+
+scrp 2 12 9 1002
+	inst
+	lock
+	snde "lg_1"
+	clac -1
+	part 2
+	anim [2]
+
+
+	doif ov00 = 0 and ov01 = 0
+
+		setv ov00 1
+		setv ov01 0
+		mesg wrt+ ov16 1001 ov00 ov01 0
+	endi
+endm
+
+
+scrp 2 12 9 1003
+	inst
+	lock
+	snde "lg_1"
+	clac -1
+	part 3
+	anim [1]
+
+	doif ov00 = 1
+		setv ov00 0
+		setv ov01 0
+		mesg wrt+ ov16 1001 ov00 ov01 0
+	else
+		mesg writ ov16 1002
+	endi
+
+endm
+
+rscr
+enum 1 1 38
+	kill targ
+next
+enum 2 12 9
+	kill targ
+next

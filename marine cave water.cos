@@ -1,0 +1,294 @@
+
+new: simp 1 1 90 "blnk" 1 0 1
+attr 16
+mvto 4566 2207
+tick 1
+
+
+setv ov60 grap 4345 2240
+
+setv ov61 grap 4387 2223
+setv ov62 grap 4488 2203
+setv ov63 grap 4594 2124
+
+setv ov64 grap 4702 2249
+
+setv ov65 grap 4796 2209
+setv ov66 grap 4869 2204
+setv ov67 grap 4974 2190
+
+setv ov68 grap 5059 2213
+
+
+new: simp 1 1 111 "aquatic cave water" 0 0 0
+attr 16
+tran 0 1
+mvto 4352 2058
+tick 1
+
+
+new: simp 1 1 112 "aquatic cave water" 15 19 0
+attr 16
+tran 0 1
+mvto 4701 2058
+tick 1
+
+scrp 1 1 111 9
+	inst
+	rtar 3 3 38
+	doif targ <> null
+		setv va01 ov00
+	endi
+	slow
+	inst
+	rtar 3 3 39
+	doif targ <> null
+		setv va02 ov00
+	endi
+	slow
+	inst
+	rtar 3 3 40
+	doif targ <> null
+		setv va03 ov00
+	endi
+	slow
+	targ ownr
+
+	doif va02 = 1 and va03 = 1
+		setv va77 50
+	else
+		setv va77 40
+	endi
+
+	doif va01 = 1
+		setv va77 50
+	else
+		doif va02 = 0 and va03 = 0
+			setv va77 40
+		endi
+	endi
+	doif va77 = 50 and pose < 17
+		setv va00 pose
+		addv va00 1
+		pose va00
+		setv va99 rand 1 6
+		doif va99 = 3
+			setv va88 rand 1 4
+			doif va88 = 1
+				snde "cav1"
+			elif va88 = 2
+				snde "cav2"
+			elif va88 = 3
+				snde "cav3"
+			elif va88 = 4
+				snde "pod1"
+			endi
+		endi
+	elif va77 = 40 and pose > 0
+		setv va00 pose
+		subv va00 1
+		pose va00
+		setv va99 rand 1 6
+		doif va99 = 3
+			setv va88 rand 1 4
+			doif va88 = 1
+				snde "cav1"
+			elif va88 = 2
+				snde "cav2"
+			elif va88 = 3
+				snde "cav3"
+			elif va88 = 4
+				snde "pod1"
+			endi
+		endi
+	endi
+
+	doif pose <= 8
+		rtar 1 1 90
+		rtyp ov60 3
+		rtyp ov61 3
+		rtyp ov62 3
+		rtyp ov63 3
+		targ ownr
+	elif pose > 8
+		rtar 1 1 90
+		rtyp ov60 9
+		rtyp ov61 9
+		rtyp ov62 9
+		rtyp ov63 9
+		targ ownr
+	endi
+endm
+
+scrp 1 1 112 9
+	rtar 3 3 38
+	setv va01 ov00
+	rtar 3 3 39
+	setv va02 ov00
+	rtar 3 3 40
+	setv va03 ov00
+	targ ownr
+
+	doif va01 = 1 and va02 = 1
+		setv va77 50
+	else
+		setv va77 40
+	endi
+
+	doif va03 = 1
+		setv va77 50
+	else
+		doif va01 = 0 and va02 = 0
+			setv va77 40
+		endi
+	endi
+	doif va77 = 50 and pose < 14
+		setv va00 pose
+		addv va00 1
+		pose va00
+		setv va99 rand 1 6
+		doif va99 = 3
+			setv va88 rand 1 4
+			doif va88 = 1
+				snde "cav1"
+			elif va88 = 2
+				snde "cav2"
+			elif va88 = 3
+				snde "cav3"
+			elif va88 = 4
+				snde "pod1"
+			endi
+		endi
+	elif va77 = 40 and pose > 0
+		setv va00 pose
+		subv va00 1
+		pose va00
+		setv va99 rand 1 6
+		doif va99 = 3
+			setv va88 rand 1 4
+			doif va88 = 1
+				snde "cav1"
+			elif va88 = 2
+				snde "cav2"
+			elif va88 = 3
+				snde "cav3"
+			elif va88 = 4
+				snde "pod1"
+			endi
+		endi
+	endi
+
+	doif pose <= 7
+		rtar 1 1 90
+		rtyp ov64 3
+		rtyp ov65 3
+		rtyp ov66 3
+		rtyp ov67 3
+		rtyp ov68 3
+		targ ownr
+	elif pose > 7
+		rtar 1 1 90
+		rtyp ov64 9
+		rtyp ov65 9
+		rtyp ov66 9
+		rtyp ov67 9
+		rtyp ov68 9
+		targ ownr
+	endi
+endm
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+rscr
+enum 1 1 111
+	kill targ
+next
+enum 1 1 112
+	kill targ
+next
+scrx 1 1 111 1000
+scrx 1 1 112 1000

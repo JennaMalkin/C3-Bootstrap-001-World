@@ -1,0 +1,1367 @@
+iscr
+new: comp 3 3 71 "Norn seed launcher" 0 0 0
+attr 4
+mvto 2107 918
+elas 0
+accg 0
+fric 100
+clac 0
+part 0
+anim [0]
+
+prt: inew 0 "launcher in" "inject/close" 46 97 1000
+prt: onew 0 "launcher out" "throughput" 35 97
+
+
+pat: dull 6 "Norn seed launcher" 41 0 0 0
+part 6
+anim [0 0 0 0 0 0 0 0 0 1 1 1 1 255]
+
+
+new: simp 1 1 109 "Launcher nozzle" 0 0 0
+attr 0
+tick 30000
+
+perm 1
+mvto 2140 780
+
+
+scrp 3 3 71 1000
+	inst
+	doif _p1_ <= 0 and ov00 = 1
+		mesg writ ownr 0
+	elif _p1_ > 0 and ov00 = 1
+		mesg writ ownr 2005
+	endi
+endm
+
+
+
+scrp 3 3 71 1
+	lock
+	doif ov00 = 0
+		setv ov00 1
+		pat: kill 6
+		rtar 1 1 109
+
+		anim [0 1 2 3 4 5 6 7 8 9 10]
+		targ ownr
+		clac -1
+		setv ov00 1
+
+		snde "inje"
+		enum 1 1 91
+			doif ov00 = 3
+				mesg wrt+ targ 1001 read "Efficiency" 7 0 0
+			endi
+		next
+
+		anim [0 1 2 3 4 5 6 7 8 9 10 11 12 13 14]
+		over
+
+		pat: dull 1 "Norn seed launcher" 21 34 25 0
+		part 1
+		anim [0]
+
+
+		pat: butt 2 "Norn seed launcher" 15 3 76 72 0 [] 2002 0
+		part 2
+		anim [0]
+
+
+		pat: butt 3 "Norn seed launcher" 15 3 91 72 0 [] 2003 0
+		part 3
+		anim [0]
+
+
+		pat: butt 4 "Norn seed launcher" 18 3 38 73 0 [] 2004 0
+		part 4
+		anim [0]
+
+
+		pat: butt 5 "Norn seed launcher" 18 3 79 88 0 [] 2005 0
+		part 5
+		anim [0]
+		setv ov01 2
+		mesg writ ownr 2010
+
+	else
+		rtar 1 1 109
+		anim [10 9 8 7 6 5 4 3 2 1 0]
+		targ ownr
+		setv ov00 0
+		clac 0
+		pat: kill 1
+		pat: kill 2
+		pat: kill 3
+		pat: kill 4
+		pat: kill 5
+		snde "inje"
+		enum 1 1 91
+			doif ov00 = 3
+				mesg wrt+ targ 1001 read "Efficiency" 8 0 0
+			endi
+		next
+		prt: bang 100
+		anim [14 13 12 11 10 9 8 7 6 5 4 3 2 1 0]
+		over
+		pat: dull 6 "Norn seed launcher" 41 0 0 0
+		part 6
+		anim [0 0 0 0 0 0 0 0 0 1 1 1 1 255]
+	endi
+endm
+
+
+scrp 3 3 71 2002
+	part 2
+	anim [1 1 0]
+	snde "beep"
+	subv ov01 1
+	mesg writ ownr 2010
+endm
+
+scrp 3 3 71 2003
+	part 3
+	anim [2 2 0]
+	snde "beep"
+	addv ov01 1
+	mesg writ ownr 2010
+endm
+
+
+scrp 3 3 71 2004
+	part 4
+	anim [1]
+	snde "beep"
+	mesg writ ownr 0
+endm
+
+
+scrp 3 3 71 2005
+	part 5
+	anim [2 2 0]
+	snde "beep"
+	mesg writ ownr 2020
+endm
+
+
+scrp 3 3 71 2010
+	lock
+	doif ov00 = 1
+		doif ov01 < 2
+			setv ov01 19
+		endi
+		doif ov01 > 19
+			setv ov01 2
+		endi
+		part 1
+		pose ov01
+	endi
+
+endm
+
+
+scrp 3 3 71 2020
+	lock
+	doif ov00 = 1
+		doif _p1_ <> 0
+			setv ov01 _p1_
+		endi
+		rtar 1 1 109
+		snde "sqh3"
+		anim [11 12 13 14 15 16 17]
+		over
+		targ ownr
+
+		doif ov01 = 2
+			inst
+			new: simp 2 14 2 "ant" 51 30 2500
+			perm 50
+			tick 8
+			attr 195
+			aero 0
+			accg 0
+			elas 1
+			fric 0
+			clac 0
+			bhvr 17
+
+			setv ov30 0
+
+			setv ov31 8
+
+			setv ov32 18
+
+			setv ov33 22
+			setv ov34 24
+			setv ov36 34
+			setv ov37 38
+
+			setv ov00 0
+			setv ov01 2000
+			setv ov02 405
+			setv ov05 2
+			setv ov06 rand 0 1
+			setv ov07 1
+			setv ov10 1
+			setv ov11 -1
+			seta ov16 null
+			seta ov19 null
+			setv ov20 0
+			setv ov61 41
+			setv va61 ov61
+			setv ov72 400
+			setv ov73 400
+			setv ov74 800
+			setv ov75 1
+			doif _p2_ = 1
+				setv va61 -10
+			endi
+			doif tmvt 2150 750 <> 1 or game "Bioenergy" < va61
+				kill targ
+			else
+				mvto 2150 750
+				setv va67 1
+				velo rand -6 6 rand -8 -12
+			endi
+			targ ownr
+
+		elif ov01 = 3
+			inst
+			new: simp 2 14 1 "bee" 37 36 2500
+			perm 50
+			accg 0
+			tick 6
+			clac 0
+			bhvr 17
+			attr 199
+			aero 5
+			elas 20
+
+			setv ov30 0
+
+			setv ov31 4
+
+			setv ov32 8
+
+			setv ov33 10
+
+			setv ov34 19
+
+			setv ov35 28
+
+			setv ov36 32
+
+			setv ov37 36
+
+			setv ov38 40
+
+			setv ov39 44
+
+			setv ov40 46
+
+			setv ov41 55
+
+			setv ov42 64
+
+			setv ov43 68
+
+
+			setv ov00 0
+			setv ov01 2000
+			setv ov02 300
+			setv ov05 1
+			setv ov06 rand 0 1
+			setv ov07 1
+			setv ov10 1
+			setv ov11 -1
+			seta ov16 null
+			seta ov17 null
+			seta ov19 null
+			setv ov61 41
+			setv va61 ov61
+			setv ov72 400
+			setv ov73 400
+			setv ov74 800
+			setv ov75 1
+
+			setv ov79 0
+			setv ov80 va82
+			setv ov88 75
+			anim [5 7]
+			doif _p2_ = 1
+				setv va61 -10
+			endi
+
+			doif tmvt 2150 750 <> 1 or game "Bioenergy" < va61
+				kill targ
+			else
+				mvto 2150 750
+				setv va67 1
+				velo rand -6 6 rand -8 -12
+			endi
+			targ ownr
+		elif ov01 = 4
+
+			inst
+			new: simp 2 8 2 "apple" 15 0 10
+			attr 195
+			bhvr 48
+			elas 30
+			fric 100
+			accg 5
+			setv ov00 1
+			tick rand 50 300
+
+			pose 13
+			setv ov61 25
+			setv va61 ov61
+			doif _p2_ = 1
+				setv va61 -10
+			endi
+
+			doif tmvt 2150 750 <> 1 or game "Bioenergy" < va61
+				kill targ
+			else
+				mvto 2150 750
+				setv va67 1
+				velo rand -6 6 rand -20 -30
+			endi
+			targ ownr
+
+		elif ov01 = 5
+
+			inst
+			new: simp 2 13 2 "caterpillar" 131 0 800
+			pose 127
+			accg 3
+			perm 99
+			elas 5
+			fric 80
+			tick 8
+			attr 195
+
+			bhvr 16
+
+
+			setv ov30 12
+
+			setv ov31 20
+
+			setv ov32 28
+
+			setv ov33 36
+
+			setv ov34 44
+
+			setv ov35 52
+
+			setv ov36 48
+
+
+			addv ov30 ov36
+			addv ov31 ov36
+			addv ov32 ov36
+			addv ov33 ov36
+			addv ov34 ov36
+			addv ov35 ov36
+
+
+
+			setv ov37 108
+			setv ov38 123
+			setv ov39 128
+
+			setv ov00 0
+			setv ov70 0
+			setv ov01 5990
+			seta ov16 null
+			setv ov11 -1
+			setv ov61 50
+			setv va61 ov61
+			setv ov72 200
+			setv ov73 250
+			setv ov74 350
+			setv ov02 600
+			setv va66 rand 0 1
+			doif va66 eq 0
+				anim [122]
+				setv ov10 1
+			else
+				anim [127]
+				setv ov10 -1
+			endi
+			doif _p2_ = 1
+				setv va61 -10
+			endi
+
+			doif tmvt 2150 750 <> 1 or game "Bioenergy" < va61
+				kill targ
+			else
+				mvto 2150 750
+				setv va67 1
+				velo rand -6 6 rand -8 -12
+			endi
+			targ ownr
+		elif ov01 = 6
+
+			inst
+			new: simp 2 11 1 "carr" 7 0 5000
+			attr 199
+			accg 5
+
+			bhvr 48
+			elas 0
+			doif _p2_ = 1
+				setv va61 -10
+			endi
+
+			doif tmvt 2150 750 <> 1 or game "Bioenergy" < va61
+				kill targ
+			else
+				mvto 2150 750
+				setv va67 1
+				velo rand -6 6 rand -8 -12
+
+				setv ov61 60
+				setv va61 ov61
+				emit 8 0.5
+				setv va00 rand 0 1
+				mulv va00 4
+				addv va00 2
+				pose va00
+				tick 2400
+			endi
+			targ ownr
+
+		elif ov01 = 7
+
+			inst
+			new: simp 2 15 8 "dragonfly" 26 0 2000
+			accg 0
+			aero 30
+
+			tick 4
+			attr 199
+			bhvr 16
+			setv ov00 0
+			setv ov01 2000
+			setv ov70 0
+			setv ov06 rand 0 1
+			setv ov10 1
+			setv ov11 -1
+			seta ov16 null
+			setv ov61 50
+			setv va61 ov61
+			setv ov72 300
+			setv ov73 250
+			setv ov74 800
+			setv ov02 251
+			setv va50 1500
+			setv va51 400
+			doif _p2_ = 1
+				setv va61 -10
+			endi
+
+			doif tmvt 2150 750 <> 1 or game "Bioenergy" < va61
+				kill targ
+			else
+				mvto 2150 750
+				setv va67 1
+				velo rand -6 6 rand -8 -12
+			endi
+		elif ov01 = 8
+
+			inst
+			new: simp 2 3 4 "grass" 1 22 100
+			attr 195
+			bhvr 48
+			elas 0
+			fric 50
+
+
+			setv ov00 1
+
+			setv ov02 100
+
+			setv ov70 100
+			setv ov71 600
+
+			setv ov72 50
+
+			setv ov80 1
+			setv ov81 0.01
+
+			setv ov82 1
+			setv ov83 0.01
+			setv ov84 0.001
+
+			setv ov85 1
+			setv ov86 0.01
+
+			velo rand -5 5 rand -10 0
+
+			tick ov70
+
+
+			emit 7 0.3
+			doif _p2_ = 1
+				setv va61 -10
+			endi
+
+			doif tmvt 2150 750 <> 1 or game "Bioenergy" < va61
+				kill targ
+			else
+				mvto 2150 750
+				setv va67 1
+				velo rand -6 6 rand -8 -12
+			endi
+		elif ov01 = 9
+
+			inst
+			new: simp 2 18 10 "grasshopper" 12 48 2000
+			accg 2
+			elas 5
+			fric 80
+			bhvr 16
+			tick 80
+			attr 195
+
+			setv ov00 0
+			setv ov01 0
+			setv ov70 0
+			setv ov61 20
+			setv va61 ov61
+			setv ov02 255
+
+			anim []
+			doif rand 0 1 = 0
+				base 0
+			else
+				base 6
+			endi
+			anim [0]
+			doif _p2_ = 1
+				setv va61 -10
+			endi
+
+			doif tmvt 2150 750 <> 1 or game "Bioenergy" < va61
+				kill targ
+			else
+				mvto 2150 750
+				setv va67 1
+				velo rand -6 6 rand -8 -12
+			endi
+		elif ov01 = 10
+
+			inst
+
+			seta va99 null
+			rtar 2 17 4
+			seta va99 targ
+			targ ownr
+			new: simp 2 16 1 "hawk" 62 62 6000
+			attr 71
+
+
+			elas 20
+			accg 1
+			aero 5
+			setv ov00 0
+			seta ov17 va99
+			seta ov18 null
+			tick 5
+
+			setv ov61 80
+			setv va61 ov61
+
+
+			setv ov10 rand 0 1
+			doif ov10 eq 0
+				setv ov10 -1
+			endi
+
+			pupt -1 50 80
+
+			puhl -1 70 85
+
+
+
+			setv ov30 0
+
+			setv ov31 1
+
+			setv ov32 2
+
+			setv ov33 10
+
+			setv ov34 18
+
+			setv ov35 19
+
+			setv ov36 20
+
+			setv ov37 28
+
+			setv ov38 36
+
+			setv ov39 44
+
+			setv ov40 52
+
+			setv ov41 53
+
+			setv ov42 54
+
+			setv ov43 58
+			pose rand 0 1
+			addv va00 20
+			setv ov10 1
+			setv ov00 1
+			setv ov70 rand 50 100
+			accg 2
+			tick 5
+
+			setv ov70 rand 300 900
+			doif _p2_ = 1
+				setv va61 -10
+			endi
+
+			doif tmvt 2120 700 <> 1 or game "Bioenergy" < va61
+				kill targ
+			else
+				mvto 2120 700
+				setv va67 1
+				velo rand -6 6 rand -8 -12
+			endi
+		elif ov01 = 11
+
+			inst
+			new: simp 2 15 5 "hedgehog" 50 0 2500
+			accg 1
+			perm 99
+			tick 8
+			attr 195
+			aero 0
+			elas 5
+			bhvr 16
+			fric 20
+
+			setv ov30 0
+
+			setv ov31 8
+
+			setv ov32 16
+
+			setv ov33 20
+
+			setv ov34 24
+
+			setv ov35 27
+
+			setv ov36 30
+
+			setv ov37 34
+
+			setv ov38 38
+
+			setv ov39 44
+
+			setv ov00 0
+			setv ov01 1000
+			setv ov02 800
+			setv ov05 2
+			setv ov06 rand 0 1
+			setv ov10 1
+			setv ov11 1
+			seta ov16 null
+			setv ov20 0
+			setv ov61 60
+			setv va61 ov61
+			setv ov70 0
+			setv ov72 400
+			setv ov73 400
+			setv ov74 800
+			setv ov75 1
+			doif _p2_ = 1
+				setv va61 -10
+			endi
+
+			doif tmvt 2150 750 <> 1 or game "Bioenergy" < va61
+				kill targ
+			else
+				mvto 2150 750
+				setv va67 1
+				velo rand -6 6 rand -8 -12
+			endi
+		elif ov01 = 12
+
+			inst
+			new: simp 2 15 12 "hoppity" 160 140 2000
+			accg 4
+			perm 60
+			attr 195
+			aero 5
+			elas 5
+			fric 90
+			tick 10
+			bhvr 16
+			pose 140
+
+			setv ov30 0
+
+			setv ov31 10
+
+			setv ov32 20
+
+			setv ov33 30
+
+			setv ov34 40
+
+			setv ov35 48
+
+			setv ov36 56
+
+			setv ov37 69
+
+			setv ov38 83
+
+			setv ov39 96
+
+
+			setv ov00 0
+			setv ov01 2000
+			setv ov02 401
+			setv ov05 0
+			setv ov06 rand 0 1
+			setv ov10 -1
+			setv ov11 -1
+			seta ov16 null
+			setv ov20 0
+			setv ov61 85
+			setv va61 ov61
+			setv ov72 400
+			setv ov73 400
+			setv ov74 800
+			setv ov75 1
+			doif _p2_ = 1
+				setv va61 -10
+			endi
+
+			doif tmvt 2150 750 <> 1 or game "Bioenergy" < va61
+				kill targ
+			else
+				mvto 2150 750
+				setv va67 1
+				velo rand -6 6 rand -8 -12
+			endi
+
+			targ ownr
+		elif ov01 = 13
+
+			inst
+			new: simp 2 15 3 "hummingbird" 10 0 2200
+			accg 0
+			aero 30
+			tick 4
+			attr 195
+			elas 5
+			fric 80
+			bhvr 16
+
+			setv ov30 2
+			setv ov31 6
+			setv ov32 0
+			setv ov33 1
+			setv ov34 10
+
+			setv ov00 0
+			setv ov01 3000
+			setv ov70 0
+			seta ov17 null
+			seta ov18 null
+			setv ov06 rand 0 1
+			seta ov16 null
+			setv ov09 0
+			setv ov10 -1
+			setv ov11 -1
+			setv ov15 0
+			seta ov19 null
+			setv ov20 0
+			setv ov61 60
+			setv va61 ov61
+			setv ov72 800
+			setv ov73 650
+			setv ov74 1850
+			setv ov75 20
+			setv ov02 20000
+			setv va89 700
+			doif _p2_ = 1
+				setv va61 -10
+			endi
+
+			doif tmvt 2150 750 <> 1 or game "Bioenergy" < va61
+				kill targ
+			else
+				mvto 2150 750
+				setv va67 1
+				velo rand -6 6 rand -8 -12
+			endi
+		elif ov01 = 14
+
+			inst
+			rtar 2 17 3
+			seta va19 targ
+			targ ownr
+			new: simp 2 15 10 "king" 50 0 2000
+			accg 3
+			perm 49
+			tick 6
+			attr 195
+			aero 10
+			bhvr 16
+
+
+
+
+
+
+
+
+
+
+
+
+			setv ov00 0
+			setv ov01 2000
+			setv ov05 2
+			setv ov06 rand 0 1
+			seta ov16 null
+			seta ov17 null
+			seta ov18 null
+			seta ov19 va19
+			setv ov10 1
+			setv ov11 -1
+			setv ov30 2
+			setv ov31 10
+			setv ov32 18
+			setv ov33 22
+			setv ov34 26
+			setv ov35 31
+			setv ov36 36
+			setv ov37 38
+			setv ov61 70
+			setv va61 ov61
+			setv ov72 800
+			setv ov73 600
+			setv ov74 1200
+			setv ov75 0
+			setv ov77 0
+			setv ov02 402
+			doif _p2_ = 1
+				setv va61 -10
+			endi
+
+			doif tmvt 2150 750 <> 1 or game "Bioenergy" < va61
+				kill targ
+			else
+				mvto 2150 750
+				setv va67 1
+				velo rand -6 6 rand -8 -12
+			endi
+		elif ov01 = 15
+
+			inst
+			new: simp 2 15 1 "robin" 79 0 2200
+			accg 1.5
+			tick 4
+			attr 195
+			elas 5
+			fric 80
+			bhvr 16
+
+			setv ov30 0
+
+			setv ov31 6
+
+			setv ov32 12
+
+			setv ov33 17
+
+			setv ov34 22
+
+			setv ov35 30
+
+			setv ov36 38
+
+			setv ov37 45
+
+			setv ov38 52
+
+			setv ov39 53
+
+			setv ov40 54
+
+			setv ov41 62
+
+			setv ov42 70
+
+			setv ov43 74
+
+
+			setv ov00 0
+			setv ov01 3000
+			setv ov70 0
+			seta ov17 null
+			seta ov18 null
+			setv ov06 rand 0 1
+			seta ov16 null
+			setv ov09 0
+			setv ov10 1
+			setv ov11 -1
+			setv ov15 0
+			seta ov19 null
+			setv ov20 0
+			setv ov61 65
+			setv va61 ov61
+			setv ov72 800
+			setv ov73 650
+			setv ov74 1850
+			setv ov75 20
+			setv ov02 800
+			setv va89 700
+			addv va66 1
+			doif _p2_ = 1
+				setv va61 -10
+			endi
+
+			doif tmvt 2150 750 <> 1 or game "Bioenergy" < va61
+				kill targ
+			else
+				mvto 2150 750
+				setv va67 1
+				velo rand -6 6 rand -8 -12
+			endi
+		elif ov01 = 16
+
+			inst
+			new: simp 2 15 9 "trout" 23 0 4000
+			accg 0
+			perm 30
+			tick 8
+			attr 195
+			aero 10
+			bhvr 16
+			elas 10
+			setv ov00 0
+			setv ov01 1000
+			setv ov02 420
+			setv ov05 2
+			setv ov06 va66
+			setv ov10 1
+			setv ov11 -1
+			seta ov16 null
+			setv ov20 98
+			setv ov61 60
+			setv va61 ov61
+			setv ov72 400
+			setv ov73 400
+			setv ov74 800
+			doif _p2_ = 1
+				setv va61 -10
+			endi
+
+			doif tmvt 2150 750 <> 1 or game "Bioenergy" < va61
+				kill targ
+			else
+				mvto 2150 750
+				setv va67 1
+				velo rand -6 6 rand -8 -12
+			endi
+		elif ov01 = 17
+
+			inst
+			new: simp 2 15 11 "woodpigeon" 86 0 2200
+			accg 1.5
+			tick 4
+			attr 195
+			elas 5
+			fric 80
+			bhvr 16
+
+
+			setv ov30 0
+
+			setv ov31 8
+
+			setv ov32 36
+
+			setv ov33 40
+
+			setv ov34 22
+
+			setv ov35 30
+
+			setv ov36 20
+
+			setv ov37 28
+
+			setv ov38 16
+
+			setv ov39 17
+
+			setv ov40 44
+
+			setv ov41 52
+
+			setv ov42 62
+
+			setv ov43 66
+
+			setv ov00 0
+			setv ov01 3000
+			setv ov70 0
+			seta ov17 null
+			seta ov18 null
+			setv ov06 rand 0 1
+			seta ov16 null
+			setv ov09 0
+			setv ov10 1
+			setv ov11 -1
+			setv ov15 0
+			seta ov19 null
+			setv ov20 0
+			setv ov61 65
+			setv va61 ov61
+			setv ov72 800
+			setv ov73 650
+			setv ov74 1850
+			setv ov75 20
+			setv ov02 800
+			doif _p2_ = 1
+				setv va61 -10
+			endi
+
+			doif tmvt 2150 750 <> 1 or game "Bioenergy" < va61
+				kill targ
+			else
+				mvto 2150 750
+				setv va67 1
+				velo rand -6 6 rand -8 -12
+			endi
+		elif ov01 = 18
+			inst
+			new: simp 2 3 1 "fxgl" 1 rand 25 28 200
+			attr 193
+			bhvr 48
+			elas 50
+			fric 100
+			accg 1
+
+
+			setv ov00 1
+
+			setv ov70 100
+			setv ov71 1000
+
+			setv ov72 50
+
+			setv ov02 100
+
+
+			setv ov80 1
+			setv ov81 0.1
+
+			setv ov82 1
+			setv ov83 0.01
+			setv ov84 0.001
+
+			setv ov85 1
+			setv ov86 0.1
+			setv ov61 10
+			setv va61 ov61
+			tick ov70
+			doif _p2_ = 1
+				setv va61 -10
+			endi
+
+			doif tmvt 2150 750 <> 1 or game "Bioenergy" < va61
+				kill targ
+			else
+				mvto 2150 750
+				setv va67 1
+				velo rand -6 6 rand -8 -12
+			endi
+
+		elif ov01 = 19
+
+			new: simp 2 15 2 "graz" 72 144 rand 2000 5000
+			attr 199
+			bhvr 1
+			clac 0
+			accg 5
+			elas 10
+			aero 10
+			fric 50
+			setv ov02 250
+			tick 7
+
+			setv ov10 rand 0 1
+			doif ov10 eq 0
+				setv ov10 -1
+			endi
+
+
+			setv ov30 0
+			setv ov31 8
+			setv ov32 16
+			setv ov33 23
+			setv ov34 30
+			setv ov35 33
+			setv ov36 36
+			setv ov37 39
+			setv ov38 42
+			setv ov39 46
+			setv ov40 50
+			setv ov41 56
+			setv ov42 62
+			setv ov43 66
+			setv ov44 70
+			setv ov61 50
+			setv va61 ov61
+			doif _p2_ = 1
+				setv va61 -10
+			endi
+
+			doif tmvt 2120 750 <> 1 or game "Bioenergy" < va61
+				kill targ
+			else
+				mvto 2120 750
+				setv va67 1
+				velo rand -6 6 rand -8 -12
+			endi
+
+		endi
+		targ ownr
+		doif va67 = 1 and _p2_ = 0
+			subv game "Bioenergy" va61
+			sets va66 read "Energy" 4
+			adds va66 vtos game "Bioenergy"
+			prt: send 0 255
+			enum 1 1 91
+				doif ov00 = 3
+					mesg wrt+ targ 1001 va66 0 0
+				endi
+			next
+
+		else
+			doif _p2_ = 0
+				snde "buzz"
+				enum 1 1 91
+					doif ov00 = 3
+						mesg wrt+ targ 1001 read "Energy" 0 0 0
+					endi
+				next
+			endi
+		endi
+		rtar 1 1 109
+		anim [18 19]
+	endi
+endm
+
+scrp 3 3 71 2100
+	doif ov00 = 1
+		part 2
+		anim [1 1 0]
+		snde "beep"
+		setv ov01 _p1_
+		mesg writ ownr 2010
+	endi
+endm
+
+scrp 1 1 109 2000
+	anim [0 1 2 3 4 5 6 7 8 9 10]
+endm
+
+scrp 1 1 109 2001
+	anim [10 9 8 7 6 5 4 3 2 1 0]
+endm
+
+scrp 1 1 109 2002
+	anim [11 12 13 14 15 16 17 18 19]
+endm
+
+scrp 1 1 109 9
+	lock
+	rtar 3 3 71
+	seta va99 targ
+	doif ov00 = 1
+		unlk
+		stop
+	endi
+	targ ownr
+
+
+	setv va98 60
+	rnge 1000
+
+	inst
+	enum 2 14 1
+		addv va03 1
+		addv va00 1
+	next
+
+
+	enum 2 13 2
+		addv va05 1
+		addv va00 1
+	next
+
+	enum 2 11 1
+		addv va06 1
+		addv va00 1
+	next
+
+	enum 2 15 8
+		addv va07 1
+		addv va00 1
+	next
+
+	enum 2 6 1
+		addv va08 1
+		addv va00 1
+	next
+
+	enum 2 13 6
+		addv va09 1
+		addv va00 1
+	next
+
+	enum 2 15 5
+		addv va11 1
+		addv va00 1
+	next
+
+	enum 2 15 12
+		addv va12 1
+		addv va00 1
+	next
+
+	enum 2 4 1
+		addv va18 1
+		addv va00 1
+	next
+
+
+	enum 2 15 2
+		addv va19 1
+		addv va00 1
+	next
+
+
+
+	doif avar va99 0 = 0
+		mesg writ va99 0
+	endi
+
+	wait va98
+	doif va03 < 1
+		mesg wrt+ va99 2100 3 0 0
+		wait 30
+
+		mesg wrt+ va99 2020 3 1 0
+		wait va98
+	endi
+
+	doif va05 < 2
+		mesg wrt+ va99 2100 5 0 0
+		wait 30
+
+		mesg wrt+ va99 2020 5 1 0
+		wait va98
+	endi
+
+	doif va06 < 2
+		mesg wrt+ va99 2100 6 0 0
+		wait 30
+
+		mesg wrt+ va99 2020 6 1 0
+		wait va98
+	endi
+
+	doif va07 < 2
+		mesg wrt+ va99 2100 7 0 0
+		wait 30
+
+		mesg wrt+ va99 2020 7 1 0
+		wait va98
+	endi
+
+	doif va08 < 2
+		mesg wrt+ va99 2100 8 0 0
+		wait 30
+
+		mesg wrt+ va99 2020 8 1 0
+		wait va98
+	endi
+
+	doif va09 < 2
+		mesg wrt+ va99 2100 9 0 0
+		wait 30
+
+		mesg wrt+ va99 2020 9 1 0
+		wait va98
+	endi
+
+	doif va11 < 2
+		mesg wrt+ va99 2100 11 0 0
+		wait 30
+
+		mesg wrt+ va99 2020 11 1 0
+		wait va98
+	endi
+
+	doif va12 < 2
+		mesg wrt+ va99 2100 12 0 0
+		wait 30
+
+		mesg wrt+ va99 2020 12 1 0
+		wait va98
+	endi
+
+	doif va18 < 2
+		mesg wrt+ va99 2100 18 0 0
+		wait 30
+
+		mesg wrt+ va99 2020 18 1 0
+		wait va98
+	endi
+
+
+	doif va19 < 2
+		mesg wrt+ va99 2100 19 0 0
+		wait 30
+
+		mesg wrt+ va99 2020 19 1 0
+
+	endi
+	wait va98
+
+
+	targ ownr
+	doif avar va99 0 = 1
+		mesg writ va99 0
+	endi
+
+
+endm
+
+
+
+rscr
+enum 3 3 71
+	kill targ
+next
+enum 1 1 109
+	kill targ
+next

@@ -1,0 +1,1079 @@
+inst
+
+new: comp 1 2 21 "mapdisplay" 13 0 0
+mvto 853 3265
+
+seta va99 targ
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+new: simp 2 12 6 "mapdisplay" 2 38 0
+attr 4
+clac 0
+mvto 1421 3386
+anim [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 255]
+seta ov16 va99
+
+
+
+
+scrp 2 12 6 1
+	lock
+	clac -1
+	anim [0 1 0 1 0 1 0 1 0 1]
+	mesg writ ov16 1000
+	over
+	anim [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 255]
+	clac 1
+endm
+
+scrp 2 12 6 2
+	lock
+	clac -1
+	anim [0 1 0 1 0 1 0 1 0 ]
+	mesg writ ov16 1001
+	over
+	anim [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 255]
+	clac 0
+endm
+
+
+scrp 1 2 21 1000
+	lock
+	sndc "map1"
+	part 0
+	anim [0 1 2 3 4 5 6]
+	over
+	inst
+
+	setv ov00 0
+
+	pat: butt 1 "mapdisplay" 24 2 187 27 0 [1] 1002 0
+	part 1
+	anim [0]
+
+	pat: butt 2 "mapdisplay" 26 2 271 27 0 [1] 1003 0
+	part 2
+	anim [0]
+
+	pat: butt 3 "mapdisplay" 28 2 106 82 0 [1] 1004 0
+	part 3
+	anim [0]
+
+	pat: butt 4 "mapdisplay" 30 2 322 82 0 [1] 1005 0
+	part 4
+	anim [0]
+
+	pat: butt 5 "mapdisplay" 32 2 187 143 0 [1] 1006 0
+	part 5
+	anim [0]
+
+	pat: butt 6 "mapdisplay" 34 2 271 143 0 [1] 1007 0
+	part 6
+	anim [0]
+
+
+	pat: butt 7 "mapdisplay" 13 2 26 143 0 [0 1 255] 1009 0
+	part 7
+	anim [0]
+
+	pat: butt 8 "mapdisplay" 15 2 63 143 0 [0 1 255] 1010 0
+	part 8
+	anim [0]
+
+	pat: butt 9 "mapdisplay" 17 2 103 143 0 [0 1 255] 1011 0
+	part 9
+	anim [0]
+
+endm
+
+
+
+scrp 1 2 21 1001
+	inst
+	sndc "map3"
+	tick 0
+	enum 1 2 36
+		kill targ
+	next
+	pat: kill 1
+	pat: kill 2
+	pat: kill 3
+	pat: kill 4
+	pat: kill 5
+	pat: kill 6
+	pat: kill 7
+	pat: kill 8
+	pat: kill 9
+	setv ov01 0
+	setv ov02 0
+	setv ov03 0
+	part 0
+	anim [6 5 4 3 2 1 0]
+endm
+
+
+scrp 1 2 21 1002
+	inst
+	part 1
+	anim [0 1 0 1 0]
+	sndc "map4"
+	enum 1 2 36
+		kill targ
+	next
+
+	setv ov00 1
+	pat: kill 1
+	pat: kill 2
+	pat: kill 3
+	pat: kill 4
+	pat: kill 5
+	pat: kill 6
+
+	part 0
+	pose 12
+
+	pat: butt 1 "mapdisplay" 19 2 52 82 0 [1] 1008 0
+	part 1
+	anim [0 1 0 1 0]
+
+endm
+
+scrp 1 2 21 1003
+	inst
+	part 2
+	anim [0 1 0 1 0]
+
+	sndc "map4"
+	enum 1 2 36
+		kill targ
+	next
+
+	setv ov00 2
+	pat: kill 1
+	pat: kill 2
+	pat: kill 3
+	pat: kill 4
+	pat: kill 5
+	pat: kill 6
+
+	part 0
+	pose 8
+
+	pat: butt 1 "mapdisplay" 19 2 52 82 0 [1] 1008 0
+	part 1
+	anim [0 1 0 1 0]
+endm
+
+scrp 1 2 21 1004
+	inst
+	part 3
+	anim [0 1 0 1 0]
+	sndc "map4"
+	enum 1 2 36
+		kill targ
+	next
+
+	setv ov00 3
+	pat: kill 1
+	pat: kill 2
+	pat: kill 3
+	pat: kill 4
+	pat: kill 5
+	pat: kill 6
+
+	part 0
+	pose 10
+
+	pat: butt 1 "mapdisplay" 19 2 52 82 0 [1] 1008 0
+	part 1
+	anim [0 1 0 1 0]
+endm
+
+scrp 1 2 21 1005
+	inst
+	part 4
+	anim [0 1 0 1 0]
+
+	sndc "map4"
+	enum 1 2 36
+		kill targ
+	next
+
+	setv ov00 4
+
+	pat: kill 1
+	pat: kill 2
+	pat: kill 3
+	pat: kill 4
+	pat: kill 5
+	pat: kill 6
+
+	part 0
+	pose 11
+
+	pat: butt 1 "mapdisplay" 19 2 52 82 0 [1] 1008 0
+	part 1
+	anim [0 1 0 1 0]
+endm
+
+scrp 1 2 21 1006
+	inst
+	part 5
+	anim [0 1 0 1 0]
+
+	sndc "map4"
+	enum 1 2 36
+		kill targ
+	next
+
+	setv ov00 5
+	pat: kill 1
+	pat: kill 2
+	pat: kill 3
+	pat: kill 4
+	pat: kill 5
+	pat: kill 6
+
+	part 0
+	pose 7
+
+	pat: butt 1 "mapdisplay" 19 2 52 82 0 [1] 1008 0
+	part 1
+	anim [0 1 0 1 0]
+endm
+
+scrp 1 2 21 1007
+	inst
+	part 6
+	anim [0 1 0 1 0]
+
+	sndc "map4"
+	enum 1 2 36
+		kill targ
+	next
+
+	setv ov00 6
+
+	pat: kill 1
+	pat: kill 2
+	pat: kill 3
+	pat: kill 4
+	pat: kill 5
+	pat: kill 6
+
+	part 0
+	pose 9
+
+	pat: butt 1 "mapdisplay" 19 2 52 82 0 [1] 1008 0
+	part 1
+	anim [0 1 0 1 0]
+endm
+
+
+scrp 1 2 21 1008
+	inst
+	part 1
+	anim [0 1 0 1 0]
+
+	sndc "map4"
+	enum 1 2 36
+		kill targ
+	next
+	slow
+
+	setv ov00 0
+
+	pat: kill 1
+
+	part 0
+	pose 6
+
+
+	pat: butt 1 "mapdisplay" 24 2 187 27 0 [1] 1002 0
+	part 1
+	anim [0]
+
+	pat: butt 2 "mapdisplay" 26 2 271 27 0 [1] 1003 0
+	part 2
+	anim [0]
+
+	pat: butt 3 "mapdisplay" 28 2 106 82 0 [1] 1004 0
+	part 3
+	anim [0]
+
+	pat: butt 4 "mapdisplay" 30 2 322 82 0 [1] 1005 0
+	part 4
+	anim [0]
+
+	pat: butt 5 "mapdisplay" 32 2 187 143 0 [1] 1006 0
+	part 5
+	anim [0]
+
+	pat: butt 6 "mapdisplay" 34 2 271 143 0 [1] 1007 0
+	part 6
+	anim [0]
+
+
+
+
+
+
+
+
+
+
+
+
+
+endm
+
+
+
+scrp 1 2 21 1009
+	inst
+	sndc "map2"
+
+	doif ov01 eq 0
+		setv ov01 1
+		part 7
+		anim [1]
+
+		doif ov02 eq 0 and ov03 eq 0
+			tick 10
+		endi
+	elif ov01 eq 1
+
+		setv ov01 0
+		part 7
+		anim [0]
+		enum 1 2 36
+			kill targ
+		next
+
+		doif ov02 eq 0 and ov03 eq 0
+			tick 0
+		endi
+	endi
+endm
+
+
+scrp 1 2 21 1010
+	inst
+	sndc "map2"
+
+	doif ov02 eq 0
+		setv ov02 1
+		part 8
+		anim [1]
+
+		doif ov01 eq 0 and ov03 eq 0
+			tick 10
+		endi
+	elif ov02 eq 1
+
+		setv ov02 0
+		part 8
+		anim [0]
+		enum 1 2 36
+			kill targ
+		next
+
+		doif ov01 eq 0 and ov03 eq 0
+			tick 0
+		endi
+	endi
+endm
+
+
+scrp 1 2 21 1011
+	inst
+	sndc "map2"
+
+	doif ov03 eq 0
+		setv ov03 1
+		part 9
+		anim [1]
+
+		doif ov02 eq 0 and ov01 eq 0
+			tick 10
+		endi
+	elif ov03 eq 1
+
+		setv ov03 0
+		part 9
+		anim [0]
+		enum 1 2 36
+			kill targ
+		next
+
+		doif ov02 eq 0 and ov01 eq 0
+			tick 0
+		endi
+	endi
+endm
+
+
+
+scrp 1 2 21 9
+	inst
+
+	enum 1 2 36
+		kill targ
+	next
+
+
+
+
+	doif ov00 eq 1
+
+		doif ov02 eq 1
+			enum 4 1 0
+				setv va00 posx
+				setv va01 posy
+				doif gmap va00 va01 eq 1
+
+					subv va00 4325
+
+					subv va01 120
+
+					divv va00 9.7
+					divv va01 8.3
+
+					new: simp 1 2 36 "mapdisplay" 1 21 1
+					attr 32
+					frel ownr
+					flto va00 va01
+				endi
+			next
+		endi
+
+		doif ov01 eq 1
+			enum 4 2 0
+				setv va00 posx
+				setv va01 posy
+				doif gmap va00 va01 eq 1
+
+					subv va00 4325
+
+					subv va01 120
+
+					divv va00 9.7
+					divv va01 8.3
+
+					addv va00 127
+					addv va01 45
+
+					new: simp 1 2 36 "mapdisplay" 1 22 1
+					attr 32
+					frel ownr
+					flto va00 va01
+				endi
+			next
+		endi
+
+		doif ov03 eq 1
+			enum 4 3 0
+				setv va00 posx
+				setv va01 posy
+				doif gmap va00 va01 eq 1
+
+					subv va00 4325
+
+					subv va01 120
+
+					divv va00 9.7
+					divv va01 8.3
+
+					addv va00 127
+					addv va01 45
+
+					new: simp 1 2 36 "mapdisplay" 1 23 1
+					attr 32
+					frel ownr
+					flto va00 va01
+				endi
+			next
+		endi
+	endi
+
+
+
+
+
+	doif ov00 eq 6
+
+		doif ov02 eq 1
+			enum 4 1 0
+				setv va00 posx
+				setv va01 posy
+				doif gmap va00 va01 eq 0
+
+					subv va00 140
+					subv va01 0
+
+					divv va00 13.4
+					divv va01 11.4
+
+					addv va00 120
+					addv va01 40
+
+					new: simp 1 2 36 "mapdisplay" 1 21 1
+					attr 32
+					frel ownr
+					flto va00 va01
+				endi
+			next
+		endi
+
+		doif ov01 eq 1
+			enum 4 2 0
+				setv va00 posx
+				setv va01 posy
+				doif gmap va00 va01 eq 0
+
+					subv va00 140
+					subv va01 0
+
+					divv va00 13.4
+					divv va01 11.4
+
+					addv va00 120
+					addv va01 40
+
+					new: simp 1 2 36 "mapdisplay" 1 22 1
+					attr 32
+					frel ownr
+					flto va00 va01
+				endi
+			next
+		endi
+
+		doif ov03 eq 1
+			enum 4 3 0
+				setv va00 posx
+				setv va01 posy
+				doif gmap va00 va01 eq 0
+
+					subv va00 140
+					subv va01 0
+
+					divv va00 13.4
+					divv va01 11.4
+
+					addv va00 120
+					addv va01 40
+
+					new: simp 1 2 36 "mapdisplay" 1 23 1
+					attr 32
+					frel ownr
+					flto va00 va01
+				endi
+			next
+		endi
+	endi
+
+
+
+
+
+	doif ov00 eq 5
+
+		doif ov02 eq 1
+			enum 4 1 0
+				setv va00 posx
+				setv va01 posy
+				doif gmap va00 va01 eq 3
+
+					subv va00 60
+					subv va01 1373
+
+					divv va00 10
+					divv va01 10.2
+
+					addv va00 115
+					addv va01 40
+
+					new: simp 1 2 36 "mapdisplay" 1 21 1
+					attr 32
+					frel ownr
+					flto va00 va01
+				endi
+			next
+		endi
+
+		doif ov01 eq 1
+			enum 4 2 0
+				setv va00 posx
+				setv va01 posy
+				doif gmap va00 va01 eq 3
+
+					subv va00 60
+					subv va01 1373
+
+					divv va00 10
+					divv va01 10.2
+
+					addv va00 115
+					addv va01 40
+
+					new: simp 1 2 36 "mapdisplay" 1 22 1
+					attr 32
+					frel ownr
+					flto va00 va01
+				endi
+			next
+		endi
+
+		doif ov03 eq 1
+			enum 4 3 0
+				setv va00 posx
+				setv va01 posy
+				doif gmap va00 va01 eq 3
+
+					subv va00 60
+					subv va01 1373
+
+					divv va00 10
+					divv va01 10.2
+
+					addv va00 115
+					addv va01 40
+
+					new: simp 1 2 36 "mapdisplay" 1 23 1
+					attr 32
+					frel ownr
+					flto va00 va01
+				endi
+			next
+		endi
+	endi
+
+
+
+
+
+	doif ov00 eq 5
+
+		doif ov02 eq 1
+			enum 4 1 0
+				setv va00 posx
+				setv va01 posy
+				doif gmap va00 va01 eq 2
+
+					subv va00 3266
+					subv va01 1580
+
+					divv va00 9.8
+					divv va01 10.3
+
+					addv va00 117
+					addv va01 40
+
+					new: simp 1 2 36 "mapdisplay" 1 21 1
+					attr 32
+					frel ownr
+					flto va00 va01
+				endi
+			next
+		endi
+
+		doif ov01 eq 1
+			enum 4 2 0
+				setv va00 posx
+				setv va01 posy
+				doif gmap va00 va01 eq 2
+
+					subv va00 3266
+					subv va01 1580
+
+					divv va00 9.8
+					divv va01 10.3
+
+					addv va00 117
+					addv va01 40
+
+					new: simp 1 2 36 "mapdisplay" 1 22 1
+					attr 32
+					frel ownr
+					flto va00 va01
+				endi
+			next
+		endi
+
+		doif ov03 eq 1
+			enum 4 3 0
+				setv va00 posx
+				setv va01 posy
+				doif gmap va00 va01 eq 2
+
+					subv va00 3266
+					subv va01 1580
+
+					divv va00 9.8
+					divv va01 10.3
+
+					addv va00 117
+					addv va01 40
+
+					new: simp 1 2 36 "mapdisplay" 1 23 1
+					attr 32
+					frel ownr
+					flto va00 va01
+				endi
+			next
+		endi
+	endi
+
+
+
+
+
+	doif ov00 eq 3
+
+		doif ov02 eq 1
+			enum 4 1 0
+				setv va00 posx
+				setv va01 posy
+				doif gmap va00 va01 eq 4
+					doif posx lt 3220
+
+						subv va00 122
+						subv va01 2915
+
+						divv va00 10.8
+						divv va01 10.2
+
+						addv va00 115
+						addv va01 46
+
+						new: simp 1 2 36 "mapdisplay" 1 21 1
+						attr 32
+						frel ownr
+						flto va00 va01
+					endi
+				endi
+			next
+		endi
+
+		doif ov01 eq 1
+			enum 4 2 0
+				setv va00 posx
+				setv va01 posy
+				doif gmap va00 va01 eq 4
+					doif posx lt 3220
+
+						subv va00 122
+						subv va01 2915
+
+						divv va00 10.8
+						divv va01 10.2
+
+						addv va00 115
+						addv va01 46
+
+						new: simp 1 2 36 "mapdisplay" 1 22 1
+						attr 32
+						frel ownr
+						flto va00 va01
+					endi
+				endi
+			next
+		endi
+
+		doif ov03 eq 1
+			enum 4 3 0
+				setv va00 posx
+				setv va01 posy
+				doif gmap va00 va01 eq 4
+					doif posx lt 3220
+
+						subv va00 122
+						subv va01 2915
+
+						divv va00 10.8
+						divv va01 10.2
+
+						addv va00 115
+						addv va01 46
+
+						new: simp 1 2 36 "mapdisplay" 1 23 1
+						attr 32
+						frel ownr
+						flto va00 va01
+					endi
+				endi
+			next
+		endi
+	endi
+
+
+
+
+	doif ov00 eq 4
+
+		doif ov02 eq 1
+			enum 4 1 0
+				setv va00 posx
+				setv va01 posy
+				doif gmap va00 va01 eq 4
+					doif posx gt 4485
+
+						subv va00 4485
+						subv va01 3082
+
+						divv va00 10.1
+						divv va01 9.7
+
+						addv va00 146
+						addv va01 41
+
+						new: simp 1 2 36 "mapdisplay" 1 21 1
+						attr 32
+						frel ownr
+						flto va00 va01
+					endi
+				endi
+			next
+		endi
+
+		doif ov01 eq 1
+			enum 4 2 0
+				setv va00 posx
+				setv va01 posy
+				doif gmap va00 va01 eq 4
+					doif posx gt 4485
+
+						subv va00 4485
+						subv va01 3082
+
+						divv va00 10.1
+						divv va01 9.7
+
+						addv va00 146
+						addv va01 41
+
+						new: simp 1 2 36 "mapdisplay" 1 22 1
+						attr 32
+						frel ownr
+						flto va00 va01
+					endi
+				endi
+			next
+		endi
+
+		doif ov03 eq 1
+			enum 4 3 0
+				setv va00 posx
+				setv va01 posy
+				doif gmap va00 va01 eq 4
+					doif posx gt 4485
+
+						subv va00 4485
+						subv va01 3082
+
+						divv va00 10.1
+						divv va01 9.7
+
+						addv va00 146
+						addv va01 41
+
+						new: simp 1 2 36 "mapdisplay" 1 23 1
+						attr 32
+						frel ownr
+						flto va00 va01
+					endi
+				endi
+			next
+		endi
+	endi
+
+
+	doif ov00 eq 0
+
+		setv va45 195
+
+		setv va46 270
+
+		setv va47 185
+
+		setv va48 270
+
+		setv va49 190
+
+		doif ov02 eq 1
+			enum 4 1 0
+				setv va00 gmap posx posy
+
+				doif va00 eq 1
+					new: simp 1 2 36 "mapdisplay" 1 21 1
+					attr 32
+					frel ownr
+
+					flto va45 50
+					addv va45 5
+
+				elif va00 eq 2
+					new: simp 1 2 36 "mapdisplay" 1 21 1
+					attr 32
+					frel ownr
+
+					flto va46 50
+					addv va46 5
+
+				elif va00 eq 3
+					new: simp 1 2 36 "mapdisplay" 1 21 1
+					attr 32
+					frel ownr
+
+					flto va47 165
+					addv va47 5
+
+				elif va00 eq 0
+					new: simp 1 2 36 "mapdisplay" 1 21 1
+					attr 32
+					frel ownr
+
+					flto va48 165
+					addv va48 5
+
+				else
+					new: simp 1 2 36 "mapdisplay" 1 21 1
+					attr 32
+					frel ownr
+
+					flto va49 100
+					addv va49 20
+				endi
+			next
+		endi
+
+
+		doif ov01 eq 1
+			enum 4 2 0
+				setv va00 gmap posx posy
+
+				doif va00 eq 1
+					new: simp 1 2 36 "mapdisplay" 1 22 1
+					attr 32
+					frel ownr
+
+					flto va45 50
+					addv va45 5
+
+				elif va00 eq 2
+					new: simp 1 2 36 "mapdisplay" 1 22 1
+					attr 32
+					frel ownr
+
+					flto va46 50
+					addv va46 5
+
+				elif va00 eq 3
+					new: simp 1 2 36 "mapdisplay" 1 22 1
+					attr 32
+					frel ownr
+
+					flto va47 165
+					addv va47 5
+
+				elif va00 eq 0
+					new: simp 1 2 36 "mapdisplay" 1 22 1
+					attr 32
+					frel ownr
+
+					flto va48 165
+					addv va48 5
+
+				else
+					new: simp 1 2 36 "mapdisplay" 1 22 1
+					attr 32
+					frel ownr
+
+					flto va49 100
+					addv va49 20
+				endi
+			next
+		endi
+
+
+		doif ov03 eq 1
+			enum 4 3 0
+				setv va00 gmap posx posy
+
+				doif va00 eq 1
+					new: simp 1 2 36 "mapdisplay" 1 23 1
+					attr 32
+					frel ownr
+
+					flto va45 50
+					addv va45 5
+
+				elif va00 eq 2
+					new: simp 1 2 36 "mapdisplay" 1 23 1
+					attr 32
+					frel ownr
+
+					flto va46 50
+					addv va46 5
+
+				elif va00 eq 3
+					new: simp 1 2 36 "mapdisplay" 1 23 1
+					attr 32
+					frel ownr
+
+					flto va47 165
+					addv va47 5
+
+				elif va00 eq 0
+					new: simp 1 2 36 "mapdisplay" 1 23 1
+					attr 32
+					frel ownr
+
+					flto va48 165
+					addv va48 5
+
+				else
+					new: simp 1 2 36 "mapdisplay" 1 23 1
+					attr 32
+					frel ownr
+
+					flto va49 100
+					addv va49 20
+				endi
+			next
+		endi
+
+
+
+	endi
+endm
+
+
+
+
+rscr
+enum 2 12 6
+	kill targ
+next
+enum 1 2 21
+	kill targ
+next
+enum 1 2 36
+	kill targ
+next

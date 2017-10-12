@@ -1,0 +1,35 @@
+
+
+
+
+
+
+inst
+new: simp 1 1 11 "loo_" 3 0 9000
+attr 6
+clac 0
+setv ov00 0
+mvto 7300 1000
+
+
+scrp 1 1 11 1
+	clac -1
+	doif ov00 eq 0
+		setv ov00 1
+		pose 1
+	else
+		setv ov00 0
+		pose 0
+	endi
+	clac 0
+endm
+
+
+
+
+
+rscr
+enum 1 1 11
+	kill targ
+next
+scrx 1 1 11 1

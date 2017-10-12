@@ -1,0 +1,102 @@
+inst
+new: comp 1 1 27 "sepulchre" 2 0 0
+attr 4
+clac 0
+pat: dull 1 "sepulchre" 2 67 74 1
+mvto 676 416
+
+
+
+
+
+
+scrp 1 1 27 1
+	lock
+	snde "cd_1"
+
+	clac -1
+
+
+
+
+
+	targ ownr
+	part 0
+	anim [1]
+
+	part 1
+	frat 3
+	anim [0 1 2 3 4 5 6 7 8 9]
+	over
+	rtar 2 2 13
+	frat 2
+	anim [0 1 2 3 4 5]
+	setv va00 posx
+	setv va01 posy
+	setv va12 posx
+	setv va13 posy
+	doif from eq pntr
+		setv va02 wndw
+		divv va02 2
+		subv va00 va02
+		setv va03 wndh
+		divv va03 2
+		subv va01 va03
+
+
+
+
+
+
+
+
+
+
+		meta 8 va00 va01 game "c3_meta_transition"
+		targ ownr
+
+
+		part 1
+		anim [10 9 8 7 6 5 4 3 2 1 0]
+		part 0
+		anim [0]
+	endi
+
+
+	rtar 2 2 13
+	anim [5 4 3 2 1 0]
+	targ ownr
+	clac 0
+	inst
+	targ from
+	doif targ ne null
+		doif fmly eq 4
+
+			stim writ targ 95 1
+		endi
+	endi
+
+
+endm
+
+scrp 1 1 27 2
+	clac -1
+	part 0
+	anim [1]
+	part 1
+	anim [9 8 7 6 5 4 3 2 1 0]
+	over
+	part 0
+	anim [0]
+	part 0
+	pose 0
+	clac 0
+endm
+
+
+rscr
+enum 1 1 27
+	kill targ
+next
+scrx 1 1 27 1
+scrx 1 1 27 2

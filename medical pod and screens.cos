@@ -1,0 +1,2012 @@
+
+new: comp 1 1 60 "mediscreen" 22 0 10
+attr 16
+clac -1
+elas 0
+setv ov80 0
+mvto 1170 3565
+
+pat: butt 1 "mediscreen" 19 0 541 1 0 [] 6538 0
+
+
+part 1
+frat 6
+anim [0 1 255]
+
+
+new: vhcl 1 1 61 "medipod" 40 0 0
+attr 4
+bhvr 8
+clac 0
+elas 0
+seta ov16 null
+setv ov80 0
+setv ov00 0
+mvto 1760 3577
+cabn 30 25 145 175
+cabp 0
+pat: dull 1 "medipod" 3 0 0 103
+pat: dull 2 "medipod" 21 0 0 102
+pat: dull 3 "medipod" 32 0 0 101
+pat: dull 4 "medipod" 39 130 190 0
+pat: dull 5 "medipod" 40 30 190 0
+prt: inew 0 "input" "listens for input signals" 38 199 5656
+prt: onew 0 "output" "passes on input signals" 134 199
+
+inst
+new: simp 1 1 70 "medipod" 1 41 1
+attr 0
+mvto 1763 3560
+slow
+
+
+new: comp 1 1 71 "disease and injury screen" 0 0 10
+attr 1
+
+pat: butt 1 "disease and injury screen" 17 2 44 1 0 [] 2000 0
+part 1
+frat 5
+anim [0 1 255]
+mvto 1430 3815
+seta ov16 null
+
+scrp 1 1 71 2000
+	lock
+	snde "bep2"
+	doif ov00 = 0
+		part 1
+		anim [1]
+		part 0
+		wait 2
+		snde "mopn"
+		seta va16 null
+		rtar 1 1 61
+		doif fmly = 1 and gnus = 1 and spcs = 61
+			doif ov16 <> null
+				seta va16 ov16
+			endi
+		endi
+		targ ownr
+
+		doif va16 <> null
+			seta ov16 va16
+		endi
+		doif ov16 <> null
+			anim [0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16]
+			targ ov16
+			seta va16 targ
+			targ va16
+			inst
+			enum 2 32 23
+				doif type ov00 = 7
+					doif ov00 = va16
+						addv va00 1
+					endi
+				endi
+			next
+			slow
+			inst
+			doif va16 <> null
+				targ va16
+
+				setv va50 66
+				setv va51 -1
+				setv va52 -1
+				doif dead = 1
+					setv va66 666
+				endi
+				loop
+					doif chem va50 > va51
+						setv va51 chem va50
+						setv va52 va50
+					endi
+					addv va50 1
+				untl va50 > 89
+				doif va51 = 0 and va52 = 66
+					sets va01 "90"
+				else
+					sets va01 read "short_chemical_names" va52
+				endi
+
+
+				setv va02 chem 127
+
+				setv va03 chem 34
+
+			elif va16 = null
+				stop
+			endi
+			slow
+			targ ownr
+
+			setv ov70 va00
+
+			sets ov71 va01
+
+			setv ov72 va51
+
+			setv ov73 va02
+
+			setv ov74 va03
+
+			doif va66 = 666
+				setv ov66 666
+			else
+				setv ov66 0
+			endi
+			over
+			inst
+
+			pat: dull 2 "disease and injury screen" 20 78 135 0
+
+			pat: dull 3 "disease and injury screen" 30 68 37 0
+
+			pat: dull 4 "disease and injury screen" 20 228 45 0
+
+			pat: dull 5 "disease and injury screen" 20 228 136 0
+
+			pat: fixd 6 "disease and injury screen" 19 78 110 0 "WhiteOnTransparentChars"
+
+			pat: fixd 7 "disease and injury screen" 19 228 70 0 "WhiteOnTransparentChars"
+
+			pat: fixd 8 "disease and injury screen" 19 228 110 0 "WhiteOnTransparentChars"
+
+			pat: fixd 9 "disease and injury screen" 20 67 84 0 "WhiteOnTransparentChars"
+			slow
+
+
+			doif ov73 = 0 or ov73 < 0.01
+				setv va00 0
+			elif ov73 > 0.01 and ov73 < .1
+				setv va00 1
+			elif ov73 > .1 and ov73 < .2
+				setv va00 2
+			elif ov73 > .2 and ov73 < .3
+				setv va00 3
+			elif ov73 > .3 and ov73 < .4
+				setv va00 4
+			elif ov73 > .4 and ov73 < .5
+				setv va00 5
+			elif ov73 > .5 and ov73 < .6
+				setv va00 6
+			elif ov73 > .6 and ov73 < .7
+				setv va00 7
+			elif ov73 > .7 and ov73 < .8
+				setv va00 8
+			elif ov73 > .8 and ov73 <= 1
+				setv va00 9
+			endi
+			part 2
+			pose va00
+
+			part 3
+			doif ov66 <> 666
+				doif ov74 = 0
+					snde "noht"
+					pose 0
+					setv va30 0
+				elif ov74 > 0 and ov74 < 0.4
+					snde "weak"
+					frat 3
+					anim [1 2 3 4 255]
+					setv va30 1
+				elif ov74 > 0.4
+					snde "hart"
+					frat 2
+					anim [5 6 7 8 255]
+					setv va30 2
+				endi
+			elif ov66 = 666
+				snde "noht"
+				pose 0
+				setv va30 0
+			endi
+
+
+
+			doif ov70 = 0
+				setv va40 0
+			elif ov70 = 1
+				setv va40 1
+			elif ov70 = 2
+				setv va40 2
+			elif ov70 = 3
+				setv va40 3
+			elif ov70 = 4
+				setv va40 4
+			elif ov70 = 5
+				setv va40 5
+			elif ov70 = 6
+				setv va40 6
+			elif ov70 = 7
+				setv va40 7
+			elif ov70 = 8
+				setv va40 8
+			elif ov70 >= 9
+				setv va40 9
+			endi
+			part 4
+			pose va40
+
+			doif ov72 = 0 or ov72 < 0.01
+				setv va70 0
+				sets ov71 "90"
+			elif ov72 > 0.01 and ov72 < .1
+				setv va70 1
+			elif ov72 > .1 and ov72 < .2
+				setv va70 2
+			elif ov72 > .2 and ov72 < .3
+				setv va70 3
+			elif ov72 > .3 and ov72 < .4
+				setv va70 4
+			elif ov72 > .4 and ov72 < .5
+				setv va70 5
+			elif ov72 > .5 and ov72 < .6
+				setv va70 6
+			elif ov72 > .6 and ov72 < .7
+				setv va70 7
+			elif ov72 > .7 and ov72 < .8
+				setv va70 8
+			elif ov72 > .8 and ov72 <= 1
+				setv va70 9
+			endi
+			part 5
+			pose va70
+			doif ov71 = "90"
+				sets ov71 read "disease and injury screen" 6
+			endi
+
+			part 6
+			frmt 0 0 0 0 0 0 0
+			sets va60 read "disease and injury screen" 4
+			adds va60 vtos va00
+			ptxt va60
+
+			part 7
+			frmt 0 0 0 0 0 0 0
+			sets va41 vtos va40
+			adds va41 read "disease and injury screen" 3
+			ptxt va41
+
+			part 8
+			frmt 0 0 0 0 0 0 0
+			sets va71 ov71
+			adds va71 read "disease and injury screen" 5
+			ptxt va71
+
+			doif va30 = 0
+				sets va31 read "disease and injury screen" 0
+			elif va30 = 1
+				sets va31 read "disease and injury screen" 1
+			elif va30 = 2
+				sets va31 read "disease and injury screen" 2
+			endi
+			part 9
+			frmt 0 0 0 0 0 0 0
+			ptxt va31
+		elif ov16 = null
+			part 1
+			frat 2
+			anim [0 1 255]
+			part 0
+			anim [0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16]
+			over
+
+			pat: dull 2 "disease and injury screen" 20 78 135 0
+
+			pat: dull 3 "disease and injury screen" 30 68 37 0
+
+			pat: dull 4 "disease and injury screen" 20 228 45 0
+
+			pat: dull 5 "disease and injury screen" 20 228 136 0
+
+			pat: fixd 6 "disease and injury screen" 19 78 110 0 "WhiteOnTransparentChars"
+
+			pat: fixd 7 "disease and injury screen" 19 228 70 0 "WhiteOnTransparentChars"
+
+			pat: fixd 8 "disease and injury screen" 19 228 110 0 "WhiteOnTransparentChars"
+
+			pat: fixd 9 "disease and injury screen" 20 67 84 0 "WhiteOnTransparentChars"
+
+			part 6
+			frmt 0 0 0 0 0 0 0
+			ptxt read "disease and injury screen" 7
+
+		endi
+		tick 2
+		setv ov00 1
+	elif ov00 = 1
+		wait 2
+		snde "mcls"
+		part 1
+		frat 2
+		anim [0 1 255]
+		pat: kill 2
+		pat: kill 3
+		pat: kill 4
+		pat: kill 5
+		pat: kill 6
+		pat: kill 7
+		pat: kill 8
+		pat: kill 9
+		part 1
+		frat 4
+		anim [0 1 255]
+		part 0
+		anim [16 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1 0]
+		over
+		setv ov00 0
+	endi
+endm
+
+scrp 1 1 71 9
+	doif ov00 = 1
+		seta va16 null
+		rtar 1 1 61
+		doif fmly = 1 and gnus = 1 and spcs = 61
+			doif ov16 <> null
+				seta va16 ov16
+			endi
+		endi
+		targ ownr
+
+		doif va16 <> null
+			seta ov16 va16
+		elif va16 = null
+			seta ov16 null
+		endi
+		doif ov16 <> null
+			targ ov16
+			seta va16 targ
+			inst
+			enum 2 32 23
+				doif type ov00 = 7
+					doif ov00 = va16
+						addv va00 1
+					endi
+				endi
+			next
+			slow
+			inst
+			doif va16 <> null
+				targ va16
+				doif dead = 1
+					setv va66 666
+				endi
+
+				setv va50 66
+				setv va51 -1
+				setv va52 -1
+				loop
+					doif chem va50 > va51
+						setv va51 chem va50
+						setv va52 va50
+					endi
+					addv va50 1
+				untl va50 > 89
+				doif va51 = 0 and va52 = 66
+					sets va01 "90"
+				else
+					sets va01 read "short_chemical_names" va52
+				endi
+
+
+
+				setv va02 chem 127
+
+				setv va03 chem 34
+
+			else
+				stop
+			endi
+			slow
+			targ ownr
+
+			setv ov70 va00
+
+			sets ov71 va01
+
+			setv ov72 va51
+
+			setv ov73 va02
+
+			setv ov74 va03
+
+			doif va66 = 666
+				setv ov66 666
+			else
+				setv ov66 0
+			endi
+
+
+			doif ov73 = 0 or ov73 < 0.01
+				setv va00 0
+			elif ov73 > 0.01 and ov73 < .1
+				setv va00 1
+			elif ov73 > .1 and ov73 < .2
+				setv va00 2
+			elif ov73 > .2 and ov73 < .3
+				setv va00 3
+			elif ov73 > .3 and ov73 < .4
+				setv va00 4
+			elif ov73 > .4 and ov73 < .5
+				setv va00 5
+			elif ov73 > .5 and ov73 < .6
+				setv va00 6
+			elif ov73 > .6 and ov73 < .7
+				setv va00 7
+			elif ov73 > .7 and ov73 < .8
+				setv va00 8
+			elif ov73 > .8 and ov73 <= 1
+				setv va00 9
+			endi
+			part 2
+			pose va00
+
+			part 3
+			doif ov66 <> 666
+				doif ov74 = 0
+					snde "noht"
+					pose 0
+					setv va30 0
+				elif ov74 > 0 and ov74 < 0.4
+					snde "weak"
+					frat 3
+					anim [1 2 3 4 255]
+					setv va30 1
+				elif ov74 > 0.4
+					snde "hart"
+					frat 2
+					anim [5 6 7 8 255]
+					setv va30 2
+				endi
+			elif ov66 = 666
+				snde "noht"
+				pose 0
+				setv va30 0
+			endi
+
+
+			doif ov70 = 0
+				setv va40 0
+			elif ov70 = 1
+				setv va40 1
+			elif ov70 = 2
+				setv va40 2
+			elif ov70 = 3
+				setv va40 3
+			elif ov70 = 4
+				setv va40 4
+			elif ov70 = 5
+				setv va40 5
+			elif ov70 = 6
+				setv va40 6
+			elif ov70 = 7
+				setv va40 7
+			elif ov70 = 8
+				setv va40 8
+			elif ov70 >= 9
+				setv va40 9
+			endi
+			part 4
+			pose va40
+
+			doif ov72 = 0 or ov72 < 0.01
+				setv va70 0
+				sets ov71 "90"
+			elif ov72 > 0.01 and ov72 < .1
+				setv va70 1
+			elif ov72 > .1 and ov72 < .2
+				setv va70 2
+			elif ov72 > .2 and ov72 < .3
+				setv va70 3
+			elif ov72 > .3 and ov72 < .4
+				setv va70 4
+			elif ov72 > .4 and ov72 < .5
+				setv va70 5
+			elif ov72 > .5 and ov72 < .6
+				setv va70 6
+			elif ov72 > .6 and ov72 < .7
+				setv va70 7
+			elif ov72 > .7 and ov72 < .8
+				setv va70 8
+			elif ov72 > .8 and ov72 <= 1
+				setv va70 9
+			endi
+			part 5
+			pose va70
+			doif ov71 = "90"
+				sets ov71 read "disease and injury screen" 6
+			endi
+
+			part 6
+			frmt 0 0 0 0 0 0 0
+			sets va60 read "disease and injury screen" 4
+			adds va60 vtos va00
+			ptxt va60
+
+			part 7
+			frmt 0 0 0 0 0 0 0
+			sets va41 vtos va40
+			adds va41 read "disease and injury screen" 3
+			ptxt va41
+
+			part 8
+			frmt 0 0 0 0 0 0 0
+			sets va71 ov71
+			adds va71 read "disease and injury screen" 5
+			ptxt va71
+
+			doif va30 = 0
+				sets va31 read "disease and injury screen" 0
+			elif va30 = 1
+				sets va31 read "disease and injury screen" 1
+			elif va30 = 2
+				sets va31 read "disease and injury screen" 2
+			endi
+			part 9
+			frmt 0 0 0 0 0 0 0
+			ptxt va31
+		elif ov16 = null
+			part 2
+			pose 0
+			part 3
+			pose 0
+			part 4
+			pose 0
+			part 5
+			pose 0
+			part 6
+			ptxt ""
+			part 7
+			ptxt ""
+			part 8
+			ptxt ""
+			part 6
+			frmt 0 0 0 0 0 0 0
+			ptxt read "disease and injury screen" 7
+			tick 0
+		endi
+	endi
+endm
+
+
+
+
+
+
+scrp 1 1 60 1
+	clac -1
+	anim [0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18]
+	over
+	clac 1
+endm
+
+scrp 1 1 60 2
+	clac -1
+	anim [18 17 16 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1 0]
+	over
+	clac 0
+endm
+
+scrp 1 1 60 6538
+	lock
+	snde "bep2"
+	doif ov00 = 0
+		part 1
+		anim [0 1 0 1 0 1]
+		part 0
+		snde "mopn"
+		anim [0 1 2 3 4 5 6 7 8 9 10 11 12 13]
+		over
+
+		inst
+		new: simp 1 1 62 "medical_main" 1 0 11
+		attr 16
+		mvto 1403 3592
+		targ ownr
+		setv ov00 1
+		part 0
+		slow
+		anim [13 14 15 16 17 18]
+		over
+
+
+
+
+
+		inst
+
+		new: simp 1 1 63 "medical_main" 1 1 11
+		attr 16
+		mvto 1177 3597
+
+
+
+		new: comp 1 1 64 "medical_control_panel_buttons" 14 0 12
+		attr 16
+		mvto 1179 3750
+
+		pat: butt 1 "medical_control_panel_buttons" 3 3 98 -3 1 [] 3824 1
+
+		pat: dull 2 "mediscreen" 22 80 0 0
+
+		pat: dull 3 "medical_control_panel_buttons" 6 -3 -8 0
+
+		pat: butt 4 "medical_control_panel_buttons" 0 3 23 -3 1 [] 2334 1
+
+		pat: butt 5 "medical_control_panel_buttons" 10 2 22 -138 0 [] 2358 1
+
+		pat: butt 6 "medical_control_panel_buttons" 12 2 22 -73 0 [] 5557 1
+
+		pat: fixd 7 "mediscreen" 22 260 -90 1 "WhiteOnTransparentChars"
+
+		part 7
+		sets va02 read "chemical graphing and chemical injection screen" 2
+		frmt 0 0 0 0 0 0 2
+		ptxt va02
+
+
+
+		part 1
+		pose 2
+		setv ov70 0
+		setv ov71 0
+		slow
+		targ ownr
+		setv ov01 1
+	elif ov00 = 1
+
+
+		etch 1 1 62
+			kill targ
+		next
+		etch 1 1 63
+			kill targ
+		next
+		etch 1 1 64
+			kill targ
+		next
+		enum 1 1 65
+			kill targ
+		next
+		enum 1 1 66
+			kill targ
+		next
+		enum 1 1 67
+			kill targ
+		next
+		enum 1 1 68
+			kill targ
+		next
+		enum 1 1 69
+			kill targ
+		next
+		snde "mcls"
+		part 0
+		anim [18 17 16 15 14 13]
+		setv ov01 0
+		part 0
+		doif ov01 = 0
+			anim [13 12 11 10 9 8 7 6 5 4 3 2 1 0]
+		else
+			anim [18 17 16 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1 0]
+		endi
+		part 1
+		anim [1 0 1 0 1 0 1 0 1 0]
+		frat 4
+		anim [0 1 255]
+		setv ov00 0
+		setv ov01 0
+		setv ov98 0
+	endi
+endm
+
+scrp 1 1 60 6897
+	lock
+	doif ov01 = 0
+
+	else
+
+	endi
+	unlk
+endm
+
+scrp 1 1 64 2334
+	lock
+	snde "bep2"
+	part 4
+	pose 1
+
+	enum 1 1 65
+		kill targ
+	next
+	enum 1 1 66
+		kill targ
+	next
+	enum 1 1 67
+		kill targ
+	next
+	enum 1 1 68
+		kill targ
+	next
+	enum 1 1 69
+		kill targ
+	next
+	rtar 1 1 62
+	plne 11
+	targ ownr
+
+
+
+
+
+
+
+
+
+
+
+
+	part 7
+	sets va02 read "chemical graphing and chemical injection screen" 2
+	frmt 0 0 0 0 0 0 2
+	ptxt va02
+
+
+
+	part 4
+	pose 0
+endm
+
+scrp 1 1 64 3824
+	lock
+	snde "excl"
+endm
+
+scrp 1 1 64 4358
+	lock
+	snde "excl"
+endm
+
+scrp 1 1 64 5557
+	lock
+	snde "bep2"
+	part 7
+	ptxt ""
+
+
+	part 6
+	pose 1
+	part 6
+	plne 0
+
+	inst
+	new: comp 1 1 65 "syringe" 10 0 13
+	attr 16
+	mvto 1178 3595
+
+	pat: butt 1 "injection" 0 2 321 120 1 [] 6589 1
+
+	pat: butt 2 "injection" 2 2 260 16 1 [] 2353 1
+
+	pat: butt 3 "injection" 4 2 486 16 1 [] 7863 1
+
+	pat: butt 4 "injection" 7 11 239 40 0 [] 2597 1
+
+	pat: fixd 5 "injection text part" 0 282 10 1 "whiteontransparentchars"
+
+	pat: butt 6 "injection" 20 2 239 16 1 [] 2354 1
+
+	pat: butt 7 "injection" 18 2 506 16 1 [] 7864 1
+	part 0
+	frat 2
+	anim [0 1 2 3 4 5 6 8 9 0 1 2 3 4 5 6 7 8 9 0]
+	part 4
+	pose 0
+
+	setv ov50 1
+
+	seta ov18 targ
+	seta va18 ov18
+
+	seta va16 null
+	seta ov16 null
+	rtar 1 1 61
+	doif targ <> null and targ <> ownr
+		doif ov16 <> null
+			seta va16 ov16
+		else
+			seta va16 null
+		endi
+	else
+		seta va16 null
+	endi
+	targ va18
+	seta ov16 va16
+	tick 1
+	slow
+	targ ownr
+	wait 6
+	part 6
+	pose 0
+endm
+
+
+scrp 1 1 65 9
+	sets va00 read "short_chemical_names" ov50
+	sets va50 vtos ov50
+	doif va00 <> va50
+		part 5
+		frmt 0 0 0 0 0 0 10
+		adds va00 " ("
+		adds va00 va50
+		adds va00 ")"
+		ptxt va00
+	else
+		sets va60 read "Unknown Chemical" 0
+		adds va60 " ("
+		adds va60 va50
+		sets va61 ")"
+		adds va60 va61
+		part 5
+		frmt 0 0 0 0 0 0 10
+		ptxt va60
+	endi
+endm
+
+scrp 1 1 65 6589
+	lock
+	part 1
+	pose 1
+	setv va50 ov50
+	setv va91 ov91
+	doif ov90 > 0
+		snde "inje"
+		loop
+			subv ov90 1
+			part 4
+			pose ov90
+			wait 2
+		untl ov90 = 0
+		rtar 1 1 61
+		seta va16 ov16
+		targ ownr
+		seta ov16 va16
+		inst
+		doif ov16 <> null
+			targ ov16
+			setv va70 chem va50
+
+			snde "ow!1"
+			chem va50 va91
+			setv va70 chem va50
+
+			setv ov91 0
+		endi
+		slow
+	endi
+	part 1
+	pose 0
+endm
+
+scrp 1 1 65 2353
+	lock
+	part 2
+	pose 1
+	snde "spdn"
+	doif ov50 > 1
+		subv ov50 1
+	elif ov50 = 1
+		setv ov50 255
+	endi
+	wait 6
+	part 2
+	pose 0
+endm
+
+scrp 1 1 65 2354
+	lock
+	part 6
+	pose 1
+	snde "spdn"
+	doif ov50 > 10
+		subv ov50 10
+	elif ov50 = 10
+		setv ov50 255
+	elif ov50 = 9
+		setv ov50 254
+	elif ov50 = 8
+		setv ov50 253
+	elif ov50 = 7
+		setv ov50 252
+	elif ov50 = 6
+		setv ov50 251
+	elif ov50 = 5
+		setv ov50 250
+	elif ov50 = 4
+		setv ov50 249
+	elif ov50 = 3
+		setv ov50 248
+	elif ov50 = 2
+		setv ov50 247
+	elif ov50 = 1
+		setv ov50 246
+	endi
+	wait 6
+	part 6
+	pose 0
+endm
+
+scrp 1 1 65 7863
+	lock
+	part 3
+	pose 1
+	snde "spup"
+	doif ov50 < 255
+		addv ov50 1
+	elif ov50 = 255
+		setv ov50 1
+	endi
+	wait 6
+	part 3
+	pose 0
+endm
+
+scrp 1 1 65 7864
+	lock
+	part 7
+	pose 1
+	snde "spup"
+	doif ov50 < 245
+		addv ov50 10
+	elif ov50 = 246
+		setv ov50 1
+	elif ov50 = 247
+		setv ov50 2
+	elif ov50 = 248
+		setv ov50 3
+	elif ov50 = 249
+		setv ov50 4
+	elif ov50 = 250
+		setv ov50 5
+	elif ov50 = 251
+		setv ov50 6
+	elif ov50 = 252
+		setv ov50 7
+	elif ov50 = 253
+		setv ov50 8
+	elif ov50 = 254
+		setv ov50 9
+	elif ov50 = 255
+		setv ov50 10
+	endi
+	wait 6
+	part 7
+	pose 0
+endm
+
+scrp 1 1 65 2597
+	lock
+	snde "foop"
+	addv ov90 1
+	doif ov90 < 11
+		part 4
+		pose ov90
+	elif ov90 = 11
+		setv ov90 0
+		part 4
+		pose ov90
+	endi
+	setv ov91 ov90
+	divv ov91 10.0
+endm
+
+scrp 1 1 64 2358
+	lock
+	snde "bep2"
+	part 7
+	ptxt ""
+	part 5
+	pose 1
+	part 5
+	plne 0
+
+	enum 1 1 66
+		kill targ
+	next
+	enum 1 1 67
+		kill targ
+	next
+	enum 1 1 68
+		kill targ
+	next
+	enum 1 1 69
+		kill targ
+	next
+
+
+
+
+
+
+	inst
+	new: simp 1 1 66 "graphing" 8 35 13
+	attr 0
+	mvto 1182 3599
+	frat 3
+	anim [0 1 2 3 4 5 6 7 0 1 2 3 4 5]
+	slow
+	inst
+
+	new: comp 1 1 67 "graphing" 1 18 16
+	attr 16
+	mvto 1410 3595
+
+	pat: butt 1 "graphing" 23 2 14 18 0 [] 9864 1
+	pat: butt 2 "graphing" 25 2 14 41 0 [] 7586 1
+	pat: butt 3 "graphing" 27 2 14 65 0 [] 6421 1
+	pat: butt 4 "graphing" 29 2 14 91 0 [] 8759 1
+	pat: butt 5 "graphing" 31 2 14 116 0 [] 2105 1
+	pat: butt 6 "graphing" 33 2 14 141 0 [] 6007 1
+
+	pat: fixd 7 "graphing" 22 50 22 0 "whiteontransparentchars"
+	pat: fixd 8 "graphing" 22 50 47 0 "whiteontransparentchars"
+	pat: fixd 9 "graphing" 22 50 72 0 "whiteontransparentchars"
+	pat: fixd 10 "graphing" 22 50 97 0 "whiteontransparentchars"
+	pat: fixd 11 "graphing" 22 50 121 0 "whiteontransparentchars"
+	pat: fixd 12 "graphing" 22 50 147 0 "whiteontransparentchars"
+
+	pat: dull 13 "graphing" 16 -5 -1 -1
+
+	sets va01 read "chemical graphing groups" 0
+	sets va02 read "chemical graphing groups" 1
+	sets va03 read "chemical graphing groups" 2
+	sets va04 read "chemical graphing groups" 3
+	sets va05 read "chemical graphing groups" 4
+	sets va06 read "chemical graphing groups" 5
+
+	part 7
+	frmt 2 2 0 0 0 0 2
+	ptxt va01
+	part 8
+	frmt 2 2 0 0 0 0 2
+	ptxt va02
+	part 9
+	frmt 2 2 0 0 0 0 2
+	ptxt va03
+	part 10
+	frmt 2 2 0 0 0 0 2
+	ptxt va04
+	part 11
+	frmt 2 2 0 0 0 0 2
+	ptxt va05
+	part 12
+	frmt 2 2 0 0 0 0 2
+	ptxt va06
+
+
+	setv ov80 0
+	setv ov81 0
+	setv ov82 0
+	setv ov83 0
+	setv ov84 0
+	setv ov85 0
+	setv ov86 0
+	targ ownr
+	wait 6
+	part 5
+	pose 0
+endm
+
+scrp 1 1 61 1
+	lock
+	doif ov00 = 0
+		clac -1
+		part 3
+		snde "pod1"
+		anim [0 1 2 3 4 5 6]
+		part 1
+		anim [0 1 2 3 4 5 6 7]
+		over
+		part 0
+		anim [0 1 0 1 2]
+		over
+		dpas 4 0 0
+		seta ov16 null
+		seta va16 null
+		snde "stm1"
+		part 1
+		anim [8 9 10 11 12 13 14 15 16 17]
+		part 2
+		anim [0 1 2 3 4 5 6 7 8 9 10]
+		setv ov00 1
+		clac 0
+		attr 12
+		prt: send 0 255
+		enum 1 1 70
+			kill targ
+		next
+	else
+		clac -1
+		part 1
+		snde "stm1"
+		gpas 4 0 0 0
+		anim [17 16 15 14 13 12 11 10 9 8]
+		part 2
+		anim [10 9 8 7 6 5 4 3 2 1 0]
+		over
+		part 0
+		anim [2 1 0 1 0]
+		over
+		seta va16 null
+		inst
+		setv va19 0
+		seta va17 null
+		epas 4 0 0
+			doif targ <> null
+				addv va19 1
+				doif va19 = 1
+					seta va16 targ
+					seta va17 held
+					doif va17 <> null
+						targ va17
+						mesg writ targ 5
+					endi
+				elif va19 > 1
+					rpas ownr targ
+				endi
+			endi
+		next
+		slow
+		inst
+		epas 0 0 0
+			doif fmly <> 4
+				rpas ownr targ
+			endi
+		next
+		slow
+		inst
+		doif va16 <> null
+			seta ov16 va16
+			rtar 1 1 71
+			tick 2
+		endi
+		slow
+		targ ownr
+		part 3
+		snde "pod1"
+		anim [6 5 4 3 2 1 0]
+		part 1
+		anim [7 6 5 4 3 2 1 0]
+		setv ov00 0
+		clac 0
+		attr 4
+		prt: send 0 255
+		inst
+		new: simp 1 1 70 "medipod" 1 41 1
+		attr 0
+		mvto 1763 3560
+		slow
+	endi
+endm
+
+scrp 1 1 61 5656
+	setv va00 _p1_
+	doif va00 <= 0
+		prt: send 0 va00
+	else
+		lock
+		doif ov00 = 0
+			clac -1
+			part 3
+			snde "pod1"
+			anim [0 1 2 3 4 5 6]
+			part 1
+			anim [0 1 2 3 4 5 6 7]
+			over
+			part 0
+			anim [0 1 0 1 2]
+			over
+			dpas 4 0 0
+			seta ov16 null
+			seta va16 null
+			snde "stm1"
+			part 1
+			anim [8 9 10 11 12 13 14 15 16 17]
+			part 2
+			anim [0 1 2 3 4 5 6 7 8 9 10]
+			setv ov00 1
+			clac 0
+			attr 12
+			prt: send 0 255
+			enum 1 1 70
+				kill targ
+			next
+		else
+			clac -1
+			part 1
+			snde "stm1"
+			gpas 4 0 0 0
+			anim [17 16 15 14 13 12 11 10 9 8]
+			part 2
+			anim [10 9 8 7 6 5 4 3 2 1 0]
+			over
+			part 0
+			anim [2 1 0 1 0]
+			over
+			seta va16 null
+			inst
+			setv va19 0
+			seta va17 null
+			epas 4 0 0
+				doif targ <> null
+					addv va19 1
+					doif va19 = 1
+						seta va16 targ
+						seta va17 held
+						doif va17 <> null
+							targ va17
+							mesg writ targ 5
+						endi
+					elif va19 > 1
+						rpas ownr targ
+					endi
+				endi
+			next
+			slow
+			inst
+			epas 0 0 0
+				doif fmly <> 4
+					rpas ownr targ
+				endi
+			next
+			slow
+			inst
+			doif va16 <> null
+				seta ov16 va16
+				rtar 1 1 71
+				tick 2
+			endi
+			slow
+			targ ownr
+			part 3
+			snde "pod1"
+			anim [6 5 4 3 2 1 0]
+			part 1
+			anim [7 6 5 4 3 2 1 0]
+			setv ov00 0
+			clac 0
+			attr 4
+			prt: send 0 255
+			inst
+			new: simp 1 1 70 "medipod" 1 41 1
+			attr 0
+			mvto 1763 3560
+			slow
+		endi
+	endi
+endm
+
+scrp 1 1 67 9864
+	doif ov80 = 0
+		part 1
+		pose 1
+		setv ov81 1
+		wait 2
+		mesg writ ownr 6483
+		part 1
+		pose 0
+		setv ov80 1
+	endi
+endm
+
+scrp 1 1 67 7586
+	doif ov80 = 0
+		part 2
+		pose 1
+		setv ov82 1
+		wait 2
+		mesg writ ownr 6483
+		part 2
+		pose 0
+		setv ov80 1
+	endi
+endm
+
+scrp 1 1 67 6421
+	doif ov80 = 0
+		part 3
+		pose 1
+		setv ov83 1
+		wait 2
+		mesg writ ownr 6483
+		part 3
+		pose 0
+		setv ov80 1
+	endi
+endm
+
+scrp 1 1 67 8759
+	doif ov80 = 0
+		part 4
+		pose 1
+		setv ov84 1
+		wait 2
+		mesg writ ownr 6483
+		part 4
+		pose 0
+		setv ov80 1
+	endi
+endm
+
+scrp 1 1 67 2105
+	doif ov80 = 0
+		part 5
+		pose 1
+		setv ov85 1
+		wait 2
+		mesg writ ownr 6483
+		part 5
+		pose 0
+		setv ov80 1
+	endi
+endm
+
+scrp 1 1 67 6007
+	doif ov80 = 0
+		part 6
+		pose 1
+		setv ov86 1
+		wait 2
+		mesg writ ownr 6483
+		part 6
+		pose 0
+		setv ov80 1
+	endi
+endm
+
+
+scrp 1 1 67 6483
+
+	lock
+
+	snde "bep2"
+
+	setv va81 ov81
+	setv va82 ov82
+	setv va83 ov83
+	setv va84 ov84
+	setv va85 ov85
+	setv va86 ov86
+	rtar 1 1 62
+	doif targ <> ownr and targ <> null
+		plne 14
+	endi
+	rtar 1 1 67
+	doif targ <> ownr and targ <> null
+		kill targ
+	endi
+	targ ownr
+	inst
+	pat: kill 1
+	pat: kill 2
+	pat: kill 3
+	pat: kill 4
+	pat: kill 5
+	pat: kill 6
+	pat: kill 7
+	pat: kill 8
+	pat: kill 9
+	pat: kill 10
+	pat: kill 11
+	pat: kill 12
+	pat: kill 13
+	slow
+	inst
+
+	new: comp 1 1 69 "graph" 1 7 16
+	attr 16
+	mvto 1178 3595
+
+	pat: grph 1 "graphing" 7 270 22 2 32
+
+	pat: dull 2 "graphing" 0 227 -4 0
+
+	pat: butt 3 "graphing" 5 2 405 132 0 [] 3497 1
+
+	pat: butt 4 "graphing" 1 2 323 132 0 [] 7659 1
+
+	pat: butt 5 "graphing" 3 2 356 132 0 [] 3594 1
+
+	pat: dull 6 "medical_main" 2 -1 0 0
+	slow
+
+	seta ov16 null
+	seta va18 targ
+	seta ov18 targ
+	rtar 1 1 61
+	doif targ <> null and targ <> ownr
+		doif ov16 <> null
+			seta va16 ov16
+		else
+			seta va16 null
+		endi
+	else
+		seta va16 null
+	endi
+	targ va18
+	seta ov16 va16
+
+	part 1
+
+	grpl 255 128 0 0 1
+
+	grpl 255 0 198 0 1
+
+	grpl 121 0 255 0 1
+
+	grpl 0 192 255 0 1
+
+	grpl 0 255 130 0 1
+
+	grpl 255 240 0 0 1
+
+	setv ov98 15
+	part 1
+	tick ov98
+	tick ov98
+
+	inst
+	new: comp 1 1 68 "graphing" 1 19 17
+	attr 16
+	mvto 1177 3593
+
+	pat: fixd 1 "graphing" 21 8 10 0 "whiteontransparentchars"
+
+	pat: fixd 2 "graphing" 20 23 34 0 "whiteontransparentchars"
+
+	pat: fixd 3 "graphing" 20 23 55 0 "whiteontransparentchars"
+
+	pat: fixd 4 "graphing" 20 23 74 0 "whiteontransparentchars"
+
+	pat: fixd 5 "graphing" 20 23 96 0 "whiteontransparentchars"
+
+	pat: fixd 6 "graphing" 20 23 115 0 "whiteontransparentchars"
+
+	pat: fixd 7 "graphing" 20 23 135 0 "whiteontransparentchars"
+
+	pat: butt 8 "medical_control_panel_buttons" 3 3 99 154 1 [] 3829 1
+	slow
+
+	setv ov81 va81
+	setv ov82 va82
+	setv ov83 va83
+	setv ov84 va84
+	setv ov85 va85
+	setv ov86 va86
+	tick 1
+	rtar 1 1 62
+	plne 11
+	kill ownr
+endm
+scrp 1 1 68 3829
+	etch 1 1 62
+		kill targ
+	next
+	rtar 1 1 64
+	mesg writ targ 2358
+endm
+
+
+scrp 1 1 68 9
+	doif ov81 = 1
+
+		sets ov70 read "chemical graphing groups" 0
+
+		sets va00 read "chemical graphing group 1" 0
+		setv ov71 stoi va00
+		sets va00 read "chemical graphing group 1" 1
+		setv ov72 stoi va00
+		sets va00 read "chemical graphing group 1" 2
+		setv ov73 stoi va00
+		sets va00 read "chemical graphing group 1" 3
+		setv ov74 stoi va00
+		sets va00 read "chemical graphing group 1" 4
+		setv ov75 stoi va00
+		sets va00 read "chemical graphing group 1" 5
+		setv ov76 stoi va00
+	elif ov82 = 1
+
+		sets ov70 read "chemical graphing groups" 1
+
+		sets va00 read "chemical graphing group 2" 0
+		setv ov71 stoi va00
+		sets va00 read "chemical graphing group 2" 1
+		setv ov72 stoi va00
+		sets va00 read "chemical graphing group 2" 2
+		setv ov73 stoi va00
+		sets va00 read "chemical graphing group 2" 3
+		setv ov74 stoi va00
+		sets va00 read "chemical graphing group 2" 4
+		setv ov75 stoi va00
+		sets va00 read "chemical graphing group 2" 5
+		setv ov76 stoi va00
+	elif ov83 = 1
+
+		sets ov70 read "chemical graphing groups" 2
+
+		sets va00 read "chemical graphing group 3" 0
+		setv ov71 stoi va00
+		sets va00 read "chemical graphing group 3" 1
+		setv ov72 stoi va00
+		sets va00 read "chemical graphing group 3" 2
+		setv ov73 stoi va00
+		sets va00 read "chemical graphing group 3" 3
+		setv ov74 stoi va00
+		sets va00 read "chemical graphing group 3" 4
+		setv ov75 stoi va00
+		sets va00 read "chemical graphing group 3" 5
+		setv ov76 stoi va00
+	elif ov84 = 1
+
+		sets ov70 read "chemical graphing groups" 3
+
+		sets va00 read "chemical graphing group 4" 0
+		setv ov71 stoi va00
+		sets va00 read "chemical graphing group 4" 1
+		setv ov72 stoi va00
+		sets va00 read "chemical graphing group 4" 2
+		setv ov73 stoi va00
+		sets va00 read "chemical graphing group 4" 3
+		setv ov74 stoi va00
+		sets va00 read "chemical graphing group 4" 4
+		setv ov75 stoi va00
+		sets va00 read "chemical graphing group 4" 5
+		setv ov76 stoi va00
+	elif ov85 = 1
+
+		sets ov70 read "chemical graphing groups" 4
+
+		sets va00 read "chemical graphing group 5" 0
+		setv ov71 stoi va00
+		sets va00 read "chemical graphing group 5" 1
+		setv ov72 stoi va00
+		sets va00 read "chemical graphing group 5" 2
+		setv ov73 stoi va00
+		sets va00 read "chemical graphing group 5" 3
+		setv ov74 stoi va00
+		sets va00 read "chemical graphing group 5" 4
+		setv ov75 stoi va00
+		sets va00 read "chemical graphing group 5" 5
+		setv ov76 stoi va00
+	elif ov86 = 1
+
+		sets ov70 read "chemical graphing groups" 5
+
+		sets va00 read "chemical graphing group 6" 0
+		setv ov71 stoi va00
+		sets va00 read "chemical graphing group 6" 1
+		setv ov72 stoi va00
+		sets va00 read "chemical graphing group 6" 2
+		setv ov73 stoi va00
+		sets va00 read "chemical graphing group 6" 3
+		setv ov74 stoi va00
+		sets va00 read "chemical graphing group 6" 4
+		setv ov75 stoi va00
+		sets va00 read "chemical graphing group 6" 5
+		setv ov76 stoi va00
+	endi
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	doif ov71 <> 0
+		sets ov61 read "short_chemical_names" ov71
+	else
+		sets ov61 ""
+	endi
+	doif ov72 <> 0
+		sets ov62 read "short_chemical_names" ov72
+	else
+		sets ov62 ""
+	endi
+	doif ov73 <> 0
+		sets ov63 read "short_chemical_names" ov73
+	else
+		sets ov63 ""
+	endi
+	doif ov74 <> 0
+		sets ov64 read "short_chemical_names" ov74
+	else
+		sets ov64 ""
+	endi
+	doif ov75 <> 0
+		sets ov65 read "short_chemical_names" ov75
+	else
+		sets ov65 ""
+	endi
+	doif ov76 <> 0
+		sets ov66 read "short_chemical_names" ov76
+	else
+		sets ov66 ""
+	endi
+	inst
+	part 1
+	frmt 2 2 0 0 0 0 2
+	ptxt ov70
+	part 2
+	frmt 2 0 0 0 0 0 2
+	ptxt ov61
+	part 3
+	frmt 2 0 0 0 0 0 2
+	ptxt ov62
+	part 4
+	frmt 2 0 0 0 0 0 2
+	ptxt ov63
+	part 5
+	frmt 2 0 0 0 0 0 2
+	ptxt ov64
+	part 6
+	frmt 2 0 0 0 0 0 2
+	ptxt ov65
+	part 7
+	frmt 2 0 0 0 0 0 2
+	ptxt ov66
+	slow
+endm
+
+
+scrp 1 1 69 3594
+	lock
+	snde "bep2"
+	doif ov77 = 0
+		part 5
+		pose 1
+		setv ov97 ov98
+		setv ov98 0
+		setv ov77 1
+	elif ov77 = 1
+		part 5
+		pose 0
+		setv ov98 ov97
+		setv ov97 0
+		setv ov77 0
+	endi
+	tick ov98
+endm
+
+scrp 1 1 69 3497
+	lock
+	doif ov77 = 0
+		part 3
+		pose 1
+		doif ov98 > 4
+			snde "spup"
+			subv ov98 5
+			doif ov98 = 0
+				setv ov98 1
+			endi
+		elif ov98 <= 4 and ov98 > 1
+			setv ov98 1
+			snde "spup"
+		elif ov98 <= 1
+			snde "excl"
+			setv ov98 1
+		endi
+		part 3
+		pose 0
+		tick ov98
+	endi
+endm
+
+scrp 1 1 69 7659
+	lock
+	doif ov77 = 0
+
+		part 4
+		pose 1
+		doif ov98 < 46
+			snde "spdn"
+			addv ov98 5
+		elif ov98 >= 46 and ov98 < 50
+			setv ov98 50
+			snde "spdn"
+		elif ov98 >= 50
+			snde "excl"
+			setv ov98 50
+		endi
+		doif ov98 = 51
+			setv ov98 50
+		endi
+		part 4
+		pose 0
+		tick ov98
+	endi
+endm
+
+
+scrp 1 1 69 9
+	tick ov98
+
+	rtar 1 1 61
+	doif ov16 <> null
+		seta va16 ov16
+		targ ownr
+		seta ov16 va16
+		rtar 1 1 68
+		doif targ <> null and targ <> ownr
+			doif ov81 = 1
+
+				sets va00 read "chemical graphing group 1" 0
+				setv va71 stoi va00
+				sets va00 read "chemical graphing group 1" 1
+				setv va72 stoi va00
+				sets va00 read "chemical graphing group 1" 2
+				setv va73 stoi va00
+				sets va00 read "chemical graphing group 1" 3
+				setv va74 stoi va00
+				sets va00 read "chemical graphing group 1" 4
+				setv va75 stoi va00
+				sets va00 read "chemical graphing group 1" 5
+				setv va76 stoi va00
+			elif ov82 = 1
+
+				sets va00 read "chemical graphing group 2" 0
+				setv va71 stoi va00
+				sets va00 read "chemical graphing group 2" 1
+				setv va72 stoi va00
+				sets va00 read "chemical graphing group 2" 2
+				setv va73 stoi va00
+				sets va00 read "chemical graphing group 2" 3
+				setv va74 stoi va00
+				sets va00 read "chemical graphing group 2" 4
+				setv va75 stoi va00
+				sets va00 read "chemical graphing group 2" 5
+				setv va76 stoi va00
+			elif ov83 = 1
+
+				sets va00 read "chemical graphing group 3" 0
+				setv va71 stoi va00
+				sets va00 read "chemical graphing group 3" 1
+				setv va72 stoi va00
+				sets va00 read "chemical graphing group 3" 2
+				setv va73 stoi va00
+				sets va00 read "chemical graphing group 3" 3
+				setv va74 stoi va00
+				sets va00 read "chemical graphing group 3" 4
+				setv va75 stoi va00
+				sets va00 read "chemical graphing group 3" 5
+				setv va76 stoi va00
+			elif ov84 = 1
+
+				sets va00 read "chemical graphing group 4" 0
+				setv va71 stoi va00
+				sets va00 read "chemical graphing group 4" 1
+				setv va72 stoi va00
+				sets va00 read "chemical graphing group 4" 2
+				setv va73 stoi va00
+				sets va00 read "chemical graphing group 4" 3
+				setv va74 stoi va00
+				sets va00 read "chemical graphing group 4" 4
+				setv va75 stoi va00
+				sets va00 read "chemical graphing group 4" 5
+				setv va76 stoi va00
+			elif ov85 = 1
+
+				sets va00 read "chemical graphing group 5" 0
+				setv va71 stoi va00
+				sets va00 read "chemical graphing group 5" 1
+				setv va72 stoi va00
+				sets va00 read "chemical graphing group 5" 2
+				setv va73 stoi va00
+				sets va00 read "chemical graphing group 5" 3
+				setv va74 stoi va00
+				sets va00 read "chemical graphing group 5" 4
+				setv va75 stoi va00
+				sets va00 read "chemical graphing group 5" 5
+				setv va76 stoi va00
+			elif ov86 = 1
+
+				sets va00 read "chemical graphing group 6" 0
+				setv va71 stoi va00
+				sets va00 read "chemical graphing group 6" 1
+				setv va72 stoi va00
+				sets va00 read "chemical graphing group 6" 2
+				setv va73 stoi va00
+				sets va00 read "chemical graphing group 6" 3
+				setv va74 stoi va00
+				sets va00 read "chemical graphing group 6" 4
+				setv va75 stoi va00
+				sets va00 read "chemical graphing group 6" 5
+				setv va76 stoi va00
+			endi
+		endi
+		targ ownr
+		inst
+		setv va51 va71
+		setv va52 va72
+		setv va53 va73
+		setv va54 va74
+		setv va55 va75
+		setv va56 va76
+		slow
+		setv va00 0
+		setv va01 0
+		setv va02 0
+		setv va03 0
+		setv va04 0
+		setv va05 0
+		inst
+		doif ov16 <> null
+			targ ov16
+			setv va00 chem va71
+			setv va01 chem va72
+			setv va02 chem va73
+			setv va03 chem va74
+			setv va04 chem va75
+			setv va05 chem va76
+		endi
+		slow
+		targ ownr
+		part 1
+		grpv 0 va00
+		grpv 1 va01
+		grpv 2 va02
+		grpv 3 va03
+		grpv 4 va04
+		grpv 5 va05
+	endi
+
+endm
+
+
+
+scrp 1 1 61 3
+	targ from
+	doif fmly = 4 and gnus = 2
+		prt: bang rand 60 100
+	endi
+	stim writ targ 92 1
+endm
+
+
+scrp 1 1 61 125
+	doif ov00 = 0
+		clac -1
+		part 3
+		snde "pod1"
+		anim [0 1 2 3 4 5 6]
+		part 1
+		anim [0 1 2 3 4 5 6 7]
+		over
+		part 0
+		anim [0 1 0 1 2]
+		over
+		dpas 4 0 0
+		seta ov16 null
+		seta va16 null
+		snde "stm1"
+		part 1
+		anim [8 9 10 11 12 13 14 15 16 17]
+		part 2
+		anim [0 1 2 3 4 5 6 7 8 9 10]
+		setv ov00 1
+		clac 0
+		attr 12
+		prt: send 0 255
+		enum 1 1 70
+			kill targ
+		next
+		rtar 1 1 71
+		doif ov00 = 1
+			tick 0
+		endi
+	endi
+endm
+
+rscr
+
+enum 1 1 60
+	kill targ
+next
+
+scrx 1 1 60 1
+scrx 1 1 60 2
+scrx 1 1 60 6538
+scrx 1 1 60 6897
+
+enum 1 1 61
+	kill targ
+next
+
+scrx 1 1 61 1
+
+enum 1 1 62
+	kill targ
+next
+
+enum 1 1 63
+	kill targ
+next
+
+enum 1 1 64
+	kill targ
+next
+
+scrx 1 1 64 5557
+scrx 1 1 64 2358
+scrx 1 1 64 3824
+scrx 1 1 64 4358
+scrx 1 1 64 2334
+
+enum 1 1 65
+	kill targ
+next
+
+scrx 1 1 65 2597
+scrx 1 1 65 7863
+scrx 1 1 65 2353
+scrx 1 1 65 6589
+scrx 1 1 65 9
+
+enum 1 1 66
+	kill targ
+next
+
+enum 1 1 67
+	kill targ
+next
+
+scrx 1 1 67 9864
+scrx 1 1 67 6483
+scrx 1 1 67 7586
+scrx 1 1 67 6421
+scrx 1 1 67 8759
+scrx 1 1 67 2105
+scrx 1 1 67 6007
+
+
+scrx 1 1 61 3
+
+
+enum 1 1 68
+	kill targ
+next
+
+enum 1 1 69
+	kill targ
+next
+
+enum 1 1 70
+	kill targ
+next
+
+
+enum 1 1 71
+	kill targ
+next
+scrx 1 1 71 9
+scrx 1 1 71 2000
+
+
+scrx 1 1 61 125

@@ -1,0 +1,13 @@
+new: simp 1 1 96 "lung overlay" 0 0 101
+attr 0
+mvto 6602 3854
+
+new: simp 1 1 96 "lung overlay" 0 0 101
+pose 1
+attr 0
+mvto 6117 4307
+
+rscr
+enum 1 1 96
+	kill targ
+next

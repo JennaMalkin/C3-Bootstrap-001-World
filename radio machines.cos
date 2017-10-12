@@ -1,0 +1,148 @@
+inst
+setv va00 0
+reps 4
+	addv va00 1
+	new: comp 3 8 5 "radio" 1 0 610
+	attr 195
+
+	bhvr 41
+	elas 0
+	accg 6
+	perm 60
+
+
+	setv ov00 1
+
+	setv ov61 100
+
+
+
+
+
+	setv ov01 0
+
+
+	pat: butt 1 "radio" 8 16 10 18 0 [] 1050 0
+
+	pat: butt 2 "radio" 4 2 3 46 0 [] 1051 0
+
+	pat: butt 3 "radio" 6 2 27 46 0 [] 1052 0
+	part 3
+	pose 1
+
+	pat: dull 4 "radio" 1 8 0 0
+
+
+	prt: inew 0 "Radio Input" " " 43 37 1000
+	prt: onew 0 "Radio Output" " " 41 50
+
+
+	doif va00 = 1 or va00 = 2
+		mvto rand 1575 1900 3283
+	elif va00 = 3 or va00 = 4
+		mvto rand 2600 3100 213
+	endi
+
+	emit 18 0.2
+repe
+
+
+scrp 3 8 5 1050
+
+	snde "rad1"
+
+	doif ov01 lt 15
+		addv ov01 1
+	else
+		setv ov01 0
+	endi
+	part 1
+	pose ov01
+endm
+
+scrp 3 8 5 1051
+
+	setv ov00 1
+	part 2
+	pose 1
+	part 3
+	pose 0
+endm
+
+scrp 3 8 5 1052
+
+	setv ov00 0
+	part 3
+	pose 1
+	part 2
+	pose 0
+endm
+
+scrp 3 8 5 1000
+
+
+
+	doif ov00 eq 1
+
+		part 4
+		anim [0 1 2 0 1 2 0 1 2 0]
+		setv va00 _p1_
+		setv va01 ov01
+
+		enum 3 8 5
+			doif targ ne ownr and ov01 eq va01
+				mesg wrt+ targ 1001 va00 0 0
+			endi
+		next
+
+		prt: send 0 va00
+	endi
+endm
+
+scrp 3 8 5 1001
+
+	doif ov00 eq 1
+		part 4
+		anim [0 1 2 0 1 2 0 1 2 0]
+		setv va00 _p1_
+
+		prt: send 0 va00
+	endi
+endm
+
+scrp 3 8 5 114
+
+endm
+
+
+scrp 3 8 5 4
+	targ from
+	doif fmly eq 4
+		stim writ targ 91 1
+	endi
+endm
+
+
+scrp 3 8 5 3
+	sndc "hit_"
+	velo 0 rand -5 -10
+	prt: bang rand 60 100
+	stim writ from 92 1
+endm
+
+
+scrp 3 8 5 1
+	velo 0 rand -5 -10
+	stim writ from 90 1
+endm
+
+
+rscr
+enum 3 8 5
+	kill targ
+next
+scrx 3 8 5 1000
+scrx 3 8 5 1001
+scrx 3 8 5 1050
+scrx 3 8 5 1051
+scrx 3 8 5 1052

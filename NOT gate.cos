@@ -1,0 +1,66 @@
+
+inst
+reps 2
+	new: comp 3 8 7 "logicgates" 1 9 5000
+	attr 195
+	accg 5
+	aero 10
+	bhvr 41
+	elas 10
+	perm 60
+
+	setv ov61 100
+
+
+	pat: dull 1 "logicgates" 10 32 1 0
+
+
+	prt: inew 0 "NOT gate input" " " 2 13 1000
+	prt: onew 0 "NOT output" " " 45 13
+	emit 18 0.2
+	mvto rand 770 1570 3432
+	addv va50 40
+
+repe
+
+
+scrp 3 8 7 4
+	targ from
+	doif fmly eq 4
+		stim writ targ 91 1
+	endi
+endm
+
+
+
+scrp 3 8 7 3
+	sndc "hit_"
+	velo 0 rand -5 -10
+	prt: bang rand 60 100
+	stim writ from 92 1
+endm
+
+
+scrp 3 8 7 1000
+	part 1
+	anim [0 1 0 1 0 1 0]
+	doif _p1_ eq 0
+		setv va00 255
+	else
+		setv va00 0
+	endi
+
+	prt: send 0 va00
+
+endm
+
+scrp 3 8 7 1
+	stim writ from 90 1
+	mesg wrt+ ownr 1000 255 0 0
+endm
+
+rscr
+enum 3 8 7
+	kill targ
+next
+scrx 3 8 7 100

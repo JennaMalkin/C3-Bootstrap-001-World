@@ -1,0 +1,113 @@
+
+iscr
+reps 1
+	new: simp 3 8 9 "mediporter" 9 0 5000
+	attr 199
+	perm 60
+	clac 0
+	elas 10
+	fric 100
+	tick 0
+	aero 5
+	accg 4
+	bhvr 41
+	puhl -1 25 36
+	setv ov61 100
+
+	mvto rand 2800 3100 213
+	anim [0]
+	pose 0
+	emit 18 0.2
+	prt: inew 0 "mediporter in" "medical transporter input" 42 57 1000
+	prt: onew 0 "mediporter out" "medical transporter output" 19 57
+	cmrt 0
+repe
+
+scrp 3 8 9 1
+	snde "lg_1"
+	stim writ from 90 1
+	mesg writ ownr 2000
+endm
+
+
+scrp 3 8 9 4
+	targ from
+	doif fmly eq 4
+		stim writ targ 91 1
+	endi
+endm
+
+
+
+scrp 3 8 9 3
+	sndc "hit_"
+	velo 0 rand -5 -10
+	prt: bang rand 60 100
+	stim writ from 92 1
+endm
+
+scrp 3 8 9 1000
+	doif _p1_ <> 0
+		mesg writ ownr 2000
+	endi
+	prt: send 0 _p1_
+endm
+
+scrp 3 8 9 2000
+	lock
+	clac -1
+	setv va10 posx
+	setv va11 posy
+	subv va10 100
+	subv va11 130
+	anim [0 1 2 3 4 5 6 7 8]
+	over
+	inst
+	new: simp 1 1 43 "teleport" 9 11 9000
+	mvto va10 va11
+	attr 0
+	mesg writ targ 2000
+	slow
+	targ ownr
+	anim [8 7 6 5 4 3 2 1 0]
+	over
+	clac 0
+	unlk
+endm
+
+scrp 1 1 43 2000
+	lock
+	snde "tele"
+	anim [0 1 2 3 4 5 6 7]
+	over
+	anim [3 4 5 6 7 255]
+	inst
+	etch 4 0 0
+		doif targ <> null
+			doif targ <> ownr and carr = null
+				nohh
+				doif tmvf 2000 3780 <> 1
+					mvsf 2000 3780
+				else
+					mvft 2000 3780
+				endi
+			endi
+		endi
+	next
+	slow
+	kill targ
+endm
+
+
+
+rscr
+enum 3 8 9
+	kill targ
+next
+scrx 3 8 9 1
+scrx 3 8 9 1000
+enum 1 1 43
+	kill targ
+next
+scrx 1 1 43 1
+scrx 1 1 43 2000

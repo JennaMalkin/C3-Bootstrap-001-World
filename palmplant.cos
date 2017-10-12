@@ -1,0 +1,50 @@
+
+inst
+reps 5
+	new: simp 2 4 4 "palmplant" 15 0 140
+	attr 192
+
+	bhvr 1
+	elas 0
+	tick rand 200 1000
+
+	mvto rand 1000 2200 2030
+repe
+
+scrp 2 4 4 1
+	targ from
+stim writ from 62 1
+endm
+
+scrp 2 4 4 9
+	doif ov00 eq 0
+		doif pose lt 14
+			setv va00 pose
+			addv va00 1
+			pose va00
+		else
+			addv ov99 1
+		endi
+		doif ov99 eq 50
+			setv ov00 1
+		endi
+	endi
+	doif ov00 eq 1
+		doif pose gt 0
+			setv va00 pose
+			subv va00 1
+			pose va00
+		else
+			setv ov99 0
+			setv ov00 0
+		endi
+	endi
+endm
+
+
+
+rscr
+enum 2 4 4
+	kill targ
+next
+scrx 2 4 4 9

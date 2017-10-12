@@ -1,0 +1,43 @@
+
+inst
+
+new: comp 3 8 26 "outputdisplay" 1 0 5000
+pat: fixd 1 "outputdisplay" 0 0 0 0 "whiteontransparentchars"
+attr 195
+bhvr 40
+emit 18 0.2
+elas 0
+fric 100
+accg 8
+perm 60
+part 1
+frmt 8 8 8 8 0 0 2
+setv ov61 100
+
+prt: inew 0 "input" "" 58 38 1000
+prt: onew 0 "output" "" 36 38
+
+mvto 5200 380
+cmrt 0
+
+
+scrp 3 8 26 1000
+	part 1
+	ptxt vtos _p1_
+	prt: send 0 _p1_
+	wait 10
+	ptxt ""
+endm
+
+scrp 3 8 26 3
+	sndc "hit_"
+	velo 0 rand -5 -10
+	prt: bang rand 60 100
+	stim writ from 92 1
+endm
+
+
+rscr
+enum 3 8 26
+	kill targ
+next

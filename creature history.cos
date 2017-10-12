@@ -1,0 +1,1274 @@
+
+
+setv game "c3_after_shee_dates" 0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+scrp 1 2 23 1000
+	inst
+
+
+	doif totl 1 2 23 >= 2
+		enum 1 2 23
+			doif targ <> ownr
+				setv ov12 _p2_
+				mesg wrt+ targ 999 _p1_ 0 0
+				kill ownr
+			endi
+		next
+	endi
+
+
+	seta ov00 null
+	sets ov01 ""
+	setv ov02 -1
+
+	seta ov10 null
+	sets ov11 ""
+	setv ov12 -1
+
+
+	imsk 4
+
+
+	setv va90 wndw
+	divv va90 2
+	setv va91 wndh
+	divv va91 2
+	setv va92 wdth
+	divv va92 2
+	setv va93 hght
+	divv va93 2
+
+	subv va90 va92
+	subv va91 va93
+
+	flto va90 va91
+	attr 304
+
+
+	pat: butt 101 "creature_history" 43 10 393 14 0 [] 2002 0
+
+
+	pat: dull 102 "creature_history" 10 27 24 1
+
+
+	pat: butt 103 "creature_history" 34 1 304 24 0 [] 2003 0
+
+
+	pat: butt 104 "creature_history" 34 1 327 24 0 [] 2004 0
+
+
+	pat: butt 105 "creature_history" 34 1 351 24 0 [] 2005 0
+
+
+	pat: butt 106 "creature_history" 34 1 376 24 0 [] 2006 0
+
+
+	pat: fixd 107 "creature_history" 1 48 25 0 "WhiteOnTransparentChars"
+
+
+	pat: fixd 108 "creature_history" 1 -86 25 0 "WhiteOnTransparentChars"
+	part 108
+	frmt 8 8 8 8 0 0 1
+
+
+	new: simp 1 2 29 "blnk" 0 0 0
+	seta mv03 targ
+	targ ownr
+
+
+	setv ov12 _p2_
+
+	tick 20
+	mesg wrt+ ownr 999 _p1_ 0 0
+endm
+
+
+scrp 1 2 23 75
+	inst
+	doif hots = targ
+		plne 8915
+	else
+		plne 8520
+	endi
+endm
+
+
+scrp 1 2 23 123
+	inst
+	setv va90 wndw
+	divv va90 2
+	setv va91 wndh
+	divv va91 2
+	setv va92 wdth
+	divv va92 2
+	setv va93 hght
+	divv va93 2
+
+	subv va90 va92
+	subv va91 va93
+
+	flto va90 va91
+endm
+
+
+scrp 1 2 23 2002
+	lock
+	doif ov02 = 1001
+
+		part 2
+		hist name ov01 ptxt
+
+
+		part 4
+		hist utxt ov01 0 ptxt
+	endi
+
+	part 101
+	anim [0 1]
+	wait 5
+	anim [1 0]
+	wait 2
+
+	rtar 1 2 13
+	doif targ ne null
+		mesg writ targ 127
+	endi
+	rtar 1 2 14
+	doif targ ne null
+		mesg writ targ 127
+	endi
+
+	inst
+
+	wait 1
+	targ game "c3_default_focus"
+	part game "c3_default_focus_part"
+	fcus
+
+	kill mv03
+	kill ownr
+endm
+
+
+scrp 1 2 23 2003
+	inst
+	snde "cmc4"
+	setv ov12 1001
+	mesg writ ownr 256
+endm
+
+
+scrp 1 2 23 2004
+	inst
+	snde "cmc4"
+	setv ov12 1002
+	mesg writ ownr 256
+endm
+
+
+scrp 1 2 23 2005
+	inst
+	snde "cmc4"
+	setv ov12 1003
+	mesg writ ownr 256
+endm
+
+
+scrp 1 2 23 2006
+	inst
+	snde "cmc4"
+	setv ov12 1004
+	mesg writ ownr 256
+endm
+
+
+scrp 1 2 23 999
+	inst
+	doif type _p1_ = 7
+		doif _p1_ = null
+			kill ov03
+			kill ownr
+			stop
+		endi
+
+		targ _p1_
+		mesg wrt+ ownr 998 gtos 0 0 0
+	else
+		dbg: asrt type _p1_ = 2
+		doif _p1_ = ""
+			kill ov03
+			kill ownr
+			stop
+		endi
+		mesg wrt+ ownr 998 _p1_ 0 0
+	endi
+endm
+
+
+scrp 1 2 23 120
+	inst
+	doif _p1_ <> null
+		mesg wrt+ ownr 999 _p1_ 0 0
+	endi
+endm
+
+
+scrp 1 2 23 998
+	inst
+	doif ooww _p1_ = 0
+		stop
+	endi
+
+	seta ov10 mtoc _p1_
+	sets ov11 _p1_
+
+	mesg writ ownr 256
+endm
+
+
+scrp 1 2 23 9
+	inst
+
+
+	part 102
+	setv va09 hist gend ov01
+	doif va09 = -1
+		setv va09 0
+	endi
+	dbg: asrt va09 = 0 or va09 = 1 or va09 = 2
+	doif va09 = 1
+		setv va08 2
+	elif va09 = 2
+		setv va08 4
+	else
+		setv va08 0
+	endi
+	pose va08
+
+
+	part 107
+
+	sets va00 hist name ov01
+	doif va00 = ""
+		sets va00 read "creature_history" 10
+	endi
+
+	adds va00 " -"
+	doif va09 <> 0
+		adds va00 " "
+		adds va00 read "creature_history_gender" va09
+	endi
+
+	setv va01 hist gnus ov01
+	doif va01 < 1 or va01 > 4
+		setv va01 0
+	endi
+	adds va00 " "
+	adds va00 read "creature_history_genus" va01
+	ptxt va00
+
+
+	part 108
+	sets va01 read "creature_history_where" ooww ov01
+	ptxt va01
+
+
+	setv va00 ov02
+	addv va00 2000
+	mesg writ ownr va00
+endm
+
+
+scrp 1 2 23 256
+	inst
+
+
+	doif ov00 = ov10 and ov01 = ov11 and ov02 = ov12
+		stop
+	endi
+
+	doif ov02 = 1001
+
+		part 2
+		hist name ov01 ptxt
+
+
+		part 4
+		hist utxt ov01 0 ptxt
+	endi
+
+
+	setv va00 1
+	loop
+		pat: kill va00
+		addv va00 1
+	untl va00 >= 100
+
+
+	seta ov00 ov10
+	sets ov01 ov11
+	setv ov02 ov12
+
+	mesg writ ownr ov02
+endm
+
+
+
+
+scrp 1 2 23 1001
+	inst
+
+	part 0
+	pose 0
+
+
+	pat: fixd 1 "creature_history" 1 183 72 0 "WhiteOnTransparentChars"
+	part 1
+	ptxt read "creature_history" 0
+	pat: text 2 "creature_history" 1 183 95 0 2000 "WhiteOnTransparentChars"
+	part 2
+	frmt 8 8 306 8 0 0 0
+	ptxt hist name ov01
+	doif "" = hist name ov01
+		fcus
+	endi
+
+
+	pat: fixd 3 "creature_history" 1 40 222 0 "WhiteOnTransparentChars"
+	part 3
+	ptxt read "creature_history" 1
+	pat: text 4 "creature_history" 41 49 253 0 2001 "WhiteOnTransparentChars"
+	part 4
+	frmt 8 8 8 8 2 0 0
+	ptxt hist utxt ov01 0
+
+
+	setv va01 hist find ov01 3 -1
+	doif va01 >= 0
+		doif game "c3_after_shee_dates" eq 0
+			setv va50 hist rtim ov01 va01
+			sets va00 rtif va50 read "creature_history" 6
+		else
+			setv va50 hist wtik ov01 va01
+			setv va51 hist date va50
+			addv va51 1
+			sets va00 vtos va51
+			adds va00 " "
+			adds va00 read "creature_history_seasons" hist sean va50
+			adds va00 " "
+			setv va51 hist year va50
+			addv va51 127
+			adds va00 vtos va51
+		endi
+
+		pat: fixd 6 "creature_history" 1 183 128 0 "WhiteOnTransparentChars"
+		part 6
+		ptxt read "creature_history" 2
+		pat: fixd 5 "creature_history" 1 183 146 0 "WhiteOnTransparentChars"
+		part 5
+		ptxt va00
+	endi
+
+
+	pat: fixd 8 "creature_history" 1 183 169 0 "WhiteOnTransparentChars"
+	part 8
+	ptxt read "creature_history" 3
+	pat: fixd 9 "creature_history" 1 183 187 0 "WhiteOnTransparentChars"
+
+
+	pat: fixd 11 "creature_history" 40 300 222 0 "WhiteOnTransparentChars"
+	part 11
+	frmt 8 8 8 8 0 0 1
+	sets va00 read "creature_history" 17
+	adds va00 vtos stoi ov01
+	ptxt va00
+
+
+	pat: cmra 10 "creature_history" 1 46 74 0 121 141 121 141
+	doif ov00 <> null
+		scam targ 10
+		trck ov00 0 0 2 0
+	endi
+
+	mesg writ targ 9
+endm
+
+
+scrp 1 2 23 3001
+
+	inst
+	part 9
+
+	doif ov00 <> null
+		targ ov00
+		setv va01 tage
+		setv va10 cage
+		targ ownr
+	else
+
+		setv va03 hist finr ov01 7 -1
+		doif va03 = -1
+
+			setv va03 hist coun ov01
+			subv va03 1
+		endi
+		setv va01 hist tage ov01 va03
+		setv va10 hist cage ov01 va03
+	endi
+	divv va01 20
+	setv va03 va01
+	modv va03 60
+	divv va01 60
+	setv va02 va01
+	modv va02 60
+	divv va01 60
+
+
+
+	doif va01 <> 0
+		sets va00 vtos va01
+		doif va01 = 1
+			adds va00 read "creature_history" 8
+		else
+			adds va00 read "creature_history" 5
+		endi
+	else
+		sets va00 ""
+	endi
+	adds va00 vtos va02
+	doif va02 = 1
+		adds va00 read "creature_history" 7
+	else
+		adds va00 read "creature_history" 4
+	endi
+	doif va10 >= 0 and va10 <= 7
+		sets va11 read "creature_history_life_stage" va10
+		adds va11 read "creature_history" 11
+	else
+		sets va11 ""
+	endi
+	adds va11 va00
+	ptxt va11
+endm
+
+scrp 1 2 23 2000
+	inst
+	part 2
+	hist name ov01 ptxt
+	part 4
+	fcus
+endm
+
+scrp 1 2 23 2001
+	inst
+	targ null
+	fcus
+endm
+
+
+
+
+
+scrp 1 2 23 1002
+	inst
+
+	part 0
+	pose 2
+
+
+	setv ov23 0
+
+
+	setv va00 0
+	loop
+		setv va01 va00
+		addv va01 1
+		mulv va01 10
+		setv va05 44
+		mulv va05 va00
+		addv va05 64
+		pat: dull va01 "creature_history" 0 30 va05 0
+		part va01
+		pose 36
+		addv va01 1
+		addv va05 8
+		pat: fixd va01 "creature_history" 1 67 va05 0 "WhiteOnTransparentChars"
+		addv va01 1
+		subv va05 7
+		pat: fixd va01 "creature_history" 1 209 va05 0 "WhiteOnTransparentChars"
+		addv va01 1
+		addv va05 14
+		pat: fixd va01 "creature_history" 1 209 va05 0 "WhiteOnTransparentChars"
+		addv va01 1
+		subv va05 7
+		pat: butt va01 "creature_history" 0 38 340 va05 0 [1 255] 2013 0
+		part va01
+		base 36
+		pose 0
+		anim [0 255]
+		addv va01 1
+		pat: butt va01 "creature_history" 0 38 367 va05 0 [1 255] 2014 0
+		part va01
+		base 36
+		pose 0
+		anim [0 255]
+		addv va01 1
+		subv va05 7
+		pat: fixd va01 "creature_history" 1 67 va05 0 "WhiteOnTransparentChars"
+		addv va01 1
+		addv va05 14
+		pat: fixd va01 "creature_history" 1 67 va05 0 "WhiteOnTransparentChars"
+
+		addv va00 1
+	untl va00 = 7
+
+	setv ov20 -1
+	setv ov22 -1
+	setv ov21 0
+	mesg writ targ 2010
+endm
+
+
+
+
+
+
+scrp 1 2 23 2010
+	inst
+	doif ov20 <> hist coun ov01 or ov21 <> ov22
+		setv ov20 hist coun ov01
+
+
+
+		setv va22 0
+
+
+
+
+
+
+
+
+
+
+		setv va20 0
+		setv va00 0
+		setv va60 0
+		loop
+			setv va21 0
+			doif va60 = 0
+				setv va61 va23
+				setv va63 va01
+
+				setv va23 va22
+				setv va01 va00
+			endi
+			loop
+				setv va03 hist type ov01 va00
+				doif va03 = 7
+					setv va22 1
+				endi
+				setv va50 0
+				doif va03 = 7 or va03 = 12 or va03 = 3 or va03 = 10 or va03 = 8 or va03 = 6 or va03 = 5
+					setv va50 1
+				endi
+				setv va30 hist cage ov01 va00
+				doif va03 = 4 and va30 = 4
+					setv va50 1
+				endi
+				doif va50 = 1
+					addv va21 1
+				endi
+
+				addv va00 1
+			untl va21 = 7 or va00 >= ov20
+			doif va20 >= ov21 or va00 >= ov20
+				doif va60 = 0
+					setv va60 1
+					doif va21 = 0
+
+						dbg: asrt va00 >= ov20
+						setv va23 va61
+						setv va01 va63
+						setv ov21 va20
+						subv ov21 1
+					else
+						setv va60 1
+						setv ov21 va20
+					endi
+					setv ov22 ov21
+				endi
+			endi
+			doif va21 > 0
+				addv va20 1
+			endi
+		untl va00 >= ov20
+
+
+
+
+
+		setv va80 327
+		setv va81 88
+		pat: kill 4
+		setv va82 va80
+		subv va82 va81
+		setv va83 va20
+		subv va83 1
+		doif va83 > 0
+
+			setv va84 ov21
+			mulv va84 va82
+			divv va84 va83
+			addv va84 va81
+			doif ov23 = 0
+				setv ov23 1
+
+				pat: dull 3 "creature_history" 0 393 56 0
+				part 3
+				pose 18
+
+				pat: butt 1 "creature_history" 16 2 398 56 1 [] 2011 0
+				part 1
+				tran 0 1
+				pose 0
+				pat: butt 2 "creature_history" 19 2 398 343 1 [] 2012 0
+				part 2
+				tran 0 2
+				pose 0
+			endi
+
+			pat: dull 4 "creature_history" 42 393 va84 0
+		else
+			doif ov23 = 1
+				setv ov23 0
+				pat: kill 1
+				pat: kill 2
+				pat: kill 3
+			endi
+		endi
+
+
+
+
+
+
+		setv va22 va23
+		setv va00 va01
+
+		setv va21 0
+		loop
+			setv va01 va21
+			addv va01 1
+			mulv va01 10
+			doif va00 < ov20
+				setv va03 hist type ov01 va00
+
+				part va01
+				setv va10 36
+				setv va31 36
+				setv va32 36
+				setv va30 hist cage ov01 va00
+				doif va03 = 7
+
+					setv va10 3
+					setv va22 1
+				elif va03 = 12
+
+					setv va10 4
+					setv va31 10
+				elif va03 = 3
+
+					setv va10 5
+					setv va31 14
+					setv va32 12
+				elif va03 = 10
+
+					setv va10 5
+					setv va31 10
+					doif hist gend ov01 = 1
+						setv va40 14
+					else
+						setv va40 12
+					endi
+					setv va32 va40
+				elif va03 = 8
+
+					setv va10 6
+					setv va31 10
+					doif hist gend ov01 = 1
+						setv va40 14
+					else
+						setv va40 12
+					endi
+					setv va32 va40
+				elif va03 = 4 and va30 = 4
+					setv va50 1
+
+					setv va10 7
+				elif va03 = 6
+
+					setv va10 8
+				elif va03 = 5
+
+					setv va10 9
+				elif va03 = 100
+
+					setv va10 5
+				endi
+
+
+				sets va40 hist mon1 ov01 va00
+				doif va40 = ""
+					setv va31 36
+				endi
+				sets va41 hist mon2 ov01 va00
+				doif va41 = ""
+					setv va32 36
+				endi
+
+				doif va10 <> 36
+					pose va10
+					doif va03 <> 100
+
+						setv va89 va03
+						doif va03 = 3 and 1 = hist type ov01 0
+							setv va89 hist type ov01 0
+						endi
+						sets va10 read "creature_history_event_names" va89
+					else
+
+						sets va10 read "creature_history_starter_family" 0
+					endi
+
+					addv va01 1
+					part va01
+					doif va03 = 5 or va03 = 6
+						sets va70 va10
+						sets va10 ""
+					else
+						sets va70 ""
+
+					endi
+					ptxt va10
+
+
+					addv va01 1
+					part va01
+					doif va22 = 0 or va03 = 7
+
+						setv va11 hist tage ov01 va00
+						doif va11 < 0
+							sets va10 read "creature_history" 13
+						else
+							divv va11 20
+							setv va13 va11
+							modv va13 60
+							divv va11 60
+							setv va12 va11
+							modv va12 60
+							divv va11 60
+
+
+
+							doif va11 <> 0
+								sets va10 vtos va11
+								doif va11 = 1
+									adds va10 read "creature_history" 8
+								else
+									adds va10 read "creature_history" 5
+								endi
+							else
+								sets va10 ""
+							endi
+							adds va10 vtos va12
+							doif va12 = 1
+								adds va10 read "creature_history" 7
+							else
+								adds va10 read "creature_history" 4
+							endi
+						endi
+					else
+						sets va10 read "creature_history" 12
+					endi
+					ptxt va10
+
+
+					addv va01 1
+					part va01
+					doif game "c3_after_shee_dates" eq 0
+						setv va50 hist rtim ov01 va00
+						sets va10 rtif va50 read "creature_history" 6
+					else
+						setv va50 hist wtik ov01 va00
+						setv va51 hist date va50
+						addv va51 1
+						sets va10 vtos va51
+						adds va10 " "
+						adds va10 read "creature_history_seasons" hist sean va50
+						adds va10 " "
+						setv va51 hist year va50
+						addv va51 127
+						adds va10 vtos va51
+					endi
+					ptxt va10
+
+					addv va01 1
+					part va01
+					base va31
+					pose 0
+					anim [0 255]
+
+					sets avar ov03 va01 va40
+
+					addv va01 1
+					part va01
+					base va32
+					pose 0
+					anim [0 255]
+
+					sets avar ov03 va01 va41
+
+
+					doif va03 = 5 or va03 = 6
+						sets va71 hist wnam ov01 va00
+					else
+						sets va71 ""
+					endi
+
+					addv va01 1
+					part va01
+					ptxt va70
+
+					addv va01 1
+					part va01
+					ptxt va71
+
+					addv va21 1
+				endi
+			else
+				part va01
+				pose 36
+				addv va01 1
+				part va01
+				ptxt ""
+				addv va01 1
+				part va01
+				ptxt ""
+				addv va01 1
+				part va01
+				ptxt ""
+				addv va01 1
+				part va01
+				base 36
+				pose 0
+				anim [0 255]
+				sets avar ov03 va01 ""
+				addv va01 1
+				part va01
+				base 36
+				pose 0
+				anim [0 255]
+				sets avar ov03 va01 ""
+				addv va01 1
+				part va01
+				ptxt ""
+				addv va01 1
+				part va01
+				ptxt ""
+
+				addv va21 1
+			endi
+			addv va00 1
+		untl va21 = 7
+	endi
+	mesg writ targ 9
+endm
+
+
+scrp 1 2 23 2011
+	inst
+	part 1
+	anim [1 1 1 0]
+	subv ov21 1
+	mesg writ ownr 2010
+endm
+
+
+scrp 1 2 23 2012
+	inst
+	part 2
+	anim [1 1 1 0]
+	addv ov21 1
+	mesg writ ownr 2010
+endm
+
+
+scrp 1 2 23 2013
+	inst
+	mesg wrt+ ownr 998 avar ov03 _p1_ 0 0
+endm
+
+
+scrp 1 2 23 2014
+	inst
+	mesg wrt+ ownr 998 avar ov03 _p1_ 0 0
+endm
+
+
+scrp 1 2 23 3002
+endm
+
+
+scrp 1 2 23 127
+	inst
+	doif _p1_ = ov01 and ov02 = 1002
+		mesg writ ownr 2010
+	endi
+	doif _p1_ = ov01 and ov02 = 1003
+		setv ov31 1
+
+
+
+
+
+		mesg writ ownr 2024
+	endi
+endm
+
+
+
+
+
+scrp 1 2 23 1003
+	inst
+
+	part 0
+	pose 22
+
+
+	pat: butt 2 "creature_history" 23 2 232 69 0 [] 2020 0
+
+
+	pat: butt 3 "creature_history" 25 2 305 69 0 [] 2021 0
+
+
+	pat: butt 4 "creature_history" 29 2 200 129 0 [] 2022 0
+
+
+	pat: butt 5 "creature_history" 31 2 356 129 0 [] 2023 0
+
+
+	pat: dull 10 "creature_history" 0 42 220 0
+	part 10
+	pose 38
+	pat: dull 11 "creature_history" 0 170 220 0
+	part 11
+	pose 38
+	pat: dull 12 "creature_history" 0 298 220 0
+	part 12
+	pose 38
+
+
+	pat: fixd 13 "creature_history" 40 254 142 0 "WhiteOnTransparentChars"
+	part 13
+	frmt 8 8 8 8 0 0 2
+
+
+	pat: cmra 1 "creature_history" 1 51 77 0 120 139 83 96
+	doif ov00 <> null
+		scam targ 1
+		trck ov00 0 0 2 0
+	endi
+
+	setv ov30 -1
+	setv ov31 1
+
+	mesg writ targ 2024
+endm
+
+
+scrp 1 2 23 2024
+	inst
+
+
+
+
+
+
+
+	doif ov31 <> 0
+		setv va00 -1
+		doif ov31 = 1 or ov31 = 2
+			setv va00 ov30
+			loop
+				setv va00 hist find ov01 13 va00
+				setv va10 0
+				doif va00 <> -1
+					doif "" <> hist foto ov01 va00
+						setv va10 1
+						setv ov30 va00
+					endi
+				endi
+			untl va00 = -1 or va10 = 1
+		endi
+		doif ov31 = -1 or ov31 = 2
+			doif va00 = -1
+				setv va00 ov30
+				loop
+					setv va00 hist finr ov01 13 va00
+					setv va10 0
+					doif va00 <> -1
+						doif "" <> hist foto ov01 va00
+							setv va10 1
+							setv ov30 va00
+						endi
+					endi
+				untl va00 = -1 or va10 = 1
+			endi
+		endi
+		doif ov31 = 2 and ov30 <> -1
+			doif "" = hist foto ov01 ov30
+				setv ov30 -1
+			endi
+		endi
+	endi
+
+	part 11
+	doif ov30 <> -1
+		pose 0
+		dbg: asrt "" <> hist foto ov01 ov30
+		gall hist foto ov01 ov30 0
+	else
+		pose 0
+		gall "creature_history" 0
+		pose 38
+	endi
+
+	part 10
+	setv va01 ov30
+	loop
+		setv va01 hist finr ov01 13 va01
+		setv va10 0
+		doif va01 <> -1
+			doif "" <> hist foto ov01 va01
+				setv va10 1
+			endi
+		endi
+	untl va01 = -1 or va10 = 1
+	doif va01 <> -1
+		pose 0
+		dbg: asrt "" <> hist foto ov01 va01
+		gall hist foto ov01 va01 0
+	else
+		pose 0
+		gall "creature_history" 0
+		pose 38
+	endi
+
+	part 12
+	setv va01 ov30
+	loop
+		setv va01 hist find ov01 13 va01
+		setv va10 0
+		doif va01 <> -1
+			doif "" <> hist foto ov01 va01
+				setv va10 1
+			endi
+		endi
+	untl va01 = -1 or va10 = 1
+	doif va01 <> -1
+		pose 0
+		dbg: asrt "" <> hist foto ov01 va01
+		gall hist foto ov01 va01 0
+	else
+		pose 0
+		gall "creature_history" 0
+		pose 38
+	endi
+
+
+	part 13
+	doif ov30 <> -1
+		doif game "c3_after_shee_dates" eq 0
+			setv va50 hist rtim ov01 ov30
+			sets va00 rtif va50 read "creature_history" 18
+		else
+			setv va50 hist wtik ov01 ov30
+			setv va51 hist date va50
+			addv va51 1
+			sets va00 vtos va51
+			adds va00 " "
+			adds va00 read "creature_history_seasons" hist sean va50
+			adds va00 " "
+			setv va51 hist year va50
+			addv va51 127
+			adds va00 vtos va51
+		endi
+	else
+		sets va00 ""
+	endi
+	ptxt va00
+
+	mesg writ targ 9
+endm
+
+
+scrp 1 2 23 2020
+	inst
+	lock
+	part _p1_
+	doif ov00 = null
+		snde "buzz"
+		stop
+	endi
+	snde "cmc1"
+	pose 1
+	sets va00 ov01
+	adds va00 "-"
+	adds va00 vtos hist coun ov01
+	targ ov00
+	snap va00 posx posy 119 139 100
+	targ ownr
+	hist evnt ov01 13 "" ""
+	setv va01 hist coun ov01
+	subv va01 1
+	dbg: asrt 13 = hist type ov01 va01
+	hist foto ov01 va01 va00
+	slow
+
+
+	wait 20
+	snde "cmc2"
+	wait 20
+	pose 0
+
+	setv ov30 -1
+	setv ov31 -1
+	unlk
+	mesg writ targ 2024
+endm
+
+
+scrp 1 2 23 2021
+	inst
+	part _p1_
+	doif ov30 = -1
+		snde "buzz"
+		stop
+	endi
+	anim [1 1 1 0]
+	snde "cmc3"
+
+
+	part 11
+	pose 0
+	gall "creature_history" 0
+	pose 38
+
+
+	hist foto ov01 ov30 ""
+
+	setv ov31 2
+	mesg writ targ 2024
+endm
+
+
+scrp 1 2 23 2022
+	inst
+	part _p1_
+	anim [1 1 1 0]
+	setv ov31 -1
+	mesg writ targ 2024
+endm
+
+
+scrp 1 2 23 2023
+	inst
+	part _p1_
+	anim [1 1 1 0]
+	setv ov31 1
+	mesg writ targ 2024
+endm
+
+
+scrp 1 2 23 3003
+endm
+
+
+
+
+
+scrp 1 2 23 1004
+	inst
+
+	part 0
+	pose 21
+
+
+	pat: fixd 1 "creature_history" 1 28 90 0 "WhiteOnTransparentChars"
+	part 1
+	sets va00 read "creature_history" 9
+	adds va00 ov01
+	ptxt va00
+
+
+	pat: fixd 2 "creature_history" 1 28 64 0 "WhiteOnTransparentChars"
+	part 2
+	sets va00 read "creature_history" 14
+	ptxt va00
+
+
+	pat: fixd 3 "creature_history" 1 28 115 0 "WhiteOnTransparentChars"
+	part 3
+	sets va00 read "creature_history" 15
+	adds va00 vtos hist cros ov01
+	ptxt va00
+
+
+	pat: fixd 4 "creature_history" 1 28 140 0 "WhiteOnTransparentChars"
+	part 4
+	sets va00 read "creature_history" 16
+	adds va00 vtos hist mute ov01
+	ptxt va00
+
+
+	mesg writ targ 9
+endm
+
+
+scrp 1 2 23 3004
+endm
+
+rscr
+enum 1 2 23
+	kill targ
+next
+enum 1 2 29
+	kill targ
+next

@@ -1,0 +1,208 @@
+inst
+
+reps 10
+	new: simp 2 11 1 "carr" 7 0 50
+	attr 199
+	accg 5
+	aero 20
+
+	bhvr 48
+	elas 0
+	mvto rand 500 1200 500
+	setv ov61 60
+	emit 8 0.5
+repe
+
+reps 10
+	new: simp 2 11 1 "carr" 7 0 5000
+	attr 199
+	accg 5
+	aero 20
+
+	bhvr 48
+	elas 0
+	mvto rand 500 1200 500
+	setv ov61 60
+	emit 8 0.5
+	setv va00 rand 0 1
+	mulv va00 4
+	addv va00 2
+	pose va00
+
+	perm 60
+	tick 2400
+repe
+
+endm
+
+
+
+scrp 2 11 1 4
+	pose 1
+	perm 60
+
+endm
+
+scrp 2 11 1 5
+	inst
+	doif tick eq 0
+		tick 2400
+	endi
+	setv va00 rand 0 1
+	mulv va00 4
+	addv va00 2
+	pose va00
+	doif carr eq null
+		plne 5000
+	endi
+endm
+
+scrp 2 11 1 9
+
+
+
+
+	doif carr eq null and fall eq 0
+		inst
+		setv va00 posl
+		setv va01 post
+
+		setv va02 rand 0 1
+		mulv va02 4
+		addv va02 2
+		new: simp 2 10 26 "carr" 4 va02 5001
+		accg 5
+		aero 20
+		attr 195
+		bhvr 48
+		elas 0
+		doif tmvt va00 va01 eq 1
+			mvto va00 va01
+		else
+			mvsf va00 va01
+		endi
+		setv ov61 20
+		tick 1200
+		targ ownr
+		doif prop room targ 2 gt 0.2 and prop room targ 4 gt 0.3
+			doif prop room targ 3 gt 0.1
+				pose 0
+				velo 0 0
+				tick 0
+			else
+				kill ownr
+			endi
+		else
+			kill ownr
+		endi
+	endi
+endm
+
+
+scrp 2 11 1 12
+	snde "chwp"
+	setv va00 posl
+	setv va01 post
+
+
+
+	stim writ from 79 1
+	wait 10
+	inst
+
+	setv va02 rand 0 1
+	mulv va02 4
+	addv va02 10
+
+	new: simp 2 10 26 "carr" 4 va02 5001
+	accg 5
+	aero 20
+	attr 195
+	bhvr 48
+	elas 0
+	setv ov61 10
+
+	subv va01 20
+	doif tmvt va00 va01 eq 1
+		mvto va00 va01
+	else
+		mvsf va00 va01
+	endi
+	tick 300
+
+	kill ownr
+endm
+
+
+scrp 2 10 26 9
+	doif carr eq null and fall eq 0
+		doif pose lt 3
+			setv va00 pose
+			addv va00 1
+			pose va00
+			inst
+			doif room targ ne -1 and carr eq null
+				altr room targ 4 0.01
+				altr room targ 3 0.01
+			endi
+			slow
+		else
+			inst
+			doif room targ ne -1 and carr eq null
+				altr room targ 4 0.01
+				altr room targ 3 0.01
+			endi
+			slow
+			setv va00 posl
+			setv va01 post
+			inst
+			doif prop room targ 2 gt 0.2 and prop room targ 4 gt 0.3
+				doif prop room targ 3 gt 0.1
+					new: simp 2 11 1 "carr" 7 0 50
+					attr 199
+					accg 5
+					aero 20
+
+					bhvr 48
+					elas 0
+					doif tmvt va00 va01 eq 1
+						mvto va00 va01
+					else
+						mvsf va00 va01
+					endi
+					velo 0 0
+					setv ov61 60
+					emit 8 0.5
+				endi
+			endi
+
+
+
+			kill ownr
+		endi
+	endi
+endm
+
+scrp 2 10 26 12
+	lock
+	targ from
+	stim writ from 81 1
+	chem 75 0.1
+	wait 10
+	kill ownr
+endm
+
+
+rscr
+enum 2 11 1
+	kill targ
+next
+enum 2 10 26
+	kill targ
+next
+scrx 2 10 26 12
+scrx 2 10 26 90
+scrx 2 11 1 4
+scrx 2 11 1 5
+scrx 2 11 1 9
+scrx 2 11 1 12

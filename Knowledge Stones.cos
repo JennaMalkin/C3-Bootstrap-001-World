@@ -1,0 +1,74 @@
+
+new: simp 2 24 1 "knowledge" 6 0 10
+attr 196
+bhvr 1
+elas 0
+clac -1
+perm 60
+accg 10
+fric 100
+mvto 939 1435
+
+
+new: simp 2 24 2 "knowledge" 6 6 10
+attr 196
+bhvr 1
+elas 0
+clac -1
+perm 60
+accg 10
+fric 100
+mvto 6512 228
+
+
+new: simp 2 24 3 "knowledge" 6 12 10
+attr 196
+bhvr 1
+elas 0
+clac -1
+perm 60
+accg 10
+fric 100
+mvto 1623 3256
+
+scrp 2 24 1 1
+	snde "know"
+	anim [0 1 2 3 4 5 4 3 2 1 0 1 2 3 4 5 4 3 2 1 0 1 2 3 4 5 4 3 2 1 0 1 2 3 4 5 4 3 2 1 0]
+	rnge 100
+	esee 4 0 0
+		vocb
+	next
+endm
+
+scrp 2 24 2 1
+	snde "know"
+	anim [0 1 2 3 4 5 4 3 2 1 0 1 2 3 4 5 4 3 2 1 0 1 2 3 4 5 4 3 2 1 0 1 2 3 4 5 4 3 2 1 0]
+	rnge 100
+	esee 4 0 0
+		vocb
+	next
+endm
+
+scrp 2 24 3 1
+	snde "know"
+	anim [0 1 2 3 4 5 4 3 2 1 0 1 2 3 4 5 4 3 2 1 0 1 2 3 4 5 4 3 2 1 0 1 2 3 4 5 4 3 2 1 0]
+	rnge 100
+	esee 4 0 0
+		vocb
+	next
+endm
+
+
+rscr
+enum 2 24 1
+	kill targ
+next
+enum 2 24 2
+	kill targ
+next
+enum 2 24 3
+	kill targ
+next
+scrx 2 24 1 1
+scrx 2 24 2 1
+scrx 2 24 3 1

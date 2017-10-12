@@ -1,0 +1,90 @@
+new: simp 1 1 39 "airlock agent" 2 0 0
+mvto 3320 3850
+anim [0]
+tick 250
+
+new: simp 1 1 39 "airlock agent" 2 0 0
+mvto 4630 4120
+anim [0]
+tick 250
+
+scrp 1 1 39 9
+	inst
+	lock
+	addv ov01 1
+	etch 0 0 0
+
+		doif targ <> ownr and carr = null
+			doif fmly <> 1
+
+				doif fmly = 2 and gnus = 1
+				else
+					doif fmly = 4
+						velo 0 -10
+						setv va00 posx
+						setv va01 post
+						dead
+						kill targ
+						setv va66 1
+					else
+						setv va00 posx
+						setv va01 post
+						kill targ
+						setv va66 0
+					endi
+
+					reps 10
+						setv va02 rand 0 0
+						mulv va02 0
+						new: simp 1 1 46 "dust cloud" 4 8 1000
+						doif tmvt va00 va01 <> 1
+							kill targ
+							stop
+						endi
+						mvto va00 va01
+						setv vely rand -5 5
+						setv velx rand -5 5
+						attr 192
+						accg 0.1
+						elas 100
+						anim [0 1 2 3]
+						tick rand 30 40
+					repe
+					doif va66 = 1
+						reps 8
+							setv va02 rand 0 0
+							mulv va02 0
+							new: simp 1 1 46 "bone" 12 0 1000
+							doif tmvt va00 va01 <> 1
+								kill targ
+								stop
+							endi
+							mvto va00 va01
+							setv vely rand -5 5
+							setv velx rand -5 5
+							attr 192
+							accg 0
+							elas 100
+							anim [0 1 2 3 4 5 6 7 8 9 10 11 255]
+							tick rand 50 60
+						repe
+					endi
+				endi
+			endi
+		endi
+	next
+	unlk
+endm
+
+
+scrp 1 1 46 9
+	kill ownr
+endm
+
+rscr
+enum 1 1 39
+	kill targ
+next
+enum 1 1 46
+	kill targ
+next

@@ -1,0 +1,32 @@
+
+
+
+
+setv game "engine_creature_pickup_status" 1
+
+
+rgam
+
+endm
+
+
+
+scrp 4 0 0 14
+	clac 0
+	trck norn 70 70 1 0
+
+endm
+
+
+
+
+scrp 4 0 0 13
+
+	doif game "Grettin" eq 0 and gnus ne 1
+		nohh
+		stop
+	endi
+	norn targ
+	clac 14
+	trck targ 70 70 2 0
+endm

@@ -1,0 +1,8 @@
+new: simp 1 1 124 "gene splicer overlay" 0 0 8100
+attr 0
+mvto 4842 3830
+
+rscr
+enum 1 1 124
+	kill targ
+next

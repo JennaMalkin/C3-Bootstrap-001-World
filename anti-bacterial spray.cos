@@ -1,0 +1,147 @@
+
+
+
+
+
+
+
+
+
+
+new: comp 3 8 19 "anti-infection spray" 10 0 5005
+attr 199
+
+bhvr 41
+perm 64
+elas 20
+accg 1.64
+fric 100
+
+pat: dull 1 "anti-infection spray" 10 4 -38 0
+
+prt: inew 0 "input" "anti-infection spray input" 14 42 2001
+prt: onew 0 "output" "anti-infection spray output" 35 42
+
+mvto 1983 3877
+SETV OV61 100
+emit 18 .35
+
+
+scrp 3 8 19 1
+	stim writ from 90 1
+	lock
+	part 0
+	snde "splt"
+	anim [0 1 2 3 4 5 6]
+	over
+	inst
+	seta va16 null
+	etch 4 0 0
+		seta va16 targ
+
+		chem 94 .2
+	next
+	targ ownr
+
+	snde "spew"
+	part 1
+	frat 3
+	anim [1 2 3 4 5 6 0]
+	over
+	part 0
+	anim [7 8 9]
+	over
+	part 0
+	anim [6 5 4 3 2 1 0]
+	over
+	prt: send 0 255
+	inst
+	doif va16 <> null
+		enum 2 32 23
+			doif type ov00 = 7
+				doif ov00 = va16
+					kill targ
+				endi
+			endi
+		next
+	endi
+	slow
+	targ ownr
+endm
+
+scrp 3 8 19 2001
+	lock
+	setv va00 _p1_
+	doif va00 <> 0
+		part 0
+		snde "splt"
+		anim [0 1 2 3 4 5 6]
+		over
+
+		seta va16 null
+		inst
+		etch 4 0 0
+			seta va16 targ
+
+			chem 94 .2
+		next
+		slow
+		targ ownr
+
+		snde "spew"
+		part 1
+		frat 3
+		anim [1 2 3 4 5 6 0]
+		over
+		part 0
+		anim [7 8 9]
+		over
+		part 0
+		anim [6 5 4 3 2 1 0]
+		over
+		prt: send 0 255
+		inst
+		doif va16 <> null
+			enum 2 32 23
+				doif type ov00 = 7
+					doif ov00 = va16
+						kill targ
+					endi
+				endi
+			next
+		endi
+		slow
+		targ ownr
+	endi
+endm
+
+scrp 3 8 19 6
+	snde "dr10"
+endm
+
+scrp 3 8 19 3
+	sndc "hit_"
+	velo 0 rand -5 -10
+	prt: bang rand 60 100
+	stim writ from 92 1
+endm
+
+scrp 3 8 19 4
+	targ from
+	doif fmly = 4
+		stim writ targ 91 1
+	endi
+endm
+
+
+
+
+rscr
+enum 3 8 19
+	kill targ
+next
+scrx 3 8 19 2000
+scrx 3 8 19 2001
+scrx 3 8 19 3
+scrx 3 8 19 4
+scrx 3 8 19 6

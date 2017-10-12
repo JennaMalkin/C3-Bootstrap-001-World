@@ -1,0 +1,271 @@
+new: vhcl 3 10 2 "hover vehicle" 0 0 300
+bhvr 0
+
+
+attr 716
+clac -1
+elas 0
+fric 100
+aero 10
+perm 60
+setv ov80 0
+
+setv ov89 10
+
+setv ov90 400
+
+setv ov91 4
+mvto 1800 400
+seta ov99 null
+
+
+cabn 0 0 166 106
+
+
+pat: butt 1 "hover vehicle" 1 2 49 107 2 [] 2001 0
+part 1
+anim [0]
+
+pat: butt 2 "hover vehicle" 3 2 104 107 2 [] 2002 0
+part 2
+anim [0]
+
+pat: butt 3 "hover vehicle" 5 2 77 107 2 [] 2003 0
+part 3
+anim [0]
+
+pat: butt 4 "hover vehicle" 7 2 77 122 2 [] 2004 0
+part 4
+anim [0]
+
+prt: inew 0 " " " " 35 117 2000
+prt: onew 0 " " " " 132 116
+prt: inew 1 " " " " 74 144 2010
+prt: onew 1 " " " " 92 144
+
+
+
+
+
+
+
+seta va99 targ
+
+new: comp 1 1 110 "Hover vehicle" 0 0 200
+perm 0
+attr 32
+frel va99
+flto 28 150
+base 13
+anim [0]
+
+pat: dull 1 "Hover vehicle" 24 88 0 0
+part 1
+anim [0]
+
+pat: dull 2 "Hover vehicle" 35 -40 -36 0
+part 2
+anim [0]
+
+pat: dull 3 "Hover vehicle" 46 120 -36 0
+part 3
+anim [0]
+seta ov16 va99
+seta va98 targ
+targ va99
+seta ov16 va98
+
+
+
+new: simp 2 12 20 "hover vehicle" 2 57 10
+attr 4
+clac 0
+mvto 1776 540
+anim [0]
+seta ov16 va99
+
+
+
+scrp 3 10 2 2000
+	prt: send 0 _p1_
+	doif _p1_ < 0
+		mesg writ ownr 2001
+	elif _p1_ > 0
+		mesg writ ownr 2002
+	endi
+endm
+
+scrp 3 10 2 2010
+	prt: send 0 _p1_
+	doif _p1_ < 0
+		mesg writ ownr 2003
+	elif _p1_ > 0
+		mesg writ ownr 2004
+	endi
+endm
+
+
+
+scrp 3 10 2 2001
+	inst
+	part 1
+	anim [1 0]
+	snde "beep"
+	targ ov16
+	snde "bost"
+	part 1
+	anim [0 1 2 3 4 5 6 7 8 9 0]
+	part 3
+	anim [0 1 2 3 4 5 6 7 8 9 0]
+	targ ownr
+	tick ov90
+	absv ov89
+	negv ov89
+
+	velo ov89 va89
+	setv ov00 0
+	accg 0
+endm
+
+
+scrp 3 10 2 2002
+	inst
+	part 2
+	anim [1 0]
+	snde "beep"
+	targ ov16
+	snde "bost"
+	part 0
+	anim [0 1 2 3 4 5 6 7 8 9 0]
+	part 2
+	anim [0 1 2 3 4 5 6 7 8 9 0]
+	targ ownr
+	tick ov90
+	absv ov89
+
+	velo ov89 va89
+	setv ov00 0
+	accg 0
+endm
+
+
+scrp 3 10 2 2003
+	inst
+	part 3
+	anim [1 0]
+	snde "beep"
+	targ ov16
+	snde "bost"
+	part 0
+	anim [0 1 2 3 4 5 6 7 8 9 0]
+	part 1
+	anim [0 1 2 3 4 5 6 7 8 9 0]
+	targ ownr
+	tick ov90
+	absv ov89
+	negv ov89
+	velo 0 ov89
+	setv ov00 0
+	accg 0
+endm
+
+
+scrp 3 10 2 2004
+	inst
+	part 4
+	anim [1 0]
+	snde "beep"
+	targ ov16
+	snde "bost"
+	part 2
+	anim [0 1 2 3 4 5 6 7 8 9 0]
+	part 3
+	anim [0 1 2 3 4 5 6 7 8 9 0]
+	targ ownr
+	tick ov90
+	absv ov89
+	velo 0 ov89
+	setv ov00 0
+	accg 0
+endm
+
+scrp 3 10 2 124
+	inst
+	dpas 4 0 0
+	tick ov90
+	velo 0 2
+endm
+
+scrp 3 10 2 125
+	tick ov90
+	velo 0 -2
+endm
+
+
+
+
+scrp 2 12 20 1
+	lock
+	anim [1 1 1 0]
+	targ ov16
+	setv va10 posx
+	setv va11 posy
+	subv va10 100
+	subv va11 50
+
+	inst
+	new: simp 1 1 43 "teleport" 9 11 8000
+	mvto va10 va11
+	attr 0
+	snde "tele"
+	anim [0 1 2 3 4 5 6 7]
+	over
+	kill targ
+
+	targ ownr
+	targ ov16
+	mvto 1800 400
+	setv va10 posx
+	setv va11 posy
+	subv va10 100
+	subv va11 50
+
+	velo 0 0
+	inst
+	new: simp 1 1 43 "teleport" 9 11 8000
+	mvto va10 va11
+	attr 0
+	snde "tele"
+	anim [0 1 2 3 4 5 6 7]
+	over
+	kill targ
+
+
+endm
+
+
+
+
+
+scrp 3 10 2 9
+	tick 0
+
+endm
+
+rscr
+enum 3 10 2
+	kill targ
+next
+
+enum 1 1 110
+	kill targ
+next
+
+
+enum 2 12 20
+	kill targ
+next
+
+enum 1 1 43
+	kill targ
+next

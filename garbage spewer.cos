@@ -1,0 +1,61 @@
+inst
+new: simp 1 1 30 "spew" 16 0 1
+attr 4
+clac 0
+mvto 1863 2485
+tick 10
+
+new: simp 1 1 30 "spew" 16 16 1
+attr 4
+clac 0
+mvto 1978 2485
+tick 20
+
+new: simp 1 1 30 "spew" 16 32 1
+attr 4
+clac 0
+mvto 2138 2485
+tick 30
+
+new: simp 1 1 30 "spew" 16 48 1
+attr 4
+clac 0
+mvto 2296 2485
+tick 40
+
+
+scrp 1 1 30 9
+	snde "spew"
+	anim [0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 0]
+	doif ov00 ne 0
+		addv ov00 1
+	endi
+	doif ov00 eq 6
+		setv ov00 0
+	endi
+	over
+	tick rand 20 100
+endm
+
+
+scrp 1 1 30 1
+	doif ov00 eq 0
+		setv ov00 1
+	endi
+	doif ov00 eq 5
+		sndc "glaf"
+		rtar 1 1 11
+		doif targ ne null
+			mesg writ targ 0
+		endi
+	endi
+endm
+
+
+
+rscr
+enum 1 1 30
+	kill targ
+next
+scrx 1 1 30 1
+scrx 1 1 30 9

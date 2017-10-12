@@ -1,0 +1,126 @@
+
+
+
+
+
+
+
+
+reps 2
+	new: comp 3 8 12 "counter" 15 0 5000
+	bhvr 41
+	elas 55
+	attr 198
+	accg 5
+	aero 10
+	perm 100
+	fric 50
+	clac -1
+	mvto rand 770 1570 3432
+	emit 18 .25
+
+
+	pat: butt 1 "counter" 21 0 62 6 0 [] 1064 1
+	pat: butt 2 "counter" 22 0 62 20 0 [] 1164 1
+	pat: dull 3 "counter" 1 22 3 0
+
+	prt: inew 0 "input counter" "listens for input signals and counts them" 8 14 1264
+	prt: onew 0 "input outputer" "passes on input signal when certain count is reached" 8 24
+
+	setv ov01 0
+	setv ov02 10
+	setv ov61 100
+	setv ov70 -1
+	setv ov78 1
+	setv ov75 255
+	setv ov91 1
+	tick 0
+repe
+endm
+
+
+scrp 3 8 12 3
+	sndc "hit_"
+	velo 0 rand -5 -10
+	prt: bang rand 60 100
+	stim writ from 92 1
+endm
+
+scrp 3 8 12 4
+	targ from
+	doif fmly = 4
+		stim writ targ 91 1
+	endi
+endm
+
+
+scrp 3 8 12 1
+	stim writ from 90 1
+	mesg writ ownr 1064
+endm
+
+scrp 3 8 12 1064
+	mesg writ pntr 107
+	snde "bep2"
+	part 1
+	anim [2 2 2 2 0]
+	doif ov01 <> 19
+		addv ov01 1
+	endi
+	part 3
+	pose ov01
+	setv va90 ov01
+	addv va90 1
+	setv ov78 va90
+	mulv va90 10
+	setv ov02 va90
+endm
+
+scrp 3 8 12 1164
+	mesg writ pntr 107
+	snde "bep2"
+	part 2
+	anim [2 2 2 2 0]
+	doif ov01 <> 0
+		subv ov01 1
+	endi
+	part 3
+	pose ov01
+	setv va90 ov01
+	addv va90 1
+	setv ov78 va90
+	mulv va90 10
+	setv ov02 va90
+endm
+
+scrp 3 8 12 1264
+	lock
+	doif ov70 < ov78
+		setv ov75 _p1_
+		addv ov70 1
+		doif ov70 >= ov78
+			gsub send
+		endi
+	elif ov70 >= ov78
+		gsub send
+	endi
+	subr send
+
+
+		setv ov70 0
+
+		prt: send 0 ov75
+	retn
+	unlk
+endm
+
+rscr
+enum 3 8 12
+	kill targ
+next
+scrx 3 8 12 1064
+scrx 3 8 12 1164
+scrx 2 8 12 1264
+scrx 3 8 12 3
+scrx 3 8 12 1
+endm

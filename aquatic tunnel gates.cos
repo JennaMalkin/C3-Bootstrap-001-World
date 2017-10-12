@@ -1,0 +1,248 @@
+
+
+
+
+
+setv va70 grap 4165 2458
+setv va71 grap 4106 2458
+setv va72 grap 4196 2390
+
+
+
+new: simp 3 3 46 "aquatic tunnel gates" 30 0 4
+attr 4
+tran 0 0
+anim [0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 255]
+mvto 4145 2418
+setv ov70 va70
+setv ov71 va71
+setv ov72 va72
+door ov70 ov71 0
+door ov70 ov72 0
+
+setv va70 grap 5159 2447
+setv va71 grap 5169 2375
+
+
+new: simp 3 3 47 "aquatic tunnel gates" 30 30 4
+attr 4
+tran 0 0
+anim [0 1 2 3 4 5 6 7 8 9 10 255]
+setv ov70 va70
+setv ov71 va71
+mvto 5145 2407
+door ov70 ov71 0
+
+
+
+scrp 3 3 46 1
+	lock
+	doif ov00 = 0
+		snde "gate"
+		anim [15 16 17 18 19 20 21]
+		setv va70 ov70
+		setv va71 ov71
+		setv va72 ov72
+		inst
+		new: simp 3 3 48 "aquatic tunnel gates" 1 29 5000
+		attr 4
+		tran 0 0
+		setv ov70 va70
+		setv ov71 va71
+		setv ov72 va72
+		mvto 4145 2418
+		slow
+		targ ownr
+		setv ov00 1
+		door ov70 ov71 100
+		door ov70 ov72 100
+		inst
+		etch 0 0 0
+			doif targ <> null
+				setv va00 attr
+				andv va00 32
+				doif va00 = 0
+					setv va01 attr
+					andv va01 3
+					doif va01 <> 0 and fmly <> 4
+						mvsf 4058 2431
+						snde "move"
+					endi
+				endi
+			endi
+		next
+		slow
+	elif ov00 = 1
+		snde "gate"
+		etch 3 3 48
+			kill targ
+		next
+		anim [22 23 24 25 26 27 28]
+		inst
+		etch 0 0 0
+			doif targ <> null
+				setv va00 attr
+				andv va00 32
+				doif va00 = 0
+					setv va01 attr
+					andv va01 3
+					doif va01 <> 0 and fmly <> 4
+						mvsf 4058 2431
+						snde "move"
+					endi
+				endi
+			endi
+		next
+		slow
+		wait 5
+		setv ov00 0
+		door ov70 ov71 0
+		door ov70 ov72 0
+	endi
+endm
+
+scrp 3 3 47 1
+	lock
+	doif ov00 = 0
+		snde "gate"
+		anim [15 16 17 18 19 20 21]
+		setv va70 ov70
+		setv va71 ov71
+		inst
+		new: simp 3 3 49 "aquatic tunnel gates" 1 59 5000
+		attr 4
+		tran 0 0
+		setv ov70 va70
+		setv ov71 va71
+		mvto 5145 2407
+		slow
+		targ ownr
+		setv ov00 1
+		door ov70 ov71 100
+		inst
+		etch 0 0 0
+			doif targ <> null
+				setv va00 attr
+				andv va00 32
+				doif va00 = 0
+					setv va01 attr
+					andv va01 3
+					doif va01 <> 0 and fmly <> 4
+						snde "move"
+						mvsf 5252 2400
+					endi
+				endi
+			endi
+		next
+		slow
+	elif ov00 = 1
+		snde "gate"
+		etch 3 3 49
+			kill targ
+		next
+		anim [22 23 24 25 26 27 28]
+		setv ov00 0
+		inst
+		etch 0 0 0
+			doif targ <> null
+				setv va00 attr
+				andv va00 32
+				doif va00 = 0
+					setv va01 attr
+					andv va01 3
+					doif va01 <> 0 and fmly <> 4
+						mvsf 5252 2400
+						snde "move"
+					endi
+				endi
+			endi
+		next
+		slow
+		wait 5
+		door 241 243 0
+	endi
+endm
+
+
+scrp 3 3 48 1
+	lock
+	snde "gate"
+	rtar 3 3 46
+	anim [22 23 24 25 26 27 28]
+	over
+	setv ov00 0
+	anim [0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 255]
+	inst
+	etch 0 0 0
+		doif targ <> null
+			setv va00 attr
+			andv va00 32
+			doif va00 = 0
+				setv va01 attr
+				andv va01 3
+				doif va01 <> 0 and fmly <> 4
+					mvsf 4058 2431
+					snde "move"
+				endi
+			endi
+		endi
+	next
+	slow
+	wait 2
+	door ov70 ov71 0
+	door ov70 ov72 0
+	etch 3 3 48
+		kill targ
+	next
+endm
+
+scrp 3 3 49 1
+	lock
+	snde "gate"
+	rtar 3 3 47
+	anim [22 23 24 25 26 27 28]
+	over
+	setv ov00 0
+	anim [0 1 2 3 4 5 6 7 8 9 10 255]
+	inst
+	etch 0 0 0
+		doif targ <> null
+			setv va00 attr
+			andv va00 32
+			doif va00 = 0
+				setv va01 attr
+				andv va01 3
+				doif va01 <> 0 and fmly <> 4
+					mvsf 5252 2400
+					snde "move"
+				endi
+			endi
+		endi
+	next
+	slow
+	wait 5
+	door ov70 ov71 0
+	etch 3 3 49
+		kill targ
+	next
+endm
+
+
+
+rscr
+enum 3 3 46
+	kill targ
+next
+enum 3 3 47
+	kill targ
+next
+enum 3 3 48
+	kill targ
+next
+enum 3 3 49
+	kill targ
+next
+scrx 3 3 46 1
+scrx 3 3 47 1
+scrx 3 3 48 1
+scrx 3 3 49 1

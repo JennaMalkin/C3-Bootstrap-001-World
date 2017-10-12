@@ -1,0 +1,309 @@
+
+inst
+
+new: vhcl 2 22 1 "hatch" 16 0 11
+attr 12
+cabn 30 0 180 135
+cabp -1
+mvto 451 701
+pose 10
+emit 2 0.1
+
+tick rand 10 30
+
+
+
+
+
+
+
+
+new: simp 2 22 3 "hatch" 7 22 12
+mvto 401 573
+pose 5
+clac -1
+emit 2 0.1
+
+
+
+new: simp 2 22 2 "hatch" 6 16 13
+attr 4
+clac -1
+mvto 406 601
+
+
+
+
+
+scrp 2 22 1 124
+	inst
+	targ held
+	doif fmly = 3 and gnus = 4
+		tick 0
+		attr 0
+		doif pose ne 3
+			setv va00 pose
+			addv va00 1
+			pose va00
+		endi
+		mesg writ ownr 3000
+	else
+
+		doif fmly = 4
+			doif type ov53 >= 3
+				doif ov53 = ownr
+					stop
+				endi
+			endi
+		endi
+
+		mesg writ targ 5
+	endi
+endm
+
+
+
+scrp 2 22 1 3000
+	lock
+	inst
+	setv ov99 1
+	doif ov00 eq 0
+		setv ov00 1
+		attr 0
+		rtar 2 22 3
+		snde "hat3"
+		anim [5 4 3 2 1 0]
+		over
+		targ ownr
+		snde "hat1"
+		inst
+		velo -1 -3
+		snde "hat2"
+		anim [10 10 9 9 8 8 7 7 6 6 5 5 4 4 3 3 2 2 1 1 0]
+		rtar 2 22 3
+		mesg writ targ 1002
+		slow
+
+
+
+		targ ownr
+		wait 30
+		velo 0 0
+		snde "stm1"
+		mvto 421 611
+
+
+		targ held
+		doif targ ne null
+			doif fmly eq 3 and gnus eq 4
+
+				loop
+					wait 1
+					inst
+
+					doif targ = null
+						unlk
+						mesg writ ownr 3001
+						stop
+					endi
+				untl code = -1
+
+
+				inst
+				mesg writ targ 1000
+			endi
+		endi
+		doif targ = null
+			unlk
+			mesg writ ownr 3001
+			stop
+		endi
+		targ ownr
+		anim [0 1 2 3 255]
+	else
+		targ from
+		rpas ownr targ
+	endi
+endm
+
+scrp 2 22 1 3001
+	lock
+	snde "stm1"
+	rtar 2 22 3
+	velo 1 3
+	wait 30
+	velo 0 0
+	targ ownr
+	snde "hat1"
+	velo 1 3
+
+
+
+
+	targ ownr
+	wait 30
+	velo 0 0
+	mvto 452 704
+	snde "hat2"
+
+	anim [0 1 1 2 2 3 3 4 4 5 5 6 6 7 7 8 8 9 9 10 10]
+
+	over
+	rtar 2 22 3
+	snde "hat3"
+	anim [0 1 2 3 4 5]
+	targ ownr
+	targ held
+	doif targ ne null
+		doif fmly eq 4
+			aslp 0
+		endi
+	endi
+	targ ownr
+	epas 4 0 0
+		rpas ownr targ
+		velo 0 0
+		born
+		attr game "c3_creature_attr"
+		doif norn eq null
+			norn targ
+		endi
+	next
+	targ ownr
+	dpas 0 0 0
+	inst
+	attr 12
+	setv ov00 0
+	setv ov99 0
+endm
+
+
+scrp 2 22 1 3002
+	doif ov00 eq 0
+		lock
+		rtar 2 22 3
+		snde "hat3"
+		anim [5 4 3 2 1 0]
+		over
+		targ ownr
+		snde "hat1"
+		velo -1 -3
+		snde "hat2"
+		anim [10 10 9 9 8 8 7 7 6 6 5 5 4 4 3 3 2 2 1 1 0]
+		rtar 2 22 3
+		mesg writ targ 1002
+		targ ownr
+		wait 30
+		velo 0 0
+		snde "stm1"
+		mvto 421 611
+		cabn -1 -1 -1 -1
+		setv ov00 1
+	endi
+endm
+
+
+scrp 2 22 1 3003
+	doif ov00 eq 1
+		lock
+		snde "stm1"
+		rtar 2 22 3
+		velo 1 3
+		wait 30
+		velo 0 0
+		targ ownr
+		snde "hat1"
+		velo 1 3
+		targ ownr
+		wait 30
+		velo 0 0
+		snde "hat2"
+		anim [0 1 1 2 2 3 3 4 4 5 5 6 6 7 7 8 8 9 9 10 10]
+		over
+		rtar 2 22 3
+		snde "hat3"
+		anim [0 1 2 3 4 5]
+		targ ownr
+		inst
+		cabn 50 20 180 130
+		cabp -1
+		setv ov00 0
+	endi
+endm
+
+
+scrp 2 22 2 1000
+	wait 20
+	anim [0 1 2 3 4 5]
+endm
+
+scrp 2 22 2 1001
+	anim [5 4 3 2 1 0]
+endm
+
+scrp 2 22 3 1002
+	pose 6
+	velo -1 -3
+	wait 30
+	velo 0 0
+	mvto 370 480
+endm
+
+scrp 2 22 1 9
+	inst
+	doif ov99 eq 1
+		stop
+	endi
+	dpas 0 0 0
+
+	setv va50 0
+
+	setv va00 game "c3_max_norns"
+	mulv va00 2
+	divv va00 3
+	setv va99 0
+	enum 4 1 0
+		doif dead = 0
+			addv va99 1
+		endi
+	next
+	doif va99 ge va00
+		setv va50 1
+	endi
+
+	setv va00 game "c3_max_creatures"
+	mulv va00 2
+	divv va00 3
+	setv va99 0
+	enum 4 0 0
+		doif dead = 0
+			addv va99 1
+		endi
+	next
+	doif va99 ge va00
+		setv va50 1
+	endi
+
+	tick rand 10 30
+
+
+	doif va50 = 1
+		mesg writ targ 3002
+	else
+		mesg writ targ 3003
+	endi
+
+endm
+
+
+rscr
+enum 2 22 1
+	kill targ
+next
+enum 2 22 2
+	kill targ
+next
+enum 2 22 3
+	kill targ
+next
+scrx 2 22 1 9

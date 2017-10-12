@@ -1,0 +1,57 @@
+
+
+inst
+new: comp 1 2 201 "smalltextbox" 1 0 9000
+attr 288
+pat: fixd 1 "smalltextbox" 1 10 5 1 "BlackOnTransparentChars"
+imsk 1
+flto -1000 -1000
+plne 9999
+setv ov00 0
+
+scrp 1 2 201 9
+	sets va00 ""
+	adds va00 vtos pace
+	setv va99 strl va00
+	subv va99 1
+	sets va00 subs va00 1 va99
+	adds va00 "\n"
+	adds va00 vtos totl 0 0 0
+	part 1
+	ptxt va00
+endm
+
+scrp 1 2 201 73
+	lock
+	doif _p1_ = 'P'
+		doif keyd 17 = 1 and keyd 16 = 1
+			doif ov00 = 0
+				tick 10
+				setv va00 wndh
+				subv va00 hght
+				flto 0 va00
+				setv ov00 1
+			else
+				tick 0
+				flto -1000 -1000
+				setv ov00 0
+			endi
+		endi
+	endi
+endm
+
+scrp 1 2 201 123
+	doif ov00 = 1
+		setv va00 wndh
+		subv va00 hght
+		flto 0 va00
+	endi
+endm
+
+rscr
+enum 1 2 201
+	kill targ
+next
+scrx 1 2 201 9
+scrx 1 2 201 73
+scrx 1 2 201 123

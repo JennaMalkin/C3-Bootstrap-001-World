@@ -1,0 +1,596 @@
+
+
+
+
+
+
+
+
+new: comp 3 8 22 "launcher" 31 0 750
+attr 199
+bhvr 41
+elas 30
+perm 100
+aero 20
+accg 10
+fric 100
+
+pat: butt 1 "launcher" 18 3 5 3 0 [] 2000 0
+pat: dull 2 "launcher" 0 28 12 0
+pat: fixd 3 "launcher" 21 28 12 0 "WhiteOnTransparentChars"
+
+
+prt: inew 0 "activate" "activates launcher via input of 255" 13 27 2002
+prt: onew 0 "passthrough" "passes through any signals received" 16 40
+setv ov01 23
+part 1
+frat 4
+anim [0 1 255]
+SETV OV61 100
+setv ov81 0
+part 2
+pose 21
+mvto 4788 2206
+emit 18 .35
+setv ov71 5
+tick 1250
+
+
+
+scrp 3 8 22 1
+	lock
+	stim writ from 90 1
+	doif ov00 = 0
+		snde "bep2"
+		part 1
+		pose 1
+		part 0
+		anim [0 1 2 3 4 5]
+		over
+		setv ov00 1
+		part 3
+		frmt 0 0 0 0 0 0 2
+		sets va00 "Bio\n"
+		adds va00 vtos ov71
+		ptxt va00
+	elif ov00 = 1
+		part 3
+		ptxt ""
+		snde "bep2"
+		part 1
+		frat 4
+		anim [0 1 255]
+		part 2
+		pose 21
+		part 0
+		anim [5 4 3 2 1 0]
+		over
+		setv ov00 0
+	endi
+endm
+
+scrp 3 8 22 9
+	inst
+	setv va00 game "Bioenergy"
+	doif ov71 < 5 and va00 >= 20
+		addv ov71 1
+		subv game "Bioenergy" 20
+		sets va00 "Bio\n"
+		adds va00 vtos ov71
+		part 3
+		frmt 0 0 0 0 0 0 2
+		ptxt va00
+	endi
+	slow
+endm
+
+
+scrp 3 8 22 2000
+	lock
+	doif ov00 = 0
+		snde "bep2"
+		part 1
+		pose 1
+		part 0
+		anim [0 1 2 3 4 5]
+		over
+		setv ov00 1
+		part 3
+		frmt 0 0 0 0 0 0 2
+		sets va00 "Bio\n"
+		adds va00 vtos ov71
+		ptxt va00
+	elif ov00 = 1
+		part 3
+		ptxt ""
+		snde "bep2"
+		part 1
+		frat 4
+		anim [0 1 255]
+		part 2
+		pose 21
+		part 0
+		anim [5 4 3 2 1 0]
+		over
+		setv ov00 0
+	endi
+
+endm
+
+
+scrp 3 8 22 2002
+	lock
+	doif ov00 = 1
+		setv ov81 _p1_
+		setv va80 posx
+		addv va80 35
+		setv va81 posy
+		subv va81 5
+
+		doif ov71 > 0
+			part 3
+			ptxt ""
+
+			doif ov81 = 2
+				setv va00 totl 2 18 16
+				addv va00 totl 2 15 18
+				doif va00 <= 75
+
+					part 2
+					pose 23
+					part 0
+					anim [6 7 8 9 10 11 12 13 14 15]
+					inst
+					new: simp 2 18 16 "wysts" 4 88 3000
+					BHVR 32
+					attr 199
+					clac -1
+					elas 50
+					accg 1
+					aero 7
+					perm 75
+					fric 99
+					seta va64 targ
+					doif tmvt va80 va81 = 1
+						mvto va80 va81
+						snde "pop1"
+
+						setv ov60 200
+						setv ov61 30
+						tick 10
+						velo 20 0
+						slow
+						targ ownr
+						setv ov03 1
+						wait 10
+						anim [5]
+						prt: send 0 ov81
+						SUBV OV71 1
+					else
+						targ va64
+						kill targ
+						targ ownr
+						part 2
+						pose 31
+						snde "excl"
+						unlk
+					endi
+				else
+					snde "excl"
+					part 2
+					pose 31
+				endi
+
+			elif ov81 = 3
+				setv va00 totl 2 18 14
+				addv va00 totl 2 15 14
+				doif va00 <= 75
+
+					part 2
+					pose 24
+					part 0
+					frat 1
+					anim [6 7 8 9 10 11 12 13 14 15]
+					inst
+					new: simp 2 18 14 "angel" 4 153 500
+					attr 199
+					bhvr 48
+					clac -1
+					elas 50
+					accg 1
+					aero 7
+					perm 75
+					fric 99
+					seta va64 targ
+					doif tmvt va80 va81 = 1
+						mvto va80 va81
+						snde "pop1"
+
+						setv ov60 200
+						setv ov61 30
+						tick 10
+						velo 20 0
+						slow
+						targ ownr
+						setv ov03 1
+						wait 10
+						anim [5]
+						prt: send 0 ov81
+						SUBV OV71 1
+					else
+						targ va64
+						kill targ
+						targ ownr
+						part 2
+						pose 31
+						snde "excl"
+						unlk
+					endi
+				else
+					snde "excl"
+					part 2
+					pose 31
+				endi
+			elif ov81 = 4
+				setv va00 totl 2 18 17
+				addv va00 totl 2 15 19
+				doif va00 <= 75
+
+
+					part 2
+					pose 25
+					part 0
+					frat 1
+					anim [6 7 8 9 10 11 12 13 14 15]
+					inst
+					new: simp 2 18 17 "neon" 4 188 4000
+					attr 199
+					BHVR 48
+					clac -1
+					elas 50
+					accg 1
+					aero 7
+					perm 75
+					fric 99
+					seta va64 targ
+					doif tmvt va80 va81 = 1
+						mvto va80 va81
+						snde "pop1"
+
+						setv ov60 200
+						setv ov61 30
+						tick 10
+						velo 20 0
+						slow
+						targ ownr
+						setv ov03 1
+						wait 10
+						anim [5]
+						prt: send 0 ov81
+						SUBV OV71 1
+					else
+						targ va64
+						kill targ
+						targ ownr
+						part 2
+						pose 31
+						snde "excl"
+						unlk
+					endi
+				else
+					snde "excl"
+					part 2
+					pose 31
+				endi
+			elif ov81 = 5
+				setv va00 totl 2 18 21
+				addv va00 totl 2 15 16
+				doif va00 <= 75
+
+					part 2
+					pose 26
+					part 0
+					frat 1
+					anim [6 7 8 9 10 11 12 13 14 15]
+					inst
+					new: simp 2 18 21 "graspit" 4 200 4000
+					BHVR 48
+					attr 199
+					clac -1
+					elas 50
+					accg 1
+					aero 7
+					perm 75
+					fric 99
+					seta va64 targ
+					doif tmvt va80 va81 = 1
+						mvto va80 va81
+
+						snde "pop1"
+						setv ov60 200
+						setv ov61 30
+						tick 10
+						velo 20 0
+						slow
+						targ ownr
+						setv ov03 1
+						wait 10
+						anim [5]
+						prt: send 0 ov81
+						SUBV OV71 1
+					else
+						targ va64
+						kill targ
+						targ ownr
+						part 2
+						pose 31
+						snde "excl"
+						unlk
+					endi
+				else
+					snde "excl"
+					part 2
+					pose 31
+				endi
+			elif ov81 = 6
+				setv va00 totl 2 18 15
+				addv va00 totl 2 15 15
+				doif va00 <= 75
+
+					part 2
+					pose 27
+					part 0
+					frat 1
+					anim [6 7 8 9 10 11 12 13 14 15]
+					inst
+					new: simp 2 18 15 "clown" 4 150 4000
+					attr 199
+					BHVR 48
+					clac -1
+					elas 0
+					accg 1
+					aero 7
+					perm 75
+					fric 99
+					setv ov61 30
+					seta va64 targ
+					doif tmvt va80 va81 = 1
+						mvto va80 va81
+
+						snde "pop1"
+						setv ov60 200
+						tick 10
+						velo 20 0
+						slow
+						targ ownr
+						setv ov03 1
+						wait 10
+						anim [5]
+						prt: send 0 ov81
+						SUBV OV71 1
+					else
+						targ va64
+						kill targ
+						targ ownr
+						part 2
+						pose 31
+						snde "excl"
+						unlk
+					endi
+				else
+					snde "excl"
+					part 2
+					pose 31
+				endi
+			elif ov81 = 8
+				setv va00 totl 2 3 7
+				addv va00 totl 2 4 8
+				doif va00 <= 75
+
+					subv va81 80
+					subv va80 7
+					part 2
+					pose 28
+					part 0
+					frat 1
+					anim [6 7 8 9 10 11 12 13 14 15]
+					inst
+					new: simp 2 3 7 "opalsponge" 4 0 4201
+					attr 199
+					BHVR 32
+					accg 0
+					aero 0
+					perm 100
+					elas 0
+					fric 100
+					pupt -1 20 150
+					seta va64 targ
+					doif tmvt va80 va81 = 1
+						mvto va80 va81
+						snde "pop1"
+						velo rand -1 1 -1
+						setv ov00 0
+						setv ov61 20
+						setv ov01 0
+						tick rand 2 5
+						velo 20 0
+						slow
+						targ ownr
+						setv ov03 1
+						wait 10
+						anim [5]
+						prt: send 0 ov81
+						SUBV OV71 1
+					else
+						targ va64
+						kill targ
+						targ ownr
+						part 2
+						pose 31
+						snde "excl"
+						unlk
+					endi
+				else
+					snde "excl"
+					part 2
+					pose 31
+				endi
+			elif ov81 = 9
+				setv va00 totl 2 3 6
+				addv va00 totl 2 4 7
+				doif va00 <= 75
+
+					subv va81 57
+					subv va80 4
+					part 2
+					pose 29
+					part 0
+					frat 1
+					anim [6 7 8 9 10 11 12 13 14 15]
+					inst
+					new: simp 2 3 6 "oraponge" 4 0 4201
+					attr 199
+					BHVR 32
+					accg 0
+					aero 0
+					perm 100
+					elas 0
+					fric 100
+					seta va16 targ
+					pupt -1 20 150
+					seta va64 targ
+					doif tmvt va80 va81 = 1
+						mvto va80 va81
+						snde "pop1"
+						velo rand -1 1 -1
+						setv ov00 0
+						setv ov01 0
+						setv ov61 20
+						tick rand 2 5
+						velo 20 0
+						slow
+						targ ownr
+						setv ov03 1
+						wait 10
+						anim [5]
+						prt: send 0 ov81
+						SUBV OV71 1
+					else
+						targ va64
+						kill targ
+						targ ownr
+						part 2
+						pose 31
+						snde "excl"
+						unlk
+					endi
+				else
+					snde "excl"
+					part 2
+					pose 31
+				endi
+			elif ov81 = 10
+				setv va00 totl 2 3 8
+				addv va00 totl 2 4 10
+				doif va00 <= 75
+
+					subv va81 55
+					subv va80 7
+					part 2
+					pose 30
+					part 0
+					frat 1
+					anim [6 7 8 9 10 11 12 13 14 15]
+					inst
+					new: simp 2 3 8 "gumin" 9 95 4201
+					attr 197
+					BHVR 32
+					elas 20
+					perm 99
+					accg 0
+					aero 0
+					fric 100
+					clac -1
+					puhl -1 15 60
+
+					setv ov86 0
+
+					setv ov87 0
+
+					setv ov01 230
+					setv ov61 15
+					pose 3
+					seta va64 targ
+					doif tmvt va80 va81 = 1
+						snde "pop1"
+						mvto va80 va81
+						tick rand 2 5
+						velo 20 0
+						slow
+						targ ownr
+						setv ov03 1
+						wait 10
+						anim [5]
+						prt: send 0 ov81
+						SUBV OV71 1
+					else
+						targ va64
+						kill targ
+						targ ownr
+						part 2
+						pose 31
+						snde "excl"
+						unlk
+					endi
+				else
+					snde "excl"
+					part 2
+					pose 31
+				endi
+			else
+				targ ownr
+				prt: send 0 ov81
+			endi
+			part 2
+			pose 21
+			part 3
+			frmt 0 0 0 0 0 0 2
+			sets va00 "Bio\n"
+			adds va00 vtos ov71
+			ptxt va00
+		else
+
+			targ ownr
+			prt: send 0 ov81
+			part 2
+			pose 21
+			part 3
+			frmt 0 0 0 0 0 0 2
+			ptxt "Bio\n 0"
+			wait 5
+		endi
+	endi
+endm
+
+scrp 3 8 22 3
+	sndc "hit_"
+	velo 0 rand -5 -10
+	prt: bang rand 60 100
+	stim writ from 92 1
+endm
+
+scrp 3 8 22 4
+	targ from
+	doif fmly = 4
+		stim writ targ 91 1
+	endi
+endm
+
+rscr
+enum 3 8 22
+	kill targ
+next
+scrx 3 8 22 2000
+scrx 3 8 22 3
+scrx 3 8 22 2002
+scrx 3 8 22 1

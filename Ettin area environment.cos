@@ -1,0 +1,308 @@
+inst
+
+new: simp 1 1 113 "blnk" 1 0 0
+tick 9
+
+
+reps 100
+
+	new: simp 2 10 37 "graz" 2 218 3000
+	attr 192
+	elas 0
+	setv va00 rand 0 2
+	doif va00 eq 0
+		accg 0.1
+	elif va00 eq 1
+		accg 0.3
+	else
+		accg 0.4
+	endi
+
+
+	mvto rand 4630 6900 300
+	perm rand 0 70
+repe
+
+
+
+
+
+
+setv va99 0
+
+
+new: simp 1 1 40 "targ" 2 0 9000
+attr 16
+mvto 4869 26
+pose va99
+tick 10
+
+
+new: simp 1 1 41 "targ" 2 0 9000
+attr 16
+mvto 6607 443
+pose va99
+
+new: simp 1 1 41 "targ" 2 0 9000
+attr 16
+mvto 5989 85
+pose va99
+
+
+
+new: simp 1 1 42 "targ" 2 0 9000
+attr 16
+mvto 5989 85
+pose va99
+
+new: simp 1 1 42 "targ" 2 0 9000
+attr 16
+mvto 6707 142
+pose va99
+
+new: simp 1 1 42 "targ" 2 0 9000
+attr 16
+mvto 5817 90
+pose va99
+
+new: simp 1 1 42 "targ" 2 0 9000
+attr 16
+mvto 5175 153
+pose va99
+
+new: simp 1 1 42 "targ" 2 0 9000
+attr 16
+mvto 4567 352
+pose va99
+
+new: simp 1 1 42 "targ" 2 0 9000
+attr 16
+mvto 5476 119
+pose va99
+
+new: simp 1 1 42 "targ" 2 0 9000
+attr 16
+mvto 5675 125
+pose va99
+
+
+
+scrp 1 1 40 9
+	tick 300
+
+
+
+
+
+
+	rtar 3 3 57
+	doif targ ne null
+		setv va02 itof ov01
+		setv va03 itof ov02
+		divv va02 4
+		divv va03 4
+	endi
+	targ ownr
+
+
+	doif time eq 0
+
+		divv va02 3
+		setv va00 va02
+
+		divv va03 3
+		setv va01 va03
+
+
+
+	elif time eq 1
+
+		setv va00 va02
+
+		setv va01 va03
+
+
+
+	elif time eq 2
+
+		setv va00 va02
+		setv va01 va03
+
+
+
+	elif time eq 3
+
+		divv va02 3
+		mulv va02 2
+		setv va00 va02
+
+		divv va03 3
+		mulv va03 2
+		setv va01 va03
+
+
+
+	elif time eq 4
+
+		divv va02 4
+		setv va00 va02
+
+		divv va03 4
+		setv va01 va03
+
+
+
+	endi
+
+
+	doif sean eq 0
+		wait 1
+
+	elif sean eq 1
+		setv va99 rand 0 1
+		doif va99 eq 0
+			addv va01 0.1
+		endi
+
+	elif sean eq 2
+		setv va99 rand 0 1
+		doif va99 eq 0
+			subv va01 0.1
+		elif va99 eq 1
+			subv va01 0.2
+		endi
+
+	elif sean eq 3
+		setv va99 rand 0 1
+		doif va99 eq 0
+			subv va01 0.1
+		elif va99 eq 1
+			subv va01 0.2
+		endi
+
+
+
+	endi
+
+	doif va00 gt 1
+		setv va00 1
+	endi
+	doif va01 gt 1
+		setv va01 1
+	endi
+
+	enum 1 1 41
+		mesg wrt+ targ 1000 va00 0 0
+	next
+	enum 1 1 42
+		mesg wrt+ targ 1000 va01 0 0
+	next
+
+
+
+
+
+
+endm
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+scrp 1 1 41 1000
+	emit 1 _p1_
+endm
+
+
+scrp 1 1 42 1000
+	emit 2 _p1_
+endm
+
+
+scrp 1 1 113 9
+	lock
+
+
+	setv va00 1800
+
+	rtar 3 3 57
+	doif targ ne null
+		setv va01 ov03
+	else
+		setv va01 3
+	endi
+	targ ownr
+	addv va01 1
+	mulv va01 va01
+	mulv va01 50
+
+	subv va00 va01
+
+
+
+
+
+
+
+	tick va00
+
+	reps rand 10 100
+		new: simp 2 19 2 "nornatmos" 5 21 6999
+		attr 192
+		elas 0
+		setv va00 rand 0 5
+		doif va00 eq 0
+			accg 0.3
+		elif va00 eq 1
+			accg 0.3
+		elif va00 eq 2
+			accg 0.4
+		elif va00 eq 3
+			accg 0.5
+		elif va00 eq 4
+			accg 0.6
+		else
+			accg 0.7
+		endi
+
+
+		mvto rand 4955 6800 197
+		perm rand 0 70
+	repe
+endm
+
+rscr
+enum 1 1 40
+	kill targ
+next
+enum 1 1 41
+	kill targ
+next
+enum 1 1 42
+	kill targ
+next

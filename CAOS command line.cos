@@ -1,0 +1,155 @@
+
+
+inst
+new: comp 1 2 203 "blnk" 1 0 9000
+attr 288
+imsk 65
+flto -1000 -1000
+plne 10000
+setv ov00 0
+sets ov02 ""
+
+scrp 1 2 203 73
+	inst
+	doif _p1_ = 'C'
+		doif keyd 17 = 1 and keyd 16 = 1
+			doif ov00 = 0
+				pat: fixd 1 "caos" 1 0 0 0 "whiteontransparentchars"
+				pat: text 2 "caos" 0 0 -5000 0 1000 "whiteontransparentchars"
+				flto 0 0
+				part 1
+				setv va00 2000
+				subv va00 wndw
+				setv va01 2000
+				subv va01 wndh
+				frmt 0 0 va00 va01 0 0 0
+				
+				sets ov01 ""
+				setv va50 wndh
+				divv va50 10
+				reps va50
+					adds ov01 "\n"
+				repe
+				adds ov01 read "CAOS command line" 0
+				adds ov01 read "CAOS command line" 1
+				ptxt ov01
+				part 2
+				addv va00 16
+				frmt 0 0 va00 0 0 0 0
+				fcus
+				setv ov00 1
+				mesg wrt+ ownr 1001 0 0 0
+				stop
+			else
+				pat: kill 1
+				pat: kill 2
+				flto -10000 -10000
+				targ game "c3_default_focus"
+				part game "c3_default_focus_part"
+				fcus
+				targ ownr
+				setv ov00 0
+				stop
+			endi
+		endi
+	endi
+endm
+
+scrp 1 2 203 123
+	inst
+	doif ov00 = 1
+		part 1
+		setv va00 2000
+		subv va00 wndw
+		setv va01 2000
+		subv va01 wndh
+		frmt 0 0 va00 va01 0 0 0
+		mesg writ ownr 1001
+	endi
+endm
+
+scrp 1 2 203 1000
+	inst
+	part 2
+	sets va00 ptxt
+	ptxt ""
+	part 1
+	sets va01 ov01
+	adds va01 va00
+	ptxt va01
+	sets ov01 va01
+
+	setv va99 0
+	doif va00 = ""
+		sets va00 ov02
+	else
+		sets ov02 va00
+	endi
+	sets va10 caos 0 0 0 0 va00 0 1 va99
+	doif va10 = "***"
+		sets va10 read "caos" va99
+	elif va10 = "###"
+		sets va10 va99
+	endi
+	adds ov01 "\n"
+	doif va10 = ""
+		sets va10 read "CAOS command line" 2
+	endi
+	adds ov01 va10
+
+	adds ov01 read "CAOS command line" 1
+	ptxt ov01
+	mesg wrt+ ownr 1001 1 0 0
+endm
+
+scrp 1 2 203 1001
+	inst
+	lock
+	part 1
+	doif npgs > 1
+		loop
+			setv va00 1
+			loop
+				setv va01 0
+				doif va00 > strl ov01
+					setv va01 1
+					sets ov01 ""
+				elif char ov01 va00 = 10
+					setv va01 1
+					addv va00 1
+					setv va10 strl ov01
+					subv va10 va00
+					addv va10 1
+					sets ov01 subs ov01 va00 va10
+				endi
+				addv va00 1
+			untl va01 = 1
+			ptxt ov01
+			doif _p1_ > 0
+				slow
+				wait 1
+				inst
+			endi
+		untl npgs <= 1
+	endi
+endm
+
+scrp 1 2 203 79
+	inst
+	doif ov00 = 1
+		part 2
+		sets va00 ptxt
+		part 1
+		sets va01 ov01
+		adds va01 va00
+		ptxt va01
+	endi
+endm
+
+rscr
+enum 1 2 203
+	kill targ
+next
+scrx 1 2 203 73
+scrx 1 2 203 79
+scrx 1 2 203 1000

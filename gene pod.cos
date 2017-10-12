@@ -1,0 +1,273 @@
+iscr
+new: vhcl 3 3 32 "gene pod" 73 0 10
+
+perm 100
+attr 4
+cabn 10 0 130 122
+cabp -1
+cabw 1
+setv va50 5190
+setv va51 3905
+
+
+seta ov99 null
+
+setv ov80 1
+mvto va50 va51
+
+
+part 0
+anim [0]
+clac 0
+
+
+pat: dull 1 "gene pod" 10 40 -7 2002
+part 1
+anim [20]
+
+
+pat: dull 2 "gene pod" 31 -114 -18 -10
+part 2
+anim [20]
+
+
+pat: dull 3 "gene pod" 52 -114 -18 2001
+part 3
+anim [20]
+
+
+new: vhcl 3 3 32 "gene pod" 73 73 1000
+
+perm 100
+attr 4
+cabn 10 10 130 135
+cabp -1
+cabw 1
+setv va50 4985
+setv va51 3891
+
+
+seta ov99 null
+
+setv ov80 2
+mvto va50 va51
+
+
+part 0
+anim [0]
+clac 0
+
+pat: dull 1 "gene pod" 83 39 -8 2002
+part 1
+anim [20]
+
+pat: dull 2 "gene pod" 104 -21 10 -10
+part 2
+anim [20]
+
+pat: dull 3 "gene pod" 125 -21 10 2001
+part 3
+anim [20]
+
+
+scrp 3 3 32 1
+	rtar 3 3 18
+	mesg writ targ 1040
+	targ ownr
+	mesg writ ownr 2000
+endm
+
+scrp 3 3 32 2000
+	inst
+	lock
+	setv va66 0
+	epas 4 0 0
+		wait 1
+		addv va66 1
+	next
+	doif va66 = 0
+		etch 4 2 0
+			inst
+			doif targ <> null
+				zomb 1
+				pose 80
+				dirn 1
+			endi
+			wait 2
+			inst
+			doif targ <> null
+				spas ownr targ
+			endi
+		next
+
+		gpas 4 0 0 1
+		wait 2
+		seta va99 null
+		inst
+		epas 4 0 0
+			addv va77 1
+			doif va77 = 1
+				setv va16 attr
+				andv va16 %111111100
+				attr va16
+				seta va99 targ
+				zomb 1
+				pose 0
+				dirn 1
+			endi
+			doif va77 > 1
+				setv va16 attr
+				orrv va16 %000000011
+				attr va16
+				zomb 0
+				rpas ownr targ
+			endi
+		next
+		seta ov99 va99
+		etch 4 0 0
+			doif carr = null
+				setv va16 attr
+				orrv va16 %000000011
+				attr va16
+				zomb 0
+
+			endi
+		next
+
+
+
+
+
+
+
+
+
+
+
+		inst
+		snde "sqh3"
+		part 1
+		anim [0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 0]
+		part 0
+		anim [9]
+		part 2
+		anim [0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 0]
+		part 3
+		anim [0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 0]
+
+		slow
+		over
+		inst
+		part 0
+		anim [0]
+		part 1
+		anim [20]
+		part 2
+		anim [20]
+		part 3
+		anim [20]
+		epas 4 0 0
+			addv va66 1
+			seta va99 targ
+		next
+		seta ov99 va99
+
+
+
+		doif va66 = 1
+			setv va80 ov80
+			rtar 3 3 18
+			seta va55 targ
+			targ ownr
+
+
+
+
+			mesg wrt+ va55 1010 va80 ov99 0
+			slow
+		else
+
+		endi
+	endi
+	unlk
+endm
+
+scrp 3 3 32 5000
+	inst
+
+
+	epas 4 0 0
+		seta va99 targ
+	next
+	seta ov99 va99
+
+	rtar 3 3 18
+	mesg writ targ 2000
+endm
+
+scrp 3 3 32 1000
+	seta va88 _p1_
+	seta va89 _p2_
+endm
+
+
+scrp 3 3 32 1001
+	rtar 3 3 18
+	seta ov88 null
+	seta ov89 null
+	setv ov80 0
+	setv ov80 0
+	part 6
+	anim [0]
+	part 7
+	anim [0]
+	targ ownr
+	inst
+	epas 4 0 0
+		setv va16 attr
+		orrv va16 %000000011
+		attr va16
+
+		zomb 0
+	next
+	dpas 0 0 0
+endm
+
+
+
+
+
+
+
+
+
+
+scrp 3 3 32 1002
+	lock
+	inst
+	epas 4 0 0
+
+
+		dead
+		wait 1
+		inst
+		doif targ <> null
+			kill targ
+		endi
+	next
+endm
+
+
+
+
+rscr
+
+enum 3 3 32
+	kill targ
+next
+scrx 3 3 32 1
+scrx 3 3 32 1000
+scrx 3 3 32 1001
+scrx 3 3 32 1002
+scrx 3 3 32 5000
+scrx 3 3 32 124

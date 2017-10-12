@@ -1,0 +1,42 @@
+
+
+iscr
+inst
+*Jungle
+new: simp 2 4 2 "waterplant" 8 0 6000
+attr 192
+elas 0
+anim [0 1 2 3 4 5 6 7 255]
+mvto 2628 2152
+tick 700
+setv ov61 10
+seta ov17 null
+
+*Desert
+new: simp 2 4 2 "waterplant" 8 8 6000
+attr 192
+elas 0
+anim [0 1 2 3 4 5 6 7 255]
+mvto 6669 507
+tick 700
+setv ov61 10
+seta ov17 null
+
+*Marine
+new: simp 2 4 2 "waterplant" 8 8 6000
+attr 192
+elas 0
+anim [0 1 2 3 4 5 6 7 255]
+mvto 5426 2320
+tick 700
+setv ov61 10
+seta ov17 null
+
+new: simp 2 4 2 "waterplant" 8 0 6000
+attr 192
+elas 0
+anim [0 1 2 3 4 5 6 7 255]
+mvto 5966 2282
+tick 700
+setv ov61 10
+seta ov17 null

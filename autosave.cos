@@ -1,0 +1,37 @@
+new: simp 1 2 7 "blnk" 0 1 0
+attr 16
+imsk 1
+
+
+
+tick 36000
+
+scrp 1 2 7 9
+	save
+endm
+
+
+
+scrp 1 2 7 128
+	tick tick
+endm
+
+
+scrp 1 2 7 73
+	inst
+	doif _p1_ = 'R'
+
+		doif keyd 17 = 1 and keyd 16 = 0
+
+			save
+			tick tick
+		endi
+	endi
+endm
+
+rscr
+enum 1 2 7
+	kill targ
+next
+scrx 1 2 7 9
+scrx 1 2 7 128

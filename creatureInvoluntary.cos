@@ -1,0 +1,419 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+scrp 1 2 28 9
+	inst
+	doif ov00 eq null
+		kill ownr
+		stop
+	endi
+
+	targ ov00
+
+	doif aslp eq 0
+		targ ownr
+		kill targ
+		stop
+	endi
+	doif dead eq 1
+		targ ownr
+		kill targ
+		stop
+	endi
+	doif uncs eq 1
+		targ ownr
+		kill targ
+		stop
+	endi
+
+
+
+	setv va00 0
+	doif ov02 ne posl
+		addv va00 1
+	endi
+	doif ov03 ne post
+		addv va00 1
+	endi
+	slow
+
+	targ ownr
+
+
+	doif ov01 eq 0
+		anim [ 000 000 001 001 002 002 003 003 004 004 005 005 006 006 007 007 008 008 009 009 010 010 011 011 012 012 013 013 014 014 015 015 016 016 255]
+		setv ov01 1
+		addv va00 1
+	endi
+
+
+	doif va00 ne 0
+		setv va04 wdth
+		inst
+		doif ov00 eq null
+			kill ownr
+			stop
+		endi
+		targ ov00
+		doif dirn eq 2
+			setv va01 posr
+			subv va01 va04
+		else
+			setv va01 posl
+		endi
+		setv va02 post
+		setv va03 hght
+		mulv va03 0.75
+		slow
+		targ ownr
+
+		setv ov02 va01
+		setv ov03 va02
+
+
+		subv va02 va03
+		mvto va01 va02
+	endi
+endm
+
+
+
+scrp 4 0 0 64
+	ltcy 0 25 50
+	pose 75
+	snde "ow!1"
+	wait 10
+
+	stim writ ownr 28 1
+endm
+
+scrp 4 2 0 64
+	ltcy 0 25 50
+	pose 75
+	snde "gslp"
+	wait 10
+
+	stim writ ownr 28 1
+endm
+
+
+
+
+
+
+
+scrp 4 0 0 66
+	ltcy 2 25 35
+	anim [071 071 072 072 072]
+	over
+	snde "snee"
+	anim [106]
+
+	stim writ ownr 30 1
+	over
+	mesg wrt+ ownr 300 0 0 0
+endm
+
+scrp 4 2 0 66
+	ltcy 2 25 35
+	anim [071 071 072 072 072]
+	snde "gshv"
+
+	stim writ ownr 30 1
+	over
+	mesg wrt+ ownr 300 0 0 0
+endm
+
+
+scrp 4 0 0 67
+	ltcy 3 25 35
+	anim [098 099 100]
+	over
+	snde "coug"
+	anim [098 099 100]
+	mesg wrt+ ownr 300 0 0 0
+
+	stim writ ownr 31 1
+	wait 5
+endm
+
+scrp 4 2 0 67
+	ltcy 3 25 35
+	anim [071 071 072 072]
+	snde "gshv"
+	over
+	mesg wrt+ ownr 300 0 0 0
+
+	stim writ ownr 31 1
+	wait 5
+endm
+
+scrp 4 3 0 67
+	ltcy 3 25 35
+	anim [098 099 100]
+	over
+	snde "ecof"
+	anim [101 100 101]
+	mesg wrt+ ownr 300 0 0 0
+
+	stim writ ownr 31 1
+	wait 5
+endm
+
+
+scrp 4 0 0 68
+	ltcy 4 30 90
+	anim [046 047 046 047 046 047 047 046 255]
+	snde "shiv"
+
+	stim writ ownr 32 1
+	wait rand 50 150
+	pose 46
+endm
+
+scrp 4 2 0 68
+	ltcy 4 30 90
+	anim [046 047 046 047 046 047 047 046 255]
+	snde "gshv"
+
+	stim writ ownr 32 1
+	wait rand 50 150
+	pose 46
+endm
+
+scrp 4 3 0 68
+	ltcy 4 30 90
+	anim [046 047 046 047 046 047 047 046 255]
+	snde "eshv"
+
+	stim writ ownr 32 1
+	wait rand 50 150
+	pose 46
+endm
+
+
+scrp 4 0 0 69
+	lock
+	ltcy 5 90 190
+	pose 57
+	wait 25
+
+	stim writ targ 21 1
+
+
+
+	aslp 1
+
+
+	new: simp 1 2 28 "zzzz" 17 0 6000
+	seta ov00 ownr
+	setv ov01 0
+	tick 5
+
+	targ ownr
+
+
+	setv va00 0
+	loop
+		drea 1
+		doif va00 eq 0
+			doif gnus eq 2
+				snde "gsnr"
+			else
+				snde "zzzz"
+			endi
+		endi
+
+		pose 58
+		wait 20
+
+		stim writ targ 33 1
+
+		addv va00 1
+		doif va00 >= 10
+			setv va00 0
+		endi
+	untl driv 7 lt 0.10 and driv 6 lt 0.10
+
+
+	aslp 0
+	pose 58
+	wait 25
+	unlk
+endm
+
+
+scrp 4 0 0 70
+	ltcy 6 70 210
+	pose 58
+	setv va00 rand 1 3
+	reps va00
+		wait rand 40 140
+
+		stim writ targ 22 1
+		snde "dead"
+	repe
+endm
+
+scrp 4 2 0 70
+	ltcy 6 70 210
+	pose 58
+	setv va00 rand 1 3
+	reps va00
+		wait rand 40 140
+
+		stim writ targ 22 1
+		snde "gdie"
+	repe
+endm
+
+scrp 4 3 0 70
+	ltcy 6 70 210
+	pose 58
+	setv va00 rand 1 3
+	reps va00
+		wait rand 40 140
+
+		stim writ targ 22 1
+		snde "edie"
+	repe
+endm
+
+
+
+
+scrp 4 0 0 71
+	inst
+	ltcy 7 10 20
+	pose rand 0 99
+	stim writ targ 35 1
+	wait 4
+	inst
+
+
+	doif loci 1 1 4 9 eq 0.0
+		snde "bubf"
+
+
+
+		inst
+		enum 1 2 41
+			doif ov00 eq null
+				stop
+			endi
+			doif ov00 eq ownr
+				stop
+			endi
+		next
+		slow
+
+		new: simp 1 2 41 "bubs" 29 0 6000
+		seta ov00 ownr
+		setv ov01 0
+		tick 4
+		targ ownr
+	endi
+endm
+
+
+
+
+
+
+scrp 4 0 0 72
+
+	lock
+
+
+	nohh
+
+	attr 192
+
+
+	pose 77
+
+	doif room ownr ne -1 and carr eq null
+		altr room targ 3 0.5
+		altr room targ 4 0.5
+	endi
+
+	doif gnus eq 1
+		snde "dead"
+	elif gnus eq 2
+		snde "gdie"
+	elif gnus eq 3
+		snde "edie"
+	endi
+
+
+	doif game "Grettin" = 1 or gnus = 1
+
+		setv ov81 0
+		targ ownr
+		loop
+			wait 1
+		untl visi 0 = 1 or ov81 = 1
+	endi
+	wait 400
+
+
+	inst
+	doif gnus ne 2
+
+		new: simp 1 1 56 "death_cloud" 25 0 8450
+	else
+
+		new: simp 1 1 56 "death_sludge" 24 0 8450
+	endi
+	mesg wrt+ targ 100 ownr 0 0
+endm
+
+
+
+
+
+scrp 4 0 0 300
+
+	setv va03 posx
+	setv va04 post
+	addv va04 30
+	setv va05 dirn
+
+	inst
+	setv va00 0
+	enum 2 32 23
+		doif ov00 eq ownr
+			addv va00 1
+		endi
+	next
+	doif va00 gt 0
+
+		setv va01 rand 1 va00
+		setv va02 0
+		enum 2 32 23
+			doif ov00 eq ownr
+				addv va02 1
+				doif va02 eq va01
+
+					setv ov99 va05
+					mesg wrt+ targ 101 va03 va04 0
+					slow
+					wait 5
+					stop
+				endi
+			endi
+		next
+	endi
+	slow
+	wait 5
+endm

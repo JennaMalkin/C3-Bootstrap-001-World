@@ -1,0 +1,146 @@
+
+
+
+
+
+
+new: comp 3 8 21 "aquamite_maker" 20 0 3999
+attr 199
+bhvr 41
+perm 100
+accg 2
+elas 20
+aero 1
+mvto 4645 2374
+emit 18 .25
+clac 0
+SETV OV61 100
+prt: inew 0 "input" "produces more aquamites when it hears 255" 37 58 64
+prt: onew 0 "output" "passes 255 if it it's been activated" 20 58
+
+
+scrp 3 8 21 3
+	sndc "hit_"
+	velo 0 rand -5 -10
+	prt: bang rand 60 100
+	stim writ from 92 1
+endm
+
+scrp 3 8 21 4
+	targ from
+	doif fmly = 4
+		stim writ targ 91 1
+	endi
+endm
+
+
+scrp 3 8 21 1
+	stim writ from 90 1
+	lock
+	snde "aqua"
+
+	anim [0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19]
+	setv va00 posl
+	setv va01 post
+	subv va00 15
+	addv va01 20
+	seta va16 null
+	setv va02 rand 7 12
+	prt: send 0 255
+	reps va02
+		inst
+		new: simp 2 13 8 "aquamites" 10 0 4000
+		attr 197
+		elas 50
+		accg 0
+		aero 7
+		perm 75
+		fric 99
+		clac -1
+		setv ov01 500
+		setv ov61 10
+		setv ov99 0
+		setv ov86 0
+		setv ov87 0
+		setv ov20 rand 170 240
+		setv ov21 rand 90 120
+		setv ov22 rand 170 240
+
+		seta va16 targ
+		doif tmvt va00 va01 = 1
+			mvto va00 va01
+			anim [0 1 2 3 4 5 6 7 8 9 8 7 6 5 4 3 2 1 0 1 2 3 4 5 6 7 8 9 8 7 6 5 4 3 2 1]
+			velo rand -2 2 rand -2 2
+			tick 10
+		else
+			doif va16 <> null
+				targ va16
+				kill targ
+			endi
+		endi
+		slow
+	repe
+	targ ownr
+	over
+	anim [0]
+endm
+
+scrp 3 8 21 64
+	lock
+	setv va00 _p1_
+	doif va00 = 255
+		snde "aqua"
+
+		anim [0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19]
+		setv va00 posl
+		setv va01 post
+		subv va00 15
+		addv va01 20
+		seta va16 null
+		setv va02 rand 7 12
+		prt: send 0 255
+		reps va02
+			inst
+			new: simp 2 13 8 "aquamites" 10 0 4000
+			attr 197
+			elas 50
+			accg 0
+			aero 7
+			perm 75
+			fric 99
+			clac -1
+			setv ov01 500
+			setv ov61 10
+			setv ov99 0
+			setv ov86 0
+			setv ov87 0
+			setv ov20 rand 170 240
+			setv ov21 rand 90 120
+			setv ov22 rand 170 240
+
+			seta va16 targ
+			doif tmvt va00 va01 = 1
+				mvto va00 va01
+				anim [0 1 2 3 4 5 6 7 8 9 8 7 6 5 4 3 2 1 0 1 2 3 4 5 6 7 8 9 8 7 6 5 4 3 2 1]
+				velo rand -2 2 rand -2 2
+				tick 10
+			else
+				doif va16 <> null
+					targ va16
+					kill targ
+				endi
+			endi
+			slow
+		repe
+		targ ownr
+		over
+		anim [0]
+	endi
+endm
+rscr
+enum 3 8 21
+	kill targ
+next
+scrx 3 8 21 1
+scrx 3 8 21 64
+scrx 3 8 21 3

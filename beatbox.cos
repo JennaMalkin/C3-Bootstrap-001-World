@@ -1,0 +1,107 @@
+
+inst
+
+new: comp 2 21 12 "beatbox" 11 0 5000
+
+pat: butt 1 "beatbox" 11 4 21 0 0 [] 1000 0
+
+pat: dull 2 "beatbox" 15 31 13 0
+
+
+prt: inew 0 "input" "" 32 36 1002
+prt: onew 0 "outut" "" 47 36
+
+attr 199
+clac 0
+bhvr 43
+elas 0
+fric 100
+perm 60
+accg 5
+mvto 1500 900
+setv ov61 100
+
+
+scrp 2 21 12 1002
+lock
+	prt: send 0 _p1_
+	doif _p1_ ne 0
+		mesg writ targ 0
+	endi
+endm
+
+
+scrp 2 21 12 1
+	clac -1
+	part 0
+	anim [0 1 2 3 4 5 6 7 8 9 10 255]
+	part 2
+	anim [0 0 0 0 1 1 1 1 255]
+
+	part 1
+	anim [0 1 2 3 255]
+	mesg writ ownr 1001
+endm
+
+scrp 2 21 12 2
+	clac -1
+	part 0
+	anim [0 1 2 3 4 5 6 7 8 9 10 255]
+	part 2
+	anim [0 0 0 0 1 1 1 1 255]
+
+	part 1
+	anim [0 1 2 3 255]
+	mesg writ ownr 1001
+endm
+
+scrp 2 21 12 1000
+	doif ov00 lt 3
+		addv ov00 1
+	else
+		setv ov00 0
+	endi
+	mesg writ ownr 0
+endm
+
+
+scrp 2 21 12 1001
+	doif ov00 eq 0
+		sndc "mb_1"
+		setv va00 160
+	elif ov00 eq 1
+		sndc "mb_2"
+		setv va00 120
+	elif ov00 eq 2
+		sndc "mb_3"
+		setv va00 220
+	else
+		sndc "mb_4"
+		setv va00 120
+	endi
+	clac 0
+	tick va00
+endm
+
+scrp 2 21 12 3
+	sndc "hit_"
+	velo 0 rand -5 -10
+	prt: bang rand 60 100
+	stim writ from 92 1
+endm
+
+
+scrp 2 21 12 9
+	part 0
+	pose 0
+	part 1
+	pose 0
+	part 2
+	pose 0
+	tick 0
+endm
+
+rscr
+enum 2 21 12
+	kill targ
+next

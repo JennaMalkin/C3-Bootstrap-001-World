@@ -1,0 +1,54 @@
+scrp 1 2 41 9
+	inst
+
+	doif ov01 >= 10
+		kill ownr
+		stop
+	endi
+
+
+	doif ov00 eq null
+		kill ownr
+		stop
+	endi
+
+	targ ov00
+
+	doif aslp ne 0 or dead eq 1 or uncs eq 1 or loci 1 1 4 9 ne 0.0
+		kill ownr
+		stop
+	endi
+
+
+	targ ownr
+	setv va04 wdth
+	targ ov00
+	doif dirn eq 2
+		setv va01 posr
+		subv va01 va04
+	else
+		setv va01 posl
+	endi
+	setv va02 post
+	setv va03 hght
+	mulv va03 0.75
+	slow
+	targ ownr
+
+	subv va02 va03
+	mvto va01 va02
+
+
+	doif ov01 eq 0
+		frat 2
+		anim [0 1 2 3 4 5 6 7 8 9 255]
+	endi
+	addv ov01 1
+endm
+
+rscr
+enum 1 2 41
+	kill targ
+next
+scrx 1 2 41 9
+endm

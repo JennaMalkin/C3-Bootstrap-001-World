@@ -1,0 +1,110 @@
+
+
+
+
+
+
+
+
+
+iscr
+new: simp 2 21 10 "bongo_drums" 11 0 5000
+
+
+setv ov61 50
+perm 60
+attr 199
+bhvr 3
+clac 0
+mvto 3000 510
+elas 0
+accg 2
+fric 100
+endm
+
+
+scrp 2 21 10 101
+	anim [4 5 5 5 0]
+endm
+
+
+
+
+scrp 2 21 10 1
+	inst
+
+	urge sign 0.5 -1 0.0
+	targ from
+	setv va00 posl
+
+	stim writ targ 97 1
+	targ ownr
+
+	doif from eq pntr
+		doif posx > va00
+			setv va01 1
+		else
+			setv va01 2
+		endi
+	else
+		setv va01 rand 1 2
+	endi
+
+	doif va01 eq 1
+		snde "drm2"
+		anim [1 2 3 4 5 0]
+	else
+		snde "drm1"
+		anim [6 7 8 9 10 0]
+	endi
+	targ ownr
+	esee 4 0 0
+
+		aslp 0
+	next
+	over
+endm
+
+
+
+scrp 2 21 10 2
+	inst
+
+	urge sign 0.5 -1 0.0
+	targ from
+	setv va00 posl
+
+	stim writ from 97 1
+	targ ownr
+
+	doif from eq pntr
+		doif posx > va00
+			setv va01 1
+		else
+			setv va01 2
+		endi
+	else
+		setv va01 rand 1 2
+	endi
+
+	doif va01 eq 1
+		snde "drm2"
+		anim [1 2 3 4 5 0]
+	else
+		snde "drm1"
+		anim [6 7 8 9 10 0]
+	endi
+	targ ownr
+	esee 4 0 0
+
+		aslp 0
+	next
+	over
+endm
+
+
+rscr
+scrx 2 21 10 1
+enum 2 21 10
+	kill targ
+next

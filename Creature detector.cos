@@ -1,0 +1,324 @@
+iscr
+new: comp 3 8 1 "detector" 18 0 5000
+attr 199
+accg 4
+perm 60
+mvto 2185 450
+elas 0
+fric 80
+clac -1
+bhvr 41
+setv ov90 500
+setv ov01 0
+setv ov02 0
+setv ov61 100
+rnge ov90
+prt: inew 0 "detect in" "activation value" 5 32 1000
+prt: onew 0 "detect out" "creature (type or range?)" 4 48
+
+emit 18 0.2
+part 0
+anim [0]
+
+pat: dull 1 "detector" 8 19 25 0
+part 1
+anim [0]
+
+pat: butt 2 "detector" 14 2 0 47 0 [] 2000 0
+
+part 2
+anim [0]
+
+
+pat: butt 3 "detector" 16 2 35 47 0 [] 2002 0
+part 3
+anim [0]
+
+new: comp 3 8 1 "detector" 18 0 5000
+attr 199
+accg 4
+perm 60
+mvto rand 770 1570 3432
+elas 0
+fric 80
+bhvr 41
+clac -1
+setv ov90 500
+setv ov01 0
+setv ov02 0
+setv ov61 100
+rnge ov90
+prt: inew 0 "detect in" "activation value" 5 32 1000
+prt: onew 0 "detect out" "creature (type or range?)" 4 48
+emit 18 0.2
+part 0
+anim [0]
+
+pat: dull 1 "detector" 8 19 25 0
+part 1
+anim [0]
+
+pat: butt 2 "detector" 14 2 0 47 0 [] 2000 1
+
+part 2
+anim [0]
+
+
+pat: butt 3 "detector" 16 2 35 47 0 [] 2002 1
+part 3
+anim [0]
+
+
+new: comp 3 8 1 "detector" 18 0 5000
+attr 199
+accg 4
+perm 60
+mvto 6096 3630
+elas 0
+fric 80
+clac 0
+bhvr 41
+setv ov90 500
+setv ov01 0
+setv ov02 0
+setv ov61 100
+rnge ov90
+prt: inew 0 "detect in" "activation value" 5 32 1000
+prt: onew 0 "detect out" "creature (type or range?)" 4 48
+emit 18 0.2
+part 0
+anim [0]
+
+pat: dull 1 "detector" 8 19 25 0
+part 1
+anim [0]
+
+pat: butt 2 "detector" 14 2 0 47 0 [] 2000 1
+
+part 2
+anim [0]
+
+
+pat: butt 3 "detector" 16 2 35 47 0 [] 2002 1
+part 3
+anim [0]
+
+
+new: comp 3 8 1 "detector" 18 0 5000
+attr 199
+accg 4
+perm 60
+mvto 2414 1700
+elas 0
+fric 80
+clac -1
+bhvr 41
+setv ov90 500
+setv ov01 0
+setv ov02 0
+setv ov61 100
+rnge ov90
+prt: inew 0 "detect in" "activation value" 5 32 1000
+prt: onew 0 "detect out" "creature (type or range?)" 4 48
+emit 18 0.2
+part 0
+anim [0]
+
+pat: dull 1 "detector" 8 19 25 0
+part 1
+anim [0]
+
+pat: butt 2 "detector" 14 2 0 47 0 [] 2000 1
+
+part 2
+anim [0]
+
+
+pat: butt 3 "detector" 16 2 35 47 0 [] 2002 1
+part 3
+anim [0]
+
+
+
+scrp 3 8 1 1
+	stim writ from 90 1
+
+	mesg writ ownr 2000
+
+
+
+endm
+
+scrp 3 8 1 2
+
+	mesg writ ownr 2001
+
+endm
+
+
+
+scrp 3 8 1 3
+	sndc "hit_"
+	velo 0 rand -5 -10
+	prt: bang rand 60 100
+	stim writ from 92 1
+endm
+
+
+scrp 3 8 1 4
+	targ from
+	doif fmly eq 4
+		stim writ targ 91 1
+	endi
+endm
+
+
+scrp 3 8 1 9
+	part 1
+	setv va00 ov00
+	addv va00 3
+	doif ov00 eq 3
+		setv ov00 0
+	endi
+	doif ov00 eq 0
+		anim [3]
+		setv va88 3
+	endi
+	doif ov00 eq 1
+		anim [4]
+		setv va88 2
+	endi
+	doif ov00 eq 2
+		anim [5]
+		setv va88 1
+	endi
+	setv va66 0
+	inst
+	esee 4 va88 0
+		doif targ <> null
+			doif dead = 0
+				setv va66 1
+				setv va80 relx ownr targ
+				addv va80 0.0
+				targ ownr
+				snde "radr"
+				doif va80 <> 0
+					setv va90 va80
+
+					setv va81 ov90
+					divv va81 va90
+					setv va82 255
+					divv va82 va81
+				else
+					setv va82 1
+				endi
+
+				prt: send 0 va82
+				part 1
+				doif ov00 eq 3
+					setv ov00 0
+				endi
+				doif ov00 eq 0
+					anim [0 2 3]
+				endi
+				doif ov00 eq 1
+					anim [0 2 4]
+				endi
+				doif ov00 eq 2
+					anim [2 5]
+				endi
+			endi
+		endi
+	next
+	doif va66 = 0
+		prt: send 0 0
+	endi
+endm
+
+scrp 3 8 1 1000
+	part 0
+	setv ov02 _p1_
+	doif ov01 = 0
+		doif _p1_ <> 0
+			mesg writ ownr 2000
+		endi
+	else
+		doif _p1_ = 0
+			mesg writ ownr 2000
+		endi
+	endi
+endm
+
+scrp 3 8 1 2000
+	lock
+	doif ov01 = 0
+		setv ov01 1
+		part 2
+		anim [1]
+		snde "beep"
+		part 0
+		anim [0 0 0 0 1 1 1 1 2 2 2 3 3 4 4 5 6 7]
+		over
+		anim [0 1 2 3 4 5 6 7 255]
+
+		part 1
+		anim [0 1 2 255]
+		tick 5
+		part 2
+		anim [1]
+	else
+		setv ov01 0
+		part 2
+		anim [1]
+		snde "beep"
+		part 0
+		anim [0 1 2 3 3 4 4 5 5 5 6 6 6 6 7 7 7 7]
+		over
+
+		part 1
+		anim [0]
+		tick 0
+		part 2
+		anim [0]
+		part 3
+		anim [0]
+	endi
+endm
+
+scrp 3 8 1 2002
+	doif ov01 = 1
+		part 3
+		anim [1]
+		part 1
+		snde "beep"
+		addv ov00 1
+		doif ov00 eq 3
+			setv ov00 0
+		endi
+		doif ov00 eq 0
+			anim [3]
+		endi
+		doif ov00 eq 1
+			anim [4]
+		endi
+		doif ov00 eq 2
+			anim [5]
+		endi
+		part 3
+		over
+		anim [0]
+	endi
+endm
+
+
+
+rscr
+enum 3 8 1
+	kill targ
+next
+scrx 3 8 1 1
+scrx 3 8 1 2
+scrx 3 8 1 9
+scrx 3 8 1 1000
+scrx 3 8 1 2000
+scrx 3 8 1 2001

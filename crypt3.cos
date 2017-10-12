@@ -1,0 +1,989 @@
+
+new: simp 1 1 48 "crypt2" 10 0 50
+attr 0
+clac 0
+mvto 8337 901
+anim [8 9 0 1 2 3 4 5 6 7 255]
+
+new: simp 1 1 48 "crypt2" 10 10 50
+attr 0
+clac 0
+mvto 8432 882
+anim [0 1 2 3 4 5 6 7 8 9 255]
+
+new: simp 1 1 48 "crypt2" 10 20 50
+attr 0
+clac 0
+mvto 8551 854
+anim [1 2 3 4 5 6 7 8 9 0 255]
+
+new: simp 1 1 48 "crypt2" 10 30 50
+attr 0
+clac 0
+mvto 8653 854
+anim [4 5 6 7 8 9 0 1 2 3 255]
+
+new: simp 1 1 48 "crypt2" 10 40 50
+attr 0
+clac 0
+mvto 8766 880
+anim [2 3 4 5 6 7 8 9 0 1 255]
+
+new: simp 1 1 48 "crypt2" 10 50 50
+attr 0
+clac 0
+mvto 8859 901
+anim [6 7 8 9 0 1 2 3 4 5 255]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+new: comp 2 12 8 "crypt2" 0 66 20
+attr 4
+clac 0
+
+mvto 8473 1022
+anim [1]
+base 0
+
+
+
+
+
+
+
+
+
+pat: butt 3 "crypt2" 60 2 125 128 0 [] 1003 0
+part 3
+anim [0 0 0 0 0 0 0 0 1 1 1 255]
+sets ov60 ""
+
+new: comp 1 2 31 "crypt2" 0 72 100
+attr 4
+clac 0
+seta va66 targ
+mvto 8395 830
+anim [0]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+setv ov01 1
+sets ov60 ""
+
+
+
+
+
+anim [0]
+
+
+
+
+
+
+
+enum 2 12 8
+	seta ov17 va66
+next
+endm
+
+
+scrp 1 2 31 1000
+	lock
+	snde "toww"
+	setv ov01 1
+
+	part 0
+	doif ov02 = 0
+		anim [1 2 3 4 5 7]
+	else
+		anim [1 2 3 4 5 6]
+	endi
+	pat: fixd 1 "crypt2" 80 100 36 1 "WhiteOnTransparentChars"
+	part 1
+	doif ov02 = 0
+		sets va44 read "Crypt" 0
+	else
+		sets va44 read "Crypt" 1
+	endi
+
+	frmt 2 2 2 2 3 1 0
+	ptxt va44
+
+	pat: butt 2 "crypt2" 88 2 371 21 0 [0 1] 1002 0
+	part 2
+	anim [0]
+
+
+
+	pat: butt 4 "crypt2" 94 2 67 204 0 [] 1003 0
+	part 4
+	anim [0]
+
+	pat: butt 5 "crypt2" 98 2 304 204 0 [] 1005 0
+	part 5
+	anim [0]
+
+	pat: text 6 "crypt2" 82 200 140 0 1005 "WhiteOnTransparentChars"
+	part 6
+
+
+	pat: butt 7 "crypt2" 84 2 46 21 0 [] 1007 0
+	part 7
+	anim [0]
+
+	pat: butt 8 "crypt2" 86 2 331 20 0 [] 1008 0
+	part 8
+	anim [0]
+
+	pat: butt 9 "crypt2" 90 2 20 102 0 [] 1009 0
+	part 9
+	anim [0]
+
+	pat: butt 10 "crypt2" 92 2 164 102 0 [] 1010 0
+	part 10
+	anim [0]
+
+	pat: butt 11 "crypt2" 96 2 189 203 0 [] 1011 0
+	part 11
+	anim [0]
+
+	pat: dull 12 "crypt2" 81 35 46 0
+
+	pat: fixd 13 "crypt2" 83 198 70 1 "WhiteOnTransparentChars"
+	part 13
+
+	doif ov02 <> 1
+		pat: fixd 14 "crypt2 patch" 0 44 238 1 "WhiteOnTransparentChars"
+		part 14
+		frmt 0 0 0 0 0 0 2
+		sets va44 read "Crypt" 7
+		ptxt va44
+	endi
+	pat: fixd 15 "crypt2" 101 165 238 1 "WhiteOnTransparentChars"
+	part 15
+	frmt 0 0 0 0 0 0 2
+	sets va44 read "Crypt" 8
+	ptxt va44
+	doif ov02 <> 1
+		pat: fixd 16 "crypt2" 101 283 238 1 "WhiteOnTransparentChars"
+		part 16
+		frmt 0 0 0 0 0 0 2
+		sets va44 read "Crypt" 9
+		ptxt va44
+	endi
+
+	unlk
+	mesg writ ownr 1008
+
+endm
+
+
+scrp 1 2 31 1002
+	lock
+	doif from = pntr
+		targ pntr
+		anim [1 0]
+		targ ownr
+	endi
+
+	part 2
+	snde "toww"
+	anim [1 1 0]
+	over
+	targ game "c3_default_focus"
+	part game "c3_default_focus_part"
+	fcus
+	targ ownr
+	setv ov01 0
+	pat: kill 1
+	pat: kill 2
+
+	pat: kill 4
+	pat: kill 5
+	pat: kill 6
+	pat: kill 7
+	pat: kill 8
+	pat: kill 9
+	pat: kill 10
+	pat: kill 11
+	pat: kill 12
+	pat: kill 13
+	pat: kill 14
+	pat: kill 15
+	pat: kill 16
+	part 0
+	anim [5 4 3 2 1 0]
+	unlk
+endm
+
+
+scrp 1 2 31 1007
+	lock
+	inst
+	snde "sc_2"
+
+	doif from = pntr
+		targ pntr
+		anim [1 0]
+		targ ownr
+	endi
+
+	sets va88 ""
+
+	part 7
+	anim [1 1 1 0]
+
+	sets ov60 hist prev ov60
+
+
+	doif ov60 <> ""
+		setv ov00 hist finr ov60 7 -1
+		doif ov00 <> -1
+			sets va88 hist utxt ov60 ov00
+		endi
+	endi
+
+
+
+
+
+	doif ov02 = 0
+		setv va67 0
+
+		doif game "Grettin" = 0 and ov60 <> ""
+
+			doif 1 <> hist gnus ov60
+				setv va67 1
+			endi
+		endi
+
+		doif ov60 = "" or ov00 = -1 or va88 <> "" or va67 = 1
+
+			sets va61 ov60
+			loop
+				sets ov60 hist prev ov60
+				doif ov60 <> ""
+					setv ov00 hist finr ov60 7 -1
+					doif ov00 <> -1
+						sets va88 hist utxt ov60 ov00
+					endi
+				endi
+
+				setv va67 0
+				doif game "Grettin" = 0 and ov60 <> ""
+
+					doif 1 <> hist gnus ov60
+						setv va67 1
+					endi
+				endi
+
+			untl va88 = "" and ov00 <> -1 and va67 <> 1 or ov60 = va61
+		endi
+		doif ov00 = -1
+
+			mesg writ ownr 2001
+		elif va88 <> ""
+
+			mesg writ ownr 2001
+		else
+
+
+
+
+			mesg wrt+ ownr 2000 ov60 ov00 0
+		endi
+	else
+		doif va88 <> "" and va88 <> "don't register" and ov60 <> "" and ov00 <> -1
+
+		else
+
+
+			sets va61 ov60
+			loop
+				sets ov60 hist prev ov60
+				doif ov60 <> ""
+					setv ov00 hist finr ov60 7 -1
+					doif ov00 <> -1
+						sets va88 hist utxt ov60 ov00
+					endi
+				endi
+
+
+
+			untl va88 <> "" and va88 <> "don't register" and ov00 <> -1 and ov60 <> "" or ov60 = va61
+
+
+
+		endi
+
+
+
+
+
+		doif ov00 = -1
+
+			mesg writ ownr 2003
+		elif va88 <> "" and va88 <> "don't register"
+
+			mesg wrt+ ownr 2002 ov60 ov00 0
+		else
+
+
+
+
+
+			mesg writ ownr 2003
+		endi
+
+
+	endi
+
+	unlk
+
+endm
+
+
+scrp 1 2 31 1008
+	lock
+	inst
+	snde "sc_2"
+
+	doif from = pntr
+		targ pntr
+		anim [1 0]
+		targ ownr
+	endi
+
+	sets va88 ""
+
+	part 8
+	anim [1 1 1 0]
+
+	sets ov60 hist next ov60
+	doif ov60 <> ""
+		setv ov00 hist finr ov60 7 -1
+		doif ov00 <> -1
+			sets va88 hist utxt ov60 ov00
+		endi
+	endi
+
+
+
+
+
+
+	doif ov02 = 0
+
+		setv va67 0
+
+		doif game "Grettin" = 0 and ov60 <> ""
+
+			doif 1 <> hist gnus ov60
+				setv va67 1
+			endi
+		endi
+
+		doif ov60 = "" or ov00 = -1 or va88 <> "" or va67 = 1
+
+			sets va61 ov60
+			loop
+				sets ov60 hist next ov60
+				doif ov60 <> ""
+					setv ov00 hist finr ov60 7 -1
+					doif ov00 <> -1
+						sets va88 hist utxt ov60 ov00
+					endi
+				endi
+
+				setv va67 0
+
+				doif game "Grettin" = 0 and ov60 <> ""
+
+					doif 1 <> hist gnus ov60
+						setv va67 1
+					endi
+				endi
+
+
+
+
+			untl va88 = "" and ov00 <> -1 and va67 <> 1 or ov60 = va61
+		endi
+		doif ov00 = -1
+
+			mesg writ ownr 2001
+		elif va88 <> ""
+
+			mesg writ ownr 2001
+		else
+
+
+
+
+			mesg wrt+ ownr 2000 ov60 ov00 0
+		endi
+	else
+		doif va88 <> "" and va88 <> "don't register" and ov60 <> "" and ov00 <> -1
+
+		else
+
+
+
+			sets va61 ov60
+			loop
+				sets ov60 hist next ov60
+				doif ov60 <> ""
+					setv ov00 hist finr ov60 7 -1
+					doif ov00 <> -1
+						sets va88 hist utxt ov60 ov00
+					endi
+				endi
+
+
+
+			untl va88 <> "" and va88 <> "don't register" and ov00 <> -1 and ov60 <> "" or ov60 = va61
+
+
+
+		endi
+
+
+
+
+
+		doif ov00 = -1
+
+			mesg writ ownr 2003
+		elif va88 <> "" and va88 <> "don't register"
+
+			mesg wrt+ ownr 2002 ov60 ov00 0
+		else
+
+
+
+
+
+			mesg writ ownr 2003
+		endi
+	endi
+	unlk
+endm
+
+
+scrp 1 2 31 2000
+	inst
+	pat: kill 12
+	part 13
+	ptxt ""
+
+
+	sets ov60 _p1_
+	setv ov00 _p2_
+
+	part 1
+	sets va66 hist name ov60
+	doif va66 = ""
+		ptxt read "Crypt" 4
+	else
+		ptxt va66
+	endi
+	sets va66 ""
+	part 13
+
+	setv va03 hist finr ov60 3 -1
+	doif va03 = -1
+		setv va03 0
+	endi
+	doif va03 <> -1
+		adds va66 read "Crypt" 5
+		adds va66 rtif hist rtim ov60 va03 read "creature_history" 6
+	endi
+	adds va66 "\n\n"
+	adds va66 read "Crypt" 6
+	adds va66 rtif hist rtim ov60 ov00 read "creature_history" 6
+	ptxt va66
+	pat: kill 6
+
+
+	pat: text 6 "crypt2" 82 200 140 0 1005 "WhiteOnTransparentChars"
+	part 6
+
+
+	pat: dull 12 "crypt2" 81 45 56 0
+
+	setv ov96 -1
+	mesg writ ownr 1009
+endm
+
+scrp 1 2 31 2001
+	setv ov00 -1
+	sets ov60 ""
+	pat: kill 12
+	part 1
+	ptxt read "Crypt" 3
+	part 6
+	ptxt ""
+	part 13
+	ptxt ""
+endm
+
+
+
+
+scrp 1 2 31 2002
+	inst
+	pat: kill 12
+	pat: kill 4
+	pat: kill 5
+	sets ov60 _p1_
+	setv ov00 _p2_
+
+	part 1
+	sets va66 hist name ov60
+	doif va66 = ""
+		ptxt read "Crypt" 4
+	else
+		ptxt va66
+	endi
+	sets va66 ""
+	part 13
+
+	setv va03 hist finr ov60 3 -1
+	doif va03 = -1
+		setv va03 0
+	endi
+	doif va03 <> -1
+		adds va66 read "Crypt" 5
+		adds va66 rtif hist rtim ov60 va03 read "creature_history" 6
+	endi
+	adds va66 "\n\n"
+	adds va66 read "Crypt" 6
+	adds va66 rtif hist rtim ov60 ov00 read "creature_history" 6
+	ptxt va66
+	pat: kill 6
+	pat: fixd 6 "crypt2" 82 200 140 0 "WhiteOnTransparentChars"
+	part 6
+	ptxt hist utxt ov60 ov00
+
+
+	pat: dull 12 "crypt2" 81 45 56 0
+
+	setv ov96 -1
+	mesg writ ownr 1009
+endm
+
+
+scrp 1 2 31 2003
+
+	doif ov01 <> 1
+		mesg writ ownr 1000
+		stop
+	endi
+	part 13
+	ptxt ""
+	pat: kill 12
+	setv ov00 -1
+	sets ov60 ""
+	part 1
+	ptxt read "Crypt" 2
+	part 6
+	ptxt ""
+
+
+
+
+endm
+
+
+scrp 1 2 31 2004
+
+
+
+
+	part 4
+	anim [1 1 1 0]
+	part 1
+	ptxt read "crypt2" 0
+
+
+	pat: kill 12
+	pat: kill 8
+	pat: kill 9
+	pat: kill 6
+	part 13
+	ptxt ""
+	pat: text 6 "crypt2" 140 148 56 0 1005 "WhiteOnTransparentChars"
+	part 6
+	ptxt ""
+	wait 30
+	rtar 2 12 7
+	mesg writ targ 1001
+	targ ownr
+endm
+
+
+scrp 1 2 31 2005
+
+
+
+
+	part 5
+	anim [1 1 10]
+	part 1
+	ptxt read "crypt2" 1
+
+
+
+	pat: kill 12
+	pat: kill 8
+	pat: kill 9
+	pat: kill 6
+	part 13
+	ptxt ""
+	pat: fixd 6 "crypt2" 140 148 56 0 "WhiteOnTransparentChars"
+	part 6
+	ptxt ""
+	pat: dull 8 "crypt2" 151 156 167 0
+	pat: dull 9 "crypt2" 151 215 167 0
+	wait 30
+	rtar 2 12 7
+	mesg writ targ 1001
+	targ ownr
+
+endm
+
+
+scrp 1 2 31 1003
+	snde "sc_2"
+	doif from = pntr
+		targ pntr
+		anim [1 0]
+		targ ownr
+	endi
+
+
+	part 4
+	anim [1]
+	over
+	part 6
+	doif ov60 <> "" and hist finr ov60 7 -1 <> -1
+		hist utxt ov60 ov00 "don't register"
+	endi
+	part 4
+	anim [0]
+	over
+	mesg writ ownr 1007
+
+endm
+
+scrp 1 2 31 1005
+	snde "sc_2"
+	doif from = pntr
+		targ pntr
+		anim [1 0]
+		targ ownr
+	endi
+
+
+	part 5
+	anim [1]
+	over
+	targ game "c3_default_focus"
+	part game "c3_default_focus_part"
+	fcus
+	targ ownr
+	part 6
+
+
+	doif ov60 <> "" and hist finr ov60 7 -1 <> -1
+
+		doif ptxt <> ""
+			hist utxt ov60 ov00 ptxt
+		else
+			hist utxt ov60 ov00 read "Crypt" 12
+		endi
+	endi
+	part 5
+	anim [0]
+	over
+	mesg writ ownr 1007
+
+endm
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+scrp 1 2 31 1009
+	inst
+	snde "sc_2"
+	doif from = pntr
+		targ pntr
+		anim [1 0]
+		targ ownr
+	endi
+
+	part 9
+	doif from <> ownr
+		anim [1 1 1 0]
+	endi
+
+
+	setv va69 hist finr ov60 13 ov96
+	setv va00 0
+	loop
+		doif va69 <> -1
+			doif "" = hist foto ov60 va69
+				setv va69 hist finr ov60 13 va69
+			else
+				setv va00 1
+			endi
+		else
+			setv va00 1
+		endi
+	untl va00 = 1
+	doif va69 <> -1
+		sets va99 hist foto ov60 va69
+		dbg: asrt va99 <> ""
+		setv ov96 va69
+		pat: kill 12
+		pat: dull 12 va99 0 50 64 0
+		part 12
+		tint 128 128 128 128 128
+
+	endi
+
+endm
+
+
+scrp 1 2 31 1010
+	inst
+	snde "sc_2"
+	doif from = pntr
+		targ pntr
+		anim [1 0]
+		targ ownr
+	endi
+
+	part 10
+	doif from <> ownr
+		anim [1 1 1 0]
+	endi
+
+
+	setv va69 hist find ov60 13 ov96
+	setv va00 0
+	loop
+		doif va69 <> -1
+			doif "" = hist foto ov60 va69
+				setv va69 hist find ov60 13 va69
+			else
+				setv va00 1
+			endi
+		else
+			setv va00 1
+		endi
+	untl va00 = 1
+	doif va69 <> -1
+		sets va99 hist foto ov60 va69
+		dbg: asrt va99 <> ""
+		setv ov96 va69
+		pat: kill 12
+		pat: dull 12 va99 0 50 64 0
+		part 12
+		tint 128 128 128 128 128
+
+	endi
+endm
+
+scrp 1 2 31 1011
+	inst
+	snde "sc_2"
+	doif ov60 <> ""
+		new: comp 1 2 23 "creature_history" 32 0 8520
+		mesg wrt+ targ 1000 mv60 1001 0
+	endi
+endm
+
+
+
+scrp 2 12 8 1001
+	snde "bp_1"
+	doif from = pntr
+		targ pntr
+		anim [1 0]
+		targ ownr
+	endi
+
+	part 1
+	anim [1 1 1 0]
+	over
+	setv avar ov17 2 0
+	mesg writ ov17 1000
+
+
+
+
+
+
+endm
+
+
+scrp 2 12 8 1002
+	snde "bp_1"
+	part 2
+	anim [1 1 1 0]
+	over
+	setv avar ov17 2 1
+	mesg writ ov17 1000
+
+
+
+
+
+
+endm
+
+
+
+
+scrp 2 12 8 1003
+	snde "sc_2"
+	doif from = pntr
+		targ pntr
+		anim [1 0]
+		targ ownr
+	endi
+
+	doif ov00 = 0
+		setv ov00 1
+		part 3
+		anim [1]
+		over
+		part 0
+		base 0
+		anim [1 2 3 4 5]
+		pat: butt 1 "crypt2" 62 2 56 16 0 [0 1] 1001 0
+		part 1
+		anim [0]
+
+		pat: butt 2 "crypt2" 64 2 150 16 0 [0 1] 1002 0
+		part 2
+		anim [0]
+
+	else
+		pat: kill 1
+		pat: kill 2
+		setv ov00 0
+		part 0
+		base 0
+		anim [5 4 3 2 1]
+		over
+		part 3
+		anim [0]
+	endi
+endm
+
+scrp 1 1 49 1000
+	anim [0 1 2 3 4]
+endm
+
+rscr
+enum 1 1 48
+	kill targ
+next
+enum 1 1 49
+	kill targ
+next
+enum 2 12 7
+	kill targ
+next
+enum 2 12 8
+	kill targ
+next
+enum 1 2 31
+	kill targ
+next
+scrx 2 12 7 1001
+scrx 2 12 7 1002
+scrx 2 12 8 1001
+scrx 2 12 8 1002
+scrx 2 12 8 1003

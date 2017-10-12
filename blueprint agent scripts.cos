@@ -1,0 +1,301 @@
+
+
+
+
+
+
+
+scrp 1 1 100 1
+	inst
+	sets va66 ov99
+	sets va67 ov98
+	doif totl 1 2 33 >= 1
+		enum 1 2 33
+			kill targ
+		next
+	endi
+
+	new: comp 1 2 33 "new_agent_help" 0 0 8505
+	attr 304
+
+	pat: fixd 1 "new_agent_help" 1 26 64 1 "WhiteOnTransparentChars"
+	part 1
+	frmt 8 70 8 8 3 0 0
+
+	pat: butt 2 "new_agent_help" 2 2 238 22 0 [] 1000 1
+
+	pat: butt 4 "new_agent_help" 9 3 228 296 0 [] 1001 0
+
+	pat: butt 7 "new_agent_help" 6 3 20 296 0 [] 1002 0
+
+	pat: fixd 6 "new_agent_help" 15 119 306 1 "WhiteOnTransparentChars"
+	part 6
+	frmt 0 0 0 0 3 0 2
+
+
+	pat: fixd 3 "new_agent_help" 12 30 60 100 "WhiteOnTransparentChars"
+	part 3
+	ptxt read "Blueprint" 0
+
+
+
+	doif va67 = ""
+		pat: text 5 "new_agent_help" 12 28 100 1 808 "WhiteOnTransparentChars"
+		part 5
+		frmt 5 5 5 5 0 0 0
+		fcus
+	else
+		pat: fixd 5 "new_agent_help" 12 28 70 1 "WhiteOnTransparentChars"
+		part 5
+		frmt 5 5 5 5 0 0 0
+		ptxt va67
+		pat: kill 3
+	endi
+
+
+	part 1
+	ptxt va66
+	seta ov99 ownr
+	setv va90 wndw
+	divv va90 2
+	setv va91 wndh
+	divv va91 2
+	setv va92 wdth
+	divv va92 2
+	setv va93 hght
+	divv va93 2
+
+	subv va90 va92
+	subv va91 va93
+
+	flto va90 va91
+	mesg writ targ 1003
+
+endm
+
+scrp 1 2 33 808
+	inst
+	part 5
+	sets va00 ptxt
+	setv va01 strl va00
+	setv va02 0
+	reps va01
+		addv va02 1
+		doif subs va00 va02 1 = "<" or subs va00 va02 1 = ">" or subs va00 va02 1 = "/" or subs va00 va02 1 = "\\" or subs va00 va02 1 = ":" or subs va00 va02 1 = "*" or subs va00 va02 1 = "|" or subs va00 va02 1 = "?" or subs va00 va02 1 = "\""
+
+			adds va00 read "Blueprint" 6
+			part 1
+			ptxt va00
+
+			stop
+		endi
+	repe
+
+
+	doif va00 = "" or pray test va00 <> 0
+		stop
+	endi
+	targ game "c3_default_focus"
+	part game "c3_default_focus_part"
+	fcus
+	targ ownr
+	sets avar ov99 98 va00
+	mesg writ ov99 809
+	part 1
+	sets va67 ptxt
+	adds va67 read "Blueprint" 3
+	ptxt va67
+endm
+
+scrp 1 2 33 1000
+	part 2
+	anim [0 1]
+	targ game "c3_default_focus"
+	part game "c3_default_focus_part"
+	fcus
+
+	rtar 1 2 4
+	seta ov00 null
+	wait 10
+	kill ownr
+endm
+
+
+scrp 1 1 100 1000
+	inst
+	lock
+
+
+	seta va88 _p1_
+	seta va02 null
+	sets va66 ""
+	sets va77 ""
+
+	econ va88
+		setv va00 -1
+		reps prt: itot
+			addv va00 1
+
+			seta va01 targ
+
+
+			sets va99 wild fmly gnus spcs "Agent Help" 0
+			doif prt: from va00 >= 0
+				seta va02 prt: frma va00
+			else
+
+
+
+
+
+			endi
+			doif va02 <> null
+				setv va03 0
+
+
+				sets va66 read "Blueprint" 1
+
+
+				targ va02
+
+				adds va66 wild fmly gnus spcs "Agent Help" 0
+
+
+				targ va88
+
+
+				adds va66 read "Blueprint" 2
+				adds va66 va99
+				adds va77 va66
+				adds va77 ".\n"
+
+				setv va03 1
+				seta va02 null
+			else
+
+			endi
+
+
+			targ va01
+
+			addv va67 fmly
+			addv va68 gnus
+			addv va69 spcs
+			setv va55 ov61
+
+			targ ownr
+			setv va04 0
+			doif va50 < 95 and va00 < 1
+				setv avar targ va50 va67
+				addv va50 1
+				setv avar targ va50 va68
+				addv va50 1
+				setv avar targ va50 va69
+				addv avar targ 97 va55
+				setv va04 1
+			endi
+			doif va04 = 1
+				addv va50 1
+			endi
+			setv va67 0
+			setv va68 0
+			setv va69 0
+
+
+			targ va01
+		repe
+	next
+
+	sets ov99 va77
+
+
+
+
+endm
+
+
+scrp 1 1 100 2000
+
+
+
+	loop
+
+		addv va00 1
+	untl va00 = 30
+endm
+
+scrp 1 2 33 1001
+	part 1
+	setv va99 page
+	setv va06 npgs
+	addv va99 1
+
+	doif va99 < npgs
+		part 4
+		anim [ 2 2 2 ]
+		over
+		part 1
+		page va99
+	endi
+
+
+	mesg writ ownr 1003
+endm
+
+
+scrp 1 2 33 1002
+	part 1
+	setv va99 page
+
+	doif va99 > 0
+		part 7
+		anim [ 2 2 2 ]
+		over
+		part 1
+		subv va99 1
+		page va99
+	endi
+
+
+	mesg writ ownr 1003
+endm
+
+
+scrp 1 2 33 1003
+	inst
+
+
+	part 1
+	setv va06 npgs
+	setv va07 page
+	addv va07 1
+
+
+	sets va08 vtos va07
+	adds va08 "/"
+	adds va08 vtos va06
+	part 6
+	ptxt va08
+
+
+	part 7
+	doif va07 = 1
+		anim [0]
+	else
+		anim [1]
+	endi
+
+
+	part 4
+	doif va07 = va06
+		anim [0]
+	else
+		anim [1]
+	endi
+endm
+
+
+rscr
+enum 1 1 100
+	kill targ
+next

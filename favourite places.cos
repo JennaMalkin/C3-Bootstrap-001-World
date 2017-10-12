@@ -1,0 +1,809 @@
+
+inst
+
+
+new: simp 1 1 31 "favouriteplaces" 1 24 1
+attr 16
+mvto 5282 608
+tick 10
+
+
+
+
+
+new: simp 1 1 32 "favouriteplaces" 1 25 1
+attr 16
+mvto 4625 1721
+tick 10
+
+
+new: simp 1 1 33 "favouriteplaces" 1 26 1
+attr 16
+mvto 1298 3226
+
+tick 1
+
+
+new: simp 1 1 34 "favouriteplaces" 1 27 1
+attr 16
+mvto 5586 3334
+tick 10
+
+
+new: simp 1 1 35 "favouriteplaces" 1 28 1
+attr 16
+mvto 426 1745
+tick 10
+
+
+new: simp 1 1 36 "favouriteplaces" 1 29 1
+attr 16
+mvto 1109 733
+tick 10
+
+
+new: simp 1 1 107 "favouriteplaces" 1 30 1
+attr 16
+mvto 8892 145
+tick 10
+
+
+scrp 1 1 107 9
+	inst
+
+	doif ov00 eq 0
+		doif visi 0 eq 1
+			sndc "fp_2"
+			setv ov00 1
+			inst
+			new: simp 1 2 38 "favouriteplaces" 2 18 8505
+			attr 52
+			clac 0
+			setv va98 wdth
+			divv va98 2
+			setv va99 hght
+			divv va99 2
+
+			setv va00 800
+			divv va00 2
+			setv va01 wndh
+			divv va01 2
+
+			subv va00 va98
+			subv va01 va99
+
+			subv va00 250
+			flto va00 va01
+			setv ov00 5
+			velo ov00 -10
+			tick 2
+		endi
+	endi
+endm
+
+scrp 1 2 38 1000
+inst
+	doif ov99 eq 0
+		pose 1
+		setv ov99 1
+	else
+		pose 0
+		setv ov99 0
+	endi
+endm
+
+
+scrp 1 1 31 9
+	inst
+	doif ov00 eq 0
+		doif visi 0 eq 1
+			sndc "fp_2"
+			setv ov00 1
+			inst
+			new: simp 1 2 15 "favouriteplaces" 2 6 8505
+			attr 52
+			clac 0
+			setv va98 wdth
+			divv va98 2
+			setv va99 hght
+			divv va99 2
+
+			setv va00 800
+			divv va00 2
+			setv va01 wndh
+			divv va01 2
+
+			subv va00 va98
+			subv va01 va99
+
+			flto va00 va01
+			setv ov00 5
+			velo ov00 -10
+			tick 2
+		endi
+	endi
+endm
+
+scrp 1 2 15 1000
+inst
+	doif ov99 eq 0
+		pose 1
+		setv ov99 1
+	else
+		pose 0
+		setv ov99 0
+	endi
+endm
+
+scrp 1 1 32 9
+	inst
+	doif ov00 eq 0
+		doif visi 0 eq 1
+			sndc "fp_2"
+			setv ov00 1
+			inst
+			new: simp 1 2 16 "favouriteplaces" 2 8 8505
+			attr 52
+			clac 0
+			setv va98 wdth
+			divv va98 2
+			setv va99 hght
+			divv va99 2
+
+			setv va00 800
+			divv va00 2
+			setv va01 wndh
+			divv va01 2
+
+			subv va00 va98
+			subv va01 va99
+
+			addv va00 50
+
+			flto va00 va01
+			setv ov00 5
+			velo ov00 -10
+			tick 2
+		endi
+	endi
+endm
+
+scrp 1 2 16 1000
+inst
+	doif ov99 eq 0
+		pose 1
+		setv ov99 1
+	else
+		pose 0
+		setv ov99 0
+	endi
+endm
+
+
+scrp 1 1 33 9
+	inst
+	doif ov00 eq 0
+		doif visi 0 eq 1
+			sndc "fp_2"
+			setv ov00 1
+			inst
+			new: simp 1 2 17 "favouriteplaces" 2 10 8505
+			attr 52
+			clac 0
+			setv va98 wdth
+			divv va98 2
+			setv va99 hght
+			divv va99 2
+
+			setv va00 800
+			divv va00 2
+			setv va01 wndh
+			divv va01 2
+
+			subv va00 va98
+			subv va01 va99
+
+			subv va00 150
+
+			flto va00 va01
+			setv ov00 5
+			velo ov00 -10
+
+			tick 1
+		endi
+	endi
+	inst
+
+	setv va40 wndl
+	setv va41 800
+	divv va41 2
+	addv va40 va41
+	rtar 1 2 15
+	doif targ ne null
+		doif meta eq 1
+			doif ov99 = 0
+				mesg writ targ 1000
+			endi
+		elif ov99 = 1
+			mesg writ targ 1000
+		endi
+	endi
+	rtar 1 2 16
+	doif targ ne null
+		doif meta eq 2
+			doif ov99 = 0
+				mesg writ targ 1000
+			endi
+		elif ov99 = 1
+			mesg writ targ 1000
+		endi
+	endi
+	rtar 1 2 17
+	doif targ ne null
+		doif meta eq 4 and va40 le 3674
+			doif ov99 = 0
+				mesg writ targ 1000
+			endi
+		elif ov99 = 1
+			mesg writ targ 1000
+		endi
+	endi
+	rtar 1 2 18
+	doif targ ne null
+		doif meta eq 4 and va40 gt 3674
+			doif ov99 = 0
+				mesg writ targ 1000
+			endi
+		elif ov99 = 1
+			mesg writ targ 1000
+		endi
+	endi
+	rtar 1 2 38
+	doif targ ne null
+		doif meta eq 7
+			doif ov99 = 0
+				mesg writ targ 1000
+			endi
+		elif ov99 = 1
+			mesg writ targ 1000
+		endi
+	endi
+	rtar 1 2 19
+	doif targ ne null
+		doif meta eq 3
+			doif ov99 = 0
+				mesg writ targ 1000
+			endi
+		elif ov99 = 1
+			mesg writ targ 1000
+		endi
+	endi
+	rtar 1 2 20
+	doif targ ne null
+		doif meta eq 0
+			doif ov99 = 0
+				mesg writ targ 1000
+			endi
+		elif ov99 = 1
+			mesg writ targ 1000
+		endi
+	endi
+endm
+
+scrp 1 2 17 1000
+inst
+	doif ov99 eq 0
+		pose 1
+		setv ov99 1
+	else
+		pose 0
+		setv ov99 0
+	endi
+endm
+
+scrp 1 1 34 9
+	inst
+	doif ov00 eq 0
+		doif visi 0 eq 1
+			sndc "fp_2"
+			setv ov00 1
+			inst
+			new: simp 1 2 18 "favouriteplaces" 2 12 8505
+			attr 52
+			clac 0
+			setv va98 wdth
+			divv va98 2
+			setv va99 hght
+			divv va99 2
+
+			setv va00 800
+			divv va00 2
+			setv va01 wndh
+			divv va01 2
+
+			subv va00 va98
+			subv va01 va99
+
+			subv va00 100
+
+			flto va00 va01
+			setv ov00 5
+			velo ov00 -10
+			tick 2
+		endi
+	endi
+endm
+
+scrp 1 2 18 1000
+inst
+	doif ov99 eq 0
+		pose 1
+		setv ov99 1
+	else
+		pose 0
+		setv ov99 0
+	endi
+endm
+
+scrp 1 1 35 9
+	inst
+	doif ov00 eq 0
+		doif visi 0 eq 1
+			sndc "fp_2"
+			setv ov00 1
+			inst
+			new: simp 1 2 19 "favouriteplaces" 2 14 8505
+			attr 52
+			clac 0
+			setv va98 wdth
+			divv va98 2
+			setv va99 hght
+			divv va99 2
+
+			setv va00 800
+			divv va00 2
+			setv va01 wndh
+			divv va01 2
+
+			subv va00 va98
+			subv va01 va99
+
+			subv va00 50
+
+			flto va00 va01
+			setv ov00 5
+			velo ov00 -10
+			tick 2
+		endi
+	endi
+endm
+
+scrp 1 2 19 1000
+inst
+	doif ov99 eq 0
+		pose 1
+		setv ov99 1
+	else
+		pose 0
+		setv ov99 0
+	endi
+endm
+
+scrp 1 1 36 9
+	inst
+	doif ov00 eq 0
+		doif visi 0 eq 1
+			sndc "fp_2"
+			setv ov00 1
+			inst
+			new: simp 1 2 20 "favouriteplaces" 2 16 8505
+			attr 52
+			clac 0
+			setv va98 wdth
+			divv va98 2
+			setv va99 hght
+			divv va99 2
+
+			setv va00 800
+			divv va00 2
+			setv va01 wndh
+			divv va01 2
+
+			subv va00 va98
+			subv va01 va99
+
+			subv va00 200
+
+			flto va00 va01
+			setv ov00 5
+			velo ov00 -10
+			tick 2
+		endi
+	endi
+endm
+
+scrp 1 2 20 1000
+inst
+	doif ov99 eq 0
+		pose 1
+		setv ov99 1
+	else
+		pose 0
+		setv ov99 0
+	endi
+endm
+
+scrp 1 2 15 9
+	inst
+
+	setv va01 post
+
+	setv va99 wndt
+
+	subv va01 va99
+	doif va01 le 30
+		setv va00 0
+		setv ov00 0
+
+		setv va98 wdth
+		divv va98 2
+		setv va90 800
+		divv va90 2
+		subv va90 va98
+
+		addv va90 20
+
+		flto va90 0
+
+
+		tick 0
+	else
+		setv va00 -10
+	endi
+
+	velo ov00 va00
+
+	negv ov00
+endm
+scrp 1 2 15 123
+	mesg writ targ 9
+endm
+
+
+scrp 1 2 16 9
+	inst
+
+
+	setv va01 post
+
+	setv va99 wndt
+
+	subv va01 va99
+	doif va01 le 30
+		setv va00 0
+		setv ov00 0
+		setv va98 wdth
+		divv va98 2
+		setv va90 800
+		divv va90 2
+		subv va90 va98
+
+		addv va90 70
+
+		flto va90 0
+
+		tick 0
+	else
+		setv va00 -10
+	endi
+
+	velo ov00 va00
+
+	negv ov00
+
+endm
+scrp 1 2 16 123
+	mesg writ targ 9
+endm
+
+scrp 1 2 17 9
+	inst
+
+
+	setv va01 post
+
+	setv va99 wndt
+
+	subv va01 va99
+	doif va01 le 30
+		setv va00 0
+		setv ov00 0
+		setv va98 wdth
+		divv va98 2
+		setv va90 800
+		divv va90 2
+		subv va90 va98
+
+		subv va90 130
+
+		flto va90 0
+
+		tick 0
+	else
+		setv va00 -10
+	endi
+
+	velo ov00 va00
+
+	negv ov00
+
+endm
+scrp 1 2 17 123
+	mesg writ targ 9
+endm
+
+
+scrp 1 2 18 9
+	inst
+
+
+	setv va01 post
+
+	setv va99 wndt
+
+	subv va01 va99
+	doif va01 le 30
+		setv va00 0
+		setv ov00 0
+		setv va98 wdth
+		divv va98 2
+		setv va90 800
+		divv va90 2
+		subv va90 va98
+
+		subv va90 80
+
+		flto va90 0
+
+		tick 0
+	else
+		setv va00 -10
+	endi
+
+	velo ov00 va00
+
+	negv ov00
+
+endm
+scrp 1 2 18 123
+	mesg writ targ 9
+endm
+
+
+scrp 1 2 19 9
+	inst
+
+
+	setv va01 post
+
+	setv va99 wndt
+
+	subv va01 va99
+	doif va01 le 30
+		setv va00 0
+		setv ov00 0
+		setv va98 wdth
+		divv va98 2
+		setv va90 800
+		divv va90 2
+		subv va90 va98
+
+		subv va90 30
+
+		flto va90 0
+
+		tick 0
+	else
+		setv va00 -10
+	endi
+
+	velo ov00 va00
+
+	negv ov00
+
+endm
+scrp 1 2 19 123
+	mesg writ targ 9
+endm
+
+
+scrp 1 2 20 9
+	inst
+
+
+	setv va01 post
+
+	setv va99 wndt
+
+	subv va01 va99
+	doif va01 le 30
+		setv va00 0
+		setv ov00 0
+		setv va98 wdth
+		divv va98 2
+		setv va90 800
+		divv va90 2
+		subv va90 va98
+
+		subv va90 180
+
+		flto va90 0
+
+		tick 0
+	else
+		setv va00 -10
+	endi
+
+	velo ov00 va00
+
+	negv ov00
+
+endm
+scrp 1 2 20 123
+	mesg writ targ 9
+endm
+
+scrp 1 2 38 9
+	inst
+
+
+	setv va01 post
+
+	setv va99 wndt
+
+	subv va01 va99
+	doif va01 le 30
+		setv va00 0
+		setv ov00 0
+		setv va98 wdth
+		divv va98 2
+		setv va90 800
+		divv va90 2
+		subv va90 va98
+
+		subv va90 230
+
+		flto va90 0
+
+		tick 0
+	else
+		setv va00 -10
+	endi
+
+	velo ov00 va00
+
+	negv ov00
+
+endm
+scrp 1 2 38 123
+	mesg writ targ 9
+endm
+
+
+scrp 1 2 15 1
+	sndc "fp_1"
+	rtar 1 1 31
+	doif targ ne null
+		cmrt 0
+	endi
+endm
+
+scrp 1 2 16 1
+	sndc "fp_1"
+	rtar 1 1 32
+	doif targ ne null
+		cmrt 0
+	endi
+endm
+
+scrp 1 2 17 1
+	sndc "fp_1"
+	rtar 1 1 33
+	doif targ ne null
+		cmrt 0
+	endi
+endm
+
+scrp 1 2 18 1
+	sndc "fp_1"
+	rtar 1 1 34
+	doif targ ne null
+		cmrt 0
+	endi
+endm
+
+scrp 1 2 19 1
+	sndc "fp_1"
+	rtar 1 1 35
+	doif targ ne null
+		cmrt 0
+	endi
+endm
+
+scrp 1 2 20 1
+	sndc "fp_1"
+	rtar 1 1 36
+	doif targ ne null
+		cmrt 0
+	endi
+endm
+
+scrp 1 2 38 1
+	sndc "fp_1"
+	rtar 1 1 107
+	doif targ ne null
+		cmrt 0
+	endi
+endm
+
+rscr
+enum 1 1 31
+	kill targ
+next
+enum 1 1 32
+	kill targ
+next
+enum 1 1 33
+	kill targ
+next
+enum 1 1 34
+	kill targ
+next
+enum 1 1 35
+	kill targ
+next
+enum 1 1 36
+	kill targ
+next
+enum 1 2 15
+	kill targ
+next
+enum 1 2 16
+	kill targ
+next
+enum 1 2 17
+	kill targ
+next
+enum 1 2 18
+	kill targ
+next
+enum 1 2 19
+	kill targ
+next
+enum 1 2 20
+	kill targ
+next
+enum 1 1 107
+	kill targ
+next
+enum 1 2 38
+	kill targ
+next
+scrx 1 1 31 9
+scrx 1 1 32 9
+scrx 1 1 33 9
+scrx 1 1 34 9
+scrx 1 1 35 9
+scrx 1 1 36 9
+scrx 1 2 15 9
+scrx 1 2 16 9
+scrx 1 2 17 9
+scrx 1 2 18 9
+scrx 1 2 19 9
+scrx 1 2 20 9
+scrx 1 2 15 1
+scrx 1 2 16 1
+scrx 1 2 17 1
+scrx 1 2 18 1
+scrx 1 2 19 1
+scrx 1 2 20 1

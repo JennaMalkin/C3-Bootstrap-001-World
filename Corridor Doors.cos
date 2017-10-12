@@ -1,0 +1,2216 @@
+
+new: simp 2 2 13 "crypt door" 0 0 1
+attr 4
+bhvr 1
+clac 0
+mvto 8948 1070
+
+
+
+new: simp 2 2 10 "door" 12 89 1
+attr 4
+bhvr 1
+clac 0
+mvto 891 698
+pose 11
+setv va00 room targ
+
+
+new: simp 2 2 65 "door" 5 101 1
+attr 4
+bhvr 1
+clac 0
+mvto 8950 464
+setv va01 room targ
+
+
+link va00 va01 100
+
+
+
+
+
+
+new: simp 2 2 1 "door" 14 0 1
+bhvr 1
+attr 4
+clac 1111
+mvto 2911 3369
+setv va00 room targ
+
+new: comp 2 12 12 "door_ports" 1 0 0
+
+pat: butt 1 "door_ports" 0 3 0 0 0 [] 0 0
+part 1
+anim [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 255]
+mvto 3073 3428
+prt: inew 0 "Activate Door" "Will send activate message to door" 6 20 1001
+prt: onew 0 "Door output" "Sends high signal when door opens and low signal when door closes" 6 33
+
+
+
+new: simp 2 2 5 "door" 11 56 1
+bhvr 1
+attr 4
+clac 1111
+mvto 2786 922
+setv va01 room targ
+
+new: comp 2 12 16 "nidoor" 4 7 0
+
+pat: butt 1 "nidoor" 8 3 2 -1 1 [] 0 0
+mvto 3085 998
+part 1
+anim [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 255]
+prt: inew 0 "Door switch activate" " " 12 23 1001
+prt: onew 0 "Door switch throughport" " " 12 36
+
+
+
+link va00 va01 100
+
+
+
+
+new: simp 2 2 2 "door" 14 14 1
+bhvr 1
+attr 4
+clac 1111
+mvto 3254 3369
+setv va00 room targ
+
+new: comp 2 12 13 "door_ports" 1 0 0
+
+pat: butt 1 "door_ports" 0 3 0 0 0 [] 0 0
+part 1
+anim [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 255]
+mvto 3416 3428
+prt: inew 0 "Activate Door" "Will send activate message to door" 6 20 1001
+prt: onew 0 "Door output" "Sends high signal when door opens and low signal when door closes" 6 33
+
+
+
+new: simp 2 2 6 "door" 11 56 1
+bhvr 1
+attr 4
+clac 1111
+mvto 354 1830
+setv va01 room targ
+
+new: comp 2 12 17 "nidoor" 4 7 0
+
+pat: butt 1 "nidoor" 8 3 2 -1 1 [] 0 0
+mvto 617 1902
+part 1
+anim [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 255]
+prt: inew 0 "Door switch activate" " " 12 23 1001
+prt: onew 0 "Door switch throughport" " " 12 36
+
+
+link va00 va01 100
+
+
+
+
+
+new: simp 2 2 3 "door" 14 28 1
+bhvr 1
+attr 4
+clac 1111
+mvto 3943 3369
+setv va00 room targ
+
+new: comp 2 12 14 "door_ports" 1 0 0
+
+pat: butt 1 "door_ports" 0 3 0 0 0 [] 0 0
+part 1
+anim [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 255]
+mvto 4105 3428
+prt: inew 0 "Activate Door" "Will send activate message to door" 6 20 1001
+prt: onew 0 "Door output" "Sends high signal when door opens and low signal when door closes" 6 33
+
+
+
+new: simp 2 2 7 "door" 11 106 1
+bhvr 1
+attr 4
+clac 1111
+mvto 5231 608
+setv va01 room targ
+
+new: comp 2 12 18 "nidoor" 4 7 0
+
+pat: butt 1 "nidoor" 8 3 2 -1 1 [] 0 0
+mvto 5585 701
+part 1
+anim [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 255]
+prt: inew 0 "Door switch activate" " " 12 23 1001
+prt: onew 0 "Door switch throughport" " " 12 36
+
+
+
+link va00 va01 80
+
+
+
+
+
+new: simp 2 2 4 "door" 14 42 1
+bhvr 1
+attr 4
+clac 1111
+mvto 4635 3369
+setv va00 room targ
+
+
+new: comp 2 12 15 "door_ports" 1 0 0
+
+pat: butt 1 "door_ports" 0 3 0 0 0 [] 0 0
+part 1
+anim [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 255]
+mvto 4797 3428
+prt: inew 0 "Activate Door" "Will send activate message to door" 6 20 1001
+prt: onew 0 "Door output" "Sends high signal when door opens and low signal when door closes" 6 33
+
+
+
+
+
+new: simp 2 2 8 "door" 14 75 1
+bhvr 1
+attr 4
+clac 1111
+mvto 4415 1860
+setv va01 room targ
+
+
+
+new: comp 2 12 19 "nidoor" 4 7 8500
+
+pat: butt 1 "nidoor" 8 3 2 -1 1 [] 0 0
+mvto 4365 1929
+part 1
+anim [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 255]
+prt: inew 0 "Door switch activate" " " 12 23 1001
+prt: onew 0 "Door switch throughport" " " 12 36
+
+
+
+
+link va00 va01 100
+
+
+
+
+
+
+scrp 2 12 12 1
+	lock
+	part 1
+	anim [0 1 255]
+	rtar 2 2 1
+	doif from eq pntr or targ = from
+		setv va00 0
+	else
+		inst
+		doif from ne null
+			targ from
+			doif fmly eq 4
+				setv va00 1
+			else
+				setv va00 2
+			endi
+		endi
+
+	endi
+	rtar 2 2 1
+	doif targ ne null
+		mesg wrt+ targ 0 va00 0 0
+	endi
+	targ ownr
+	mesg writ targ 1000
+endm
+
+scrp 2 12 12 1000
+	part 1
+	anim [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2  255]
+endm
+
+scrp 2 12 12 1001
+	doif from eq pntr
+		setv va00 0
+	else
+		inst
+		doif from ne null
+			targ from
+			doif fmly eq 4
+				setv va00 1
+			else
+				setv va00 2
+			endi
+		endi
+	endi
+	doif _p1_ ge 128
+		rtar 2 2 1
+		doif targ ne null
+			mesg wrt+ targ 0 va00 0 0
+		endi
+	endi
+endm
+
+scrp 2 12 12 1002
+	prt: send 0 255
+endm
+
+
+
+
+
+
+
+
+
+scrp 2 2 1 1111
+	rtar 2 12 12
+	mesg writ targ 0
+endm
+
+
+scrp 2 2 5 1111
+	rtar 2 12 16
+	mesg writ targ 0
+endm
+
+
+scrp 2 2 2 1111
+	rtar 2 12 13
+	mesg writ targ 0
+endm
+
+
+scrp 2 2 6 1111
+	rtar 2 12 17
+	mesg writ targ 0
+endm
+
+
+
+scrp 2 2 3 1111
+	rtar 2 12 14
+	mesg writ targ 0
+endm
+
+
+scrp 2 2 7 1111
+	rtar 2 12 18
+	mesg writ targ 0
+endm
+
+
+scrp 2 2 4 1111
+	rtar 2 12 15
+	mesg writ targ 0
+endm
+
+
+scrp 2 2 8 1111
+	rtar 2 12 19
+	mesg writ targ 0
+endm
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+scrp 2 2 1 1
+	lock
+
+
+
+
+	snde "open"
+
+
+	inst
+	doif from ne null
+		targ from
+		setv va99 0
+		doif fmly eq 4
+			setv va99 1
+
+			stim writ targ 75 1
+		endi
+	endi
+	slow
+
+
+
+	rtar 2 2 5
+	doif targ ne null
+		setv va00 posx
+		setv va10 posx
+		setv va01 posy
+		setv va11 posy
+		mesg writ targ 1000
+	endi
+
+	rtar 2 12 12
+	doif targ ne null
+		mesg writ targ 1002
+	endi
+
+	targ ownr
+	anim [0 1 2 3 4 5 6 7 8 9 10 11 12 13]
+
+	setv va02 wndw
+	divv va02 2
+	subv va00 va02
+	setv va03 wndh
+	divv va03 2
+	subv va01 va03
+
+	addv va11 50
+	over
+
+	doif va99 eq 1
+		inst
+		doif from ne null
+			targ from
+			doif hhld ne targ
+
+				doif carr eq null
+					mvft va10 va11
+					velo 0 0
+				endi
+			endi
+		endi
+		slow
+
+	elif _p1_ eq 0
+		inst
+		etch 4 0 0
+			doif carr eq null
+				doif hhld ne targ
+
+					mvft va10 va11
+					velo 0 0
+				endi
+			endi
+		next
+		doif hhld <> null
+			targ hhld
+			nohh
+		endi
+		slow
+		meta 0 va00 va01 game "c3_meta_transition"
+	elif _p1_ eq 2 or _p1_ eq 1
+
+		inst
+		etch 4 0 0
+			doif carr eq null
+				doif hhld ne targ
+
+					mvft va10 va11
+					velo 0 0
+				endi
+			endi
+		next
+		slow
+	endi
+
+
+
+	rtar 2 2 5
+	doif targ ne null
+		mesg wrt+ targ 1001 0 0 2
+	endi
+
+
+	inst
+	doif from ne null
+		targ from
+		doif fmly eq 4
+
+
+			stim writ targ 95 1
+		endi
+	endi
+
+
+	targ ownr
+	unlk
+	mesg writ targ 1001
+
+
+
+endm
+
+
+scrp 2 12 16 1
+	lock
+	part 1
+	anim [0 1 255]
+	rtar 2 2 5
+	doif from eq pntr or targ = from
+		setv va00 0
+	else
+		inst
+		doif from ne null
+			targ from
+			doif fmly eq 4
+				setv va00 1
+			else
+				setv va00 2
+			endi
+		endi
+	endi
+	rtar 2 2 5
+	doif targ ne null
+		mesg wrt+ targ 0 va00 0 0
+	endi
+	targ ownr
+	mesg writ targ 1000
+endm
+
+scrp 2 12 16 1000
+	part 1
+	anim [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2  255]
+endm
+
+scrp 2 12 16 1001
+	doif from eq pntr
+		setv va00 0
+	else
+		inst
+		doif from ne null
+			targ from
+			doif fmly eq 4
+				setv va00 1
+			else
+				setv va00 2
+			endi
+		endi
+		slow
+	endi
+	doif _p1_ ge 128
+		rtar 2 2 5
+		doif targ ne null
+			mesg wrt+ targ 0 va00 0 0
+		endi
+	endi
+endm
+
+scrp 2 12 16 1002
+	prt: send 0 255
+endm
+
+
+
+scrp 2 2 5 1
+	lock
+
+	snde "open"
+
+	inst
+	doif from ne null
+		targ from
+		setv va99 0
+		doif fmly eq 4
+			setv va99 1
+
+			stim writ targ 75 1
+
+		endi
+	endi
+	slow
+
+
+
+
+	rtar 2 2 1
+	doif targ ne null
+		setv va00 posx
+		setv va10 posx
+		setv va01 posy
+		setv va11 posy
+		mesg writ targ 1000
+	endi
+
+
+	rtar 2 12 16
+	doif targ ne null
+		mesg writ targ 1002
+	endi
+
+	targ ownr
+	anim [0 1 2 3 4 5 6 7 8 9 10]
+
+	setv va02 wndw
+	divv va02 2
+	subv va00 va02
+	setv va03 wndh
+	divv va03 2
+	subv va01 va03
+
+	addv va11 50
+	over
+
+	doif va99 eq 1
+		inst
+		doif from ne null
+			targ from
+			doif carr eq null
+				doif hhld ne from
+
+					mvft va10 va11
+					velo 0 0
+				endi
+			endi
+		endi
+		slow
+
+	elif _p1_ eq 0
+		inst
+		etch 4 0 0
+			doif carr eq null
+				doif hhld ne targ
+
+					mvft va10 va11
+					velo 0 0
+				endi
+			endi
+		next
+		doif hhld <> null
+			targ hhld
+			nohh
+		endi
+		slow
+		meta 4 va00 va01 game "c3_meta_transition"
+	elif _p1_ eq 2 or _p1_ eq 1
+
+		inst
+		etch 4 0 0
+			doif carr eq null
+				doif hhld ne targ
+
+					mvft va10 va11
+					velo 0 0
+				endi
+			endi
+		next
+		slow
+	endi
+
+
+
+	rtar 2 2 1
+	doif targ ne null
+		mesg wrt+ targ 1001 0 0 2
+	endi
+
+	inst
+	doif from ne null
+		targ from
+		doif fmly eq 4
+
+			stim writ targ 95 1
+		endi
+	endi
+	slow
+
+
+	targ ownr
+	unlk
+	mesg writ targ 1001
+
+endm
+
+scrp 2 2 1 1000
+	snde "open"
+	anim [0 1 2 3 4 5 6 7 8 9 10 11 12 13]
+	rtar 2 12 12
+	doif targ ne null
+		mesg writ targ 1002
+	endi
+endm
+
+scrp 2 2 1 1001
+	anim [13 12 11 10 9 8 7 6 5 4 3 2 1 0]
+endm
+
+
+scrp 2 2 5 1000
+	snde "open"
+	anim [0 1 2 3 4 5 6 7 8 9 10]
+	rtar 2 12 16
+	doif targ ne null
+		mesg writ targ 1002
+	endi
+endm
+
+scrp 2 2 5 1001
+	anim [10 9 8 7 6 5 4 3 2 1 0]
+endm
+
+
+
+
+scrp 2 12 13 1
+	lock
+	part 1
+	anim [0 1 255]
+	rtar 2 2 2
+	doif from eq pntr or targ = from
+
+		setv va00 0
+	else
+		inst
+		doif from ne null
+			targ from
+			doif fmly eq 4
+				setv va00 1
+			else
+				setv va00 2
+			endi
+		endi
+		slow
+	endi
+
+
+	rtar 2 2 2
+	doif targ ne null
+		mesg wrt+ targ 0 va00 0 0
+	endi
+	targ ownr
+	mesg writ targ 1000
+endm
+
+scrp 2 12 13 1000
+	part 1
+	anim [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2  255]
+endm
+
+scrp 2 12 13 1001
+	doif from eq pntr
+		setv va00 0
+	else
+		inst
+		doif from ne null
+			targ from
+			doif fmly eq 4
+				setv va00 1
+			else
+				setv va00 2
+			endi
+		endi
+		slow
+	endi
+	doif _p1_ ge 128
+		rtar 2 2 2
+		doif targ ne null
+			mesg wrt+ targ 0 va00 0 0
+		endi
+	endi
+endm
+
+scrp 2 12 13 1002
+	prt: send 0 255
+endm
+
+scrp 2 2 2 1
+	lock
+
+	snde "open"
+
+	inst
+	doif from ne null
+		targ from
+		setv va99 0
+		doif fmly eq 4
+			setv va99 1
+
+
+			stim writ targ 75 1
+
+		endi
+	endi
+	slow
+
+
+
+
+	rtar 2 2 6
+	doif targ ne null
+		setv va00 posx
+		setv va10 posx
+		setv va01 posy
+		setv va11 posy
+		mesg writ targ 1000
+	endi
+
+	rtar 2 12 13
+	doif targ ne null
+		mesg writ targ 1002
+	endi
+
+	targ ownr
+	anim [0 1 2 3 4 5 6 7 8 9 10 11 12 13]
+
+	setv va02 wndw
+	divv va02 2
+	subv va00 va02
+	setv va03 wndh
+	divv va03 2
+	subv va01 va03
+
+	addv va11 50
+	over
+
+	doif va99 eq 1
+		inst
+		doif from ne null
+			targ from
+			doif carr eq null
+				doif hhld ne targ
+
+					mvft va10 va11
+					velo 0 0
+				endi
+			endi
+		endi
+		slow
+
+	elif _p1_ eq 0
+		inst
+		etch 4 0 0
+			doif carr eq null
+				doif hhld ne targ
+
+					mvft va10 va11
+					velo 0 0
+				endi
+			endi
+		next
+		doif hhld <> null
+			targ hhld
+			nohh
+		endi
+		slow
+		meta 3 va00 va01 game "c3_meta_transition"
+	elif _p1_ eq 2 or _p1_ eq 1
+
+		inst
+		etch 4 0 0
+			doif carr eq null
+				doif hhld ne targ
+
+					mvft va10 va11
+					velo 0 0
+				endi
+			endi
+		next
+		slow
+	endi
+
+
+	rtar 2 2 6
+	doif targ ne null
+		mesg wrt+ targ 1001 0 0 2
+	endi
+	inst
+	doif from ne null
+		targ from
+		doif fmly eq 4
+
+			stim writ targ 95 1
+		endi
+	endi
+	slow
+
+
+	targ ownr
+	unlk
+	mesg writ targ 1001
+
+
+
+endm
+
+
+
+scrp 2 12 17 1
+	lock
+	part 1
+	anim [0 1 255]
+	rtar 2 2 6
+	doif from eq pntr or targ = from
+		setv va00 0
+	else
+		inst
+		doif from ne null
+			targ from
+			doif fmly eq 4
+				setv va00 1
+			else
+				setv va00 2
+			endi
+		endi
+		slow
+	endi
+	rtar 2 2 6
+	doif targ ne null
+		mesg wrt+ targ 0 va00 0 0
+	endi
+	targ ownr
+	mesg writ targ 1000
+endm
+
+scrp 2 12 17 1000
+	part 1
+	anim [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2  255]
+endm
+
+scrp 2 12 17 1001
+	doif from eq pntr
+		setv va00 0
+	else
+		inst
+		doif from ne null
+			targ from
+			doif fmly eq 4
+				setv va00 1
+			else
+				setv va00 2
+			endi
+		endi
+		slow
+	endi
+	doif _p1_ ge 128
+		rtar 2 2 6
+		doif targ ne null
+			mesg wrt+ targ 0 va00 0 0
+		endi
+	endi
+endm
+
+scrp 2 12 17 1002
+	prt: send 0 255
+endm
+
+
+scrp 2 2 6 1
+	lock
+
+	snde "open"
+
+	inst
+	doif from ne null
+		targ from
+		setv va99 0
+		doif fmly eq 4
+
+			stim writ targ 75 1
+
+			setv va99 1
+		endi
+	endi
+	slow
+
+
+
+
+	rtar 2 2 2
+	doif targ ne null
+		setv va00 posx
+		setv va10 posx
+		setv va01 posy
+		setv va11 posy
+		mesg writ targ 1000
+	endi
+
+
+	rtar 2 12 16
+	doif targ ne null
+		mesg writ targ 1002
+	endi
+
+	targ ownr
+	anim [0 1 2 3 4 5 6 7 8 9 10]
+
+	setv va02 wndw
+	divv va02 2
+	subv va00 va02
+	setv va03 wndh
+	divv va03 2
+	subv va01 va03
+
+	addv va11 50
+	over
+
+	doif va99 eq 1
+		inst
+		doif from ne null
+			targ from
+			doif carr eq null
+				doif hhld ne targ
+
+					mvft va10 va11
+					velo 0 0
+				endi
+			endi
+		endi
+		slow
+
+	elif _p1_ eq 0
+		inst
+		etch 4 0 0
+			doif carr eq null
+				doif hhld ne targ
+
+					mvft va10 va11
+					velo 0 0
+				endi
+			endi
+		next
+		doif hhld <> null
+			targ hhld
+			nohh
+		endi
+		slow
+		meta 4 va00 va01 game "c3_meta_transition"
+	elif _p1_ eq 2 or _p1_ eq 1
+
+		inst
+		etch 4 0 0
+			doif carr eq null
+				doif hhld ne targ
+
+					mvft va10 va11
+					velo 0 0
+				endi
+			endi
+		next
+		slow
+	endi
+
+
+
+	rtar 2 2 2
+	doif targ ne null
+		mesg wrt+ targ 1001 0 0 2
+	endi
+
+	inst
+	doif from ne null
+		targ from
+		doif fmly eq 4
+
+			stim writ targ 95 1
+		endi
+	endi
+	slow
+
+
+	targ ownr
+	unlk
+	mesg writ targ 1001
+
+
+
+endm
+
+
+
+
+scrp 2 2 2 1000
+	snde "open"
+	anim [0 1 2 3 4 5 6 7 8 9 10 11 12 13]
+	rtar 2 12 13
+	doif targ ne null
+		mesg writ targ 1002
+	endi
+endm
+
+scrp 2 2 2 1001
+	anim [13 12 11 10 9 8 7 6 5 4 3 2 1 0]
+endm
+
+
+scrp 2 2 6 1000
+	snde "open"
+	anim [0 1 2 3 4 5 6 7 8 9 10]
+	rtar 2 12 16
+	doif targ ne null
+		mesg writ targ 1002
+	endi
+endm
+
+scrp 2 2 6 1001
+	anim [10 9 8 7 6 5 4 3 2 1 0]
+endm
+
+
+
+
+
+scrp 2 12 14 1
+	lock
+	part 1
+	anim [0 1 255]
+	rtar 2 2 3
+	doif from eq pntr or targ = from
+		setv va00 0
+	else
+		inst
+		doif from ne null
+			targ from
+			doif fmly eq 4
+				setv va00 1
+			else
+				setv va00 2
+			endi
+		endi
+		slow
+	endi
+
+	rtar 2 2 3
+	doif targ ne null
+		mesg wrt+ targ 0 va00 0 0
+	endi
+	targ ownr
+	mesg writ targ 1000
+endm
+
+scrp 2 12 14 1000
+	part 1
+	anim [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2  255]
+endm
+
+scrp 2 12 14 1001
+	doif from eq pntr
+		setv va00 0
+	else
+		inst
+		doif from ne null
+			targ from
+			doif fmly eq 4
+				setv va00 1
+			else
+				setv va00 2
+			endi
+		endi
+		slow
+	endi
+	doif _p1_ ge 128
+		rtar 2 2 3
+		doif targ ne null
+			mesg wrt+ targ 0 va00 0 0
+		endi
+	endi
+endm
+
+scrp 2 12 14 1002
+	prt: send 0 255
+endm
+
+scrp 2 2 3 1
+	lock
+
+	snde "open"
+
+	inst
+	doif from ne null
+		targ from
+		setv va99 0
+		doif fmly eq 4
+			setv va99 1
+
+			stim writ targ 75 1
+
+		endi
+	endi
+	slow
+
+
+
+
+	rtar 2 2 7
+	doif targ ne null
+		setv va00 posx
+		setv va10 posx
+		setv va01 posy
+		setv va11 posy
+		mesg writ targ 1000
+	endi
+
+	rtar 2 12 14
+	doif targ ne null
+		mesg writ targ 1002
+	endi
+
+	targ ownr
+	anim [0 1 2 3 4 5 6 7 8 9 10 11 12 13]
+
+	setv va02 wndw
+	divv va02 2
+	subv va00 va02
+	setv va03 wndh
+	divv va03 2
+	subv va01 va03
+
+	addv va11 50
+	over
+
+	doif va99 eq 1
+		inst
+		doif from ne null
+			targ from
+			doif carr eq null
+				doif hhld ne targ
+
+					mvft va10 va11
+					velo 0 0
+				endi
+			endi
+		endi
+		slow
+
+	elif _p1_ eq 0
+		inst
+		etch 4 0 0
+			doif carr eq null
+				doif hhld ne targ
+
+					mvft va10 va11
+					velo 0 0
+				endi
+			endi
+		next
+		doif hhld <> null
+			targ hhld
+			nohh
+		endi
+		slow
+		meta 1 va00 va01 game "c3_meta_transition"
+	elif _p1_ eq 2 or _p1_ eq 1
+
+		inst
+		etch 4 0 0
+			doif carr eq null
+				doif hhld ne targ
+
+					mvft va10 va11
+					velo 0 0
+				endi
+			endi
+		next
+		slow
+	endi
+
+
+
+	rtar 2 2 7
+	doif targ ne null
+		mesg wrt+ targ 1001 0 0 2
+	endi
+
+	inst
+	doif from ne null
+		targ from
+		doif fmly eq 4
+
+			stim writ targ 95 1
+		endi
+	endi
+	slow
+
+
+	targ ownr
+	unlk
+	mesg writ targ 1001
+
+
+
+endm
+
+
+
+scrp 2 12 18 1
+	lock
+	part 1
+	anim [0 1 255]
+	rtar 2 2 7
+	doif from eq pntr or targ = from
+		setv va00 0
+	else
+		inst
+		doif from ne null
+			targ from
+			doif fmly eq 4
+				setv va00 1
+			else
+				setv va00 2
+			endi
+		endi
+		slow
+	endi
+	rtar 2 2 7
+	doif targ ne null
+		mesg wrt+ targ 0 va00 0 0
+	endi
+	targ ownr
+	mesg writ targ 1000
+endm
+
+scrp 2 12 18 1000
+	part 1
+	anim [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2  255]
+endm
+
+scrp 2 12 18 1001
+	doif from eq pntr
+		setv va00 0
+	else
+		inst
+		doif from ne null
+			targ from
+			doif fmly eq 4
+				setv va00 1
+			else
+				setv va00 2
+			endi
+		endi
+		slow
+	endi
+	doif _p1_ ge 128
+		rtar 2 2 7
+		doif targ ne null
+			mesg wrt+ targ 0 va00 0 0
+		endi
+	endi
+endm
+
+scrp 2 12 18 1002
+	prt: send 0 255
+endm
+
+
+scrp 2 2 7 1
+	inst
+	lock
+
+
+	snde "open"
+
+	doif from ne null
+		targ from
+		setv va99 0
+		doif fmly eq 4
+			setv va99 1
+
+
+			stim writ targ 75 1
+
+		endi
+	endi
+	slow
+
+
+
+
+	rtar 2 2 3
+	doif targ ne null
+		setv va00 posx
+		setv va10 posx
+		setv va01 posy
+		setv va11 posy
+		mesg writ targ 1000
+	endi
+
+
+	rtar 2 12 18
+	doif targ ne null
+		mesg writ targ 1002
+	endi
+
+	targ ownr
+	anim [0 1 2 3 4 5 6 7 8 9 10]
+
+	setv va02 wndw
+	divv va02 2
+	subv va00 va02
+	setv va03 wndh
+	divv va03 2
+	subv va01 va03
+
+	addv va11 50
+	over
+
+	doif va99 eq 1
+		inst
+		doif from ne null
+			targ from
+			doif carr eq null
+				doif hhld ne targ
+
+					mvft va10 va11
+					velo 0 0
+				endi
+			endi
+		endi
+		slow
+
+	elif _p1_ eq 0
+		inst
+		etch 4 0 0
+			doif carr eq null
+				doif hhld ne targ
+
+					mvft va10 va11
+					velo 0 0
+				endi
+			endi
+		next
+		doif hhld <> null
+			targ hhld
+			nohh
+		endi
+		slow
+		meta 4 va00 va01 game "c3_meta_transition"
+	elif _p1_ eq 2 or _p1_ eq 1
+
+		inst
+		etch 4 0 0
+			doif carr eq null
+				doif hhld ne targ
+
+					mvft va10 va11
+					velo 0 0
+				endi
+			endi
+		next
+		slow
+	endi
+
+
+
+	rtar 2 2 3
+	doif targ ne null
+		mesg wrt+ targ 1001 0 0 2
+	endi
+
+	inst
+	doif from ne null
+		targ from
+		doif fmly eq 4
+
+			stim writ targ 95 1
+		endi
+	endi
+	slow
+
+
+	targ ownr
+	unlk
+	mesg writ targ 1001
+
+
+
+endm
+
+
+
+
+scrp 2 2 3 1000
+	snde "open"
+	anim [0 1 2 3 4 5 6 7 8 9 10 11 12 13]
+	rtar 2 12 14
+	doif targ ne null
+		mesg writ targ 1002
+	endi
+endm
+
+scrp 2 2 3 1001
+	anim [13 12 11 10 9 8 7 6 5 4 3 2 1 0]
+endm
+
+
+scrp 2 2 7 1000
+	snde "open"
+	anim [0 1 2 3 4 5 6 7 8 9 10]
+	rtar 2 12 18
+	doif targ ne null
+		mesg writ targ 1002
+	endi
+endm
+
+scrp 2 2 7 1001
+	anim [10 9 8 7 6 5 4 3 2 1 0]
+endm
+
+
+
+
+
+scrp 2 12 15 1
+	lock
+	part 1
+	anim [0 1 255]
+	rtar 2 2 4
+	doif from eq pntr or targ = from
+		setv va00 0
+	else
+		inst
+		doif from ne null
+			targ from
+			doif fmly eq 4
+				setv va00 1
+			else
+				setv va00 2
+			endi
+		endi
+		slow
+	endi
+	rtar 2 2 4
+	doif targ ne null
+		mesg wrt+ targ 0 va00 0 0
+	endi
+	targ ownr
+	mesg writ targ 1000
+endm
+
+scrp 2 12 15 1000
+	part 1
+	anim [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2  255]
+endm
+
+scrp 2 12 15 1001
+	doif from eq pntr
+		setv va00 0
+	else
+		inst
+		doif from ne null
+			targ from
+			doif fmly eq 4
+				setv va00 1
+			else
+				setv va00 2
+			endi
+		endi
+		slow
+	endi
+	doif _p1_ ge 128
+		rtar 2 2 4
+		doif targ ne null
+			mesg wrt+ targ 0 va00 0 0
+		endi
+	endi
+endm
+
+scrp 2 12 15 1002
+	prt: send 0 255
+endm
+
+scrp 2 2 4 1
+	lock
+
+	snde "open"
+
+	inst
+	doif from ne null
+		targ from
+		setv va99 0
+		doif fmly eq 4
+			setv va99 1
+
+
+			stim writ targ 75 1
+		endi
+	endi
+	slow
+
+
+
+
+	rtar 2 2 8
+	doif targ ne null
+		setv va00 posx
+		setv va10 posx
+		setv va01 posy
+		setv va11 posy
+		mesg writ targ 1000
+	endi
+
+	rtar 2 12 15
+	doif targ ne null
+		mesg writ targ 1002
+	endi
+
+	targ ownr
+	anim [0 1 2 3 4 5 6 7 8 9 10 11 12 13]
+
+	setv va02 wndw
+	divv va02 2
+	subv va00 va02
+	setv va03 wndh
+	divv va03 2
+	subv va01 va03
+
+	addv va11 50
+	over
+
+	doif va99 eq 1
+		inst
+		doif from ne null
+			targ from
+			doif carr eq null
+				doif hhld ne targ
+
+					mvft va10 va11
+					velo 0 0
+				endi
+			endi
+		endi
+		slow
+
+	elif _p1_ eq 0
+		inst
+		etch 4 0 0
+			doif carr eq null
+				doif hhld ne targ
+
+					mvft va10 va11
+					velo 0 0
+				endi
+			endi
+		next
+		doif hhld <> null
+			targ hhld
+			nohh
+		endi
+		slow
+		meta 2 va00 va01 game "c3_meta_transition"
+	elif _p1_ eq 2 or _p1_ eq 1
+
+		inst
+		etch 4 0 0
+			doif carr eq null
+				doif hhld ne targ
+
+					mvft va10 va11
+					velo 0 0
+				endi
+			endi
+		next
+		slow
+	endi
+
+
+
+	rtar 2 2 8
+	doif targ ne null
+		mesg wrt+ targ 1001 0 0 2
+	endi
+
+	inst
+	doif from ne null
+		targ from
+		doif fmly eq 4
+
+			stim writ targ 95 1
+		endi
+	endi
+	slow
+
+
+	targ ownr
+	unlk
+	mesg writ targ 1001
+
+
+
+endm
+
+
+
+scrp 2 12 19 1
+	lock
+	part 1
+	anim [0 1 255]
+	rtar 2 2 8
+	doif from eq pntr or targ = from
+		setv va00 0
+	else
+		inst
+		doif from ne null
+			targ from
+			doif fmly eq 4
+				setv va00 1
+			else
+				setv va00 2
+			endi
+		endi
+		slow
+	endi
+	rtar 2 2 8
+	doif targ ne null
+		mesg wrt+ targ 0 va00 0 0
+	endi
+	targ ownr
+	mesg writ targ 1000
+endm
+
+scrp 2 12 19 1000
+	part 1
+	anim [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2  255]
+endm
+
+scrp 2 12 19 1001
+	doif from eq pntr
+		setv va00 0
+	else
+		inst
+		doif from ne null
+			targ from
+			doif fmly eq 4
+				setv va00 1
+			else
+				setv va00 2
+			endi
+		endi
+		slow
+	endi
+	doif _p1_ ge 128
+		rtar 2 2 8
+		doif targ ne null
+			mesg wrt+ targ 0 va00 0 0
+		endi
+	endi
+endm
+
+scrp 2 12 19 1002
+	prt: send 0 255
+endm
+
+
+scrp 2 2 8 1
+	lock
+
+	snde "open"
+
+	inst
+	doif from ne null
+		targ from
+		setv va99 0
+		doif fmly eq 4
+			setv va99 1
+
+			stim writ targ 75 1
+		endi
+	endi
+	slow
+
+
+
+
+	rtar 2 2 4
+	doif targ ne null
+		setv va00 posx
+		setv va10 posx
+		setv va01 posy
+		setv va11 posy
+		mesg writ targ 1000
+	endi
+
+
+	rtar 2 12 19
+	doif targ ne null
+		mesg writ targ 1002
+	endi
+
+	targ ownr
+	anim [0 1 2 3 4 5 6 7 8 9 10 11 12 13]
+
+	setv va02 wndw
+	divv va02 2
+	subv va00 va02
+	setv va03 wndh
+	divv va03 2
+	subv va01 va03
+
+	addv va11 50
+	over
+
+	doif va99 eq 1
+		inst
+		doif from ne null
+			targ from
+			doif carr eq null
+				doif hhld ne targ
+
+					mvft va10 va11
+					velo 0 0
+				endi
+			endi
+		endi
+		slow
+
+	elif _p1_ eq 0
+		inst
+		etch 4 0 0
+			doif carr eq null
+				doif hhld ne targ
+
+					mvft va10 va11
+					velo 0 0
+				endi
+			endi
+		next
+		doif hhld <> null
+			targ hhld
+			nohh
+		endi
+		slow
+		meta 4 va00 va01 game "c3_meta_transition"
+	elif _p1_ eq 2 or _p1_ eq 1
+
+		inst
+		etch 4 0 0
+			doif carr eq null
+				doif hhld ne targ
+
+					mvft va10 va11
+					velo 0 0
+				endi
+			endi
+		next
+		slow
+	endi
+
+
+
+	rtar 2 2 4
+	doif targ ne null
+		mesg wrt+ targ 1001 0 0 2
+	endi
+
+
+	inst
+	doif from ne null
+		targ from
+		doif fmly eq 4
+
+			stim writ targ 95 1
+		endi
+	endi
+	slow
+
+
+	targ ownr
+	unlk
+	mesg writ targ 1001
+
+
+
+endm
+
+
+
+
+scrp 2 2 4 1000
+	snde "open"
+	anim [0 1 2 3 4 5 6 7 8 9 10 11 12 13]
+	rtar 2 12 15
+	doif targ ne null
+		mesg writ targ 1002
+	endi
+endm
+
+scrp 2 2 4 1001
+	anim [13 12 11 10 9 8 7 6 5 4 3 2 1 0]
+endm
+
+
+scrp 2 2 8 1000
+	snde "open"
+	anim [0 1 2 3 4 5 6 7 8 9 10 11 12 13]
+	rtar 2 12 19
+	doif targ ne null
+		mesg writ targ 1002
+	endi
+endm
+
+scrp 2 2 8 1001
+	anim [13 12 11 10 9 8 7 6 5 4 3 2 1 0]
+endm
+
+
+
+
+
+
+
+
+
+
+scrp 2 2 10 1
+	lock
+	snde "open"
+
+	clac -1
+	anim [11 10 9 8 7 6 5 4 3 2 1 0]
+
+	inst
+	doif from ne null
+		targ from
+		doif fmly eq 4
+
+
+			stim writ targ 75 1
+			wait 10
+		endi
+	endi
+	slow
+	targ ownr
+
+	wait 20
+	anim [0 1 2 3 4 5 6 7 8 9 10 11]
+	rtar 2 2 65
+	anim [0 1 2 3 4]
+	setv va00 posx
+	setv va01 posy
+	setv va12 posx
+	setv va13 posy
+	doif from eq pntr
+		setv va02 wndw
+		divv va02 2
+		subv va00 va02
+		setv va03 wndh
+		divv va03 2
+		subv va01 va03
+		inst
+		etch 4 0 0
+			doif carr eq null
+				doif hhld ne targ
+
+					doif tmvf 8929 581 = 1
+						mvft 8929 581
+					else
+						mvsf 8929 581
+					endi
+
+					velo 0 0
+				endi
+			endi
+		next
+
+		doif hhld <> null
+			targ hhld
+			nohh
+		endi
+		slow
+		meta 7 va00 va01 game "c3_meta_transition"
+	else
+		inst
+		doif from ne null
+			targ from
+			doif carr eq null
+				doif hhld ne targ
+
+					doif tmvf 8929 581 = 1
+						mvft 8929 581
+					else
+						mvsf 8929 581
+					endi
+
+					velo 0 0
+				endi
+			endi
+		endi
+		slow
+	endi
+
+
+	rtar 2 2 65
+	anim [4 3 2 1 0]
+	targ ownr
+	clac 0
+
+	inst
+	doif from ne null
+		targ from
+		doif fmly eq 4
+
+			stim writ targ 95 1
+			wait 10
+		endi
+	endi
+	slow
+
+endm
+
+
+scrp 2 2 65 1
+	lock
+	snde "open"
+	clac -1
+	anim [0 1 2 3 4]
+
+	inst
+	doif from ne null
+		targ from
+		doif fmly eq 4
+
+			stim writ targ 75 1
+		endi
+	endi
+	slow
+	targ ownr
+
+	wait 10
+	anim [4 3 2 1 0]
+	rtar 2 2 10
+	anim [11 10 9 8 7 6 5 4 3 2 1 0]
+	setv va00 posx
+	setv va01 posy
+	setv va12 posx
+	setv va13 posy
+	doif from eq pntr
+		setv va02 wndw
+		divv va02 2
+		subv va00 va02
+		setv va03 wndh
+		divv va03 2
+		subv va01 va03
+		inst
+		etch 4 0 0
+			doif carr eq null
+				doif hhld ne targ
+
+					doif tmvf 938 804 = 1
+						mvft 938 804
+					else
+						mvsf 938 804
+					endi
+					velo 0 0
+				endi
+			endi
+		next
+		doif hhld <> null
+			targ hhld
+			nohh
+		endi
+		slow
+		meta 0 va00 va01 game "c3_meta_transition"
+	else
+		inst
+		doif from ne null
+			targ from
+			doif carr eq null
+				doif hhld ne targ
+
+					doif tmvf 938 804 = 1
+						mvft 938 804
+					else
+						mvsf 938 804
+					endi
+					velo 0 0
+				endi
+			endi
+		endi
+		slow
+	endi
+
+
+	rtar 2 2 10
+	anim [0 1 2 3 4 5 6 7 8 9 10 11]
+	targ ownr
+	clac 0
+
+	inst
+	doif from ne null
+		targ from
+		doif fmly eq 4
+
+			stim writ targ 95 1
+		endi
+	endi
+	slow
+endm
+
+
+scrp 2 2 13 1
+	lock
+	snde "cd_1"
+	clac -1
+	anim [0 1 2 3 4 5]
+
+	inst
+	doif from ne null
+		targ from
+		doif fmly eq 4
+
+
+			stim writ targ 75 1
+		endi
+	endi
+	slow
+	targ ownr
+
+	wait 10
+	anim [4 3 2 1 0]
+	rtar 1 1 27
+	part 0
+	anim [1]
+	part 1
+	anim [0 1 2 3 4 5 7 8 9]
+	setv va00 posx
+	setv va01 posy
+	setv va12 posx
+	setv va13 posy
+	doif from eq pntr
+		setv va02 wndw
+		divv va02 2
+		subv va00 va02
+		setv va03 wndh
+		divv va03 2
+		subv va01 va03
+		inst
+		etch 4 0 0
+			doif carr eq null
+				doif hhld ne targ
+
+					mvft va12 va13
+					velo 0 0
+				endi
+			endi
+		next
+		doif hhld <> null
+			targ hhld
+			nohh
+		endi
+		slow
+		meta 0 va00 va01 game "c3_meta_transition"
+		targ game "c3_default_focus"
+		part game "c3_default_focus_part"
+		fcus
+	else
+		inst
+		doif from ne null
+			targ from
+			doif carr eq null
+				doif hhld ne targ
+
+					mvft va00 va01
+					velo 0 0
+				endi
+			endi
+		endi
+		slow
+	endi
+
+
+	rtar 1 1 27
+	part 1
+	frat 4
+	anim [9 8 7 6 5 4 3 2 1 0]
+	over
+	part 0
+	anim [0]
+	targ ownr
+	clac 0
+
+	inst
+	doif from ne null
+
+		targ from
+		doif fmly eq 4
+
+			stim writ targ 95 1
+		endi
+	endi
+	slow
+endm
+
+
+
+
+
+
+rscr
+enum 2 2 1
+	kill targ
+next
+enum 2 12 12
+	kill targ
+next
+enum 2 2 5
+	kill targ
+next
+enum 2 12 16
+	kill targ
+next
+enum 2 2 2
+	kill targ
+next
+enum 2 12 13
+	kill targ
+next
+enum 2 2 6
+	kill targ
+next
+enum 2 12 17
+	kill targ
+next
+enum 2 2 3
+	kill targ
+next
+enum 2 12 14
+	kill targ
+next
+enum 2 2 7
+	kill targ
+next
+enum 2 12 18
+	kill targ
+next
+enum 2 2 4
+	kill targ
+next
+enum 2 12 15
+	kill targ
+next
+enum 2 2 8
+	kill targ
+next
+enum 2 12 19
+	kill targ
+next
+enum 2 2 13
+	kill targ
+next
+enum 2 2 10
+	kill targ
+next
+enum 2 2 65
+	kill targ
+next

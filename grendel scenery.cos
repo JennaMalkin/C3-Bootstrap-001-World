@@ -1,0 +1,36 @@
+
+new: simp 1 1 6 "grenscen" 1 0 8100
+attr 16
+mvto 1803 2383
+
+
+
+
+new: simp 1 1 6 "grenscen" 1 1 8100
+
+attr 16
+mvto 96 1417
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+rscr
+enum 1 1 6
+	kill targ
+next
+scrx 1 1 6 9

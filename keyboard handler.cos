@@ -1,0 +1,536 @@
+new: simp 1 2 6 "blnk" 0 1 0
+imsk 3
+attr 16
+
+setv va00 113
+loop
+	sets va01 "c3_function_key_"
+	adds va01 vtos va00
+	setv game va01 -1
+	addv va00 1
+untl va00 > 123
+
+
+scrp 1 2 6 74
+	inst
+	doif _p1_ eq 45 or _p1_ eq 46
+		rtar 1 1 95
+		doif targ ne null
+			frel null
+			flto -10000 -10000
+		endi
+	endi
+endm
+
+
+
+scrp 1 2 6 73
+	inst
+
+
+
+
+	doif _p1_ eq 45
+		doif keyd 16 = 0
+			rtar 1 1 95
+			doif targ ne null
+				pose 0
+				frel pntr
+				flto 10 -20
+			endi
+		endi
+	elif _p1_ eq 46
+
+		doif keyd 16 = 0
+			rtar 1 1 95
+			doif targ ne null
+				pose 1
+				frel pntr
+				flto 10 -20
+			endi
+		endi
+	endi
+
+	doif _p1_ = 27
+
+		targ hhld
+		nohh
+		rtar 1 2 14
+		doif targ ne null
+			doif ov00 eq 1
+				mesg writ targ 1000
+				pure 1
+			endi
+		endi
+
+		doif totl 1 2 8 > 0
+			rtar 1 2 8
+			kill targ
+			stop
+		endi
+		new: comp 1 2 8 "new_agent_help" 1 0 9075
+		attr 304
+
+		pat: butt 1 "new_agent_help" 18 2 174 200 2 [] 1000 0
+
+		pat: butt 2 "new_agent_help" 16 2 66 200 2 [] 1001 0
+
+		pat: fixd 3 "new_agent_help" 1 25 59 1 "WhiteOnTransparentChars"
+
+
+
+		sets va00 read "In-Game Strings" 0
+		part 3
+		frmt 8 8 8 8 3 0 0
+		ptxt va00
+
+		setv va90 wndw
+		divv va90 2
+		setv va91 wndh
+		divv va91 2
+		setv va92 wdth
+		divv va92 2
+		setv va93 hght
+		divv va93 2
+
+		subv va90 va92
+		subv va91 va93
+
+		flto va90 va91
+	elif _p1_ = 9
+
+		targ hhld
+		nohh
+		doif keyd 16 = 0
+			setv va95 0
+			seta va90 norn
+			seta va91 norn
+
+			doif game "Grettin" = 1
+				setv va73 0
+			else
+				setv va73 1
+			endi
+
+			loop
+				seta va00 pcls va90 4 va73 0
+				targ va00
+				doif va00 eq null
+					stop
+				endi
+				sets va98 gtos 0
+				doif ooww va98 eq 3
+					setv va95 1
+				else
+					seta va90 va00
+					doif va00 eq va91
+						stop
+					endi
+				endi
+				doif va91 = null
+
+
+					seta va91 va00
+				endi
+			untl va95 eq 1
+
+
+			doif va00 <> null
+				norn va00
+				targ ownr
+			endi
+		else
+			setv va95 0
+			seta va90 norn
+			seta va91 norn
+
+			doif game "Grettin" = 1
+				setv va73 0
+			else
+				setv va73 1
+			endi
+
+			loop
+				seta va00 ncls va90 4 va73 0
+				targ va00
+				doif va00 eq null
+					stop
+				endi
+				sets va98 gtos 0
+				doif ooww va98 eq 3
+					setv va95 1
+				else
+					seta va90 va00
+					doif va00 eq va91
+						stop
+					endi
+				endi
+				doif va91 = null
+
+
+					seta va91 va00
+				endi
+			untl va95 eq 1
+
+			doif va00 <> null
+				norn va00
+				targ ownr
+			endi
+
+		endi
+	elif _p1_ eq 36
+
+		doif keyd 16 = 0
+			rtar 1 2 20
+			doif targ <> null
+				mesg writ targ 0
+			endi
+		endi
+	elif _p1_ eq 35
+		doif keyd 16 = 0
+
+			rtar 1 2 19
+			doif targ <> null
+				mesg writ targ 0
+			endi
+		endi
+	elif _p1_ eq 19
+		doif keyd 16 = 0
+
+			rtar 1 2 12
+			doif targ <> null
+				mesg writ targ 1001
+				doif ov00 = 0 and clac = 0
+					mesg writ targ 0
+				elif ov00 <> 0 and clac = 1
+					mesg writ targ 1
+				endi
+			endi
+		endi
+	elif _p1_ eq '1'
+		doif keyd 17 eq 1
+
+			rtar 1 2 13
+			doif targ <> null
+				doif code = -1
+					doif ov99 = -1
+						mesg writ targ 0
+					elif ov99 = 1
+						mesg writ targ 1
+					endi
+				endi
+			endi
+
+		endi
+	elif _p1_ eq '2'
+
+		doif keyd 17 eq 1
+			rtar 1 2 12
+			doif targ <> null
+				doif clac = 0
+					mesg writ targ 0
+				elif clac = 1
+					mesg writ targ 1
+				endi
+			endi
+		endi
+	elif _p1_ eq '3'
+
+		doif keyd 17 eq 1
+			rtar 1 2 11
+			doif targ <> null
+				doif clac = 0
+					mesg writ targ 0
+				elif clac = 1
+					mesg writ targ 1
+				endi
+			endi
+		endi
+	elif _p1_ eq 39
+		doif keyd 17 eq 1
+
+			targ pntr
+			seta va00 held
+			targ va00
+			doif targ <> null
+				setv va01 unid
+			endi
+			rtar 1 2 11
+			doif targ <> null
+				seta va10 null
+				setv va11 -1
+				doif va00 <> null
+					epas 0 0 0
+						doif unid > va01
+							doif va11 = -1 or unid < va11
+								seta va10 targ
+								setv va11 unid
+							endi
+						endi
+					next
+				endi
+				doif va10 = null
+					rtar 1 2 11
+					epas 0 0 0
+						doif va11 = -1 or unid < va11
+							seta va10 targ
+							setv va11 unid
+						endi
+					next
+				endi
+				doif va00 <> null
+					rtar 1 2 11
+					spas targ va00
+				endi
+				doif va10 <> null
+					mesg wrt+ pntr 1000 va10 0 0
+				endi
+			endi
+		endi
+	elif _p1_ eq 37
+		doif keyd 17 eq 1
+
+			targ pntr
+			seta va00 held
+			targ va00
+			doif targ <> null
+				setv va01 unid
+			endi
+			rtar 1 2 11
+			doif targ <> null
+				seta va10 null
+				setv va11 -1
+				doif va00 <> null
+					epas 0 0 0
+						doif unid < va01
+							doif unid > va11
+								seta va10 targ
+								setv va11 unid
+							endi
+						endi
+					next
+				endi
+				doif va10 = null
+					rtar 1 2 11
+					epas 0 0 0
+						doif unid > va11
+							seta va10 targ
+							setv va11 unid
+						endi
+					next
+				endi
+				doif va00 <> null
+					rtar 1 2 11
+					spas targ va00
+				endi
+				doif va10 <> null
+					mesg wrt+ pntr 1000 va10 0 0
+				endi
+			endi
+		endi
+	elif _p1_ = 33 or _p1_ = 34
+		doif keyd 16 = 0
+
+			setv va01 -1
+			enum 1 2 38
+				gsub set_va01_if_valid
+			next
+			enum 1 2 15
+				gsub set_va01_if_valid
+			next
+			enum 1 2 16
+				gsub set_va01_if_valid
+			next
+			enum 1 2 17
+				gsub set_va01_if_valid
+			next
+			enum 1 2 18
+				gsub set_va01_if_valid
+			next
+			enum 1 2 19
+				gsub set_va01_if_valid
+			next
+			enum 1 2 20
+				gsub set_va01_if_valid
+			next
+
+			setv va03 -1
+			setv va04 -1
+			enum 1 2 38
+				gsub find_next_along
+			next
+			enum 1 2 15
+				gsub find_next_along
+			next
+			enum 1 2 16
+				gsub find_next_along
+			next
+			enum 1 2 17
+				gsub find_next_along
+			next
+			enum 1 2 18
+				gsub find_next_along
+			next
+			enum 1 2 19
+				gsub find_next_along
+			next
+			enum 1 2 20
+				gsub find_next_along
+			next
+			rtar 1 2 va03
+			doif targ <> null
+				mesg writ targ 0
+			endi
+		endi
+	elif _p1_ >= 113 and _p1_ <= 123
+
+		sets va00 "c3_function_key_"
+		adds va00 vtos _p1_
+		doif keyd 16 = 1 and keyd 17 = 1
+
+			enum 1 2 38
+				gsub set_game_if_valid
+			next
+			enum 1 2 15
+				gsub set_game_if_valid
+			next
+			enum 1 2 16
+				gsub set_game_if_valid
+			next
+			enum 1 2 17
+				gsub set_game_if_valid
+			next
+			enum 1 2 18
+				gsub set_game_if_valid
+			next
+			enum 1 2 19
+				gsub set_game_if_valid
+			next
+			enum 1 2 20
+				gsub set_game_if_valid
+			next
+		elif keyd 16 = 1
+
+			rtar 1 2 3
+			doif targ ne null
+				part 1
+				doif ptxt <> ""
+					sets game va00 ptxt
+					adds game va00 "\n"
+				else
+					sets game va00 ov00
+				endi
+				targ pntr
+				snde "excl"
+			endi
+		elif keyd 17 = 1
+
+			seta game va00 norn
+			targ pntr
+			snde "excl"
+		else
+			doif type game va00 = 2
+				sets va01 game va00
+				doif strl va01 > 0
+
+
+					rtar 1 2 3
+					doif targ ne null
+						doif char va01 strl va01 = 10
+							setv va02 strl va01
+							subv va02 1
+							sets va01 subs va01 1 va02
+							part 1
+							ptxt va01
+							mesg writ targ 79
+						else
+							mesg wrt+ targ 1000 va01 0 0
+						endi
+					endi
+				endi
+			elif type game va00 = 7
+
+
+				norn game va00
+			elif type game va00 = 0
+
+
+				doif game va00 <> -1
+					rtar 1 2 game va00
+					doif targ <> null
+						mesg writ targ 0
+					endi
+				else
+					rtar 1 2 4
+					mesg wrt+ targ 1000 2 ownr 0
+				endi
+			endi
+		endi
+	endi
+	subr set_game_if_valid
+		doif targ <> null
+			doif pose = 1
+				setv game va00 spcs
+				targ pntr
+				snde "excl"
+			endi
+		endi
+	retn
+	subr set_va01_if_valid
+		doif targ <> null
+			doif pose = 1
+				setv va01 spcs
+				setv va02 posx
+			endi
+		endi
+	retn
+	subr find_next_along
+		doif targ <> null
+			doif _p1_ = 34
+				doif posx > va02 or va02 = -1
+					doif va03 = -1 or posx < va04
+						setv va03 spcs
+						setv va04 posx
+					endi
+				endi
+			else
+				doif posx < va02 or va02 = -1
+					doif va03 = -1 or posx > va04
+						setv va03 spcs
+						setv va04 posx
+					endi
+				endi
+			endi
+		endi
+	retn
+endm
+
+scrp 1 2 8 1000
+	inst
+	kill ownr
+endm
+
+scrp 1 2 8 1001
+	lock
+
+
+	flto -1000 -1000
+
+	wait 1
+
+	inst
+	save
+	load "Startup"
+	kill ownr
+endm
+
+rscr
+enum 1 2 6
+	kill targ
+next
+enum 1 2 8
+	kill targ
+next
+scrx 1 2 8 1000
+scrx 1 2 8 1001
+scrx 1 2 6 73

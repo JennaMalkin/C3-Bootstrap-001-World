@@ -1,0 +1,320 @@
+
+new: comp 3 3 70 "grendeleggbank" 1 0 1
+mvto 1764 2167
+
+
+
+pat: butt 1 "grendeleggbank" 1 2 52 84 0 [] 1000 0
+part 1
+frat 6
+anim [1 1 1 1 0 0 0 0 255]
+pat: butt 2 "grendeleggbank" 3 2 132 83 0 [] 1000 0
+part 2
+frat 6
+anim [0 1 1 1 1 0 0 0 255]
+pat: butt 3 "grendeleggbank" 5 2 201 83 0 [] 1000 0
+part 3
+frat 6
+anim [0 0 1 1 1 1 0 0 255]
+pat: butt 4 "grendeleggbank" 7 2 281 83 0 [] 1000 0
+part 4
+frat 6
+anim [0 0 0 1 1 1 1 0 255]
+
+
+
+
+new: simp 2 5 1 "suckerplant" 9 0 0
+attr 196
+clac 0
+elas 0
+mvto 1676 1940
+tick 3600
+
+
+
+new: simp 1 1 108 "tendril" 1 23 0
+mvto 1792 2200
+new: simp 1 1 108 "fungi" 1 25 0
+mvto 1875 2210
+new: simp 1 1 108 "jaws" 1 13 0
+mvto 1948 2210
+new: simp 1 1 108 "wasp" 1 10 0
+mvto 2035 2210
+
+
+scrp 2 5 1 9
+	doif totl 2 5 4 lt 1
+		mesg wrt+ ownr 1000 1 0 0
+		stop
+	endi
+	doif totl 2 8 5 lt 1
+		mesg wrt+ ownr 1000 2 0 0
+		stop
+	endi
+	doif totl 2 14 6 lt 1
+		mesg wrt+ ownr 1000 4 0 0
+		stop
+	endi
+endm
+
+
+scrp 2 5 1 1000
+
+	anim [8 7 6 5 5]
+	over
+	inst
+
+	doif _p1_ eq 1
+		doif totl 2 5 4 ge 100
+			sndc "buzz"
+			stop
+		elif totl 2 3 11 ge 100
+			sndc "buzz"
+			stop
+		endi
+
+		setv va80 game "Bioenergy"
+		doif va80 lt 50
+			sndc "buzz"
+			sets va81 read "Energy" 0
+			enum 1 1 91
+				doif ov00 eq 5
+					mesg wrt+ targ 1001 va81 0 0
+				endi
+			next
+			stop
+		else
+			subv game "Bioenergy" 50
+			subv va80 50
+			sets va81 read "Energy" 4
+			adds va81 vtos va80
+			enum 1 1 91
+				doif ov00 eq 5
+					mesg wrt+ targ 1001 va81 0 0
+				endi
+			next
+		endi
+
+		reps 5
+			new: simp 2 3 11 "tendril" 10 32 500
+			attr 195
+			bhvr 16
+			elas 30
+			fric 100
+			anim [0 1 2 3 4 5 255]
+			perm rand 30 70
+			mvto 1870 2010
+			velo rand -15 15 rand -10 0
+			tick rand 300 600
+
+			setv ov72 rand 10 40
+
+			setv ov80 1
+
+			setv ov82 1
+
+			setv ov87 0
+		repe
+		sndc "pop_"
+
+	elif _p1_ eq 2
+		doif totl 2 8 5 ge 100
+			sndc "buzz"
+			stop
+		elif totl 2 3 10 ge 100
+			sndc "buzz"
+			stop
+		endi
+
+		setv va80 game "Bioenergy"
+		doif va80 lt 50
+			sndc "buzz"
+			sets va81 read "Energy" 0
+			enum 1 1 91
+				doif ov00 eq 5
+					mesg wrt+ targ 1001 va81 0 0
+				endi
+			next
+			stop
+		else
+			subv game "Bioenergy" 50
+			subv va80 50
+			sets va81 read "Energy" 4
+			adds va81 vtos va80
+			enum 1 1 91
+				doif ov00 eq 5
+					mesg wrt+ targ 1001 va81 0 0
+				endi
+			next
+		endi
+
+
+		reps 5
+			new: simp 2 3 10 "fungi" 7 110 600
+
+			attr 195
+			bhvr 16
+			elas 0
+			fric 100
+			anim [0 1 2 3 255]
+			perm rand 30 70
+			mvto 1870 2010
+			velo rand -20 5 rand -10 0
+			tick rand 300 600
+
+			setv ov72 rand 10 40
+
+			setv ov80 1
+
+			setv ov82 1
+
+			setv ov87 0
+		repe
+		sndc "pop_"
+
+	elif _p1_ eq 3
+		doif totl 2 16 3 ge 100
+			sndc "buzz"
+			stop
+		endi
+
+		setv va80 game "Bioenergy"
+		doif va80 lt 50
+			sndc "buzz"
+			sets va81 read "Energy" 0
+			enum 1 1 91
+				doif ov00 eq 5
+					mesg wrt+ targ 1001 va81 0 0
+				endi
+			next
+			stop
+		else
+			subv game "Bioenergy" 50
+			subv va80 50
+			sets va81 read "Energy" 4
+			adds va81 vtos va80
+			enum 1 1 91
+				doif ov00 eq 5
+					mesg wrt+ targ 1001 va81 0 0
+				endi
+			next
+		endi
+
+		new: simp 2 16 3 "jaws" 53 0 1000
+		attr 195
+		mvto 1860 2005
+		elas 50
+		accg 5
+		setv ov10 rand 0 1
+		doif ov10 eq 0
+			setv ov10 -1
+		endi
+		perm 60
+		tick rand 8 15
+		setv ov02 100
+
+		setv ov61 50
+		velo rand -10 0 rand -5 0
+		sndc "pop_"
+
+	elif _p1_ eq 4
+		doif totl 2 14 6 ge 100
+			sndc "buzz"
+			stop
+		endi
+
+		setv va80 game "Bioenergy"
+		doif va80 lt 50
+			sndc "buzz"
+			sets va81 read "Energy" 0
+			enum 1 1 91
+				doif ov00 eq 5
+					mesg wrt+ targ 1001 va81 0 0
+				endi
+			next
+			stop
+		else
+			subv game "Bioenergy" 50
+			subv va80 50
+			sets va81 read "Energy" 4
+			adds va81 vtos va80
+			enum 1 1 91
+				doif ov00 eq 5
+					mesg wrt+ targ 1001 va81 0 0
+				endi
+			next
+		endi
+
+
+		new: simp 2 14 6 "wasp" 221 0 300
+		perm 100
+		tick 6
+		attr 199
+		aero 5
+		accg 0
+		clac 0
+		elas 10
+		bhvr 17
+		setv ov00 0
+		setv ov01 2000
+		setv ov02 800
+		setv ov05 2
+		setv ov06 rand 0 1
+		setv ov10 1
+		setv ov11 -1
+		seta ov16 null
+		seta ov17 null
+		setv ov20 0
+		setv ov61 45
+		setv ov72 400
+		setv ov73 400
+		setv ov74 800
+		setv ov75 1
+		anim [5 7]
+		mvto 1855 2005
+		velo rand -10 0 rand -10 0
+		sndc "pop_"
+	endi
+	targ ownr
+	anim [6 7 8 0]
+endm
+
+scrp 2 5 1 1
+	frat 1
+	anim [0 1 2 3 4 5 6 7 8]
+endm
+
+
+
+scrp 3 3 70 1000
+	sndc "gsb1"
+	part _p1_
+	anim [0 1 0 1 0 1 0 1 0]
+
+
+
+
+
+	rtar 2 5 1
+	doif targ ne null
+		mesg wrt+ targ 1000 _p1_ 0 0
+	endi
+	over
+	targ ownr
+	part _p1_
+	anim [1 1 1 1 0 0 0 0 255]
+endm
+
+
+rscr
+enum 3 3 70
+	kill targ
+next
+enum 2 5 1
+	kill targ
+next
+enum 1 1 108
+	kill targ
+next
+scrx 2 5 1 1000

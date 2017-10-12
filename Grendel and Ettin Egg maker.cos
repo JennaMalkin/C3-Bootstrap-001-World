@@ -1,0 +1,126 @@
+
+new: simp 1 1 99 "greneggmask" 1 0 1
+tick 3602
+mvto 2253 2017
+
+
+
+new: simp 1 1 101 "greneggmask" 6 15 1
+tick 3603
+mvto 5941 656
+
+
+scrp 1 1 101 9
+	inst
+	setv va00 0
+	enum 4 3 0
+		doif dead = 0
+			addv va00 1
+		endi
+	next
+	addv va00 totl 3 4 3
+	slow
+
+	doif va00 lt 2
+		gsub egg_
+	endi
+
+	subr egg_
+		sndc "egg1"
+		anim [0 1 2 3 4 5]
+		over
+		inst
+		setv va00 posl
+		setv va01 post
+		addv va00 46
+		addv va01 65
+		new: simp 3 4 3 "greneggmask" 7 8 10
+		elas 10
+		fric 100
+		attr 195
+		bhvr 32
+		aero 10
+		accg 4
+		perm 60
+		gene load targ 1 "e*"
+		setv ov01 2
+		mvto va00 va01
+
+
+		tick 60
+		targ ownr
+		pose 0
+	retn
+endm
+
+
+
+
+
+scrp 1 1 99 9
+
+
+	doif ov99 lt 8
+		inst
+		setv va99 0
+
+		enum 4 1 0
+			doif gmap posx posy ne 0 and gmap posx posy ne 7
+				setv va99 1
+			endi
+		next
+		addv ov99 1
+		doif va99 ne 1
+			stop
+		endi
+	endi
+
+
+	inst
+	setv va00 0
+	enum 4 2 0
+		doif dead = 0
+			addv va00 1
+		endi
+	next
+	addv va00 totl 3 4 2
+	slow
+
+	doif va00 lt 2
+		gsub egg_
+	endi
+
+	subr egg_
+		sndc "egg1"
+		inst
+		setv va00 posl
+		setv va01 post
+		subv va00 10
+		addv va01 10
+		new: simp 3 4 2 "greneggmask" 7 1 10
+		elas 10
+		fric 100
+		attr 195
+		bhvr 32
+		aero 10
+		accg 4
+		perm 60
+		gene load targ 1 "g*"
+		setv ov01 1
+		mvto va00 va01
+		velo -10 -5
+		tick 600
+	retn
+endm
+
+
+
+
+
+rscr
+enum 1 1 99
+	kill targ
+next
+enum 1 1 101
+	kill targ
+next

@@ -1,0 +1,429 @@
+
+
+
+
+
+
+
+
+new: simp 2 2 16 "ettin_doors" 4 4 3
+attr 4
+bhvr 1
+clac 0
+mvto 1598 2476
+setv va00 room targ
+
+
+new: simp 2 2 18 "ettin_doors" 4 8 3
+attr 4
+bhvr 1
+clac 0
+mvto 6130 705
+setv va01 room targ
+
+
+link va00 va01 80
+
+
+new: simp 2 2 19 "ettin_doors" 4 12 3
+attr 4
+bhvr 1
+clac 0
+mvto 5584 955
+setv va00 room targ
+
+
+new: simp 2 2 17 "ettin_doors" 4 0 3
+attr 4
+bhvr 1
+clac 0
+mvto 4481 2335
+setv va01 room targ
+
+
+link va00 va01 100
+
+
+
+scrp 2 2 19 1
+	lock
+	inst
+	doif from ne null
+		targ from
+		doif fmly eq 4
+
+			stim writ targ 75 1
+			wait 10
+		endi
+	endi
+	slow
+	targ ownr
+
+	snde "open"
+	clac -1
+	anim [0 1 2 3]
+	rtar 2 2 17
+	anim [3 2 1 0]
+
+	setv va12 0
+	setv va13 0
+	setv va00 0
+	setv va01 0
+
+
+	setv va00 posx
+	setv va01 posy
+
+	setv va12 posx
+	setv va13 posy
+	ADDV VA13 50
+	doif from eq pntr
+		setv va02 wndw
+		divv va02 2
+		subv va00 va02
+
+		setv va03 wndh
+		divv va03 2
+		subv va01 va03
+		inst
+		etch 4 0 0
+			doif carr = null
+				nohh
+				doif tmvf 4508 2438 = 1
+					mvft 4508 2438
+				else
+					mvsf 4508 2438
+				endi
+				velo 0 0
+			endi
+		next
+
+		doif hhld <> null
+			targ hhld
+			nohh
+		endi
+		slow
+		meta 2 va00 va01 game "c3_meta_transition"
+	else
+		inst
+		doif from ne null
+			targ from
+			doif carr = null
+
+
+				nohh
+				addv va01 50
+				doif tmvf 4508 2438 = 1
+					mvft 4508 2438
+				else
+					mvsf 4508 2438
+				endi
+
+				velo 0 0
+			endi
+		endi
+		slow
+	endi
+	rtar 2 2 17
+	anim [3 2 1 0]
+
+	targ ownr
+
+	anim [3 2 1 0]
+	clac 0
+
+	inst
+	doif from ne null
+		targ from
+		doif fmly eq 4
+
+			stim writ targ 95 1
+			wait 10
+		endi
+	endi
+	slow
+
+endm
+
+
+scrp 2 2 17 1
+	lock
+	inst
+	doif from ne null
+		targ from
+		doif fmly eq 4
+
+			stim writ targ 75 1
+			wait 10
+		endi
+	endi
+	slow
+	targ ownr
+
+	snde "open"
+	clac -1
+	anim [0 1 2 3]
+	rtar 2 2 19
+	anim [3 2 1 0]
+	setv va00 posx
+	setv va01 posy
+	setv va12 posx
+	setv va13 posy
+	doif from eq pntr
+		setv va02 wndw
+		divv va02 2
+		subv va00 va02
+		setv va03 wndh
+		divv va03 2
+		subv va01 va03
+		inst
+		etch 4 0 0
+			doif carr = null
+				nohh
+				doif tmvf 5609 1054 = 1
+					mvft 5609 1054
+				else
+					mvsf 5609 1054
+				endi
+				velo 0 0
+			endi
+		next
+
+		doif hhld <> null
+			targ hhld
+			nohh
+		endi
+		slow
+		meta 1 va00 va01 game "c3_meta_transition"
+	else
+		inst
+		doif from ne null
+			targ from
+			doif carr = null
+				nohh
+				doif tmvf 5609 1054 = 1
+					mvft 5609 1054
+				else
+					mvsf 5609 1054
+				endi
+
+				velo 0 0
+			endi
+		endi
+		slow
+	endi
+	rtar 2 2 19
+	anim [3 2 1 0]
+	targ ownr
+	anim [3 2 1 0]
+	clac 0
+
+	inst
+	doif from ne null
+		targ from
+		doif fmly eq 4
+
+			stim writ targ 95 1
+			wait 10
+		endi
+	endi
+	slow
+
+endm
+
+scrp 2 2 16 1
+	lock
+	inst
+	doif from ne null
+		targ from
+		doif fmly eq 4
+
+			stim writ targ 75 1
+			wait 10
+		endi
+	endi
+	slow
+	targ ownr
+
+	snde "open"
+	clac -1
+	anim [0 1 2 3]
+	rtar 2 2 18
+	anim [3 2 1 0]
+	setv va00 posx
+	setv va01 posy
+	setv va12 posx
+	setv va13 posy
+	doif from eq pntr
+		setv va02 wndw
+		divv va02 2
+		subv va00 va02
+
+		setv va03 wndh
+		divv va03 2
+		subv va01 va03
+		inst
+		etch 4 0 0
+			doif carr = null
+				nohh
+				doif tmvf 6155 803 = 1
+					mvft 6155 803
+				else
+					mvsf 6155 803
+				endi
+				velo 0 0
+			endi
+		next
+
+		doif hhld <> null
+			targ hhld
+			nohh
+		endi
+		slow
+		meta 1 va00 va01 game "c3_meta_transition"
+	else
+		inst
+		doif from ne null
+			targ from
+			doif carr = null
+
+				nohh
+				doif tmvf 6155 803 = 1
+					mvft 6155 803
+				else
+					mvsf 6155 803
+				endi
+
+				velo 0 0
+			endi
+		endi
+		slow
+	endi
+	rtar 2 2 18
+	anim [3 2 1 0]
+
+	targ ownr
+	anim [3 2 1 0]
+	clac 0
+
+	inst
+	doif from ne null
+		targ from
+		doif fmly eq 4
+
+			stim writ targ 95 1
+			wait 10
+		endi
+	endi
+	slow
+
+endm
+
+
+scrp 2 2 18 1
+	lock
+	inst
+	doif from ne null
+		targ from
+		doif fmly eq 4
+
+			stim writ targ 75 1
+			wait 10
+		endi
+	endi
+	slow
+	targ ownr
+
+	snde "open"
+	clac -1
+	anim [0 1 2 3]
+	over
+	rtar 2 2 16
+	anim [3 2 1 0]
+	setv va00 posx
+	setv va01 posy
+	setv va12 posx
+	setv va13 posy
+	doif from eq pntr
+		setv va02 wndw
+		divv va02 2
+		subv va00 va02
+
+		setv va03 wndh
+		divv va03 2
+		subv va01 va03
+		inst
+		etch 4 0 0
+			doif carr = null
+				nohh
+				doif tmvf 1629 2587 = 1
+					mvft 1629 2587
+				else
+					mvsf 1629 2587
+				endi
+				velo 0 0
+			endi
+		next
+
+		doif hhld <> null
+			targ hhld
+			nohh
+		endi
+		slow
+		meta 3 va00 va01 game "c3_meta_transition"
+	else
+		inst
+		doif from ne null
+			targ from
+
+			doif carr = null
+
+				nohh
+				doif tmvf 1629 2587 = 1
+					mvft 1629 2587
+				else
+					mvsf 1629 2587
+				endi
+
+				velo 0 0
+			endi
+		endi
+		slow
+	endi
+	rtar 2 2 16
+	anim [3 2 1 0]
+
+	targ ownr
+	anim [3 2 1 0]
+	clac 0
+
+	inst
+	doif from ne null
+		targ from
+		doif fmly eq 4
+
+			stim writ targ 95 1
+			wait 10
+		endi
+	endi
+	slow
+
+endm
+
+rscr
+enum 2 2 16
+	kill targ
+next
+enum 2 2 17
+	kill targ
+next
+enum 2 2 18
+	kill targ
+next
+enum 2 2 19
+	kill targ
+next
+scrx 2 2 16 1
+scrx 2 2 17 1
+scrx 2 2 18 1
+scrx 2 2 19 1

@@ -1,0 +1,32 @@
+scrp 2 1 1 110
+	sndc "pnt1"
+	pose 13
+endm
+
+scrp 2 1 1 114
+	sndc "buzz"
+	anim [14 14 14 14 14 14 14 14 14 14 14 14 13 13]
+endm
+
+scrp 2 1 1 111
+	sndc "pnt1"
+	pose 0
+endm
+
+scrp 2 1 1 112
+	sndc "snap"
+	pose 0
+endm
+
+scrp 2 1 1 113
+	sndc "snap"
+	pose 0
+endm
+
+scrp 2 0 0 118
+sndc "snap"
+endm
+
+scrp 3 0 0 118
+sndc "snap"
+endm

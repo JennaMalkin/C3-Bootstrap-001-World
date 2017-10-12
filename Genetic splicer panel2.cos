@@ -1,0 +1,321 @@
+
+inst
+new: comp 3 3 18 "gene splicer panel" 37 0 20
+attr 4
+mvto 5100 3650
+
+
+
+setv ov00 0
+setv ov01 0
+
+
+scrp 3 3 18 1
+	lock
+	clac -1
+	part 0
+	snde "gs_o"
+	anim [0 1 2 3 4 5 6 7 8 9 10]
+	over
+
+
+
+
+	pat: butt 1 "gene splicer panel" 17 2 224 138 0 [] 1000 0
+
+	pat: butt 2 "gene splicer panel" 19 2 178 137 0 [] 1001 0
+
+	pat: butt 3 "gene splicer panel" 21 2 137 135 0 [] 1002 0
+	part 3
+	pose 0
+
+
+	pat: butt 4 "gene splicer panel" 23 2 102 135 0 [] 1003 0
+	part 4
+	anim [1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0]
+	setv ov01 0
+
+	pat: butt 5 "gene splicer panel" 25 2 70 133 0 [] 1004 0
+	part 5
+	anim [1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0]
+
+
+	pat: dull 6 "gene splicer panel" 27 55 171 0
+
+	pat: dull 7 "gene splicer panel" 29 108 171 0
+
+	pat: dull 8 "gene splicer panel" 31 122 224 0
+
+	pat: dull 9 "gene splicer panel" 33 89 224 0
+
+	pat: dull 10 "gene splicer panel" 35 55 224 0
+
+
+	pat: butt 11 "gene splicer panel" 11 2 309 230 0 [] 1005 0
+	part 11
+	anim [1 1 1 1 1 0 0 0 1 1 1 1 1 1 0 0 0 1 1 1 1 1 1 0]
+
+	pat: butt 12 "gene splicer panel" 13 2 38 111 0 [] 1006 0
+
+	part 12
+	anim [1 0 1 0 1 0 1 0]
+	pat: butt 13 "gene splicer panel" 15 2 282 272 0 [] 1007 0
+	part 13
+	anim [1 1 1 1 1 0]
+	setv ov90 0
+	setv ov00 1
+	unlk
+
+endm
+
+
+
+scrp 3 3 18 1003
+	inst
+	snde "bp_1"
+	part 4
+	pose 1
+	part 5
+	pose 0
+	setv ov01 2
+endm
+
+scrp 3 3 18 1004
+	inst
+	snde "bp_1"
+	part 5
+	pose 1
+	part 4
+	pose 0
+	setv ov01 1
+endm
+
+scrp 3 3 18 1005
+	lock
+	part 11
+	anim [1 1 1 0]
+	snde "bp_1"
+	part 6
+	anim [0 1 0 1 0 1 0]
+	part 7
+	anim [0 0 1 0 1 0 1 0]
+	part 8
+	anim [1 0]
+	part 9
+
+	anim [0 1 0]
+	part 10
+	anim [0 0 1 0]
+
+
+
+
+	doif ov80 = 1 and ov81 = 1
+		unlk
+		mesg writ ownr 1020
+	else
+
+		enum 1 1 91
+			doif ov00 = 4
+				mesg wrt+ targ 1001 read "Energy" 3 0 0
+			endi
+		next
+
+		enum 3 3 32
+			mesg writ targ 1001
+		next
+	endi
+endm
+
+
+scrp 3 3 18 1006
+	lock
+	snde "bp_1"
+	part 12
+	anim [0 1 0 1 0 1 0 1 0]
+	over
+	part 3
+	pose 0
+	part 4
+	pose 0
+	part 5
+	pose 0
+	part 10
+	pose 0
+	part 11
+	pose 0
+	part 12
+	pose 0
+	pat: kill 1
+	pat: kill 2
+	pat: kill 3
+	pat: kill 4
+	pat: kill 5
+	pat: kill 6
+	pat: kill 7
+	pat: kill 8
+	pat: kill 9
+	pat: kill 10
+	pat: kill 11
+	pat: kill 12
+	pat: kill 13
+	part 0
+	snde "gs_c"
+	anim [10 9 8 7 6 5 4 3 2 1 0]
+	over
+
+	clac 0
+
+
+	setv ov00 0
+endm
+
+
+scrp 3 3 18 1007
+	lock
+	part 13
+	anim [1 1 1 0]
+	snde "bp_1"
+	enum 3 3 32
+		mesg writ targ 1001
+	next
+endm
+
+
+scrp 3 3 18 1010
+	lock
+	doif ov00 = 1
+
+
+
+		doif _p1_ = 1
+			setv ov80 1
+			seta ov88 _p2_
+			part 7
+			base 0
+			anim []
+			anim [1]
+		endi
+		doif _p1_ = 2
+			setv ov81 1
+			seta ov89 _p2_
+			part 6
+			base 0
+			anim []
+
+			anim [1]
+		endi
+	endi
+endm
+
+
+scrp 3 3 18 1020
+	lock
+
+
+	mesg writ ownr 2000
+endm
+
+
+scrp 3 3 18 1040
+	inst
+	doif ov00 = 0
+		mesg writ ownr 0
+	endi
+endm
+
+
+scrp 3 3 18 2000
+	lock
+
+
+	seta va88 ov88
+	seta va89 ov89
+
+	enum 1 1 91
+		doif ov00 = 4
+			setv va77 ov02
+		endi
+	next
+
+	targ ownr
+	setv ov90 va77
+
+	doif va88 = null or va89 = null
+		enum 1 1 91
+			doif ov00 = 4
+				mesg wrt+ targ 1001 read "Energy" 0 0 0
+			endi
+		next
+
+
+		mesg writ ownr 1006
+	else
+		doif ov90 = 0
+			enum 1 1 91
+				doif ov00 = 4
+					mesg wrt+ targ 1001 read "Energy" 0 0 0
+				endi
+			next
+
+			mesg writ ownr 1007
+			stop
+		endi
+
+
+		doif va88 = null or va89 = null
+			stop
+		endi
+
+		snde "poyy"
+
+		wait 10
+
+		gene cros pntr 1 va88 0 va89 0 40 40 40 40
+
+
+
+		enum 3 3 32
+			mesg writ targ 1002
+		next
+		seta ov88 null
+		seta ov89 null
+		setv ov80 0
+		setv ov80 0
+		part 6
+		anim [0]
+		part 7
+		anim [0]
+
+		setv va66 ov01
+
+		inst
+		new: crea 4 pntr 1 va66 0
+		mvsf 5160 3900
+		accg game "c3_creature_accg"
+		bhvr game "c3_creature_bhvr"
+		attr game "c3_creature_attr"
+		perm game "c3_creature_perm"
+		setv va91 11
+		addv va91 gnus
+		emit va91 0.5
+		born
+	endi
+endm
+
+
+
+
+rscr
+enum 3 3 18
+	kill targ
+next
+scrx 3 3 18 1
+scrx 3 3 18 1003
+scrx 3 3 18 1004
+scrx 3 3 18 1005
+scrx 3 3 18 1006
+scrx 3 3 18 1010
+scrx 3 3 18 1020
+scrx 3 3 18 1040
+scrx 3 3 18 2000

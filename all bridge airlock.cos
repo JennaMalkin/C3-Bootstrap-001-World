@@ -1,0 +1,641 @@
+
+
+
+
+
+
+
+
+
+
+iscr
+
+
+new: simp 2 2 11 "bridge airlock" 10 0 6
+attr 4
+perm 60
+clac 0
+elas 10
+tick 0
+aero 5
+accg 4
+setv ov70 255
+mvto 3155 3834
+
+link grap posx posy grid targ left 100
+
+
+
+
+new: simp 1 1 44 "bridge airlock" 2 10 2
+attr 4
+perm 60
+clac 0
+elas 10
+tick 0
+aero 5
+accg 4
+setv ov70 255
+mvto 2689 3837
+anim [1]
+
+
+new: simp 1 1 45 "bridge airlock" 11 12 4
+attr 0
+perm 60
+clac -1
+elas 10
+tick 0
+aero 5
+accg 4
+mvto 2778 3852
+anim [5]
+
+
+new: simp 2 2 12 "bridge airlock" 7 23 6
+attr 4
+perm 60
+clac 0
+elas 10
+tick 0
+aero 5
+accg 4
+setv ov70 255
+mvto 2662 3838
+anim [0]
+
+link grap posx posy grid targ rght 100
+link grap posx posy grid targ left 100
+
+
+
+
+new: simp 2 12 3 "airlock buttons" 4 3 4
+attr 4
+perm 60
+clac 0
+elas 10
+tick 0
+aero 5
+accg 4
+setv ov70 255
+mvto 2634 3946
+anim [0]
+prt: inew 0 "door activation" "activation" 12 37 1000
+prt: onew 0 "door throughput" "throughput" 12 26
+
+
+new: comp 2 12 4 "airlock buttons" 18 7 4
+attr 4
+perm 60
+clac 0
+elas 10
+tick 0
+aero 5
+accg 4
+setv ov70 255
+setv ov01 -1
+mvto 3096 3912
+part 0
+anim [0]
+pat: dull 1 "airlock buttons" 9 0 0 0
+part 1
+anim [10]
+pat: butt 2 "airlock buttons" 21 4 9 30 0 [] 1000 0
+part 2
+anim [1]
+pat: dull 3 "airlock buttons" 29 12 62 0
+pat: dull 4 "airlock buttons" 30 28 62 0
+prt: inew 0 "door activation" "door activation" 17 68 1000
+prt: onew 0 "throughput" "throughput" 34 67
+
+endm
+
+
+scrp 2 2 11 1000
+	inst
+	tick 0
+	doif ov00 = 0
+		setv ov00 1
+
+
+
+
+
+		snde "dor1"
+		anim [1 2 3 4 5 6 7 8]
+		setv va50 posx
+		setv va51 posy
+		setv va90 grap posx posy
+
+		setv va92 grid ownr left
+
+		door va90 va92 100
+		link va90 va92 0
+		rtar 1 1 44
+		mesg writ targ 1001
+		targ ownr
+		enum 1 1 39
+			tick 1
+		next
+		targ ownr
+		over
+		tick 60
+	else
+		rtar 1 1 44
+		mesg writ targ 1002
+		targ ownr
+		setv ov00 0
+		snde "dor1"
+		anim [8 7 6 5 4 3 2 1 0]
+		setv va50 posx
+		setv va51 posy
+		setv va90 grap posx posy
+
+		setv va92 grid ownr left
+
+		door va90 va92 0
+		link va90 va92 100
+		over
+		enum 1 1 39
+			tick 250
+		next
+		targ ownr
+
+
+
+
+
+
+
+	endi
+
+endm
+
+scrp 2 2 11 9
+	rtar 2 12 4
+	mesg wrt+ targ 1000 ov70 0 0
+endm
+
+
+scrp 2 2 11 1001
+	over
+	anim [1]
+endm
+
+
+scrp 1 1 44 1000
+	doif ov00 = 0
+		sndl "alrm"
+		anim [0]
+		setv ov00 1
+	else
+		fade
+		anim [1]
+		setv ov00 0
+	endi
+endm
+
+scrp 1 1 44 1001
+
+	inst
+	snde "poyy"
+	etch 0 0 0
+		doif targ <> null and carr <> game "c3_inventory"
+
+
+
+
+
+
+
+			doif fmly = 4
+				dead
+			endi
+			setv va00 attr
+			andv va00 32
+			doif va00 = 0
+				setv va01 attr
+				andv va01 3
+				doif va01 <> 0
+					aero 0
+					fric 0
+					elas 100
+					velo 50 -20
+
+
+
+
+				endi
+			endi
+
+
+
+		endi
+	next
+endm
+
+
+scrp 1 1 44 1002
+	inst
+	lock
+	addv ov01 1
+	etch 0 0 0
+		doif targ <> null and carr <> game "c3_inventory"
+			setv va55 attr
+			andv va55 3
+			doif targ <> ownr and va55 <> 0 and carr = null
+				doif fmly <> 1
+
+					doif fmly = 2 and gnus = 1
+					else
+						doif fmly = 4
+							velo 0 -10
+							setv va00 posx
+							setv va01 post
+							dead
+							kill targ
+							setv va66 1
+						else
+							setv va00 posx
+							setv va01 post
+							kill targ
+							setv va66 0
+						endi
+
+						reps 10
+							setv va02 rand 0 0
+							mulv va02 0
+							new: simp 1 1 46 "dust cloud" 4 8 1000
+							doif tmvt va00 va01 <> 1
+								kill targ
+								stop
+							endi
+							mvto va00 va01
+							setv vely rand -5 5
+							setv velx rand -5 5
+							attr 192
+							accg 0.1
+							elas 100
+							anim [0 1 2 3]
+							tick rand 30 40
+						repe
+						doif va66 = 1
+							reps 8
+								setv va02 rand 0 0
+								mulv va02 0
+								new: simp 1 1 46 "bone" 12 0 1000
+								doif tmvt va00 va01 <> 1
+									kill targ
+									stop
+								endi
+								mvto va00 va01
+								setv vely rand -5 5
+								setv velx rand -5 5
+								attr 192
+								accg 0
+								elas 100
+								anim [0 1 2 3 4 5 6 7 8 9 10 11 255]
+								tick rand 50 60
+							repe
+						endi
+					endi
+				endi
+			endi
+		endi
+	next
+	unlk
+endm
+
+
+
+
+scrp 1 1 45 1000
+	doif ov00 = 0
+
+
+
+		anim [6 7 8 9 10 255]
+		setv ov00 1
+	else
+		anim [5]
+		setv ov00 0
+	endi
+endm
+
+
+scrp 2 2 12 1000
+	doif ov00 = 0
+		snde "stm1"
+		anim [0 2 3 4 5]
+		setv va50 posx
+		setv va51 posy
+		setv va90 grap posx posy
+		setv va91 grid ownr rght
+		setv va92 grid ownr left
+		inst
+		door va90 va91 100
+		door va90 va92 100
+		link va90 va91 0
+		link va90 va92 0
+		slow
+		setv ov00 1
+	elif ov00 <> 0
+		snde "stm1"
+		inst
+		etch 0 0 0
+			doif targ <> null
+				setv va55 attr
+				andv va55 3
+				doif va55 <> 0
+					velo -30 -10
+				endi
+			endi
+		next
+		slow
+		anim [5 4 3 2 0]
+		setv va50 posx
+		setv va51 posy
+		setv va90 grap posx posy
+		setv va91 grid ownr rght
+		setv va92 grid ownr left
+		inst
+		door va90 va91 0
+		door va90 va92 0
+		link va90 va91 100
+		link va90 va92 100
+		slow
+		setv ov00 0
+		rtar 2 12 4
+		setv va00 ov00
+		targ ownr
+		doif va00 = 1
+			over
+			anim [1]
+		endi
+	endi
+	over
+
+
+
+
+
+
+
+
+endm
+
+
+
+
+
+
+
+
+scrp 2 2 12 1002
+	over
+	anim [0]
+endm
+
+
+
+
+scrp 2 12 3 1
+	snde "map1"
+	mesg wrt+ ownr 1000 ov70 0 0
+endm
+
+
+scrp 2 12 3 1000
+
+
+
+
+
+
+	doif ov00 = 0 and ov70 <> 0
+		setv ov00 1
+		setv ov70 0
+		anim [1]
+
+		prt: send 0 255
+		rtar 2 2 12
+		seta va88 targ
+
+		targ ownr
+		mesg writ va88 1000
+
+	elif ov00 <> 0 and ov70 = 0
+		setv ov00 0
+		setv ov70 255
+		anim [0]
+
+		prt: send 0 0
+		rtar 2 2 12
+		seta va88 targ
+
+		targ ownr
+		mesg writ va88 1000
+	endi
+endm
+
+
+scrp 2 12 4 1
+	snde "map1"
+	mesg wrt+ ownr 1000 ov70 0 0
+endm
+
+scrp 2 12 4 1000
+	inst
+	part 2
+	anim [3]
+
+	doif ov00 = 0 and _p1_ <> 0 and ov01 < 0
+		clac -1
+		setv ov00 1
+		setv ov70 0
+
+		setv ov01 10
+
+
+		doif ov00 = 1
+
+			prt: send 0 255
+			rtar 2 12 3
+			seta va88 targ
+			setv va00 ov00
+			clac -1
+			targ ownr
+			doif va00 <> 0
+				mesg writ va88 1000
+			endi
+
+
+			rtar 1 1 45
+			seta va88 targ
+
+			targ ownr
+			mesg writ va88 1000
+
+
+			rtar 1 1 44
+			seta va88 targ
+
+			targ ownr
+			mesg writ va88 1000
+
+
+			rtar 2 2 11
+			seta va88 targ
+
+			targ ownr
+			mesg writ va88 1001
+
+			rtar 2 2 12
+			seta va88 targ
+
+			targ ownr
+			mesg writ va88 1001
+
+			tick 1
+		else
+			targ ownr
+		endi
+
+	elif ov00 <> 0 and _p1_ = 0 and ov01 < 0
+		lock
+		clac -1
+		setv ov00 0
+		setv ov70 255
+
+		setv ov01 3
+		prt: send 0 0
+		wait 5
+
+		rtar 2 2 11
+		seta va88 targ
+
+		targ ownr
+		mesg writ va88 1000
+
+
+		unlk
+		tick 1
+	endi
+
+endm
+
+
+scrp 2 12 4 9
+	inst
+	lock
+	tick 10
+	part 1
+	pose ov01
+	subv ov01 1
+
+	doif ov01 < 0
+
+		doif ov00 = 1
+			tick 0
+			unlk
+
+			rtar 2 2 11
+			seta va88 targ
+
+			targ ownr
+			mesg writ va88 1000
+
+			part 2
+			anim [0]
+
+
+		else
+			lock
+			tick 0
+
+			rtar 1 1 44
+			seta va88 targ
+
+			targ ownr
+			mesg writ va88 1000
+
+			rtar 1 1 45
+			seta va88 targ
+
+			targ ownr
+			mesg writ va88 1000
+
+			rtar 2 2 12
+			seta va88 targ
+
+			targ ownr
+			mesg writ va88 1002
+
+
+			rtar 2 12 3
+			seta va88 targ
+			clac 0
+			targ ownr
+
+			mesg wrt+ va88 1000 0 0 0
+			part 2
+			anim [1]
+			slow
+			wait 20
+			clac 0
+			unlk
+		endi
+	endi
+endm
+
+
+scrp 2 12 4 2000
+endm
+
+
+
+rscr
+enum 2 12 3
+	kill targ
+next
+
+enum 2 2 12
+	kill targ
+next
+
+
+
+scrx 2 12 3 1
+scrx 2 12 3 2
+scrx 2 12 3 4
+scrx 2 12 3 5
+scrx 2 12 3 9
+scrx 2 12 3 1000
+scrx 2 12 3 2000
+
+enum 2 12 4
+	kill targ
+next
+
+scrx 2 12 4 1
+scrx 2 12 4 2
+scrx 2 12 4 4
+scrx 2 12 4 5
+scrx 2 12 4 9
+scrx 2 12 4 1000
+scrx 2 12 4 2000
+
+enum 1 1 44
+	kill targ
+next
+
+enum 1 1 45
+	kill targ
+next
+scrx 1 1 45 1000
+
+enum 2 2 11
+	kill targ
+next
+scrx 2 2 11 1000

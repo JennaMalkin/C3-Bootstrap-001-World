@@ -1,0 +1,178 @@
+inst
+
+new: comp 2 12 1 "nidoor" 4 7 0
+attr 4
+
+pat: butt 1 "nidoor" 8 3 2 -1 1 [] 0 0
+mvto 1269 710
+part 1
+anim [0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 255]
+
+prt: inew 0 "Door switch activate" " " 12 23 1000
+prt: onew 0 "Door switch throughport" " " 12 36
+
+
+
+new: simp 2 2 9 "nidoor" 7 0 8000
+pose 0
+bhvr 1
+setv ov00 1
+mvto 1208 714
+
+setv va02 room targ
+setv va03 grid targ rght
+door va02 va03 100
+
+
+seta ov10 null
+seta va00 targ
+
+
+new: simp 2 2 9 "blnk" 0 0 8000
+
+seta ov10 va00
+bhvr 1
+mvto 1220 750
+
+
+seta va01 targ
+targ va00
+seta ov20 va01
+
+
+
+scrp 2 12 1 1
+	snde "bp_1"
+	rtar 2 2 9
+	doif targ ne null
+		mesg writ targ 1000
+	endi
+endm
+
+
+scrp 2 12 1 1000
+	setv va00 _p1_
+	rtar 2 2 9
+	doif targ ne null
+		doif va00 ne 0 and ov00 eq 0
+			mesg writ targ 0
+		elif va00 eq 0 and ov00 eq 1
+			mesg writ targ 1
+		endi
+	endi
+	targ ownr
+	prt: send 0 va00
+endm
+
+
+
+scrp 2 2 9 1
+	doif ov10 eq null
+
+		snde "dr_o"
+		anim [6 5 4 3 2 1 0]
+		setv ov00 1
+		doif from = ov20
+			inst
+			doif _p1_ ne null
+			targ _p1_
+			doif fmly eq 4
+
+				stim writ targ 96 1
+			endi
+			endi
+			slow
+			targ ownr
+		endi
+
+
+
+
+
+		inst
+
+		setv va02 room targ
+		setv va03 grid targ rght
+		door va02 va03 100
+
+
+		link va02 va03 0
+
+		rtar 2 12 1
+		part 1
+		anim [0 1 0 1 0 1]
+		over
+		anim [0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 255]
+
+	else
+
+		mesg wrt+ ov10 0 from 0 0
+	endi
+
+
+endm
+
+scrp 2 2 9 2
+	snde "dr_c"
+	inst
+	setv va00 rand 0 1
+	doif va00 eq 0
+		setv va00 -1
+	endi
+	mulv va00 30
+	etch 2 0 0
+		doif targ ne ownr
+			velo va00 -10
+		endi
+	next
+	etch 3 0 0
+		velo va00 -10
+	next
+	etch 4 0 0
+		velo va00 -100
+	next
+	targ ownr
+	slow
+	anim [0 1 2 3 4 5 6]
+	setv ov00 0
+	rtar 2 12 1
+	part 1
+	anim [0 2 0 2 0 2]
+	over
+	anim [0 0 0 0 0 0 0 0 0 0 0 0 0 2 2 2 2 2 2 2 2 2 2 2 2 2 2 255]
+	inst
+
+	setv va02 room targ
+	setv va03 grid targ left
+	door va02 va03 0
+
+
+	link va02 va03 100
+endm
+
+
+scrp 2 2 9 1000
+
+
+
+	doif ov10 ne null
+		mesg writ ov10 1000
+		stop
+	endi
+	doif ov00 eq 0
+		mesg writ ownr 0
+	else
+		mesg writ ownr 1
+	endi
+endm
+
+
+rscr
+enum 2 2 9
+	kill targ
+next
+enum 2 12 1
+	kill targ
+next
+scrx 2 12 1 1
+scrx 2 12 1 2

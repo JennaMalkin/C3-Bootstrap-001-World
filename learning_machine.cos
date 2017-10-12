@@ -1,0 +1,489 @@
+
+
+
+
+
+
+
+new: comp 1 1 80 "objects_of_learning" 1 0 15
+attr 4
+mvto 8600 450
+
+pat: dull 1 "objects_of_learning" 0 -202 -174 5
+
+vois "MachineVoice"
+
+
+pat: butt 2 "objects_of_learning" 1 2 -226 -133 0 [] 8677 0
+
+pat: butt 3 "objects_of_learning" 3 2 -226 -105 0 [] 8864 0
+
+pat: butt 4 "objects_of_learning" 5 2 -45 33 0 [] 3571 0
+
+pat: butt 5 "objects_of_learning" 7 2 45 33 0 [] 1157 0
+
+pat: butt 6 "objects_of_learning" 9 2 91 38 0 [] 5581 0
+
+pat: butt 7 "objects_of_learning" 11 11 3 25 0 [] 8881 0
+
+pat: dull 8 "objects_of_learning" 25 -206 -155 2
+pat: dull 9 "objects_of_learning" 25 -156 -155 2
+pat: dull 10 "objects_of_learning" 25 -106 -155 2
+pat: dull 11 "objects_of_learning" 25 -56 -155 2
+
+pat: dull 12 "objects_of_learning" 24 -5 -156 2
+
+pat: dull 13 "objects_of_learning" 25 50 -155 2
+pat: dull 14 "objects_of_learning" 25 100 -155 2
+pat: dull 15 "objects_of_learning" 25 150 -155 2
+pat: dull 16 "objects_of_learning" 25 199 -155 2
+
+pat: fixd 17 "learning machine text part" 0 -152 -73 1 "heatherontransparentchars"
+
+pat: dull 18 "objects_of_learning" 26 -163 -152 1
+pat: dull 19 "objects_of_learning" 26 -113 -152 1
+pat: dull 20 "objects_of_learning" 26 -63 -152 1
+pat: dull 21 "objects_of_learning" 26 -13 -152 1
+
+pat: dull 22 "objects_of_learning" 26 43 -152 1
+pat: dull 23 "objects_of_learning" 26 93 -152 1
+pat: dull 24 "objects_of_learning" 26 143 -152 1
+pat: dull 25 "objects_of_learning" 26 193 -152 1
+
+pat: dull 26 "objects_of_learning" 23 -206 -184 5
+
+pat: dull 27 "objects_of_learning" 22 -202 -174 0
+
+pat: dull 28 "objects_of_learning" 0 -201 -151 1
+pat: dull 29 "objects_of_learning" 0 -151 -151 1
+pat: dull 30 "objects_of_learning" 0 -101 -151 1
+pat: dull 31 "objects_of_learning" 0 -51 -151 1
+
+pat: dull 32 "objects_of_learning" 0 0 -152 1
+
+pat: dull 33 "objects_of_learning" 0 55 -151 1
+pat: dull 34 "objects_of_learning" 0 105 -151 1
+pat: dull 35 "objects_of_learning" 0 155 -151 1
+pat: dull 36 "objects_of_learning" 0 204 -151 1
+
+pat: fixd 37 "objects_of_learning" 27 -141 -107 1 "whiteontransparentchars"
+
+part 1
+pose 22
+
+Part 6
+frat 7
+anim [0 1 255]
+setv ov03 7
+setv ov00 0
+tick 35
+
+scrp 1 1 80 3031
+	lock
+
+	sets va00 ov06
+	adds va00 vtos ov03
+	setv va01 stoi read va00 0
+	setv va02 stoi read va00 1
+	doif va01 = 1
+		sets va03 "perfect verb "
+		sets va04 "Creature Actions"
+	elif va01 = 2
+		sets va03 "perfect special "
+		sets va04 "Learnt Specials"
+	elif va01 = 3
+		sets va03 "perfect drive "
+		sets va04 "Creature Drives"
+	elif va01 = 4
+		sets va03 "perfect qualifier "
+		sets va04 "Learnt Qualifiers"
+	elif va01 = 5
+		sets va03 "perfect nice_drive "
+		sets va04 "Learnt Nice Drives"
+	elif va01 = 6
+		sets va03 "perfect noun "
+		sets va04 "Agent Categories"
+	endi
+
+	sets va50 read va04 va02
+
+	doif va01 = 6 and va02 = 1
+		sets va50 hand
+	endi
+
+	sets va40 va03
+	adds va40 vtos va02
+	adds va40 " "
+	adds va40 va50
+
+	part 37
+	frmt 30 4 2 2 0 0 2
+	ptxt va50
+
+	rtar 1 2 10
+	mesg wrt+ targ 126 va50 ownr 0
+	targ ownr
+
+
+	sezz va50
+	wait 14
+	ordr shou va40
+	part 5
+	pose 0
+	part 4
+	pose 0
+endm
+
+scrp 1 1 80 3030
+	inst
+	sets va09 ov06
+	adds va09 "count"
+	setv va10 stoi read va09 0
+	doif ov03 < 0
+		addv ov03 va10
+	elif ov03 >= va10
+		subv ov03 va10
+	endi
+	setv va03 -4
+	loop
+		setv va04 va03
+		addv va04 32
+		part va04
+		setv va05 ov03
+		addv va05 va03
+		doif va05 < 0
+			addv va05 va10
+		elif va05 >= va10
+			subv va05 va10
+		endi
+		sets va06 ov06
+		adds va06 vtos va05
+		doif reaq va06 = 1
+			sets va07 read va06 2
+			base stoi va07
+			pose 0
+			sets va08 read va06 3
+			doif va08 = "1"
+				frat 3
+				anim [0 1 2 3 255]
+			else
+			endi
+		else
+			base 0
+			pose 0
+		endi
+		addv va03 1
+	untl va03 > 4
+	mesg writ ownr 3031
+endm
+
+
+scrp 1 1 80 5581
+	lock
+	doif ov00 = 0
+
+		snde "bep2"
+		part 1
+		pose 0
+		sets va50 read "learning machine misc words" 0
+		part 17
+		frmt 3 4 2 2 0 0 2
+		ptxt va50
+		part 6
+		anim [1]
+		pose 1
+		setv ov00 1
+		setv ov23 0
+		unlk
+
+
+
+
+
+		part 2
+		pose 1
+		part 3
+		pose 0
+		setv ov01 0
+		doif ov01 = 1
+			sets ov06 "learning machine feelings "
+		elif ov01 = 0
+			sets ov06 "learning machine actions "
+		endi
+		mesg writ ownr 3030
+	elif ov00 = 1
+		snde "bep2"
+		setv va50 posl
+		setv va51 post
+		subv va50 202
+		subv va51 204
+		targ ownr
+		part 1
+		pose 22
+		part 17
+		ptxt ""
+		part 2
+		pose 0
+		part 3
+		pose 0
+		part 0
+		setv ov23 0
+		setv ov81 0
+		part 7
+		base 0
+		anim [0]
+		Part 6
+		frat 7
+		anim [0 1 255]
+		setv ov00 0
+		setv ov03 7
+	endi
+endm
+
+scrp 1 1 80 8881
+	lock
+	inst
+	doif ov00 = 1
+		doif ov81 = 0
+			snde "bep2"
+			part 7
+			frat 2
+			base 1
+			anim [0 1 2 3 4 5 6 7 8 9 255]
+			setv ov81 1
+			sets va50 read "learning machine misc words" 1
+			part 17
+			frmt 3 4 2 2 0 0 2
+			ptxt va50
+		elif ov81 = 1
+			snde "bep2"
+			sets va50 read "learning machine misc words" 2
+			part 17
+			frmt 3 4 2 2 0 0 2
+			ptxt va50
+			setv ov81 0
+			part 7
+			base 0
+			anim [0]
+			unlk
+			wait 40
+			sets va50 read "learning machine misc words" 3
+			part 17
+			frmt 3 4 2 2 0 0 2
+			ptxt va50
+		endi
+	else
+		snde "excl"
+	endi
+	slow
+	unlk
+endm
+
+scrp 1 1 80 8677
+	lock
+	doif ov00 = 1
+
+		snde "bep2"
+		part 2
+		pose 1
+		part 3
+		pose 0
+		sets va50 read "learning machine misc words" 4
+		part 17
+		frmt 3 4 2 2 0 0 2
+		ptxt va50
+		setv ov01 0
+		doif ov01 = 1
+			sets ov06 "learning machine feelings "
+		elif ov01 = 0
+			sets ov06 "learning machine actions "
+		endi
+		unlk
+		setv ov03 0
+		doif ov81 = 1
+			wait 20
+			sets va50 read "learning machine misc words" 1
+			part 17
+			frmt 3 4 2 2 0 0 2
+			ptxt va50
+		endi
+		mesg writ ownr 3030
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	else
+		snde "excl"
+	endi
+endm
+
+scrp 1 1 80 8864
+	lock
+	doif ov00 = 1
+
+		snde "bep2"
+		part 3
+		pose 1
+		part 2
+		pose 0
+		sets va50 read "learning machine misc words" 5
+		part 17
+		frmt 3 4 2 2 0 0 2
+		ptxt va50
+		setv ov01 1
+		doif ov01 = 1
+			sets ov06 "learning machine feelings "
+		elif ov01 = 0
+			sets ov06 "learning machine actions "
+		endi
+		unlk
+		setv ov03 0
+		doif ov81 = 1
+			wait 20
+			sets va50 read "learning machine misc words" 1
+			part 17
+			frmt 3 4 2 2 0 0 2
+			ptxt va50
+		endi
+		mesg writ ownr 3030
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	else
+		snde "excl"
+	endi
+endm
+
+scrp 1 1 80 3571
+	inst
+	doif ov00 = 1
+		doif ov81 = 0
+			snde "bep2"
+			part 4
+			pose 1
+			wait 2
+			sets va50 read "learning machine misc words" 6
+			part 17
+			frmt 3 4 2 2 0 0 2
+			ptxt va50
+
+			subv ov03 1
+			mesg writ ownr 3030
+		else
+			snde "excl"
+			sets va50 read "learning machine misc words" 7
+			part 17
+			frmt 3 4 2 2 0 0 2
+			ptxt va50
+			wait 20
+			sets va50 read "learning machine misc words" 8
+			part 17
+			frmt 3 4 2 2 0 0 2
+			ptxt va50
+			wait 20
+			sets va50 read "learning machine misc words" 1
+			part 17
+			frmt 3 4 2 2 0 0 2
+			ptxt va50
+		endi
+	else
+		snde "excl"
+	endi
+endm
+
+scrp 1 1 80 1157
+	inst
+	doif ov00 = 1
+		doif ov81 = 0
+			snde "bep2"
+			part 5
+			pose 1
+			wait 2
+			sets va50 read "learning machine misc words" 6
+			part 17
+			frmt 3 4 2 2 0 0 2
+			ptxt va50
+			addv ov03 1
+			mesg writ ownr 3030
+		else
+			snde "excl"
+			sets va50 read "learning machine misc words" 7
+			part 17
+			frmt 3 4 2 2 0 0 2
+			ptxt va50
+			wait 20
+			sets va50 read "learning machine misc words" 8
+			part 17
+			frmt 3 4 2 2 0 0 2
+			ptxt va50
+			wait 20
+			sets va50 read "learning machine misc words" 1
+			part 17
+			frmt 3 4 2 2 0 0 2
+			ptxt va50
+		endi
+	else
+		snde "excl"
+	endi
+endm
+
+
+scrp 1 1 80 9
+	doif ov00 = 1 and ov81 = 1
+		addv ov03 1
+		mesg writ ownr 3030
+	elif ov00 = 1 and ov81 = 0
+		addv ov55 1
+		doif ov55 = 2
+			sets va50 read "learning machine misc words" 3
+			part 17
+			frmt 3 4 2 2 0 0 2
+			ptxt va50
+			setv ov55 0
+
+		endi
+	endi
+endm
+rscr
+
+enum 1 1 80
+	kill targ
+next
+
+scrx 1 1 80 9
+scrx 1 1 80 5581
+scrx 1 1 80 5598
+scrx 1 1 80 4019
+scrx 1 1 80 1157
+scrx 1 1 80 8864
+scrx 1 1 80 3571
+scrx 1 1 80 8677
+scrx 1 1 80 8881
+scrx 1 1 80 3030

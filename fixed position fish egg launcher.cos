@@ -1,0 +1,409 @@
+new: comp 3 3 67 "fish launcher things" 1 0 0
+attr 4
+bhvr 9
+mvto 4878 2434
+
+pat: butt 1 "fish launcher things" 11 7 -35 -109 1 [] 2000 0
+
+pat: butt 2 "fish launcher things" 0 6 23 -80 1 [] 2001 0
+
+pat: dull 3 "fish launcher things" 6 -56 -94 0
+
+pat: butt 4 "fish launcher things" 9 2 -56 -107 0 [] 1999 0
+
+pat: butt 5 "fish launcher things" 7 2 13 -20 0 [] 2002 0
+
+pat: dull 6 "fish launcher things" 19 -50 58 0
+
+pat: dull 7 "fish launcher things" 29 -40 -118 0
+
+pat: dull 8 "fish launcher things" 33 19 -85 0
+
+pat: dull 9 "bioenergy" 0 6 -109 2
+
+
+prt: inew 0 "input" "fixed fish launcher input" -49 -88 2003
+prt: onew 0 "output" "fixed fish launcher output" -49 -73
+
+
+part 4
+frat 4
+anim [0 1 255]
+
+
+part 9
+pose 5
+setv ov71 5
+
+tran 0 4
+
+
+
+setv ov00 0
+
+setv ov05 2
+
+setv ov01 1
+tick 1250
+
+
+scrp 3 3 67 9
+	lock
+	inst
+	setv va00 game "Bioenergy"
+	doif va00 >= 20 and ov71 < 5
+		addv ov71 1
+		part 9
+		pose ov71
+	endi
+	slow
+endm
+
+
+scrp 3 3 67 3
+	sndc "hit_"
+	prt: bang rand 60 100
+	stim writ from 92 1
+endm
+
+
+scrp 3 3 67 1
+	doif from <> pntr
+		mesg writ ownr 2002
+	endi
+endm
+
+
+scrp 3 3 67 1999
+	lock
+	doif ov00 = 0
+
+		snde "bep2"
+
+		part 7
+		anim [0 1 2 3]
+		part 8
+		anim [0 1 2 3]
+		over
+
+		part 4
+		pose 1
+
+		setv ov00 1
+
+		part 5
+		frat 2
+		anim [0 1 255]
+
+		setv ov05 2
+
+		setv ov01 1
+
+		part 1
+		pose ov05
+
+		part 2
+		pose ov01
+	elif ov00 = 1
+
+		snde "bep2"
+
+		part 4
+		frat 4
+		anim [0 1 255]
+
+		part 5
+		anim [0]
+
+		setv ov05 0
+		part 1
+		pose ov05
+
+		setv ov01 0
+		part 2
+		pose ov01
+
+		part 7
+		anim [3 2 1 0]
+		part 8
+		anim [3 2 1 0]
+
+		setv ov00 0
+	endi
+endm
+
+scrp 3 3 67 2000
+	lock
+	doif ov00 = 1
+		snde "bep2"
+		addv ov05 1
+		doif ov05 = 7
+			setv ov05 2
+		endi
+		part 1
+		pose ov05
+	else
+
+		snde "excl"
+	endi
+endm
+
+scrp 3 3 67 2001
+	lock
+	doif ov00 = 1
+		snde "bep2"
+		addv ov01 1
+		doif ov01 = 6
+			setv ov01 1
+		endi
+		part 2
+		pose ov01
+	else
+
+		snde "excl"
+	endi
+endm
+
+scrp 3 3 67 2002
+	lock
+	doif ov00 = 1
+		snde "bep2"
+		setv va80 -100
+		setv va81 -100
+		reps ov01
+			doif ov71 > 0
+				subv ov71 1
+				part 9
+				pose ov71
+				targ ownr
+				part 6
+				frat 2
+				anim [0 1 2 3 4 5 6 7 8 9]
+				over
+				doif ov05 = 2
+					setv va00 totl 2 18 16
+					addv va00 totl 2 15 18
+					doif va00 <= 75
+
+						inst
+						new: simp 2 18 16 "wysts" 4 88 3000
+						BHVR 32
+						attr 199
+						clac -1
+						elas 50
+						accg 1
+						aero 7
+						perm 75
+						fric 99
+						seta va16 targ
+						targ ownr
+						snde "pop1"
+						targ va16
+						mvto 4856 2507
+
+						setv ov60 200
+						setv ov61 30
+						tick 10
+						velo rand -1 1 10
+						slow
+					else
+						snde "excl"
+						inst
+						new: simp 43 93 48 "launcher" 1 31 5000
+						attr 0
+						seta va16 targ
+						mvto 4843 2325
+						slow
+						wait 10
+						targ va16
+						kill targ
+					endi
+
+				elif ov05 = 3
+
+					setv va00 totl 2 18 14
+					addv va00 totl 2 15 14
+					doif va00 <= 75
+						inst
+						new: simp 2 18 14 "angel" 4 153 500
+						attr 199
+						bhvr 48
+						clac -1
+						elas 50
+						accg 1
+						aero 7
+						perm 75
+						fric 99
+						seta va16 targ
+						targ ownr
+						snde "pop1"
+						targ va16
+						mvto 4856 2507
+
+						setv ov60 200
+						setv ov61 30
+						tick 10
+						velo rand -1 1 10
+						slow
+					else
+						snde "excl"
+						inst
+						new: simp 43 93 48 "launcher" 1 31 5000
+						attr 0
+						seta va16 targ
+						mvto 4843 2325
+						slow
+						wait 10
+						targ va16
+						kill targ
+					endi
+
+				elif ov05 = 4
+					setv va00 totl 2 18 17
+					addv va00 totl 2 15 19
+					doif va00 <= 75
+
+						inst
+						new: simp 2 18 17 "neon" 4 188 4000
+						attr 199
+						BHVR 48
+						clac -1
+						elas 50
+						accg 1
+						aero 7
+						perm 75
+						fric 99
+						seta va16 targ
+						targ ownr
+						snde "pop1"
+						targ va16
+						mvto 4856 2507
+
+						setv ov60 200
+						setv ov61 30
+						tick 10
+						velo rand -1 1 10
+						slow
+					else
+						snde "excl"
+						inst
+						new: simp 43 93 48 "launcher" 1 31 5000
+						attr 0
+						seta va16 targ
+						mvto 4843 2325
+						slow
+						wait 10
+						targ va16
+						kill targ
+					endi
+
+				elif ov05 = 5
+					setv va00 totl 2 18 21
+					addv va00 totl 2 15 16
+					doif va00 <= 75
+
+						inst
+						new: simp 2 18 21 "graspit" 4 200 4000
+						BHVR 48
+						attr 199
+						clac -1
+						elas 50
+						accg 1
+						aero 7
+						perm 75
+						fric 99
+						seta va16 targ
+						targ ownr
+						snde "pop1"
+						targ va16
+						mvto 4856 2507
+						setv ov61 30
+
+						setv ov60 200
+						tick 10
+						velo rand -1 1 10
+						slow
+					else
+						snde "excl"
+						inst
+						new: simp 43 93 48 "launcher" 1 31 5000
+						attr 0
+						seta va16 targ
+						mvto 4843 2325
+						slow
+						wait 10
+						targ va16
+						kill targ
+					endi
+
+				elif ov05 = 6
+					setv va00 totl 2 18 15
+					addv va00 totl 2 15 15
+					doif va00 <= 75
+
+						inst
+						new: simp 2 18 15 "clown" 4 150 4000
+						attr 199
+						BHVR 48
+						clac -1
+						elas 40
+						accg 1
+						aero 7
+						perm 75
+						fric 99
+						setv ov61 30
+						seta va16 targ
+						targ ownr
+						snde "pop1"
+						targ va16
+						mvto 4856 2507
+						tick 10
+
+						setv ov60 200
+						velo rand -1 1 10
+						slow
+					else
+						snde "excl"
+						inst
+						new: simp 43 93 48 "launcher" 1 31 5000
+						attr 0
+						seta va16 targ
+						mvto 4843 2325
+						slow
+						wait 10
+						targ va16
+						kill targ
+					endi
+
+				endi
+				targ ownr
+				prt: send 0 255
+				part 6
+				anim [0]
+
+			endi
+		repe
+	else
+
+		snde "excl"
+	endi
+endm
+
+scrp 3 3 67 2003
+	setv va00 _p1_
+	doif va00 > 0 and ov00 = 1
+		mesg writ ownr 2002
+	endi
+endm
+
+rscr
+enum 3 3 67
+	kill targ
+next
+scrx 3 3 67 1999
+scrx 3 3 67 2000
+scrx 3 3 67 2001
+scrx 3 3 67 2002
+scrx 3 3 67 2003
+scrx 3 3 67 1
+scrx 3 3 67 3

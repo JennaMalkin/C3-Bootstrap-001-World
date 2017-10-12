@@ -1,0 +1,131 @@
+
+
+
+
+
+
+
+
+
+
+scrp 4 0 0 32
+	loop
+		doif rand 0 1 eq 0
+			pose 57
+			wait rand 20 40
+		else
+			pose 59
+			wait rand 1 10
+			pose 60
+			wait rand 1 10
+		endi
+
+
+		stim writ targ 12 1
+	ever
+endm
+
+
+
+
+
+
+
+
+
+
+scrp 4 0 0 45
+	appr
+	inst
+	doif _it_ = null
+		wait 10
+		stop
+	endi
+
+	touc
+	inst
+	doif _it_ = null
+		wait 10
+		stop
+	endi
+
+	doif byit eq 0
+
+		stim writ targ 0 1
+		wait 10
+		stop
+	endi
+	targ _it_
+
+	doif dead ne 0
+		targ ownr
+
+		stim writ targ 0 1
+		wait 10
+		stop
+	endi
+
+
+	setv va11 gnus
+	doif drea eq 1
+		drea 0
+	else
+		aslp 0
+	endi
+
+	nohh
+	targ ownr
+
+	setv va10 gnus
+
+	anim [111 112 113 114 111]
+	doif gnus ne 2
+		snde "spnk"
+	else
+
+		snde "punc"
+	endi
+
+	stim writ ownr 44 1
+
+	mesg writ _it_ 3
+
+
+	inst
+
+	setv va00 0.0
+
+	doif cage eq 0
+		setv va00 0
+
+	elif cage eq 1
+		setv va00 0.25
+
+	elif cage eq 2
+		setv va00 0.5
+
+	elif cage eq 3
+		setv va00 0.75
+
+	elif cage eq 4
+		setv va00 1.0
+
+	elif cage eq 5
+		setv va00 0.5
+
+	elif cage eq 6
+		setv va00 0.0
+	endi
+
+
+	addv va00 1.0
+
+	doif va10 = va11
+		mulv va00 0.25
+	endi
+
+	doif va00 ne 0.0
+
+		stim writ _it_ 4 va00
+	endi
+endm

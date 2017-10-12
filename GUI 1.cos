@@ -1,0 +1,2034 @@
+
+new: comp 1 2 13 "GUI1" 1 0 8900
+attr 288
+
+
+
+
+setv ov99 -1
+
+setv ov10 28
+setv ov11 0
+setv va10 wndw
+subv va10 ov10
+flto va10 ov11
+
+
+
+pat: butt 1 "gui1" 13 2 30 165 0 [] 1000 1
+part 1
+pose 0
+
+pat: butt 2 "gui1" 15 2 276 165 0 [] 1001 1
+part 2
+pose 0
+
+
+pat: butt 3 "gui1" 17 2 58 165 0 [] 1002 1
+part 3
+pose 1
+
+pat: butt 4 "gui1" 19 2 237 165 0 [] 1003 1
+part 4
+pose 0
+
+pat: butt 5 "blnk" 0 1 36 15 1 [] 1004 0
+pat: butt 6 "blnk" 0 1 123 15 1 [] 1005 0
+pat: butt 7 "blnk" 0 1 210 15 1 [] 1006 0
+pat: butt 8 "blnk" 0 1 36 92 1 [] 1007 0
+pat: butt 9 "blnk" 0 1 123 92 1 [] 1008 0
+pat: butt 10 "blnk" 0 1 210 92 1 [] 1009 0
+
+pat: fixd 11 "gui1" 12 29 75 0 "WhiteOnTransparentChars"
+part 11
+frmt 2 2 0 0 0 0 2
+pat: fixd 12 "gui1" 12 115 75 0 "WhiteOnTransparentChars"
+part 12
+frmt 2 2 0 0 0 0 2
+pat: fixd 13 "gui1" 12 202 75 0 "WhiteOnTransparentChars"
+part 13
+frmt 2 2 0 0 0 0 2
+pat: fixd 14 "gui1" 12 29 151 0 "WhiteOnTransparentChars"
+part 14
+frmt 2 2 0 0 0 0 2
+pat: fixd 15 "gui1" 12 115 151 0 "WhiteOnTransparentChars"
+part 15
+frmt 2 2 0 0 0 0 2
+pat: fixd 16 "gui1" 12 202 151 0 "WhiteOnTransparentChars"
+part 16
+frmt 2 2 0 0 0 0 2
+
+pat: butt 17 "gui1" 21 1 0 1 0 [] 0 0
+
+
+pat: fixd 18 "gui1" 29 101 174 0 "WhiteOnTransparentChars"
+part 18
+frmt 2 2 0 0 0 0 0
+ptxt read "Import Text" 6
+pat: fixd 19 "gui1" 29 135 174 0 "WhiteOnTransparentChars"
+part 19
+frmt 2 2 0 0 0 0 1
+ptxt read "Import Text" 7
+
+seta ov16 null
+seta ov17 null
+seta ov18 null
+seta ov19 null
+seta ov20 null
+seta ov21 null
+
+
+
+
+
+
+
+new: comp 1 2 12 "GUI1" 1 1 8900
+
+
+
+setv ov99 -1
+
+
+pat: butt 1 "gui1" 8 2 162 14 0 [] 1000 0
+part 1
+anim [0]
+
+pat: butt 2 "gui1" 10 2 99 14 0 [] 1001 0
+
+
+pat: butt 3 "gui1" 22 2 37 74 0 [] 1002 0
+part 3
+pose 0
+
+pat: butt 4 "gui1" 24 2 37 116 0 [] 1003 0
+part 4
+pose 0
+
+pat: butt 5 "gui1" 26 2 36 14 0 [] 1004 0
+part 5
+anim [0]
+
+pat: fixd 6 "gui1" 28 33 51 0 "WhiteOnTransparentChars"
+sets va00 read "Option Text" 0
+part 6
+frmt 2 2 0 0 0 0 2
+ptxt va00
+
+pat: fixd 7 "gui1" 29 72 51 0 "WhiteOnTransparentChars"
+sets va00 read "Option Text" 1
+part 7
+frmt 2 2 0 0 0 0 2
+ptxt va00
+
+pat: fixd 8 "euro gui" 0 153 51 0 "WhiteOnTransparentChars"
+sets va00 read "Option Text" 3
+part 8
+frmt 2 2 0 0 0 0 2
+ptxt va00
+
+pat: fixd 9 "gui1" 30 70 82 0 "WhiteOnTransparentChars"
+sets va00 read "Option Text" 4
+part 9
+frmt 2 2 0 0 0 0 0
+ptxt va00
+
+pat: fixd 10 "gui1" 30 70 124 0 "WhiteOnTransparentChars"
+sets va00 read "Option Text" 6
+part 10
+frmt 2 2 0 0 0 0 0
+ptxt va00
+
+
+pat: text 11 "gui1" 30 61 167 0 1005 "WhiteOnTransparentChars"
+part 11
+frmt 2 2 0 0 0 0 0
+ptxt hand
+
+
+attr 308
+perm 60
+clac 0
+setv ov10 28
+setv ov11 200
+setv va10 wndw
+subv va10 ov10
+flto va10 ov11
+
+
+new: vhcl 1 2 11 "GUI1" 4 0 8900
+seta game "c3_inventory" targ
+
+pose 2
+
+
+
+setv ov99 -1
+
+attr 316
+perm 60
+clac 0
+cabn 25 15 355 192
+cabv grap 4392 1434
+cabw 64
+setv ov10 28
+setv ov11 395
+setv va10 wndw
+subv va10 ov10
+flto va10 ov11
+
+
+new: comp 1 2 14 "GUI1" 1 3 8900
+imsk 8
+attr 308
+perm 60
+clac -1
+
+pat: butt 1 "GUI1" 5 2 72 9 1 [] 1000 0
+part 1
+pose 0
+
+
+pat: butt 2 "blnk" 0 1 6 3 0 [] 1001 0
+
+pat: fixd 3 "gui1" 12 8 72 0 "WhiteOnTransparentChars"
+part 3
+frmt 2 2 0 0 0 0 0
+
+pat: dull 4 "gender" 0 33 50 10
+
+pat: butt 5 "gui1" 12 1 8 72 0 [] 1002 0
+
+flto 0 0
+
+
+
+
+new: simp 1 2 35 "indicator" 11 10 8910
+attr 32
+seta va99 targ
+rtar 1 2 13
+doif targ ne null
+	seta va00 targ
+endi
+targ va99
+frel va00
+flto -10000 -10000
+pose 10
+
+
+scrp 1 2 12 1005
+	part 11
+	hand ptxt
+	targ game "c3_default_focus"
+	part game "c3_default_focus_part"
+	fcus
+endm
+
+
+scrp 1 2 13 1
+	inst
+	pat: kill 17
+
+
+	setv ov00 1
+	part 1
+	pose 0
+	part 2
+	pose 0
+
+	doif norn ne null
+		part 4
+		pose 1
+	else
+		part 4
+		pose 0
+	endi
+
+	setv va00 5
+	setv va01 11
+	loop
+		part va00
+		gall "blnk" 0
+		addv va00 1
+		part va01
+		ptxt " "
+		addv va01 1
+	untl va00 eq 11
+
+	setv va00 16
+	loop
+		seta avar ownr va00 null
+		addv va00 1
+	untl va00 eq 22
+
+	setv va00 1
+
+	doif game "Grettin" eq 1
+		setv va73 0
+	else
+		setv va73 1
+	endi
+
+	enum 4 va73 0
+
+		doif va00 lt 7
+			seta va50 targ
+			sets va10 face
+			setv va11 face
+			sets va12 gtos 0
+			doif ooww va12 eq 3
+				sets va13 hist name va12
+				doif va13 eq ""
+					sets va13 "?"
+				endi
+
+				targ ownr
+				setv va01 va00
+				addv va01 4
+
+				doif va01 eq 5
+					seta ov16 va50
+				elif va01 eq 6
+					seta ov17 va50
+				elif va01 eq 7
+					seta ov18 va50
+				elif va01 eq 8
+					seta ov19 va50
+				elif va01 eq 9
+					seta ov20 va50
+				elif va01 eq 10
+					seta ov21 va50
+				endi
+
+
+				part va01
+				gall va10 va11
+				addv va01 6
+
+				part va01
+				ptxt va13
+				addv va00 1
+			endi
+		else
+
+			sets va12 gtos 0
+			doif ooww va12 eq 3
+				targ ownr
+				part 2
+				pose 1
+			endi
+		endi
+	next
+
+	lock
+	slow
+
+	sndc "gui1"
+	velo -20 0
+	wait 11
+	velo -10 0
+	wait 4
+	velo -5 0
+	wait 5
+	velo 0 0
+
+	pat: butt 17 "gui1" 21 1 0 1 0 [] 1 0
+
+
+	negv ov99
+endm
+scrp 1 2 13 2
+	lock
+	sndc "gui3"
+	pat: kill 17
+	velo 20 0
+	wait 10
+	velo 10 0
+	wait 5
+	velo 5 0
+	wait 5
+	velo 0 0
+	setv va10 wndw
+	subv va10 ov10
+	flto va10 ov11
+
+	pat: butt 17 "gui1" 21 1 0 1 0 [] 0 0
+
+	negv ov99
+endm
+
+
+scrp 1 2 14 1000
+
+
+	targ pntr
+	doif held ne null
+		sndc "buzz"
+	else
+		targ ownr
+		doif ov00 eq 0
+			setv ov00 1
+			part 1
+			pose 1
+			wait 1
+
+			rtar 1 2 4
+			mesg wrt+ targ 73 112 0 0
+		else
+			setv ov00 0
+			part 1
+			pose 0
+			wait 1
+			rtar 1 2 4
+			mesg wrt+ targ 73 112 0 0
+		endi
+	endi
+endm
+
+scrp 1 2 14 1001
+	inst
+	doif norn ne null
+		targ norn
+		doif room targ <> -1 and carr <> game "c3_inventory"
+			cmrt 0
+		endi
+	else
+		sndc "buzz"
+	endi
+endm
+scrp 1 2 14 76
+	inst
+	doif _p1_ = 2
+		doif pure = 0
+			targ pntr
+			doif held = null
+				doif hots = ownr
+					rtar 1 2 6
+					doif targ <> null
+						mesg wrt+ targ 73 9 0 0
+					endi
+				endi
+			endi
+		endi
+	endi
+endm
+
+
+scrp 1 2 14 1002
+	inst
+	doif norn ne null
+		targ norn
+		seta va05 targ
+		new: comp 1 2 23 "creature_history" 32 0 8520
+		mesg wrt+ targ 1000 va05 1001 0
+	endi
+endm
+
+scrp 1 2 11 1
+	lock
+	sndc "gui1"
+	clac -1
+	velo -20 0
+	wait 12
+	velo -10 0
+	wait 8
+	velo -5 0
+	wait 3
+	velo 0 0
+
+
+	negv ov99
+	clac 1
+endm
+scrp 1 2 11 2
+	lock
+	sndc "gui3"
+	clac -1
+	velo 20 0
+	wait 10
+	velo 10 0
+	wait 8
+	velo 5 0
+	wait 6
+	velo 0 0
+	setv va10 wndw
+	subv va10 ov10
+	flto va10 ov11
+
+
+	negv ov99
+	clac 0
+endm
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+scrp 1 2 12 1
+	lock
+	sndc "gui1"
+	clac -1
+	velo -20 0
+	wait 6
+	velo -10 0
+	wait 4
+	velo -5 0
+	wait 5
+	velo 0 0
+
+	negv ov99
+
+	clac 1
+endm
+scrp 1 2 12 2
+	lock
+	part 11
+	hand ptxt
+	targ game "c3_default_focus"
+	part game "c3_default_focus_part"
+	fcus
+	targ ownr
+	sndc "gui3"
+	clac -1
+	velo 20 0
+	wait 5
+	velo 10 0
+	wait 5
+	velo 5 0
+	wait 5
+	velo 0 0
+	setv va10 wndw
+	subv va10 ov10
+	flto va10 ov11
+
+
+	negv ov99
+	clac 0
+endm
+
+
+scrp 1 2 12 1000
+	sndc "lg_1"
+	part 1
+	anim [1 1 1 1 1 0]
+	inst
+
+	rtar 1 2 6
+	mesg wrt+ targ 73 27 0 0
+	slow
+endm
+
+scrp 1 2 12 1001
+	inst
+	sndc "lg_1"
+	doif ov00 eq 0
+		part 2
+		pose 1
+		sets va52 read "Option Text" 2
+		part 7
+		ptxt va52
+
+		setv ov00 1
+		wpau 1
+		enum 1 0 0
+			doif gnus eq 2 and spcs eq 12
+				paus 0
+			else
+				paus 1
+			endi
+		next
+		enum 2 0 0
+			doif gnus eq 1 and spcs eq 1
+				paus 0
+			else
+				paus 1
+			endi
+		next
+		enum 3 0 0
+
+			paus 1
+
+		next
+		enum 4 0 0
+			paus 1
+		next
+		enum 1 2 6
+			paus 0
+		next
+	else
+		wpau 0
+		enum 1 0 0
+			paus 0
+		next
+		enum 2 0 0
+			paus 0
+		next
+		enum 3 0 0
+			paus 0
+		next
+		enum 4 0 0
+			paus 0
+		next
+
+		part 2
+		pose 0
+		sets va52 read "Option Text" 1
+		part 7
+		ptxt va52
+		setv ov00 0
+	endi
+
+
+endm
+
+scrp 1 2 12 1002
+	sndc "lg_1"
+	part 3
+	doif pose eq 0
+		pose 1
+		sets va52 read "Option Text" 5
+		part 9
+		ptxt va52
+	else
+		pose 0
+		sets va52 read "Option Text" 4
+		part 9
+		ptxt va52
+	endi
+	setv va00 mute 3 1
+endm
+
+scrp 1 2 12 1003
+	sndc "lg_1"
+	part 4
+	doif pose eq 0
+		pose 1
+		sets va52 read "Option Text" 7
+		part 10
+		ptxt va52
+	else
+		pose 0
+		sets va52 read "Option Text" 6
+		part 10
+		ptxt va52
+	endi
+	setv va00 mute 3 2
+endm
+
+scrp 1 2 12 1004
+	sndc "lg_1"
+	inst
+
+	setv va99 1
+	enum 1 2 34
+		setv va99 0
+	next
+	doif va99 ne 0
+		part 5
+		anim [1 1 1 1 1 0]
+		lock
+		slow
+		over
+		inst
+		new: comp 1 2 34 "new_agent_help" 1 0 9045
+		attr 304
+
+		pat: fixd 1 "new_agent_help" 1 25 59 1 "WhiteOnTransparentChars"
+		part 1
+
+		frmt 8 6 7 0 3 0 2
+
+		sets va00 read "About Box" 1
+		ptxt va00
+
+
+		pat: fixd 3 "new_agent_help" 12 22 25 1 "WhiteOnTransparentChars"
+		part 3
+		sets va00 read "About Box" 0
+		adds va00 vtos vmjr
+		adds va00 "."
+		adds va00 vtos vmnr
+		doif reaq "patch_level" = 1
+			adds va00 "/"
+			adds va00 read "patch_level" 0
+		endi
+		ptxt va00
+		setv va90 wndw
+		divv va90 2
+		setv va91 wndh
+		divv va91 2
+		setv va92 wdth
+		divv va92 2
+		setv va93 hght
+		divv va93 2
+
+		subv va90 va92
+		subv va91 va93
+
+		flto va90 va91
+
+		pat: butt 2 "new_agent_help" 2 2 237 22 0 [] 1000 0
+
+		pat: butt 4 "new_agent_help" 9 3 228 296 0 [] 1001 0
+
+		pat: butt 5 "new_agent_help" 6 3 20 296 0 [] 1002 0
+
+		pat: fixd 6 "new_agent_help" 15 119 306 1 "WhiteOnTransparentChars"
+		mesg writ targ 1003
+	endi
+endm
+scrp 1 2 34 1000
+	part 2
+	anim [0 1]
+	wait 10
+	kill ownr
+endm
+
+
+
+scrp 1 2 34 1001
+	part 1
+	setv va99 page
+	setv va06 npgs
+	addv va99 1
+
+	doif va99 < npgs
+		part 4
+		anim [ 2 2 2 ]
+		over
+		part 1
+		page va99
+	endi
+
+
+	mesg writ ownr 1003
+endm
+
+
+scrp 1 2 34 1002
+	part 1
+	setv va99 page
+
+	doif va99 > 0
+		part 5
+		anim [ 2 2 2 ]
+		over
+		part 1
+		subv va99 1
+		page va99
+	endi
+
+
+	mesg writ ownr 1003
+endm
+
+
+scrp 1 2 34 1003
+	inst
+
+
+	part 1
+	setv va06 npgs
+	setv va07 page
+	addv va07 1
+
+
+	sets va08 vtos va07
+	adds va08 "/"
+	adds va08 vtos va06
+	part 6
+	ptxt va08
+
+
+	part 5
+	doif va07 = 1
+		anim [0]
+	else
+		anim [1]
+	endi
+
+
+	part 4
+	doif va07 = va06
+		anim [0]
+	else
+		anim [1]
+	endi
+endm
+
+
+
+
+
+scrp 1 2 200 123
+	inst
+	doif ov99 lt 0
+		setv va10 wndw
+		subv va10 ov10
+		flto va10 ov11
+	else
+		mesg writ ownr 1
+	endi
+endm
+
+scrp 1 2 11 123
+	inst
+	doif ov99 lt 0
+		setv va10 wndw
+		subv va10 ov10
+		flto va10 ov11
+	else
+		mesg writ ownr 1
+	endi
+endm
+
+scrp 1 2 12 123
+	inst
+
+
+
+
+
+	setv va00 mute 3 0
+
+
+
+
+
+
+	gsub none
+
+
+	doif va00 eq 3
+		gsub sfx_
+		gsub musi
+	endi
+
+
+	doif va00 eq 1
+		gsub sfx_
+	endi
+
+
+	doif va00 eq 2
+		gsub musi
+	endi
+
+	doif ov99 lt 0
+		setv va10 wndw
+		subv va10 ov10
+		flto va10 ov11
+	else
+		mesg writ ownr 1
+	endi
+
+
+	subr sfx_
+		part 3
+		doif pose eq 0
+			pose 1
+			sets va52 read "Option Text" 5
+			part 9
+			ptxt va52
+		endi
+	retn
+
+
+	subr musi
+		part 4
+		doif pose eq 0
+			pose 1
+			sets va52 read "Option Text" 7
+			part 10
+			ptxt va52
+		endi
+	retn
+
+
+	subr none
+		part 3
+		doif pose eq 1
+			pose 0
+			sets va52 read "Option Text" 4
+			part 9
+			ptxt va52
+		endi
+		part 4
+		doif pose eq 1
+			pose 0
+			sets va52 read "Option Text" 6
+			part 10
+			ptxt va52
+		endi
+	retn
+
+
+endm
+
+scrp 1 2 13 123
+	inst
+	doif ov99 lt 0
+		setv va10 wndw
+		subv va10 ov10
+		flto va10 ov11
+	else
+		mesg writ ownr 1
+	endi
+endm
+
+
+
+scrp 1 2 14 120
+	inst
+	doif norn ne null
+
+		targ norn
+		trck null 0 0 0 0
+		doif hhld <> targ
+			doif room targ <> -1 and carr <> game "c3_inventory"
+				cmrt 0
+			endi
+		endi
+		trck norn 70 70 1 0
+
+
+
+		rtar 1 2 13
+		doif targ ne null
+			part 4
+			pose 1
+		endi
+		targ _p1_
+
+		sets va98 face
+
+		setv va99 face
+
+		setv va97 spcs
+
+		sets va01 gtos 0
+
+		sets va02 hist name va01
+		doif va02 eq ""
+			sets va02 "?"
+		endi
+
+
+		targ ownr
+		part 3
+		ptxt va02
+
+		part 4
+		pose va97
+
+		part 2
+		gall va98 va99
+	else
+
+
+		targ ownr
+		part 2
+		gall "blnk" 0
+		part 3
+		ptxt ""
+		part 4
+		pose 0
+	endi
+endm
+
+scrp 1 2 13 1000
+	inst
+
+	setv va00 5
+	setv va01 11
+	loop
+		part va00
+		gall "blnk" 0
+		addv va00 1
+		part va01
+		ptxt " "
+		addv va01 1
+	untl va00 eq 11
+
+	setv va00 16
+	loop
+		seta avar ownr va00 null
+		addv va00 1
+	untl va00 eq 22
+
+
+
+	part 1
+	pose 0
+	part 2
+	pose 0
+
+	setv va99 ov00
+	setv va98 ov00
+	subv va99 2
+	subv va98 1
+	mulv va99 6
+	mulv va98 6
+	addv va99 1
+	addv va98 1
+	setv va00 1
+	setv va02 1
+
+	doif game "Grettin" eq 0
+		setv va73 1
+	else
+		setv va73 0
+	endi
+
+	enum 4 va73 0
+		doif va00 lt va99
+			sets va12 gtos 0
+			doif ooww va12 eq 3
+				targ ownr
+				part 1
+				pose 1
+				part 2
+				pose 0
+				addv va00 1
+			endi
+		elif va00 lt va98
+			seta va50 targ
+			sets va10 face
+			setv va11 face
+			sets va12 gtos 0
+			doif ooww va12 eq 3
+				sets va13 hist name va12
+				doif va13 eq ""
+					sets va13 "?"
+				endi
+				targ ownr
+				setv va01 va02
+				addv va01 4
+
+				doif va01 eq 5
+					seta ov16 va50
+				elif va01 eq 6
+					seta ov17 va50
+				elif va01 eq 7
+					seta ov18 va50
+				elif va01 eq 8
+					seta ov19 va50
+				elif va01 eq 9
+					seta ov20 va50
+				elif va01 eq 10
+					seta ov21 va50
+				endi
+
+
+				part va01
+				gall va10 va11
+				addv va01 6
+
+				part va01
+				ptxt va13
+				addv va02 1
+				addv va00 1
+			endi
+		else
+
+			sets va12 gtos 0
+			doif ooww va12 eq 3
+				targ ownr
+				part 2
+				pose 1
+				addv va00 1
+			endi
+		endi
+
+	next
+	subv ov00 1
+
+
+
+	rtar 1 2 35
+	doif targ ne null
+		mesg writ targ 120
+	endi
+endm
+
+
+
+
+scrp 1 2 13 1001
+
+
+
+
+	inst
+
+	part 1
+	pose 0
+	part 2
+	pose 0
+
+
+	setv va00 5
+	setv va01 11
+	loop
+		part va00
+		gall "blnk" 0
+		addv va00 1
+		part va01
+		ptxt " "
+		addv va01 1
+	untl va00 eq 11
+
+	setv va00 16
+	loop
+		seta avar ownr va00 null
+		addv va00 1
+	untl va00 eq 22
+
+
+
+	setv va99 ov00
+	setv va98 ov00
+	addv va98 1
+	mulv va99 6
+	mulv va98 6
+	addv va99 1
+	addv va98 1
+	setv va00 1
+	setv va02 1
+
+	doif game "Grettin" eq 0
+		setv va73 1
+	else
+		setv va73 0
+	endi
+
+	enum 4 va73 0
+		doif va00 lt va99
+			sets va12 gtos 0
+			doif ooww va12 eq 3
+				targ ownr
+				part 1
+				pose 1
+				part 2
+				pose 0
+				addv va00 1
+			endi
+		elif va00 lt va98
+			seta va50 targ
+			sets va10 face
+			setv va11 face
+			sets va12 gtos 0
+			doif ooww va12 eq 3
+				sets va13 hist name va12
+				doif va13 eq ""
+					sets va13 "?"
+				endi
+				targ ownr
+				setv va01 va02
+				addv va01 4
+
+				doif va01 eq 5
+					seta ov16 va50
+				elif va01 eq 6
+					seta ov17 va50
+				elif va01 eq 7
+					seta ov18 va50
+				elif va01 eq 8
+					seta ov19 va50
+				elif va01 eq 9
+					seta ov20 va50
+				elif va01 eq 10
+					seta ov21 va50
+				endi
+
+
+				part va01
+				gall va10 va11
+				addv va01 6
+
+				part va01
+				ptxt va13
+				addv va02 1
+				addv va00 1
+			endi
+		else
+
+			sets va12 gtos 0
+			doif ooww va12 eq 3
+				targ ownr
+				part 2
+				pose 1
+				addv va00 1
+			endi
+		endi
+
+	next
+	addv ov00 1
+
+
+
+	rtar 1 2 35
+	doif targ ne null
+		mesg writ targ 120
+	endi
+endm
+
+
+
+
+
+scrp 1 2 13 1004
+
+	doif ov16 ne null
+		targ ov16
+		norn targ
+	endi
+endm
+
+scrp 1 2 13 1005
+
+	doif ov17 ne null
+		targ ov17
+		norn targ
+	endi
+endm
+
+scrp 1 2 13 1006
+
+	doif ov18 ne null
+		targ ov18
+		norn targ
+	endi
+endm
+
+scrp 1 2 13 1007
+
+	doif ov19 ne null
+		targ ov19
+		norn targ
+	endi
+endm
+
+scrp 1 2 13 1008
+
+	doif ov20 ne null
+		targ ov20
+		norn targ
+	endi
+endm
+
+scrp 1 2 13 1009
+
+	doif ov21 ne null
+		targ ov21
+		norn targ
+	endi
+endm
+
+
+scrp 1 2 13 127
+	inst
+
+
+	setv va00 5
+	setv va01 11
+	loop
+		part va00
+		gall "blnk" 0
+		addv va00 1
+		part va01
+		ptxt " "
+		addv va01 1
+	untl va00 eq 11
+
+	setv va00 16
+	loop
+		seta avar ownr va00 null
+		addv va00 1
+	untl va00 eq 21
+
+
+	setv ov00 1
+	part 1
+	pose 0
+	part 2
+	pose 0
+
+	doif norn ne null
+		part 4
+		pose 1
+	endi
+
+	setv va00 1
+	doif game "Grettin" eq 0
+		setv va73 1
+	else
+		setv va73 0
+	endi
+
+	enum 4 va73 0
+
+		doif va00 lt 7
+			seta va50 targ
+			sets va10 face
+			setv va11 face
+			sets va12 gtos 0
+			doif ooww va12 eq 3
+				sets va13 hist name va12
+				doif va13 eq ""
+					sets va13 "?"
+				endi
+
+				targ ownr
+				setv va01 va00
+				addv va01 4
+
+				doif va01 eq 5
+					seta ov16 va50
+				elif va01 eq 6
+					seta ov17 va50
+				elif va01 eq 7
+					seta ov18 va50
+				elif va01 eq 8
+					seta ov19 va50
+				elif va01 eq 9
+					seta ov20 va50
+				elif va01 eq 10
+					seta ov21 va50
+				endi
+
+
+				part va01
+				gall va10 va11
+				addv va01 6
+
+				part va01
+				ptxt va13
+				addv va00 1
+			endi
+		else
+
+			sets va12 gtos 0
+			doif ooww va12 eq 3
+				targ ownr
+				part 2
+				pose 1
+			endi
+		endi
+	next
+endm
+
+scrp 1 2 13 120
+	inst
+
+
+
+	setv va00 5
+	setv va01 11
+	loop
+		part va00
+		gall "blnk" 0
+		addv va00 1
+		part va01
+		ptxt " "
+		addv va01 1
+	untl va00 eq 11
+
+	setv va00 16
+	loop
+		seta avar ownr va00 null
+		addv va00 1
+	untl va00 eq 21
+
+
+	setv ov00 1
+	part 1
+	pose 0
+
+	doif norn ne null
+		part 4
+		pose 1
+	else
+		part 4
+		pose 0
+	endi
+
+	setv va00 1
+	doif game "Grettin" eq 0
+		setv va73 1
+	else
+		setv va73 0
+	endi
+
+	enum 4 va73 0
+
+		doif va00 lt 7
+			seta va50 targ
+			sets va10 face
+			setv va11 face
+			sets va12 gtos 0
+			doif ooww va12 eq 3
+				sets va13 hist name va12
+				doif va13 eq ""
+					sets va13 "?"
+				endi
+
+				targ ownr
+				setv va01 va00
+				addv va01 4
+
+				doif va01 eq 5
+					seta ov16 va50
+				elif va01 eq 6
+					seta ov17 va50
+				elif va01 eq 7
+					seta ov18 va50
+				elif va01 eq 8
+					seta ov19 va50
+				elif va01 eq 9
+					seta ov20 va50
+				elif va01 eq 10
+					seta ov21 va50
+				endi
+
+
+				part va01
+				gall va10 va11
+				addv va01 6
+
+				part va01
+				ptxt va13
+				addv va00 1
+			endi
+		else
+			targ ownr
+			part 2
+			pose 1
+		endi
+	next
+endm
+
+
+scrp 1 2 14 127
+	inst
+	doif norn ne null
+		rtar 1 2 13
+		doif targ ne null
+			part 4
+			pose 1
+		endi
+		targ norn
+
+		sets va98 face
+
+		setv va99 face
+
+		sets va01 gtos 0
+		doif ooww va01 eq 3
+
+			sets va02 hist name va01
+			doif va02 eq ""
+				sets va02 "?"
+			endi
+
+
+			targ ownr
+			part 3
+			ptxt va02
+
+
+			part 2
+			gall va98 va99
+		else
+			norn null
+			targ ownr
+			part 2
+			gall "blnk" 0
+			part 3
+			ptxt ""
+			part 4
+			pose 0
+		endi
+	else
+		targ ownr
+		part 2
+		gall "blnk" 0
+		part 3
+		ptxt ""
+		part 4
+		pose 0
+	endi
+	rtar 1 2 35
+	doif targ ne null
+		mesg writ targ 120
+	endi
+endm
+
+scrp 1 2 14 8
+	mesg writ ownr 127
+endm
+
+
+
+scrp 1 2 13 1002
+	inst
+	pray refr
+
+
+	setv va99 pray coun "EXPC"
+	enum 1 2 32
+		setv va99 0
+	next
+	doif va99 ne 0
+		new: comp 1 2 32 "new_agent_help" 1 0 9025
+		attr 304
+
+		pat: butt 2 "new_agent_help" 2 2 237 22 0 [] 1000 0
+
+		pat: butt 4 "new_agent_help" 10 2 228 296 0 [] 1001 0
+
+		pat: butt 5 "new_agent_help" 7 2 20 296 0 [] 1002 0
+
+		pat: fixd 3 "new_agent_help" 12 22 22 1 "WhiteOnTransparentChars"
+		part 3
+		ptxt read "Import" 0
+
+		pat: butt 8 "new_agent_help" 13 2 122 291 0 [] 1003 0
+
+		sets ov99 pray next "EXPC" ""
+
+		pat: dull 6 "blnk" 0 26 56 1
+
+
+
+
+		pat: fixd 7 "new_agent_help" 12 26 140 1 "WhiteOnTransparentChars"
+
+		pat: fixd 9 "new_agent_help" 12 26 170 1 "WhiteOnTransparentChars"
+
+		pat: fixd 10 "new_agent_help" 12 26 200 1 "WhiteOnTransparentChars"
+
+		pat: fixd 11 "new_agent_help" 12 26 230 1 "WhiteOnTransparentChars"
+
+		pat: fixd 12 "new_agent_help" 12 26 260 1 "WhiteOnTransparentChars"
+
+
+
+		setv va90 wndw
+		divv va90 2
+		setv va91 wndh
+		divv va91 2
+		setv va92 wdth
+		divv va92 2
+		setv va93 hght
+		divv va93 2
+
+		subv va90 va92
+		subv va91 va93
+
+		flto va90 va91
+
+		seta va10 targ
+		mesg writ targ 1004
+	endi
+endm
+
+
+scrp 1 2 32 1000
+	part 2
+	anim [0 1]
+	wait 10
+	kill ownr
+endm
+
+
+scrp 1 2 32 1001
+	part 4
+	anim [ 1 1 1 0 ]
+	pray refr
+	doif pray test ov99 = 0
+		sets ov99 ""
+	endi
+	sets ov99 pray next "EXPC" ov99
+	mesg writ ownr 1004
+endm
+
+
+scrp 1 2 32 1002
+	part 5
+	anim [ 1 1 1 0 ]
+	pray refr
+	doif pray test ov99 = 0
+		sets ov99 ""
+	endi
+	sets ov99 pray prev "EXPC" ov99
+	mesg writ ownr 1004
+endm
+
+
+scrp 1 2 32 1004
+	inst
+	doif ov99 = ""
+		kill ownr
+	endi
+	part 6
+	gall pray agts ov99 "Head Gallery" "blnk" 9
+	part 7
+	sets va99 read "Import Text" 0
+	adds va99 pray agts ov99 "Creature Name" ""
+	ptxt va99
+	part 9
+	sets va99 read "Import Text" 1
+	adds va99 pray agts ov99 "Exported From World Name" ""
+	ptxt va99
+	part 10
+	sets va99 read "Import Text" 2
+	adds va99 rtif pray agti ov99 "Exported At Real Time" 0 read "Import Text" 3
+	ptxt va99
+	part 11
+	sets va99 read "Import Text" 4
+	adds va99 read "creature_history_life_stage" pray agti ov99 "Creature Life Stage" 0
+	ptxt va99
+
+	part 12
+
+	sets va99 read "Import Text" 5
+
+	setv va01 pray agti ov99 "Creature Age In Ticks" 0
+	divv va01 20
+	setv va03 va01
+	modv va03 60
+	divv va01 60
+	setv va02 va01
+	modv va02 60
+	divv va01 60
+
+
+
+	doif va01 <> 0
+		sets va00 vtos va01
+		doif va01 = 1
+			adds va00 read "creature_history" 8
+		else
+			adds va00 read "creature_history" 5
+		endi
+	else
+		sets va00 ""
+	endi
+	adds va00 vtos va02
+	doif va02 = 1
+		adds va00 read "creature_history" 7
+	else
+		adds va00 read "creature_history" 4
+	endi
+
+	adds va99 va00
+	ptxt va99
+
+
+
+endm
+
+
+
+scrp 1 2 32 1003
+	lock
+	part 8
+	anim [1 1 1 0]
+	over
+	inst
+	pray refr
+	doif pray test ov99 <> 0
+		setv va74 0
+
+		setv va75 0
+		enum 4 0 0
+			doif dead = 0
+				addv va75 1
+			endi
+		next
+		doif va75 ge game "c3_max_creatures"
+			setv va74 1
+		endi
+
+		setv va83 pray agti ov99 "Genus" 0
+		doif va83 = 1
+			setv va75 0
+			enum 4 1 0
+				doif dead = 0
+					addv va75 1
+				endi
+			next
+			doif va75 ge game "c3_max_norns"
+				setv va74 1
+			endi
+		endi
+
+		doif va74 = 1
+			new: comp 1 2 40 "pick-ups" 1 24 9030
+			attr 304
+			pat: butt 1 "pick-ups" 29 2 295 19 0 [] 1000 0
+
+			pat: fixd 2 "new_agent_help" 1 25 59 1 "WhiteOnTransparentChars"
+
+
+
+			part 2
+			frmt 8 8 8 8 3 0 0
+			ptxt read "Import Text" 12
+
+			setv va90 wndw
+			divv va90 2
+			setv va91 wndh
+			divv va91 2
+			setv va92 wdth
+			divv va92 2
+			setv va93 hght
+			divv va93 2
+
+			subv va90 va92
+			subv va91 va93
+
+			flto va90 va91
+			stop
+		endi
+
+		flto -1000 -1000
+		setv va99 pray impo ov99 0 0
+
+		doif va99 <> 0
+			sets va00 ov99
+			new: comp 1 2 39 "new_agent_help" 1 0 9030
+			sets ov99 va00
+			attr 304
+
+			pat: butt 1 "new_agent_help" 18 2 174 200 2 [] 1000 0
+
+			pat: butt 2 "new_agent_help" 16 2 66 200 2 [] 1001 0
+
+			pat: fixd 3 "new_agent_help" 1 25 59 1 "WhiteOnTransparentChars"
+
+
+
+			sets va00 read "Import Text" 8
+			part 3
+			frmt 8 8 8 8 3 0 0
+			ptxt va00
+
+			setv va90 wndw
+			divv va90 2
+			setv va91 wndh
+			divv va91 2
+			setv va92 wdth
+			divv va92 2
+			setv va93 hght
+			divv va93 2
+
+			subv va90 va92
+			subv va91 va93
+
+			flto va90 va91
+		else
+			setv va10 1065
+			setv va11 772
+			new: simp 1 1 43 "teleport" 9 11 5001
+			setv va12 wdth
+			setv va13 hght
+			divv va12 2
+			divv va13 2
+			negv va12
+			negv va13
+			addv va12 va10
+			addv va13 va11
+			subv va13 35
+			addv va12 10
+			mvto va12 va13
+			cmrp 975 784 0
+			wait 1
+			snde "tele"
+			anim [0 0 1 1 2 2 2 3 3 3 4 4 4 5 5 5 6 6 6]
+			over
+			anim [6 6 6 5 5 5 4 4 4 3 3 3 2 2 2 1 1 0 0]
+			over
+			inst
+			seta va12 targ
+			targ ownr
+			setv va99 pray impo ov99 1 0
+			snde "cmc3"
+
+			mvft va10 va11
+
+			norn targ
+			like pntr
+			kill va12
+		endi
+		kill ownr
+	endi
+endm
+
+scrp 1 2 39 1000
+	part 1
+	lock
+	anim [ 1 1 1 0 ]
+	over
+
+	kill ownr
+endm
+
+scrp 1 2 39 1001
+	part 2
+	lock
+	anim [ 1 1 1 0 ]
+	over
+
+	flto -1000 -1000
+	inst
+	setv va10 1065
+	setv va11 772
+	new: simp 1 1 43 "teleport" 9 11 5001
+	setv va12 wdth
+	setv va13 hght
+	divv va12 2
+	divv va13 2
+	negv va12
+	negv va13
+	addv va12 va10
+	addv va13 va11
+	subv va13 35
+	addv va12 10
+	mvto va12 va13
+	cmrp 975 784 0
+	wait 1
+	snde "tele"
+	anim [0 0 1 1 2 2 2 3 3 3 4 4 4 5 5 5 6 6 6]
+	over
+	anim [6 6 6 5 5 5 4 4 4 3 3 3 2 2 2 1 1 0 0]
+	over
+	inst
+	seta va12 targ
+	targ ownr
+	setv va99 pray impo ov99 1 0
+	snde "cmc3"
+
+	mvft va10 va11
+	norn targ
+	like pntr
+	kill va12
+	kill ownr
+endm
+
+
+
+scrp 1 2 13 1003
+	inst
+	doif norn = null
+		stop
+	endi
+
+	targ norn
+	seta va87 targ
+	zomb 1
+	pray refr
+
+
+	rtar 1 2 23
+	doif targ <> null
+		doif ov00 = va87 and ov02 = 1003
+			setv ov12 1001
+			mesg writ targ 256
+		endi
+	endi
+	targ va87
+
+	setv va10 posx
+	setv va11 posy
+	new: simp 1 1 43 "teleport" 9 11 5001
+	setv va12 wdth
+	setv va13 hght
+	divv va12 2
+	divv va13 2
+	negv va12
+	negv va13
+	addv va12 va10
+	addv va13 va11
+	subv va13 35
+	addv va12 10
+	mvto va12 va13
+	lock
+	wait 1
+	snde "tele"
+	anim [0 0 1 1 2 2 2 3 3 3 4 4 4 5 5 5 6 6 6]
+	over
+	anim [6 6 6 5 5 5 4 4 4 3 3 3 2 2 2 1 1 0 0]
+	over
+	inst
+	seta va12 targ
+	targ va87
+	doif targ = null
+		kill va12
+		stop
+	endi
+	zomb 0
+	setv va00 pray expo "EXPC"
+	doif va00 <> 0
+		new: comp 1 2 40 "pick-ups" 1 24 9030
+		attr 304
+		pat: butt 1 "pick-ups" 29 2 295 19 0 [] 1000 0
+
+		pat: fixd 2 "new_agent_help" 1 25 59 1 "WhiteOnTransparentChars"
+
+
+
+		part 2
+		frmt 8 8 8 8 3 0 0
+		ptxt read "Import Text" 11
+
+		setv va90 wndw
+		divv va90 2
+		setv va91 wndh
+		divv va91 2
+		setv va92 wdth
+		divv va92 2
+		setv va93 hght
+		divv va93 2
+
+		subv va90 va92
+		subv va91 va93
+
+		flto va90 va91
+	else
+		targ va12
+		snde "cmc3"
+	endi
+	kill va12
+
+
+	doif va00 eq 0
+
+		mesg writ ownr 120
+	endi
+
+endm
+
+scrp 1 2 40 1000
+	lock
+	part 1
+	anim [1 1 1 0]
+	over
+	kill targ
+endm
+
+
+scrp 1 2 35 120
+	wait 5
+	inst
+
+	seta va00 norn
+	doif va00 eq null
+		pose 10
+		stop
+	endi
+	rtar 1 2 13
+	doif targ ne null
+		seta va99 targ
+	endi
+	targ ownr
+	frel va99
+
+	rtar 1 2 13
+	doif targ ne null
+
+
+		doif va00 eq ov16
+			targ ownr
+			flto 50 15
+			anim [0 1 2 3 4 5 6 7 8 9 255]
+			stop
+		elif va00 eq ov17
+			targ ownr
+			flto 145 15
+			anim [0 1 2 3 4 5 6 7 8 9 255]
+			stop
+		elif va00 eq ov18
+			targ ownr
+			flto 224 15
+			anim [0 1 2 3 4 5 6 7 8 9 255]
+			stop
+		elif va00 eq ov19
+			targ ownr
+			flto 50 90
+			anim [0 1 2 3 4 5 6 7 8 9 255]
+			stop
+		elif va00 eq ov20
+			targ ownr
+			flto 145 90
+			anim [0 1 2 3 4 5 6 7 8 9 255]
+			stop
+		elif va00 eq ov21
+			targ ownr
+			flto 224 90
+			anim [0 1 2 3 4 5 6 7 8 9 255]
+			stop
+		else
+			targ ownr
+			pose 10
+		endi
+	endi
+endm
+
+
+
+
+
+
+rscr
+enum 1 2 200
+	kill targ
+next
+enum 1 2 11
+	kill targ
+next
+enum 1 2 12
+	kill targ
+next
+enum 1 2 13
+	kill targ
+next
+enum 1 2 14
+	kill targ
+next
+enum 1 2 34
+	kill targ
+next
+enum 1 2 32
+	kill targ
+next
+enum 1 2 35
+	kill targ
+next
+
+scrx 1 2 11 1
+scrx 1 2 11 2
+scrx 1 2 11 123
+scrx 1 2 12 123
+scrx 1 2 13 123
+scrx 1 2 200 1
+scrx 1 2 200 2
+scrx 2 0 0 121
+scrx 1 2 34 1000

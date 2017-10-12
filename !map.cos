@@ -1,0 +1,1995 @@
+mapk
+brmi 0 0
+mapd 10000 10000
+outv addm 0 0 4112 1300 "norn3.0"
+mmsc 2056 650 "main.mng\\vivariumgarden"
+ setv va00 addr 0 326 644 593 643 997 999
+rtyp va00 3
+rmsc 485 796 "main.mng\\vivariumhatchery"
+outv va00 outs " "  setv va00 addr 0 644 755 643 614 816 816
+rtyp va00 3
+rmsc 699 729 "main.mng\\vivariumnursery"
+outv va00 outs " "  setv va00 addr 0 1227 1391 663 664 816 819
+rtyp va00 3
+rmsc 1309 741 "main.mng\\vivariumgarden"
+outv va00 outs " "  setv va00 addr 0 1003 1159 593 669 816 816
+rtyp va00 3
+rmsc 1081 704 "main.mng\\vivariumnursery"
+outv va00 outs " "  setv va00 addr 0 755 1003 614 593 816 816
+rtyp va00 3
+rmsc 879 715 "main.mng\\vivariumnursery"
+outv va00 outs " "  setv va00 addr 0 1391 1523 664 641 819 818
+rtyp va00 3
+rmsc 1457 741 "main.mng\\vivariumgarden"
+outv va00 outs " "  setv va00 addr 0 1523 1749 562 562 818 824
+rtyp va00 5
+rmsc 1636 693 "main.mng\\vivariumgarden"
+outv va00 outs " "  setv va00 addr 0 1749 1861 583 583 824 861
+rtyp va00 5
+rmsc 1805 722 "main.mng\\vivariumgarden"
+outv va00 outs " "  setv va00 addr 0 1930 2013 582 582 870 862
+rtyp va00 5
+rmsc 1971 722 "main.mng\\vivariumgarden"
+outv va00 outs " "  setv va00 addr 0 2013 2075 582 567 862 843
+rtyp va00 5
+rmsc 2044 712 "main.mng\\vivariumgarden"
+outv va00 outs " "  setv va00 addr 0 2075 2158 567 568 843 840
+rtyp va00 5
+rmsc 2116 703 "main.mng\\vivariumgarden"
+outv va00 outs " "  setv va00 addr 0 2158 2253 587 586 840 851
+rtyp va00 5
+rmsc 2205 719 "main.mng\\vivariumgarden"
+outv va00 outs " "  setv va00 addr 0 2345 2470 585 584 865 864
+rtyp va00 5
+rmsc 2407 724 "main.mng\\vivariumgarden"
+outv va00 outs " "  setv va00 addr 0 2470 2570 584 583 864 880
+rtyp va00 5
+rmsc 2520 732 "main.mng\\vivariumgarden"
+outv va00 outs " "  setv va00 addr 0 2691 2847 582 580 881 870
+rtyp va00 5
+rmsc 2769 726 "main.mng\\vivariumgarden"
+outv va00 outs " "  setv va00 addr 0 2847 2988 580 578 870 850
+rtyp va00 5
+rmsc 2917 715 "main.mng\\vivariumpond"
+outv va00 outs " "  setv va00 addr 0 3119 3309 576 576 876 925
+rtyp va00 0
+rmsc 3214 750 "main.mng\\vivariumpond"
+outv va00 outs " "  setv va00 addr 0 3309 3391 576 576 925 982
+rtyp va00 0
+rmsc 3350 779 "main.mng\\vivariumpond"
+outv va00 outs " "  setv va00 addr 0 3391 3745 576 576 877 877
+rtyp va00 0
+rmsc 3568 726 "main.mng\\vivariumpond"
+outv va00 outs " "  setv va00 addr 0 3745 3946 576 576 1017 1017
+rtyp va00 0
+rmsc 3845 796 "main.mng\\vivariumpond"
+outv va00 outs " "  setv va00 addr 0 3946 4110 576 576 1017 1017
+rtyp va00 0
+rmsc 4028 796 "main.mng\\vivariumpond"
+outv va00 outs " "  setv va00 addr 0 3946 4110 1017 1017 1070 1064
+rtyp va00 8
+rmsc 4028 1040 "main.mng\\vivariumpond"
+outv va00 outs " "  setv va00 addr 0 3843 3946 1017 1017 1065 1070
+rtyp va00 8
+rmsc 3894 1043 "main.mng\\vivariumpond"
+outv va00 outs " "  setv va00 addr 0 3672 3843 1017 1017 1082 1065
+rtyp va00 8
+rmsc 3757 1041 "main.mng\\vivariumpond"
+outv va00 outs " "  setv va00 addr 0 3510 3586 998 1017 1022 1073
+rtyp va00 8
+rmsc 3548 1035 "main.mng\\vivariumpond"
+outv va00 outs " "  setv va00 addr 0 3309 3325 925 936 1008 1008
+rtyp va00 0
+rmsc 3317 966 ""
+outv va00 outs " "  setv va00 addr 0 3391 3459 982 987 1008 1008
+rtyp va00 0
+rmsc 3425 995 ""
+outv va00 outs " "  setv va00 addr 0 1442 1523 337 337 579 622
+rtyp va00 5
+rmsc 1482 479 "main.mng\\vivariumorchard"
+outv va00 outs " "  setv va00 addr 0 1523 1749 337 337 562 562
+rtyp va00 0
+rmsc 1636 449 "main.mng\\vivariumorchard"
+outv va00 outs " "  setv va00 addr 0 1749 2013 562 561 583 582
+rtyp va00 1
+rmsc 1881 572 ""
+outv va00 outs " "  setv va00 addr 0 2013 2075 561 558 582 567
+rtyp va00 1
+rmsc 2044 564 ""
+outv va00 outs " "  setv va00 addr 0 2075 2158 558 559 567 568
+rtyp va00 1
+rmsc 2116 563 ""
+outv va00 outs " "  setv va00 addr 0 2158 2730 559 563 587 582
+rtyp va00 1
+rmsc 2444 570 ""
+outv va00 outs " "  setv va00 addr 0 2730 3119 563 564 582 576
+rtyp va00 1
+rmsc 2924 569 ""
+outv va00 outs " "  setv va00 addr 0 3119 3458 564 565 576 576
+rtyp va00 1
+rmsc 3288 570 ""
+outv va00 outs " "  setv va00 addr 0 1749 2013 337 337 562 561
+rtyp va00 0
+rmsc 1881 449 "main.mng\\vivariumtreehouse"
+outv va00 outs " "  setv va00 addr 0 2013 2075 337 337 561 558
+rtyp va00 0
+rmsc 2044 447 "main.mng\\vivariumtreehouse"
+outv va00 outs " "  setv va00 addr 0 2075 2374 337 337 558 561
+rtyp va00 0
+rmsc 2224 449 "main.mng\\vivariumtreehouse"
+outv va00 outs " "  setv va00 addr 0 2374 2565 337 341 561 562
+rtyp va00 0
+rmsc 2469 449 "main.mng\\vivariumtreehouse"
+outv va00 outs " "  setv va00 addr 0 3459 3510 951 959 987 1022
+rtyp va00 0
+rmsc 3484 986 ""
+outv va00 outs " "  setv va00 addr 0 644 1258 847 839 999 995
+rtyp va00 3
+rmsc 951 921 "main.mng\\vivariumhatchery"
+outv va00 outs " "  setv va00 addr 0 1258 1593 839 860 995 1002
+rtyp va00 3
+rmsc 1425 920 "main.mng\\vivariumcorridor"
+outv va00 outs " "  setv va00 addr 0 1593 1749 860 881 1002 1039
+rtyp va00 3
+rmsc 1671 949 "main.mng\\vivariumcorridor"
+outv va00 outs " "  setv va00 addr 0 1749 1885 881 895 1039 1049
+rtyp va00 3
+rmsc 1817 965 "main.mng\\vivariumcorridor"
+outv va00 outs " "  setv va00 addr 0 1885 2075 895 915 1049 1064
+rtyp va00 3
+rmsc 1980 979 "main.mng\\vivariumcorridor"
+outv va00 outs " "  setv va00 addr 0 2075 2158 915 921 1064 1069
+rtyp va00 3
+rmsc 2116 992 "main.mng\\vivariumcorridor"
+outv va00 outs " "  setv va00 addr 0 2158 2507 921 919 1069 1073
+rtyp va00 3
+rmsc 2332 997 "main.mng\\vivariumcorridor"
+outv va00 outs " "  setv va00 addr 0 2507 2847 919 916 1073 1079
+rtyp va00 3
+rmsc 2677 999 "main.mng\\corridor"
+outv va00 outs " "  setv va00 addr 0 2847 3137 916 921 1079 1078
+rtyp va00 3
+rmsc 2992 997 "main.mng\\corridor"
+outv va00 outs " "  setv va00 addr 0 3309 3325 1008 1008 1080 1080
+rtyp va00 8
+rmsc 3317 1044 ""
+outv va00 outs " "  setv va00 addr 0 2565 2891 341 341 562 563
+rtyp va00 0
+rmsc 2728 452 "main.mng\\vivariumtreehouse"
+outv va00 outs " "  setv va00 addr 0 2891 3176 341 341 563 564
+rtyp va00 0
+rmsc 3033 452 "main.mng\\vivariumtreehouse"
+outv va00 outs " "  setv va00 addr 0 3176 3458 341 341 564 565
+rtyp va00 0
+rmsc 3317 453 "main.mng\\vivariumtreehouse"
+outv va00 outs " "  setv va00 addr 0 2565 3458 324 324 341 341
+rtyp va00 1
+rmsc 3011 332 ""
+outv va00 outs " "  setv va00 addr 0 3458 3745 341 335 576 576
+rtyp va00 0
+rmsc 3601 458 "main.mng\\vivariumpond"
+outv va00 outs " "  setv va00 addr 0 3745 3946 335 331 576 576
+rtyp va00 0
+rmsc 3845 455 "main.mng\\vivariumpond"
+outv va00 outs " "  setv va00 addr 0 3946 4110 331 328 576 576
+rtyp va00 0
+rmsc 4028 453 "main.mng\\vivariumpond"
+outv va00 outs " "  setv va00 addr 0 3458 4110 324 296 341 328
+rtyp va00 1
+rmsc 3784 326 ""
+outv va00 outs " "  setv va00 addr 0 3586 3745 877 877 1017 1017
+rtyp va00 0
+rmsc 3665 947 "main.mng\\vivariumpond"
+outv va00 outs " "  setv va00 addr 0 2988 3119 578 576 850 876
+rtyp va00 5
+rmsc 3053 727 "main.mng\\vivariumpond"
+outv va00 outs " "  setv va00 addr 0 3586 3672 1017 1017 1073 1082
+rtyp va00 8
+rmsc 3629 1049 "main.mng\\vivariumpond"
+outv va00 outs " "  setv va00 addr 0 479 655 423 324 561 564
+rtyp va00 5
+rmsc 567 493 "main.mng\\vivariumorchard"
+outv va00 outs " "  setv va00 addr 0 655 953 337 337 564 568
+rtyp va00 5
+rmsc 804 452 "main.mng\\vivariumorchard"
+outv va00 outs " "  setv va00 addr 0 953 1153 337 337 568 560
+rtyp va00 5
+rmsc 1053 448 "main.mng\\vivariumorchard"
+outv va00 outs " "  setv va00 addr 0 1153 1338 337 337 560 560
+rtyp va00 5
+rmsc 1245 448 "main.mng\\vivariumorchard"
+outv va00 outs " "  setv va00 addr 0 655 979 324 182 337 337
+rtyp va00 0
+rmsc 817 330 "main.mng\\vivariumorchard"
+outv va00 outs " "  setv va00 addr 0 979 1153 198 198 337 337
+rtyp va00 0
+rmsc 1066 267 "main.mng\\vivariumorchard"
+outv va00 outs " "  setv va00 addr 0 979 1153 182 121 198 198
+rtyp va00 0
+rmsc 1066 190 "main.mng\\vivariumorchard"
+outv va00 outs " "  setv va00 addr 0 1153 1415 198 198 337 337
+rtyp va00 0
+rmsc 1284 267 "main.mng\\vivariumorchard"
+outv va00 outs " "  setv va00 addr 0 1153 1415 121 46 198 198
+rtyp va00 0
+rmsc 1284 159 "main.mng\\vivariumorchard"
+outv va00 outs " "  setv va00 addr 0 1415 1597 46 0 198 198
+rtyp va00 0
+rmsc 1506 122 "main.mng\\vivariumorchard"
+outv va00 outs " "  setv va00 addr 0 1415 1749 198 198 337 337
+rtyp va00 0
+rmsc 1582 267 "main.mng\\vivariumorchard"
+outv va00 outs " "  setv va00 addr 0 1597 1749 0 0 198 198
+rtyp va00 0
+rmsc 1673 99 "main.mng\\vivariumorchard"
+outv va00 outs " "  setv va00 addr 0 1749 2075 198 198 337 337
+rtyp va00 0
+rmsc 1912 267 "main.mng\\vivariumtreehouse"
+outv va00 outs " "  setv va00 addr 0 1749 2075 0 1 198 198
+rtyp va00 0
+rmsc 1912 99 "main.mng\\vivariumtreehouse"
+outv va00 outs " "  setv va00 addr 0 2075 2374 198 198 337 337
+rtyp va00 0
+rmsc 2224 267 "main.mng\\vivariumtreehouse"
+outv va00 outs " "  setv va00 addr 0 2374 2565 198 198 337 341
+rtyp va00 0
+rmsc 2469 269 "main.mng\\vivariumtreehouse"
+outv va00 outs " "  setv va00 addr 0 2075 2374 1 0 198 198
+rtyp va00 0
+rmsc 2224 99 "main.mng\\vivariumtreehouse"
+outv va00 outs " "  setv va00 addr 0 2374 2565 0 0 198 198
+rtyp va00 0
+rmsc 2469 99 "main.mng\\vivariumtreehouse"
+outv va00 outs " "  setv va00 addr 0 2565 2803 158 158 324 324
+rtyp va00 0
+rmsc 2684 241 "main.mng\\vivariumtreehouse"
+outv va00 outs " "  setv va00 addr 0 2803 3039 158 158 324 324
+rtyp va00 0
+rmsc 2921 241 "main.mng\\vivariumtreehouse"
+outv va00 outs " "  setv va00 addr 0 3039 3267 158 158 324 324
+rtyp va00 0
+rmsc 3153 241 "main.mng\\vivariumtreehouse"
+outv va00 outs " "  setv va00 addr 0 3267 3458 158 158 324 324
+rtyp va00 0
+rmsc 3362 241 "main.mng\\vivariumtreehouse"
+outv va00 outs " "  setv va00 addr 0 2565 2803 0 0 158 158
+rtyp va00 0
+rmsc 2684 79 "main.mng\\vivariumtreehouse"
+outv va00 outs " "  setv va00 addr 0 2803 3039 0 0 158 158
+rtyp va00 0
+rmsc 2921 79 "main.mng\\vivariumtreehouse"
+outv va00 outs " "  setv va00 addr 0 3039 3267 0 1 158 158
+rtyp va00 0
+rmsc 3153 79 "main.mng\\vivariumtreehouse"
+outv va00 outs " "  setv va00 addr 0 3267 3458 1 0 158 158
+rtyp va00 0
+rmsc 3362 79 "main.mng\\vivariumtreehouse"
+outv va00 outs " "  setv va00 addr 0 3458 3744 158 158 324 312
+rtyp va00 0
+rmsc 3601 235 "main.mng\\vivariumtreehouse"
+outv va00 outs " "  setv va00 addr 0 3744 3945 158 158 312 303
+rtyp va00 0
+rmsc 3844 230 "main.mng\\vivariumtreehouse"
+outv va00 outs " "  setv va00 addr 0 3945 4110 158 158 303 296
+rtyp va00 0
+rmsc 4027 227 "main.mng\\vivariumtreehouse"
+outv va00 outs " "  setv va00 addr 0 3458 3744 0 0 158 158
+rtyp va00 0
+rmsc 3601 79 "main.mng\\vivariumtreehouse"
+outv va00 outs " "  setv va00 addr 0 3744 3945 0 0 158 158
+rtyp va00 0
+rmsc 3844 79 "main.mng\\vivariumtreehouse"
+outv va00 outs " "  setv va00 addr 0 3945 4110 0 0 158 158
+rtyp va00 0
+rmsc 4027 79 "main.mng\\vivariumtreehouse"
+outv va00 outs " "  setv va00 addr 0 1861 1930 583 582 861 870
+rtyp va00 5
+rmsc 1895 726 "main.mng\\vivariumgarden"
+outv va00 outs " "  setv va00 addr 0 2253 2345 586 585 851 865
+rtyp va00 5
+rmsc 2299 725 "main.mng\\vivariumgarden"
+outv va00 outs " "  setv va00 addr 0 2570 2691 583 582 880 881
+rtyp va00 5
+rmsc 2630 732 "main.mng\\vivariumgarden"
+outv va00 outs " "  setv va00 addr 0 1338 1442 337 337 560 579
+rtyp va00 5
+rmsc 1390 458 "main.mng\\vivariumorchard"
+outv va00 outs " "  setv va00 addr 0 1159 1227 669 663 816 816
+rtyp va00 3
+rmsc 1193 742 "main.mng\\vivariumcorridor"
+outv va00 outs " "  setv va00 addr 0 3510 3586 959 971 998 1017
+rtyp va00 0
+rmsc 3548 988 ""
+outv va00 outs " "  setv va00 addr 0 3325 3346 936 951 1008 1008
+rtyp va00 0
+rmsc 3335 972 ""
+outv va00 outs " "  setv va00 addr 0 3325 3346 1008 1008 1080 1080
+rtyp va00 8
+rmsc 3335 1044 ""
+outv va00 outs " "  setv va00 addr 0 3346 3367 1008 1008 1080 1084
+rtyp va00 8
+rmsc 3356 1046 ""
+outv va00 outs " "  setv va00 addr 0 3367 3391 1008 1008 1084 1084
+rtyp va00 8
+rmsc 3379 1046 ""
+outv va00 outs " "  setv va00 addr 0 3391 3413 1008 1008 1084 1090
+rtyp va00 8
+rmsc 3402 1049 ""
+outv va00 outs " "  setv va00 addr 0 3391 3459 877 877 982 987
+rtyp va00 0
+rmsc 3425 932 "main.mng\\vivariumpond"
+outv va00 outs " "  setv va00 addr 0 3459 3586 877 877 951 971
+rtyp va00 0
+rmsc 3522 924 "main.mng\\vivariumpond"
+outv va00 outs " "  setv va00 addr 0 3413 3437 1008 1008 1090 1090
+rtyp va00 8
+rmsc 3425 1049 ""
+outv va00 outs " "  setv va00 addr 0 3437 3459 1008 1008 1090 1092
+rtyp va00 8
+rmsc 3448 1050 ""
+outv va00 outs " "  setv va00 addr 0 3459 3480 987 1001 1092 1091
+rtyp va00 8
+rmsc 3469 1039 ""
+outv va00 outs " "  setv va00 addr 0 3480 3494 1001 1011 1091 1090
+rtyp va00 8
+rmsc 3487 1045 ""
+outv va00 outs " "  setv va00 addr 0 3494 3510 1011 1022 1090 1090
+rtyp va00 8
+rmsc 3502 1050 ""
+outv va00 outs " "  setv va00 addr 0 3510 3529 1022 1035 1090 1087
+rtyp va00 8
+rmsc 3519 1054 ""
+outv va00 outs " "  setv va00 addr 0 3529 3550 1035 1049 1087 1084
+rtyp va00 8
+rmsc 3539 1059 ""
+outv va00 outs " "  setv va00 addr 0 3550 3586 1049 1073 1084 1085
+rtyp va00 8
+rmsc 3568 1067 ""
+outv va00 outs " "  setv va00 addr 0 3346 3367 951 965 1008 1008
+rtyp va00 0
+rmsc 3356 979 ""
+outv va00 outs " "  setv va00 addr 0 3367 3391 965 982 1008 1008
+rtyp va00 0
+rmsc 3379 986 ""
+outv va00 outs " " 
+outv addm 4215 0 2968 1200 "ettin1.8"
+mmsc 5699 600 "desert.mng\\main"
+ setv va00 addr 1 7061 7137 551 550 620 567
+rtyp va00 8
+rmsc 7099 559 "desert.mng\\forest"
+outv va00 outs " "  setv va00 addr 1 6897 7061 553 551 621 620
+rtyp va00 8
+rmsc 6979 586 "desert.mng\\forest"
+outv va00 outs " "  setv va00 addr 1 6776 6897 553 553 622 621
+rtyp va00 8
+rmsc 6836 587 "desert.mng\\forest"
+outv va00 outs " "  setv va00 addr 1 6689 6776 553 553 625 622
+rtyp va00 8
+rmsc 6732 587 "desert.mng\\forest"
+outv va00 outs " "  setv va00 addr 1 6584 6689 543 553 550 625
+rtyp va00 8
+rmsc 6636 584 "desert.mng\\forest"
+outv va00 outs " "  setv va00 addr 1 7008 7137 403 403 552 550
+rtyp va00 0
+rmsc 7072 476 "desert.mng\\forest"
+outv va00 outs " "  setv va00 addr 1 6897 7008 403 403 553 552
+rtyp va00 0
+rmsc 6952 477 "desert.mng\\forest"
+outv va00 outs " "  setv va00 addr 1 6776 6897 403 403 553 553
+rtyp va00 0
+rmsc 6836 478 "desert.mng\\forest"
+outv va00 outs " "  setv va00 addr 1 6689 6776 403 403 553 553
+rtyp va00 0
+rmsc 6732 478 "desert.mng\\forest"
+outv va00 outs " "  setv va00 addr 1 6584 6689 403 403 543 553
+rtyp va00 0
+rmsc 6636 478 "desert.mng\\forest"
+outv va00 outs " "  setv va00 addr 1 6545 6584 387 403 532 550
+rtyp va00 0
+rmsc 6564 468 "desert.mng\\forest"
+outv va00 outs " "  setv va00 addr 1 6434 6545 385 387 528 532
+rtyp va00 5
+rmsc 6489 458 "desert.mng\\forest"
+outv va00 outs " "  setv va00 addr 1 6299 6434 339 336 528 528
+rtyp va00 0
+rmsc 6366 433 "desert.mng\\forest"
+outv va00 outs " "  setv va00 addr 1 6288 6456 605 599 813 809
+rtyp va00 10
+rmsc 6372 707 "desert.mng\\tunnel1"
+outv va00 outs " "  setv va00 addr 1 6299 6434 528 528 605 600
+rtyp va00 0
+rmsc 6366 564 "desert.mng\\tunnel1"
+outv va00 outs " "  setv va00 addr 1 6299 6434 194 194 339 336
+rtyp va00 0
+rmsc 6366 265 "desert.mng\\quarry"
+outv va00 outs " "  setv va00 addr 1 6434 6661 194 194 336 338
+rtyp va00 7
+rmsc 6547 266 "desert.mng\\quarry"
+outv va00 outs " "  setv va00 addr 1 6661 6841 194 194 338 339
+rtyp va00 7
+rmsc 6751 266 "desert.mng\\quarry"
+outv va00 outs " "  setv va00 addr 1 6841 6975 194 194 339 337
+rtyp va00 7
+rmsc 6908 265 "desert.mng\\quarry"
+outv va00 outs " "  setv va00 addr 1 6104 6299 194 194 339 339
+rtyp va00 7
+rmsc 6201 266 "desert.mng\\quarry"
+outv va00 outs " "  setv va00 addr 1 6104 6299 381 381 529 528
+rtyp va00 7
+rmsc 6201 454 "desert.mng\\forest"
+outv va00 outs " "  setv va00 addr 1 6116 6288 605 605 812 813
+rtyp va00 10
+rmsc 6202 709 "desert.mng\\tunnel1"
+outv va00 outs " "  setv va00 addr 1 5931 6116 605 605 815 812
+rtyp va00 10
+rmsc 6023 708 "desert.mng\\tunnel1"
+outv va00 outs " "  setv va00 addr 1 5760 5931 605 605 814 815
+rtyp va00 10
+rmsc 5845 710 "desert.mng\\tunnel1"
+outv va00 outs " "  setv va00 addr 1 5602 5760 605 605 814 814
+rtyp va00 10
+rmsc 5681 709 "desert.mng\\tunnel1"
+outv va00 outs " "  setv va00 addr 1 5347 5602 605 605 814 814
+rtyp va00 10
+rmsc 5474 709 "desert.mng\\tunnel1"
+outv va00 outs " "  setv va00 addr 1 5230 5347 605 605 809 814
+rtyp va00 10
+rmsc 5288 709 "desert.mng\\tunnel1"
+outv va00 outs " "  setv va00 addr 1 5155 5230 605 605 814 809
+rtyp va00 10
+rmsc 5192 707 "desert.mng\\volcano"
+outv va00 outs " "  setv va00 addr 1 4981 5155 605 605 816 814
+rtyp va00 10
+rmsc 5068 709 "desert.mng\\volcano"
+outv va00 outs " "  setv va00 addr 1 4776 4981 605 605 811 816
+rtyp va00 10
+rmsc 4878 710 "desert.mng\\volcano"
+outv va00 outs " "  setv va00 addr 1 5930 6104 352 352 533 529
+rtyp va00 7
+rmsc 6017 440 "desert.mng\\main"
+outv va00 outs " "  setv va00 addr 1 5759 5930 352 352 535 533
+rtyp va00 7
+rmsc 5844 442 "desert.mng\\main"
+outv va00 outs " "  setv va00 addr 1 5606 5759 352 352 535 535
+rtyp va00 7
+rmsc 5682 443 "desert.mng\\main"
+outv va00 outs " "  setv va00 addr 1 5392 5606 352 352 534 535
+rtyp va00 7
+rmsc 5499 443 "desert.mng\\main"
+outv va00 outs " "  setv va00 addr 1 5236 5392 352 352 535 534
+rtyp va00 7
+rmsc 5314 443 "desert.mng\\main"
+outv va00 outs " "  setv va00 addr 1 5025 5236 352 352 533 535
+rtyp va00 7
+rmsc 5130 443 "desert.mng\\main"
+outv va00 outs " "  setv va00 addr 1 4827 5025 352 352 534 533
+rtyp va00 7
+rmsc 4926 442 "desert.mng\\volcano"
+outv va00 outs " "  setv va00 addr 1 4625 4827 352 352 531 534
+rtyp va00 7
+rmsc 4726 443 "desert.mng\\main"
+outv va00 outs " "  setv va00 addr 1 4443 4625 387 388 521 531
+rtyp va00 7
+rmsc 4534 459 "desert.mng\\main"
+outv va00 outs " "  setv va00 addr 1 4443 4625 375 281 387 388
+rtyp va00 0
+rmsc 4534 381 "desert.mng\\main"
+outv va00 outs " "  setv va00 addr 1 4625 4827 281 205 352 352
+rtyp va00 0
+rmsc 4726 316 "desert.mng\\main"
+outv va00 outs " "  setv va00 addr 1 5930 6104 194 194 352 352
+rtyp va00 0
+rmsc 6017 273 "desert.mng\\main"
+outv va00 outs " "  setv va00 addr 1 5759 5930 194 194 352 352
+rtyp va00 0
+rmsc 5844 273 "desert.mng\\main"
+outv va00 outs " "  setv va00 addr 1 5606 5759 194 194 352 352
+rtyp va00 0
+rmsc 5682 273 "desert.mng\\main"
+outv va00 outs " "  setv va00 addr 1 5392 5606 194 194 352 352
+rtyp va00 0
+rmsc 5499 273 "desert.mng\\main"
+outv va00 outs " "  setv va00 addr 1 5236 5392 194 194 352 352
+rtyp va00 0
+rmsc 5314 273 "desert.mng\\main"
+outv va00 outs " "  setv va00 addr 1 5025 5236 194 194 352 352
+rtyp va00 0
+rmsc 5130 273 "desert.mng\\main"
+outv va00 outs " "  setv va00 addr 1 4827 5025 230 231 352 352
+rtyp va00 0
+rmsc 4926 291 "desert.mng\\main"
+outv va00 outs " "  setv va00 addr 1 4827 5025 205 155 230 231
+rtyp va00 0
+rmsc 4926 218 "desert.mng\\main"
+outv va00 outs " "  setv va00 addr 1 5025 5236 155 111 194 194
+rtyp va00 0
+rmsc 5130 174 "desert.mng\\main"
+outv va00 outs " "  setv va00 addr 1 5236 5392 111 90 194 194
+rtyp va00 0
+rmsc 5314 152 "desert.mng\\main"
+outv va00 outs " "  setv va00 addr 1 5392 5606 90 63 194 194
+rtyp va00 0
+rmsc 5499 142 "desert.mng\\main"
+outv va00 outs " "  setv va00 addr 1 5606 5759 63 50 194 194
+rtyp va00 0
+rmsc 5682 128 "desert.mng\\main"
+outv va00 outs " "  setv va00 addr 1 5759 5930 50 47 194 194
+rtyp va00 0
+rmsc 5844 122 "desert.mng\\main"
+outv va00 outs " "  setv va00 addr 1 5930 6104 47 45 194 194
+rtyp va00 0
+rmsc 6017 120 "desert.mng\\main"
+outv va00 outs " "  setv va00 addr 1 6104 6299 45 52 194 194
+rtyp va00 0
+rmsc 6201 119 "desert.mng\\quarry"
+outv va00 outs " "  setv va00 addr 1 6299 6494 52 67 194 194
+rtyp va00 0
+rmsc 6396 123 "desert.mng\\quarry"
+outv va00 outs " "  setv va00 addr 1 6494 6661 67 88 194 194
+rtyp va00 0
+rmsc 6577 130 "desert.mng\\quarry"
+outv va00 outs " "  setv va00 addr 1 6661 6841 88 130 194 194
+rtyp va00 0
+rmsc 6751 141 "desert.mng\\quarry"
+outv va00 outs " "  setv va00 addr 1 5230 5347 809 814 1064 1064
+rtyp va00 3
+rmsc 5288 936 "desert.mng\\tunnel2"
+outv va00 outs " "  setv va00 addr 1 5171 5230 867 872 1066 1064
+rtyp va00 3
+rmsc 5200 965 "desert.mng\\tunnel2"
+outv va00 outs " "  setv va00 addr 1 5075 5171 858 867 1067 1066
+rtyp va00 3
+rmsc 5123 962 "desert.mng\\tunnel2"
+outv va00 outs " "  setv va00 addr 1 4913 5075 860 858 1058 1067
+rtyp va00 3
+rmsc 4994 963 "desert.mng\\tunnel2"
+outv va00 outs " "  setv va00 addr 1 4850 4913 860 860 1011 1058
+rtyp va00 3
+rmsc 4881 959 "desert.mng\\tunnel2"
+outv va00 outs " "  setv va00 addr 1 5347 5402 868 860 1064 1066
+rtyp va00 3
+rmsc 5374 967 "desert.mng\\tunnel2"
+outv va00 outs " "  setv va00 addr 1 5402 5487 860 857 1066 1067
+rtyp va00 3
+rmsc 5444 963 "desert.mng\\tunnel2"
+outv va00 outs " "  setv va00 addr 1 5487 5692 857 859 1067 1065
+rtyp va00 3
+rmsc 5589 961 "desert.mng\\tunnel2"
+outv va00 outs " "  setv va00 addr 1 5692 5754 859 862 1065 1037
+rtyp va00 3
+rmsc 5723 948 "desert.mng\\tunnel2"
+outv va00 outs " " 
+outv addm 3270 1569 2924 1168 "aqua2.6"
+mmsc 4732 2153 "main.mng\\aquariumbeach"
+ setv va00 addr 2 4275 4330 2174 2200 2342 2297
+rtyp va00 9
+rmsc 4302 2235 "main.mng\\aquariumunderwater"
+outv va00 outs " "  setv va00 addr 2 4728 5106 2049 2076 2111 2111
+rtyp va00 0
+rmsc 4917 2080 ""
+outv va00 outs " "  setv va00 addr 2 5106 5361 2076 2123 2189 2202
+rtyp va00 0
+rmsc 5233 2139 ""
+outv va00 outs " "  setv va00 addr 2 5361 5624 2123 2143 2202 2202
+rtyp va00 0
+rmsc 5492 2162 ""
+outv va00 outs " "  setv va00 addr 2 5624 5833 2202 2202 2435 2429
+rtyp va00 9
+rmsc 5728 2315 "main.mng\\aquariumunderwater"
+outv va00 outs " "  setv va00 addr 2 5833 5938 2202 2202 2429 2411
+rtyp va00 9
+rmsc 5885 2306 "main.mng\\aquariumunderwater"
+outv va00 outs " "  setv va00 addr 2 5938 6144 2202 2202 2411 2375
+rtyp va00 9
+rmsc 6041 2288 "main.mng\\aquariumunderwater"
+outv va00 outs " "  setv va00 addr 2 5938 6119 1926 2058 2188 2195
+rtyp va00 7
+rmsc 6028 2060 "main.mng\\aquariumbeach"
+outv va00 outs " "  setv va00 addr 2 5833 5938 1950 1950 2179 2188
+rtyp va00 7
+rmsc 5885 2069 "main.mng\\aquariumbeach"
+outv va00 outs " "  setv va00 addr 2 5624 5833 1893 1893 2143 2179
+rtyp va00 7
+rmsc 5728 2036 "main.mng\\aquariumbeach"
+outv va00 outs " "  setv va00 addr 2 5361 5624 1869 1869 2123 2143
+rtyp va00 7
+rmsc 5492 2006 "main.mng\\aquariumbeach"
+outv va00 outs " "  setv va00 addr 2 5106 5361 1869 1869 2076 2123
+rtyp va00 7
+rmsc 5233 1996 "main.mng\\aquariumbeach"
+outv va00 outs " "  setv va00 addr 2 5833 5938 2179 2188 2202 2202
+rtyp va00 0
+rmsc 5885 2190 ""
+outv va00 outs " "  setv va00 addr 2 5624 5833 2143 2179 2202 2202
+rtyp va00 0
+rmsc 5728 2172 ""
+outv va00 outs " "  setv va00 addr 2 5361 5624 2202 2202 2438 2435
+rtyp va00 9
+rmsc 5492 2318 "main.mng\\aquariumunderwater"
+outv va00 outs " "  setv va00 addr 2 5091 5141 2188 2191 2275 2354
+rtyp va00 9
+rmsc 5116 2271 "main.mng\\aquariumunderwater"
+outv va00 outs " "  setv va00 addr 2 5938 6144 2188 2196 2202 2202
+rtyp va00 0
+rmsc 6041 2195 ""
+outv va00 outs " "  setv va00 addr 2 4151 4275 2151 2151 2454 2390
+rtyp va00 9
+rmsc 4213 2270 "main.mng\\aquariumunderwater"
+outv va00 outs " "  setv va00 addr 2 3979 4151 2151 2151 2480 2472
+rtyp va00 9
+rmsc 4065 2311 "main.mng\\aquariumunderwater"
+outv va00 outs " "  setv va00 addr 2 3784 3979 2151 2151 2462 2480
+rtyp va00 9
+rmsc 3881 2315 "main.mng\\aquariumunderwater"
+outv va00 outs " "  setv va00 addr 2 3601 3784 2151 2151 2322 2462
+rtyp va00 9
+rmsc 3692 2306 "main.mng\\aquariumunderwater"
+outv va00 outs " "  setv va00 addr 2 3507 3601 2151 2151 2181 2322
+rtyp va00 9
+rmsc 3554 2236 "main.mng\\aquariumunderwater"
+outv va00 outs " "  setv va00 addr 2 4185 4245 1955 1881 2048 2047
+rtyp va00 3
+rmsc 4215 2001 "main.mng\\aquariumunderwater"
+outv va00 outs " "  setv va00 addr 2 4245 4356 1881 1869 2047 2047
+rtyp va00 3
+rmsc 4300 1964 "main.mng\\aquariumunderwater"
+outv va00 outs " "  setv va00 addr 2 3979 4185 1687 1660 2151 2151
+rtyp va00 9
+rmsc 4082 1919 "main.mng\\aquariumunderwater"
+outv va00 outs " "  setv va00 addr 2 3784 3979 1729 1687 2151 2151
+rtyp va00 9
+rmsc 3881 1940 "main.mng\\aquariumunderwater"
+outv va00 outs " "  setv va00 addr 2 3601 3784 1793 1729 2151 2151
+rtyp va00 9
+rmsc 3692 1972 "main.mng\\aquariumunderwater"
+outv va00 outs " "  setv va00 addr 2 3507 3601 1844 1793 2151 2151
+rtyp va00 9
+rmsc 3554 1997 "main.mng\\aquariumunderwater"
+outv va00 outs " "  setv va00 addr 2 3383 3507 1950 1844 2093 2138
+rtyp va00 9
+rmsc 3445 2044 "main.mng\\aquariumunderwater"
+outv va00 outs " "  setv va00 addr 2 5045 5106 2111 2111 2171 2177
+rtyp va00 0
+rmsc 5075 2144 ""
+outv va00 outs " "  setv va00 addr 2 5045 5091 2171 2176 2267 2275
+rtyp va00 9
+rmsc 5068 2223 ""
+outv va00 outs " "  setv va00 addr 2 4930 5045 2111 2111 2292 2267
+rtyp va00 9
+rmsc 4987 2189 "main.mng\\aquariumcaves"
+outv va00 outs " "  setv va00 addr 2 4854 4930 2111 2111 2286 2292
+rtyp va00 9
+rmsc 4892 2201 "main.mng\\aquariumcaves"
+outv va00 outs " "  setv va00 addr 2 4728 4854 2111 2111 2297 2286
+rtyp va00 9
+rmsc 4791 2198 "main.mng\\aquariumcaves"
+outv va00 outs " "  setv va00 addr 2 4398 4603 2048 2048 2084 2084
+rtyp va00 0
+rmsc 4500 2066 ""
+outv va00 outs " "  setv va00 addr 2 4370 4456 2084 2084 2291 2306
+rtyp va00 9
+rmsc 4413 2195 "main.mng\\aquariumcaves"
+outv va00 outs " "  setv va00 addr 2 4456 4548 2084 2084 2306 2300
+rtyp va00 9
+rmsc 4502 2192 "main.mng\\aquariumcaves"
+outv va00 outs " "  setv va00 addr 2 4548 4687 2084 2084 2300 2303
+rtyp va00 9
+rmsc 4617 2193 "main.mng\\aquariumcaves"
+outv va00 outs " "  setv va00 addr 2 4687 4728 2160 2160 2303 2297
+rtyp va00 9
+rmsc 4707 2228 ""
+outv va00 outs " "  setv va00 addr 2 4666 4728 2312 2312 2451 2451
+rtyp va00 3
+rmsc 4697 2381 "main.mng\\aquariumcaves"
+outv va00 outs " "  setv va00 addr 2 4728 4811 2312 2311 2451 2450
+rtyp va00 3
+rmsc 4769 2381 "main.mng\\aquariumcaves"
+outv va00 outs " "  setv va00 addr 2 4811 4918 2311 2309 2450 2452
+rtyp va00 3
+rmsc 4864 2381 "main.mng\\aquariumcaves"
+outv va00 outs " "  setv va00 addr 2 4918 5047 2309 2306 2452 2449
+rtyp va00 3
+rmsc 4982 2379 "main.mng\\aquariumcaves"
+outv va00 outs " "  setv va00 addr 2 4577 4666 2311 2312 2452 2451
+rtyp va00 3
+rmsc 4621 2381 "main.mng\\aquariumcaves"
+outv va00 outs " "  setv va00 addr 2 4457 4577 2315 2311 2452 2452
+rtyp va00 3
+rmsc 4517 2383 "main.mng\\aquariumcaves"
+outv va00 outs " "  setv va00 addr 2 4323 4457 2315 2315 2452 2452
+rtyp va00 3
+rmsc 4390 2383 "main.mng\\aquariumcaves"
+outv va00 outs " "  setv va00 addr 2 4398 4500 1869 1869 2048 2048
+rtyp va00 4
+rmsc 4449 1958 "main.mng\\aquariumdoor"
+outv va00 outs " "  setv va00 addr 2 4500 4603 1869 1869 2048 2048
+rtyp va00 4
+rmsc 4551 1958 "main.mng\\aquariumdoor"
+outv va00 outs " "  setv va00 addr 2 4728 4866 1869 1869 2049 2059
+rtyp va00 7
+rmsc 4797 1964 "main.mng\\aquariumbeach"
+outv va00 outs " "  setv va00 addr 2 4866 5106 1869 1869 2059 2076
+rtyp va00 7
+rmsc 4986 1972 "main.mng\\aquariumbeach"
+outv va00 outs " "  setv va00 addr 2 4866 5106 1654 1671 1869 1869
+rtyp va00 0
+rmsc 4986 1761 "main.mng\\aquariumbeach"
+outv va00 outs " "  setv va00 addr 2 5833 5938 1869 1926 1950 1950
+rtyp va00 0
+rmsc 5885 1909 ""
+outv va00 outs " "  setv va00 addr 2 5624 5833 1772 1869 1893 1893
+rtyp va00 0
+rmsc 5728 1832 ""
+outv va00 outs " "  setv va00 addr 2 5361 5624 1706 1772 1869 1869
+rtyp va00 0
+rmsc 5492 1787 "main.mng\\aquariumbeach"
+outv va00 outs " "  setv va00 addr 2 5106 5361 1671 1706 1869 1869
+rtyp va00 0
+rmsc 5233 1770 "main.mng\\aquariumbeach"
+outv va00 outs " "  setv va00 addr 2 4622 4866 1645 1654 1869 1869
+rtyp va00 0
+rmsc 4744 1757 "main.mng\\aquariumdoor"
+outv va00 outs " "  setv va00 addr 2 4398 4622 1645 1645 1869 1869
+rtyp va00 0
+rmsc 4510 1757 "main.mng\\aquariumdoor"
+outv va00 outs " "  setv va00 addr 2 4151 4188 2454 2435 2472 2493
+rtyp va00 9
+rmsc 4169 2473 "main.mng\\aquariumunderwater"
+outv va00 outs " "  setv va00 addr 2 4188 4245 2435 2481 2493 2530
+rtyp va00 9
+rmsc 4216 2482 "main.mng\\aquariumunderwater"
+outv va00 outs " "  setv va00 addr 2 4245 4635 2481 2491 2530 2543
+rtyp va00 9
+rmsc 4440 2512 "main.mng\\aquariumunderwater"
+outv va00 outs " "  setv va00 addr 2 4635 4667 2491 2486 2557 2641
+rtyp va00 9
+rmsc 4651 2566 "main.mng\\aquariumunderwater"
+outv va00 outs " "  setv va00 addr 2 4667 4750 2486 2473 2641 2652
+rtyp va00 9
+rmsc 4708 2569 "main.mng\\aquariumunderwater"
+outv va00 outs " "  setv va00 addr 2 4750 4892 2473 2474 2652 2651
+rtyp va00 9
+rmsc 4821 2562 "main.mng\\aquariumunderwater"
+outv va00 outs " "  setv va00 addr 2 4892 4970 2474 2474 2651 2645
+rtyp va00 9
+rmsc 4931 2559 "main.mng\\aquariumunderwater"
+outv va00 outs " "  setv va00 addr 2 4970 5013 2474 2488 2645 2607
+rtyp va00 9
+rmsc 4991 2540 "main.mng\\aquariumunderwater"
+outv va00 outs " "  setv va00 addr 2 5013 5086 2488 2474 2541 2525
+rtyp va00 9
+rmsc 5049 2506 "main.mng\\aquariumunderwater"
+outv va00 outs " "  setv va00 addr 2 5086 5141 2474 2425 2525 2510
+rtyp va00 9
+rmsc 5113 2492 "main.mng\\aquariumunderwater"
+outv va00 outs " "  setv va00 addr 2 5141 5193 2191 2193 2384 2437
+rtyp va00 9
+rmsc 5167 2314 "main.mng\\aquariumunderwater"
+outv va00 outs " "  setv va00 addr 2 5193 5361 2193 2202 2437 2438
+rtyp va00 9
+rmsc 5277 2315 "main.mng\\aquariumunderwater"
+outv va00 outs " "  setv va00 addr 2 5141 5193 2384 2437 2510 2491
+rtyp va00 9
+rmsc 5167 2437 "main.mng\\aquariumunderwater"
+outv va00 outs " "  setv va00 addr 2 4330 4370 2209 2209 2297 2291
+rtyp va00 0
+rmsc 4350 2250 ""
+outv va00 outs " "  setv va00 addr 2 4687 4728 2084 2084 2160 2160
+rtyp va00 0
+rmsc 4707 2122 ""
+outv va00 outs " "  setv va00 addr 2 4577 4687 2301 2303 2311 2312
+rtyp va00 3
+rmsc 4632 2306 ""
+outv va00 outs " "  setv va00 addr 2 4356 4398 1869 1869 2047 2048
+rtyp va00 3
+rmsc 4377 1958 "main.mng\\aquariumdoor"
+outv va00 outs " "  setv va00 addr 2 4185 4245 1692 1746 1955 1881
+rtyp va00 9
+rmsc 4215 1786 ""
+outv va00 outs " "  setv va00 addr 2 4603 4728 1869 1869 2048 2049
+rtyp va00 0
+rmsc 4665 1959 "main.mng\\aquariumdoor"
+outv va00 outs " "  setv va00 addr 2 4603 4728 2048 2049 2084 2084
+rtyp va00 0
+rmsc 4665 2066 ""
+outv va00 outs " " 
+outv addm 14 1363 3000 1400 "gren3.4"
+mmsc 1514 2063 "grendel.mng\\swamp"
+ setv va00 addr 3 2281 2402 2443 2450 2606 2606
+rtyp va00 3
+rmsc 2341 2524 "grendel.mng\\sewer"
+outv va00 outs " "  setv va00 addr 3 2137 2281 2442 2443 2606 2606
+rtyp va00 3
+rmsc 2209 2524 "grendel.mng\\sewer"
+outv va00 outs " "  setv va00 addr 3 1981 2137 2439 2442 2605 2606
+rtyp va00 3
+rmsc 2059 2522 "grendel.mng\\sewer"
+outv va00 outs " "  setv va00 addr 3 1837 1981 2431 2439 2597 2605
+rtyp va00 3
+rmsc 1909 2518 "grendel.mng\\sewer"
+outv va00 outs " "  setv va00 addr 3 1700 1837 2427 2431 2597 2597
+rtyp va00 3
+rmsc 1768 2512 "grendel.mng\\sewer"
+outv va00 outs " "  setv va00 addr 3 1544 1700 2419 2427 2596 2597
+rtyp va00 3
+rmsc 1622 2508 "grendel.mng\\sewer"
+outv va00 outs " "  setv va00 addr 3 1403 1544 2405 2419 2599 2596
+rtyp va00 3
+rmsc 1473 2500 "grendel.mng\\sewer"
+outv va00 outs " "  setv va00 addr 3 1292 1403 2394 2399 2599 2599
+rtyp va00 3
+rmsc 1347 2496 "grendel.mng\\sewer"
+outv va00 outs " "  setv va00 addr 3 1292 1403 2171 2171 2394 2399
+rtyp va00 3
+rmsc 1347 2285 "grendel.mng\\cryogenics"
+outv va00 outs " "  setv va00 addr 3 1403 1545 2210 2222 2399 2395
+rtyp va00 3
+rmsc 1474 2302 "grendel.mng\\cryogenics"
+outv va00 outs " "  setv va00 addr 3 1545 1686 2222 2186 2395 2394
+rtyp va00 3
+rmsc 1615 2308 "grendel.mng\\cryogenics"
+outv va00 outs " "  setv va00 addr 3 1686 1859 2186 2175 2394 2397
+rtyp va00 3
+rmsc 1772 2291 "grendel.mng\\cryogenics"
+outv va00 outs " "  setv va00 addr 3 1859 2036 2175 2170 2397 2397
+rtyp va00 3
+rmsc 1947 2286 "grendel.mng\\cryogenics"
+outv va00 outs " "  setv va00 addr 3 2036 2209 2170 2191 2397 2392
+rtyp va00 3
+rmsc 2122 2281 "grendel.mng\\cryogenics"
+outv va00 outs " "  setv va00 addr 3 2209 2412 2191 2246 2392 2391
+rtyp va00 3
+rmsc 2310 2291 "grendel.mng\\cryogenics"
+outv va00 outs " "  setv va00 addr 3 1292 1403 1998 1998 2171 2171
+rtyp va00 6
+rmsc 1347 2084 "grendel.mng\\ground"
+outv va00 outs " "  setv va00 addr 3 1292 1403 1804 1804 1988 1988
+rtyp va00 0
+rmsc 1347 1896 "grendel.mng\\ground"
+outv va00 outs " "  setv va00 addr 3 1292 1403 1618 1618 1786 1794
+rtyp va00 0
+rmsc 1347 1706 "grendel.mng\\upper"
+outv va00 outs " "  setv va00 addr 3 1403 1604 1988 1983 2171 2161
+rtyp va00 6
+rmsc 1503 2074 "grendel.mng\\ground"
+outv va00 outs " "  setv va00 addr 3 1604 1822 1983 1983 2161 2141
+rtyp va00 6
+rmsc 1713 2062 "grendel.mng\\ground"
+outv va00 outs " "  setv va00 addr 3 1822 2030 1983 1983 2141 2121
+rtyp va00 6
+rmsc 1926 2052 "grendel.mng\\ground"
+outv va00 outs " "  setv va00 addr 3 2030 2228 1983 1983 2121 2100
+rtyp va00 6
+rmsc 2129 2041 "grendel.mng\\ground"
+outv va00 outs " "  setv va00 addr 3 2228 2446 1983 1983 2100 2099
+rtyp va00 6
+rmsc 2337 2041 "grendel.mng\\swamp"
+outv va00 outs " "  setv va00 addr 3 2446 2623 1983 1983 2099 2100
+rtyp va00 0
+rmsc 2534 2041 "grendel.mng\\swamp"
+outv va00 outs " "  setv va00 addr 3 2623 2785 1983 1983 2100 2102
+rtyp va00 0
+rmsc 2704 2042 "grendel.mng\\swamp"
+outv va00 outs " "  setv va00 addr 3 2785 2935 1983 1983 2102 2104
+rtyp va00 6
+rmsc 2860 2043 "grendel.mng\\swamp"
+outv va00 outs " "  setv va00 addr 3 1403 1604 1804 1804 1988 1983
+rtyp va00 0
+rmsc 1503 1893 "grendel.mng\\ground"
+outv va00 outs " "  setv va00 addr 3 1604 1822 1804 1804 1983 1983
+rtyp va00 0
+rmsc 1713 1893 "grendel.mng\\ground"
+outv va00 outs " "  setv va00 addr 3 1822 2030 1804 1804 1983 1983
+rtyp va00 0
+rmsc 1926 1893 "grendel.mng\\ground"
+outv va00 outs " "  setv va00 addr 3 2030 2228 1804 1804 1983 1983
+rtyp va00 0
+rmsc 2129 1893 "grendel.mng\\ground"
+outv va00 outs " "  setv va00 addr 3 2228 2446 1804 1804 1983 1983
+rtyp va00 0
+rmsc 2337 1893 "grendel.mng\\swamp"
+outv va00 outs " "  setv va00 addr 3 2446 2643 1804 1804 1983 1983
+rtyp va00 0
+rmsc 2544 1893 "grendel.mng\\swamp"
+outv va00 outs " "  setv va00 addr 3 2643 2809 1804 1804 1983 1983
+rtyp va00 0
+rmsc 2726 1893 "grendel.mng\\swamp"
+outv va00 outs " "  setv va00 addr 3 2809 2935 1788 1788 1983 1983
+rtyp va00 0
+rmsc 2872 1885 "grendel.mng\\swamp"
+outv va00 outs " "  setv va00 addr 3 1403 1576 1618 1618 1794 1786
+rtyp va00 0
+rmsc 1489 1702 "grendel.mng\\upper"
+outv va00 outs " "  setv va00 addr 3 1576 1822 1605 1605 1786 1786
+rtyp va00 0
+rmsc 1699 1695 "grendel.mng\\upper"
+outv va00 outs " "  setv va00 addr 3 1822 2030 1605 1605 1786 1786
+rtyp va00 0
+rmsc 1926 1695 "grendel.mng\\upper"
+outv va00 outs " "  setv va00 addr 3 2030 2228 1605 1605 1786 1786
+rtyp va00 0
+rmsc 2129 1695 "grendel.mng\\upper"
+outv va00 outs " "  setv va00 addr 3 2228 2446 1605 1605 1786 1789
+rtyp va00 0
+rmsc 2337 1697 "grendel.mng\\upper"
+outv va00 outs " "  setv va00 addr 3 2446 2643 1605 1605 1789 1788
+rtyp va00 0
+rmsc 2544 1696 "grendel.mng\\upper"
+outv va00 outs " "  setv va00 addr 3 2643 2809 1605 1605 1788 1788
+rtyp va00 0
+rmsc 2726 1696 "grendel.mng\\upper"
+outv va00 outs " "  setv va00 addr 3 2809 2935 1514 1702 1788 1788
+rtyp va00 0
+rmsc 2872 1651 "grendel.mng\\upper"
+outv va00 outs " "  setv va00 addr 3 2394 2623 2099 2100 2118 2118
+rtyp va00 1
+rmsc 2508 2108 ""
+outv va00 outs " "  setv va00 addr 3 2446 2643 1374 1404 1605 1605
+rtyp va00 0
+rmsc 2544 1489 "grendel.mng\\upper"
+outv va00 outs " "  setv va00 addr 3 2228 2446 1364 1374 1605 1605
+rtyp va00 0
+rmsc 2337 1484 "grendel.mng\\upper"
+outv va00 outs " "  setv va00 addr 3 2030 2228 1364 1364 1605 1605
+rtyp va00 0
+rmsc 2129 1484 "grendel.mng\\upper"
+outv va00 outs " "  setv va00 addr 3 1822 2030 1364 1364 1605 1605
+rtyp va00 0
+rmsc 1926 1484 "grendel.mng\\upper"
+outv va00 outs " "  setv va00 addr 3 1576 1822 1364 1364 1605 1605
+rtyp va00 0
+rmsc 1699 1484 "grendel.mng\\upper"
+outv va00 outs " "  setv va00 addr 3 1403 1576 1364 1364 1605 1605
+rtyp va00 0
+rmsc 1489 1484 "grendel.mng\\upper"
+outv va00 outs " "  setv va00 addr 3 1292 1403 1364 1364 1605 1605
+rtyp va00 0
+rmsc 1347 1484 "grendel.mng\\upper"
+outv va00 outs " "  setv va00 addr 3 684 1292 1791 1786 1804 1804
+rtyp va00 1
+rmsc 988 1797 ""
+outv va00 outs " "  setv va00 addr 3 1292 1403 1786 1794 1804 1804
+rtyp va00 0
+rmsc 1347 1795 ""
+outv va00 outs " "  setv va00 addr 3 1403 1576 1794 1786 1804 1804
+rtyp va00 1
+rmsc 1489 1799 ""
+outv va00 outs " "  setv va00 addr 3 1576 1822 1786 1786 1804 1804
+rtyp va00 1
+rmsc 1699 1795 ""
+outv va00 outs " "  setv va00 addr 3 1822 2030 1786 1786 1804 1804
+rtyp va00 1
+rmsc 1926 1795 ""
+outv va00 outs " "  setv va00 addr 3 2030 2228 1786 1786 1804 1804
+rtyp va00 1
+rmsc 2129 1795 ""
+outv va00 outs " "  setv va00 addr 3 2228 2446 1786 1789 1804 1804
+rtyp va00 1
+rmsc 2337 1795 ""
+outv va00 outs " "  setv va00 addr 3 2446 2643 1789 1788 1804 1804
+rtyp va00 1
+rmsc 2544 1796 ""
+outv va00 outs " "  setv va00 addr 3 2643 2809 1788 1788 1804 1804
+rtyp va00 1
+rmsc 2726 1796 ""
+outv va00 outs " "  setv va00 addr 3 2623 2785 2100 2102 2118 2118
+rtyp va00 1
+rmsc 2704 2109 ""
+outv va00 outs " "  setv va00 addr 3 2445 2623 2118 2118 2165 2165
+rtyp va00 0
+rmsc 2534 2141 "grendel.mng\\swamp"
+outv va00 outs " "  setv va00 addr 3 2623 2785 2118 2118 2165 2165
+rtyp va00 0
+rmsc 2704 2141 "grendel.mng\\swamp"
+outv va00 outs " "  setv va00 addr 3 2785 2862 2102 2103 2165 2165
+rtyp va00 0
+rmsc 2823 2133 "grendel.mng\\swamp"
+outv va00 outs " "  setv va00 addr 3 2334 2394 2100 2099 2110 2146
+rtyp va00 0
+rmsc 2364 2123 ""
+outv va00 outs " "  setv va00 addr 3 2394 2445 2118 2118 2165 2165
+rtyp va00 0
+rmsc 2419 2141 ""
+outv va00 outs " "  setv va00 addr 3 2418 2643 2165 2165 2198 2256
+rtyp va00 8
+rmsc 2530 2210 "grendel.mng\\swamp"
+outv va00 outs " "  setv va00 addr 3 2643 2851 2165 2165 2256 2182
+rtyp va00 8
+rmsc 2747 2173 "grendel.mng\\swamp"
+outv va00 outs " "  setv va00 addr 3 2460 2643 2209 2256 2254 2270
+rtyp va00 8
+rmsc 2551 2239 "grendel.mng\\swamp"
+outv va00 outs " "  setv va00 addr 3 2643 2801 2256 2200 2270 2262
+rtyp va00 8
+rmsc 2722 2259 "grendel.mng\\swamp"
+outv va00 outs " "  setv va00 addr 3 2643 2809 1404 1492 1605 1605
+rtyp va00 0
+rmsc 2726 1504 "grendel.mng\\upper"
+outv va00 outs " "  setv va00 addr 3 1403 1576 1605 1605 1618 1618
+rtyp va00 1
+rmsc 1489 1611 ""
+outv va00 outs " "  setv va00 addr 3 1292 1403 1605 1605 1618 1618
+rtyp va00 0
+rmsc 1347 1611 ""
+outv va00 outs " "  setv va00 addr 3 684 1292 1620 1605 1634 1635
+rtyp va00 1
+rmsc 988 1627 ""
+outv va00 outs " "  setv va00 addr 3 217 684 1620 1620 1634 1634
+rtyp va00 1
+rmsc 450 1627 ""
+outv va00 outs " "  setv va00 addr 3 1292 1403 1988 1988 1998 1998
+rtyp va00 1
+rmsc 1347 1993 ""
+outv va00 outs " "  setv va00 addr 3 891 1292 1988 1988 1998 1998
+rtyp va00 1
+rmsc 1091 1993 ""
+outv va00 outs " "  setv va00 addr 3 684 891 1983 1988 2020 1998
+rtyp va00 1
+rmsc 787 1990 ""
+outv va00 outs " "  setv va00 addr 3 113 684 1983 1983 2020 2020
+rtyp va00 2
+rmsc 398 2001 ""
+outv va00 outs " "  setv va00 addr 3 684 891 1804 1804 1983 1988
+rtyp va00 0
+rmsc 787 1896 "grendel.mng\\ground"
+outv va00 outs " "  setv va00 addr 3 684 891 1634 1634 1791 1789
+rtyp va00 5
+rmsc 787 1711 "grendel.mng\\upper"
+outv va00 outs " "  setv va00 addr 3 891 1093 1634 1635 1789 1788
+rtyp va00 5
+rmsc 992 1711 "grendel.mng\\upper"
+outv va00 outs " "  setv va00 addr 3 1093 1292 1635 1635 1788 1786
+rtyp va00 5
+rmsc 1192 1710 "grendel.mng\\upper"
+outv va00 outs " "  setv va00 addr 3 891 1093 1804 1804 1988 1988
+rtyp va00 0
+rmsc 992 1896 "grendel.mng\\ground"
+outv va00 outs " "  setv va00 addr 3 1093 1292 1804 1804 1988 1988
+rtyp va00 0
+rmsc 1192 1896 "grendel.mng\\ground"
+outv va00 outs " "  setv va00 addr 3 1092 1292 1364 1364 1610 1605
+rtyp va00 0
+rmsc 1192 1484 "grendel.mng\\upper"
+outv va00 outs " "  setv va00 addr 3 891 1092 1364 1364 1615 1610
+rtyp va00 0
+rmsc 991 1487 "grendel.mng\\upper"
+outv va00 outs " "  setv va00 addr 3 684 891 1364 1364 1620 1615
+rtyp va00 0
+rmsc 787 1489 "grendel.mng\\upper"
+outv va00 outs " "  setv va00 addr 3 462 684 1363 1364 1620 1620
+rtyp va00 0
+rmsc 573 1491 "grendel.mng\\upper"
+outv va00 outs " "  setv va00 addr 3 290 462 1476 1363 1620 1620
+rtyp va00 0
+rmsc 376 1548 "grendel.mng\\upper"
+outv va00 outs " "  setv va00 addr 3 458 684 1634 1634 1786 1791
+rtyp va00 0
+rmsc 571 1712 "grendel.mng\\upper"
+outv va00 outs " "  setv va00 addr 3 458 684 1786 1791 1983 1983
+rtyp va00 0
+rmsc 571 1884 "grendel.mng\\ground"
+outv va00 outs " "  setv va00 addr 3 274 458 1634 1634 1786 1786
+rtyp va00 0
+rmsc 366 1710 "grendel.mng\\upper"
+outv va00 outs " "  setv va00 addr 3 274 458 1786 1786 1983 1983
+rtyp va00 0
+rmsc 366 1884 "grendel.mng\\ground"
+outv va00 outs " "  setv va00 addr 3 107 274 1786 1786 1983 1983
+rtyp va00 0
+rmsc 190 1884 "grendel.mng\\ground"
+outv va00 outs " "  setv va00 addr 3 202 274 1634 1634 1786 1786
+rtyp va00 0
+rmsc 238 1710 ""
+outv va00 outs " "  setv va00 addr 3 1093 1292 1998 1998 2177 2171
+rtyp va00 5
+rmsc 1192 2084 "grendel.mng\\ground"
+outv va00 outs " "  setv va00 addr 3 891 1093 1998 1998 2177 2177
+rtyp va00 5
+rmsc 992 2087 "grendel.mng\\pond"
+outv va00 outs " "  setv va00 addr 3 684 891 2020 1998 2176 2177
+rtyp va00 5
+rmsc 787 2098 "grendel.mng\\pond"
+outv va00 outs " "  setv va00 addr 3 458 684 2020 2020 2176 2176
+rtyp va00 5
+rmsc 571 2098 "grendel.mng\\pond"
+outv va00 outs " "  setv va00 addr 3 275 458 2020 2020 2176 2176
+rtyp va00 5
+rmsc 366 2098 "grendel.mng\\pond"
+outv va00 outs " "  setv va00 addr 3 176 275 2020 2020 2175 2176
+rtyp va00 5
+rmsc 225 2098 "grendel.mng\\pond"
+outv va00 outs " " 
+outv addm 76 2866 6868 1652 "main3.0"
+mmsc 3510 3692 "main.mng\\corridor"
+ setv va00 addr 4 394 503 3403 3324 3541 3546
+rtyp va00 0
+rmsc 448 3474 "bridge.mng\\main"
+outv va00 outs " "  setv va00 addr 4 503 681 3324 3265 3546 3546
+rtyp va00 0
+rmsc 592 3435 "bridge.mng\\main"
+outv va00 outs " "  setv va00 addr 4 681 876 3265 3223 3546 3546
+rtyp va00 0
+rmsc 778 3405 "bridge.mng\\main"
+outv va00 outs " "  setv va00 addr 4 876 1102 3223 3197 3546 3546
+rtyp va00 0
+rmsc 989 3384 "bridge.mng\\main"
+outv va00 outs " "  setv va00 addr 4 1102 1287 3197 3188 3546 3546
+rtyp va00 0
+rmsc 1194 3371 "bridge.mng\\main"
+outv va00 outs " "  setv va00 addr 4 1287 1517 3188 3194 3546 3547
+rtyp va00 0
+rmsc 1402 3367 "bridge.mng\\main"
+outv va00 outs " "  setv va00 addr 4 1517 1729 3194 3194 3364 3369
+rtyp va00 0
+rmsc 1623 3281 "bridge.mng\\main"
+outv va00 outs " "  setv va00 addr 4 1729 1923 3194 3194 3369 3369
+rtyp va00 0
+rmsc 1826 3281 "bridge.mng\\main"
+outv va00 outs " "  setv va00 addr 4 1923 2111 3194 3194 3369 3369
+rtyp va00 0
+rmsc 2017 3281 "bridge.mng\\main"
+outv va00 outs " "  setv va00 addr 4 2111 2308 3194 3137 3369 3372
+rtyp va00 0
+rmsc 2209 3283 "bridge.mng\\main"
+outv va00 outs " "  setv va00 addr 4 2308 2563 3047 2997 3372 3334
+rtyp va00 0
+rmsc 2435 3190 "bridge.mng\\main"
+outv va00 outs " "  setv va00 addr 4 2563 2785 2997 3127 3334 3288
+rtyp va00 0
+rmsc 2674 3142 "bridge.mng\\main"
+outv va00 outs " "  setv va00 addr 4 1517 1730 3394 3394 3547 3546
+rtyp va00 0
+rmsc 1623 3470 "bridge.mng\\main"
+outv va00 outs " "  setv va00 addr 4 1730 1928 3394 3394 3546 3547
+rtyp va00 0
+rmsc 1829 3470 "bridge.mng\\main"
+outv va00 outs " "  setv va00 addr 4 1928 2111 3394 3395 3547 3546
+rtyp va00 0
+rmsc 2019 3470 "bridge.mng\\main"
+outv va00 outs " "  setv va00 addr 4 2111 2298 3395 3398 3546 3546
+rtyp va00 0
+rmsc 2204 3470 "bridge.mng\\main"
+outv va00 outs " "  setv va00 addr 4 2298 2476 3398 3375 3546 3544
+rtyp va00 0
+rmsc 2387 3471 "bridge.mng\\main"
+outv va00 outs " "  setv va00 addr 4 2476 2652 3375 3344 3544 3526
+rtyp va00 0
+rmsc 2564 3450 "bridge.mng\\main"
+outv va00 outs " "  setv va00 addr 4 2652 2793 3344 3317 3526 3518
+rtyp va00 0
+rmsc 2722 3431 "bridge.mng\\main"
+outv va00 outs " "  setv va00 addr 4 2793 3051 3317 3301 3518 3525
+rtyp va00 0
+rmsc 2922 3421 "main.mng\\corridor"
+outv va00 outs " "  setv va00 addr 4 3051 3275 3301 3301 3525 3527
+rtyp va00 0
+rmsc 3163 3414 "main.mng\\corridor"
+outv va00 outs " "  setv va00 addr 4 3275 3516 3301 3301 3527 3527
+rtyp va00 0
+rmsc 3395 3414 "main.mng\\corridor"
+outv va00 outs " "  setv va00 addr 4 3516 3818 3301 3301 3527 3527
+rtyp va00 0
+rmsc 3667 3414 "main.mng\\corridor"
+outv va00 outs " "  setv va00 addr 4 3818 4154 3301 3301 3527 3527
+rtyp va00 0
+rmsc 3986 3414 "main.mng\\corridor"
+outv va00 outs " "  setv va00 addr 4 4154 4479 3301 3301 3527 3527
+rtyp va00 0
+rmsc 4316 3414 "main.mng\\corridor"
+outv va00 outs " "  setv va00 addr 4 4479 4842 3301 3301 3527 3527
+rtyp va00 0
+rmsc 4660 3414 "main.mng\\corridor"
+outv va00 outs " "  setv va00 addr 4 2111 2252 3546 3546 3792 3792
+rtyp va00 0
+rmsc 2181 3669 "bridge.mng\\labs1"
+outv va00 outs " "  setv va00 addr 4 1936 2111 3591 3604 3792 3792
+rtyp va00 0
+rmsc 2023 3691 "bridge.mng\\labs1"
+outv va00 outs " "  setv va00 addr 4 1743 1936 3588 3591 3792 3792
+rtyp va00 0
+rmsc 1839 3690 "bridge.mng\\labs1"
+outv va00 outs " "  setv va00 addr 4 1517 1743 3590 3588 3792 3792
+rtyp va00 0
+rmsc 1630 3691 "bridge.mng\\labs1"
+outv va00 outs " "  setv va00 addr 4 1288 1517 3590 3590 3791 3792
+rtyp va00 0
+rmsc 1402 3691 "bridge.mng\\labs1"
+outv va00 outs " "  setv va00 addr 4 1161 1288 3591 3590 3786 3791
+rtyp va00 0
+rmsc 1224 3691 "bridge.mng\\labs1"
+outv va00 outs " "  setv va00 addr 4 2111 2252 3792 3792 4037 4037
+rtyp va00 0
+rmsc 2181 3914 "bridge.mng\\main"
+outv va00 outs " "  setv va00 addr 4 2018 2111 3835 3877 4031 4037
+rtyp va00 0
+rmsc 2064 3936 "bridge.mng\\main"
+outv va00 outs " "  setv va00 addr 4 1837 2018 3826 3835 4031 4031
+rtyp va00 0
+rmsc 1927 3928 "bridge.mng\\main"
+outv va00 outs " "  setv va00 addr 4 1665 1837 3827 3826 4031 4031
+rtyp va00 0
+rmsc 1751 3929 "bridge.mng\\main"
+outv va00 outs " "  setv va00 addr 4 1496 1665 3826 3827 4022 4031
+rtyp va00 0
+rmsc 1580 3928 "bridge.mng\\main"
+outv va00 outs " "  setv va00 addr 4 1402 1496 3829 3826 3973 4022
+rtyp va00 0
+rmsc 1449 3925 "bridge.mng\\main"
+outv va00 outs " "  setv va00 addr 4 1079 1161 3586 3591 3743 3786
+rtyp va00 0
+rmsc 1120 3686 "bridge.mng\\labs1"
+outv va00 outs " "  setv va00 addr 4 2252 2480 3859 3860 4037 4030
+rtyp va00 0
+rmsc 2366 3944 "engineering.mng\\engineering1"
+outv va00 outs " "  setv va00 addr 4 2480 2671 3860 3865 4030 4031
+rtyp va00 0
+rmsc 2575 3945 "engineering.mng\\engineering1"
+outv va00 outs " "  setv va00 addr 4 2252 2401 3613 3588 3792 3794
+rtyp va00 0
+rmsc 2326 3703 "bridge.mng\\labs1"
+outv va00 outs " "  setv va00 addr 4 2401 2578 3588 3578 3794 3778
+rtyp va00 0
+rmsc 2489 3683 "bridge.mng\\labs1"
+outv va00 outs " "  setv va00 addr 4 2578 2793 3578 3558 3778 3754
+rtyp va00 0
+rmsc 2685 3666 "bridge.mng\\labs1"
+outv va00 outs " "  setv va00 addr 4 2793 2985 3558 3560 3754 3722
+rtyp va00 0
+rmsc 2889 3640 "bridge.mng\\labs1"
+outv va00 outs " "  setv va00 addr 4 4910 5208 3301 3306 3507 3507
+rtyp va00 0
+rmsc 5059 3404 "bridge.mng\\main"
+outv va00 outs " "  setv va00 addr 4 5208 5540 3306 3300 3507 3503
+rtyp va00 0
+rmsc 5374 3404 "engineering.mng\\engineering2"
+outv va00 outs " "  setv va00 addr 4 5540 5804 3300 3299 3503 3504
+rtyp va00 0
+rmsc 5672 3402 "engineering.mng\\engineering2"
+outv va00 outs " "  setv va00 addr 4 5804 6234 3299 3343 3504 3506
+rtyp va00 0
+rmsc 6019 3402 "engineering.mng\\engineering2"
+outv va00 outs " "  setv va00 addr 4 5540 6234 3503 3506 3513 3512
+rtyp va00 0
+rmsc 5887 3507 ""
+outv va00 outs " "  setv va00 addr 4 6306 6599 3512 3512 3716 3716
+rtyp va00 0
+rmsc 6452 3614 "engineering.mng\\engineering2"
+outv va00 outs " "  setv va00 addr 4 6087 6306 3512 3512 3716 3716
+rtyp va00 0
+rmsc 6196 3614 "engineering.mng\\engineering2"
+outv va00 outs " "  setv va00 addr 4 5952 6087 3513 3512 3716 3716
+rtyp va00 0
+rmsc 6019 3614 "engineering.mng\\engineering2"
+outv va00 outs " "  setv va00 addr 4 5739 5952 3513 3513 3716 3716
+rtyp va00 0
+rmsc 5845 3614 "engineering.mng\\engineering2"
+outv va00 outs " "  setv va00 addr 4 5540 5739 3513 3513 3716 3716
+rtyp va00 0
+rmsc 5639 3614 "engineering.mng\\engineering2"
+outv va00 outs " "  setv va00 addr 4 5739 6561 3716 3716 3731 3731
+rtyp va00 0
+rmsc 6150 3723 ""
+outv va00 outs " "  setv va00 addr 4 6448 6588 3731 3731 4024 4025
+rtyp va00 0
+rmsc 6518 3878 "bridge.mng\\labs2"
+outv va00 outs " "  setv va00 addr 4 6164 6448 3731 3731 4025 4024
+rtyp va00 0
+rmsc 6306 3877 "bridge.mng\\labs2"
+outv va00 outs " "  setv va00 addr 4 5929 6164 3731 3731 4025 4025
+rtyp va00 0
+rmsc 6046 3878 "bridge.mng\\labs2"
+outv va00 outs " "  setv va00 addr 4 5739 5929 3731 3731 4024 4025
+rtyp va00 0
+rmsc 5834 3878 "bridge.mng\\labs2"
+outv va00 outs " "  setv va00 addr 4 4842 4910 3301 3301 3527 3507
+rtyp va00 0
+rmsc 4876 3404 "bridge.mng\\main"
+outv va00 outs " "  setv va00 addr 4 5208 5540 3507 3503 3514 3513
+rtyp va00 0
+rmsc 5374 3510 ""
+outv va00 outs " "  setv va00 addr 4 5350 5540 3514 3513 3652 3716
+rtyp va00 0
+rmsc 5445 3615 "engineering.mng\\engineering2"
+outv va00 outs " "  setv va00 addr 4 2671 2703 3865 3852 4031 4034
+rtyp va00 0
+rmsc 2687 3949 ""
+outv va00 outs " "  setv va00 addr 4 2703 2879 3852 3851 4034 4033
+rtyp va00 0
+rmsc 2791 3942 "engineering.mng\\engineering1"
+outv va00 outs " "  setv va00 addr 4 2879 3049 3851 3849 4033 4033
+rtyp va00 0
+rmsc 2964 3942 "engineering.mng\\engineering1"
+outv va00 outs " "  setv va00 addr 4 3049 3202 3849 3861 4033 4028
+rtyp va00 0
+rmsc 3125 3938 "engineering.mng\\engineering1"
+outv va00 outs " "  setv va00 addr 4 5540 5739 3716 3716 3731 3731
+rtyp va00 0
+rmsc 5639 3723 ""
+outv va00 outs " "  setv va00 addr 4 5540 5739 3731 3731 4023 4024
+rtyp va00 0
+rmsc 5639 3877 "bridge.mng\\labs2"
+outv va00 outs " "  setv va00 addr 4 5350 5540 3739 3731 4028 4023
+rtyp va00 0
+rmsc 5445 3881 "bridge.mng\\labs2"
+outv va00 outs " "  setv va00 addr 4 5238 5350 3767 3853 4030 4028
+rtyp va00 0
+rmsc 5294 3897 "bridge.mng\\labs2"
+outv va00 outs " "  setv va00 addr 4 4950 5238 3767 3767 4028 4030
+rtyp va00 0
+rmsc 5094 3898 "bridge.mng\\labs2"
+outv va00 outs " "  setv va00 addr 4 5878 6448 4025 4024 4036 4036
+rtyp va00 0
+rmsc 6163 4030 ""
+outv va00 outs " "  setv va00 addr 4 6204 6285 4036 4036 4312 4271
+rtyp va00 0
+rmsc 6244 4153 "engineering.mng\\engineering1"
+outv va00 outs " "  setv va00 addr 4 5892 6204 4036 4036 4310 4312
+rtyp va00 0
+rmsc 6048 4174 "engineering.mng\\engineering1"
+outv va00 outs " "  setv va00 addr 4 5581 5848 4127 4129 4310 4310
+rtyp va00 0
+rmsc 5714 4218 "engineering.mng\\engineering1"
+outv va00 outs " "  setv va00 addr 4 5536 5581 4127 4127 4296 4310
+rtyp va00 0
+rmsc 5558 4218 ""
+outv va00 outs " "  setv va00 addr 4 4300 5536 4049 4127 4500 4296
+rtyp va00 0
+rmsc 4918 4172 ""
+outv va00 outs " "  setv va00 addr 4 3202 4300 3861 4049 4028 4500
+rtyp va00 0
+rmsc 3751 4180 ""
+outv va00 outs " "  setv va00 addr 4 5848 5892 4129 4129 4310 4310
+rtyp va00 0
+rmsc 5870 4219 ""
+outv va00 outs " "  setv va00 addr 4 2111 2252 3369 3371 3395 3397
+rtyp va00 0
+rmsc 2181 3383 ""
+outv va00 outs " " 
+outv addm 7220 670 796 596 "pinball2"
+mmsc 7618 968 ""
+ setv va00 addr 5 7522 7587 1159 1190 1263 1264
+rtyp va00 0
+rmsc 7554 1211 ""
+outv va00 outs " "  setv va00 addr 5 7914 7954 852 852 1262 1263
+rtyp va00 0
+rmsc 7934 1057 ""
+outv va00 outs " "  setv va00 addr 5 7954 7967 959 956 1263 1265
+rtyp va00 0
+rmsc 7960 1112 ""
+outv va00 outs " "  setv va00 addr 5 7858 8014 671 670 681 773
+rtyp va00 0
+rmsc 7936 722 ""
+outv va00 outs " "  setv va00 addr 5 7307 7386 673 673 734 734
+rtyp va00 0
+rmsc 7346 703 ""
+outv va00 outs " "  setv va00 addr 5 7761 7790 1143 1132 1262 1262
+rtyp va00 0
+rmsc 7775 1202 ""
+outv va00 outs " "  setv va00 addr 5 7790 7826 1132 1117 1262 1262
+rtyp va00 0
+rmsc 7808 1197 ""
+outv va00 outs " "  setv va00 addr 5 7826 7853 1117 1106 1262 1261
+rtyp va00 0
+rmsc 7839 1189 ""
+outv va00 outs " "  setv va00 addr 5 7853 7914 1106 1081 1261 1262
+rtyp va00 0
+rmsc 7883 1184 ""
+outv va00 outs " "  setv va00 addr 5 7935 8014 726 773 852 852
+rtyp va00 0
+rmsc 7974 789 ""
+outv va00 outs " "  setv va00 addr 5 7967 8014 852 852 1265 1264
+rtyp va00 0
+rmsc 7990 1058 ""
+outv va00 outs " "  setv va00 addr 5 7461 7498 1130 1148 1263 1262
+rtyp va00 0
+rmsc 7479 1196 ""
+outv va00 outs " "  setv va00 addr 5 7498 7522 1148 1159 1262 1263
+rtyp va00 0
+rmsc 7510 1205 ""
+outv va00 outs " "  setv va00 addr 5 7723 7761 1159 1143 1263 1262
+rtyp va00 0
+rmsc 7742 1210 ""
+outv va00 outs " "  setv va00 addr 5 7699 7723 1169 1159 1262 1263
+rtyp va00 0
+rmsc 7711 1216 ""
+outv va00 outs " "  setv va00 addr 5 7647 7699 1190 1169 1265 1262
+rtyp va00 0
+rmsc 7673 1226 ""
+outv va00 outs " "  setv va00 addr 5 7434 7461 1117 1130 1259 1263
+rtyp va00 0
+rmsc 7447 1190 ""
+outv va00 outs " "  setv va00 addr 5 7404 7434 1103 1117 1258 1259
+rtyp va00 0
+rmsc 7419 1181 ""
+outv va00 outs " "  setv va00 addr 5 7377 7404 1090 1103 1261 1258
+rtyp va00 0
+rmsc 7390 1174 ""
+outv va00 outs " "  setv va00 addr 5 7338 7377 1072 1090 1258 1261
+rtyp va00 0
+rmsc 7357 1166 ""
+outv va00 outs " "  setv va00 addr 5 7307 7338 734 734 1258 1258
+rtyp va00 0
+rmsc 7322 996 ""
+outv va00 outs " "  setv va00 addr 5 7338 7587 1002 987 1072 1190
+rtyp va00 0
+rmsc 7462 1096 ""
+outv va00 outs " "  setv va00 addr 5 7647 7914 994 1021 1190 1081
+rtyp va00 0
+rmsc 7780 1037 ""
+outv va00 outs " "  setv va00 addr 5 7587 7647 987 994 1264 1265
+rtyp va00 0
+rmsc 7617 1126 ""
+outv va00 outs " "  setv va00 addr 5 7683 7772 931 970 998 1007
+rtyp va00 0
+rmsc 7727 969 ""
+outv va00 outs " "  setv va00 addr 5 7482 7528 941 885 975 925
+rtyp va00 0
+rmsc 7505 933 ""
+outv va00 outs " "  setv va00 addr 5 7482 7528 975 925 993 991
+rtyp va00 0
+rmsc 7505 983 ""
+outv va00 outs " "  setv va00 addr 5 7359 7446 851 814 912 911
+rtyp va00 0
+rmsc 7402 881 ""
+outv va00 outs " "  setv va00 addr 5 7338 7482 912 911 1002 993
+rtyp va00 0
+rmsc 7410 952 ""
+outv va00 outs " "  setv va00 addr 5 7338 7359 734 734 912 912
+rtyp va00 0
+rmsc 7348 823 ""
+outv va00 outs " "  setv va00 addr 5 7359 7446 734 734 851 814
+rtyp va00 0
+rmsc 7402 774 ""
+outv va00 outs " "  setv va00 addr 5 7623 7644 671 672 700 699
+rtyp va00 0
+rmsc 7633 685 ""
+outv va00 outs " "  setv va00 addr 5 7623 7647 718 717 753 753
+rtyp va00 0
+rmsc 7635 735 ""
+outv va00 outs " "  setv va00 addr 5 7611 7631 771 771 808 808
+rtyp va00 0
+rmsc 7621 789 ""
+outv va00 outs " "  setv va00 addr 5 7631 7647 830 835 878 877
+rtyp va00 0
+rmsc 7639 853 ""
+outv va00 outs " "  setv va00 addr 5 7386 7623 673 671 734 734
+rtyp va00 0
+rmsc 7504 703 ""
+outv va00 outs " "  setv va00 addr 5 7623 7734 700 695 718 712
+rtyp va00 0
+rmsc 7678 706 ""
+outv va00 outs " "  setv va00 addr 5 7644 7858 672 671 699 689
+rtyp va00 0
+rmsc 7751 680 ""
+outv va00 outs " "  setv va00 addr 5 7734 7858 695 689 712 712
+rtyp va00 0
+rmsc 7796 703 ""
+outv va00 outs " "  setv va00 addr 5 7801 7843 885 852 910 901
+rtyp va00 0
+rmsc 7822 893 ""
+outv va00 outs " "  setv va00 addr 5 7843 7935 753 753 852 852
+rtyp va00 0
+rmsc 7889 802 ""
+outv va00 outs " "  setv va00 addr 5 7858 7935 681 726 753 753
+rtyp va00 0
+rmsc 7896 717 ""
+outv va00 outs " "  setv va00 addr 5 7734 7858 712 712 753 753
+rtyp va00 0
+rmsc 7796 732 ""
+outv va00 outs " "  setv va00 addr 5 7801 7843 753 753 885 852
+rtyp va00 0
+rmsc 7822 802 ""
+outv va00 outs " "  setv va00 addr 5 7647 7734 717 712 753 753
+rtyp va00 0
+rmsc 7690 735 ""
+outv va00 outs " "  setv va00 addr 5 7843 7914 852 852 980 980
+rtyp va00 0
+rmsc 7878 916 ""
+outv va00 outs " "  setv va00 addr 5 7772 7843 916 901 1007 1014
+rtyp va00 0
+rmsc 7807 965 ""
+outv va00 outs " "  setv va00 addr 5 7772 7801 753 753 916 910
+rtyp va00 0
+rmsc 7786 831 ""
+outv va00 outs " "  setv va00 addr 5 7683 7772 753 753 931 970
+rtyp va00 0
+rmsc 7727 861 ""
+outv va00 outs " "  setv va00 addr 5 7647 7683 753 753 994 998
+rtyp va00 0
+rmsc 7665 875 ""
+outv va00 outs " "  setv va00 addr 5 7631 7647 753 753 830 835
+rtyp va00 0
+rmsc 7639 794 ""
+outv va00 outs " "  setv va00 addr 5 7631 7647 878 877 992 994
+rtyp va00 0
+rmsc 7639 936 ""
+outv va00 outs " "  setv va00 addr 5 7446 7631 753 753 771 771
+rtyp va00 0
+rmsc 7538 762 ""
+outv va00 outs " "  setv va00 addr 5 7446 7623 734 734 753 753
+rtyp va00 0
+rmsc 7534 743 ""
+outv va00 outs " "  setv va00 addr 5 7446 7611 771 771 808 808
+rtyp va00 0
+rmsc 7528 789 ""
+outv va00 outs " "  setv va00 addr 5 7482 7528 860 860 941 885
+rtyp va00 0
+rmsc 7505 872 ""
+outv va00 outs " "  setv va00 addr 5 7446 7482 808 808 911 911
+rtyp va00 0
+rmsc 7464 859 ""
+outv va00 outs " "  setv va00 addr 5 7482 7631 808 808 860 860
+rtyp va00 0
+rmsc 7556 834 ""
+outv va00 outs " "  setv va00 addr 5 7528 7631 860 860 946 946
+rtyp va00 0
+rmsc 7579 903 ""
+outv va00 outs " "  setv va00 addr 5 7587 7631 946 946 987 992
+rtyp va00 0
+rmsc 7609 969 ""
+outv va00 outs " "  setv va00 addr 5 7528 7587 946 946 991 987
+rtyp va00 0
+rmsc 7557 966 ""
+outv va00 outs " "  setv va00 addr 5 7954 7967 852 852 959 956
+rtyp va00 0
+rmsc 7960 904 ""
+outv va00 outs " "  setv va00 addr 5 7843 7914 980 980 1014 1021
+rtyp va00 0
+rmsc 7878 1000 ""
+outv va00 outs " " 
+outv addm 7210 29 800 600 "space"
+mmsc 7610 329 ""
+ setv va00 addr 6 7297 8006 67 67 626 626
+rtyp va00 0
+rmsc 7651 346 ""
+outv va00 outs " " 
+outv addm 8209 46 800 600 "Learning_room1.8"
+mmsc 8609 346 ""
+ setv va00 addr 7 8221 8905 53 53 596 597
+rtyp va00 0
+rmsc 8563 325 "main.mng\\vivariumlearning"
+outv va00 outs " "  setv va00 addr 7 8905 9003 389 389 597 597
+rtyp va00 0
+rmsc 8954 493 "main.mng\\vivariumlearning"
+outv va00 outs " "  setv va00 addr 7 8905 9003 53 53 389 389
+rtyp va00 0
+rmsc 8954 221 "main.mng\\vivariumlearning"
+outv va00 outs " " 
+outv addm 8206 688 800 600 "crypt1.5"
+mmsc 8606 988 ""
+ setv va00 addr 8 8207 9003 691 690 1231 1231
+rtyp va00 0
+rmsc 8605 961 ""
+outv va00 outs " " 
+outv addm 4145 1252 400 300 "blank"
+mmsc 4345 1402 ""
+ setv va00 addr 9 4147 4535 1254 1254 1546 1546
+rtyp va00 0
+rmsc 4341 1400 ""
+outv va00 outs " " 
+door 0 1 100 door 0 40 100 door 1 4 100 door 2 5 100 door 2 97 100 door 3 4 100 door 3 97 100 door 5 6 100 door 6 7 100 door 6 27 100 
+door 6 28 100 door 6 29 50 door 7 29 50 door 7 93 100 door 8 9 100 door 8 29 50 door 8 93 100 door 9 10 100 door 9 30 50 door 10 11 100 
+door 10 31 50 door 10 32 50 door 11 32 50 door 11 94 100 door 12 13 100 door 12 32 50 door 12 94 100 door 13 32 50 door 13 95 100 door 14 15 100 
+door 14 32 50 door 14 33 50 door 14 95 100 door 15 33 50 door 15 59 100 door 16 17 100 door 16 34 50 door 16 59 100 door 17 18 100 door 17 25 50 
+door 17 34 50 door 17 99 50 door 17 104 100 door 17 114 50 door 17 115 50 door 18 19 100 door 18 34 50 door 18 54 100 door 18 58 100 door 18 104 100 
+door 18 105 100 door 19 20 100 door 19 22 100 door 19 23 100 door 19 55 100 door 19 58 100 door 20 21 100 door 20 56 100 door 21 22 100 door 22 23 100 
+door 23 58 100 door 23 60 100 door 24 39 100 door 24 60 100 door 24 98 100 door 24 111 50 door 24 112 50 door 24 113 50 door 25 49 50 door 25 99 50 
+door 26 103 50 door 26 104 50 door 26 106 50 door 26 107 50 door 26 108 50 door 26 115 50 door 27 28 100 door 27 71 100 door 27 96 100 door 28 35 100 
+door 28 71 100 door 29 30 50 door 29 35 50 door 29 93 50 door 30 31 50 door 30 36 50 door 31 32 50 door 31 37 50 door 32 33 50 door 32 37 50 
+door 32 38 50 door 32 50 50 door 32 94 50 door 32 95 50 door 33 34 50 door 33 50 50 door 33 51 50 door 33 59 50 door 34 51 50 door 34 52 50 
+door 34 54 50 door 35 36 100 door 35 73 100 door 36 37 100 door 36 73 100 door 37 38 100 door 37 75 100 door 38 50 100 door 38 76 100 door 39 98 100 
+door 39 104 100 door 39 105 100 door 39 108 50 door 39 109 50 door 39 110 50 door 40 41 100 door 41 42 100 door 42 43 100 door 43 44 100 door 44 45 100 
+door 45 46 100 door 46 47 100 door 47 48 100 door 49 100 50 door 50 51 100 door 50 53 50 door 51 52 100 door 51 53 50 door 52 53 50 door 52 54 100 
+door 53 57 50 door 53 76 50 door 53 79 50 door 53 80 50 door 53 81 50 door 53 82 50 door 54 55 100 door 54 57 50 door 55 56 100 door 55 57 50 
+door 56 57 50 door 57 87 50 door 57 88 50 door 57 89 50 door 58 60 100 door 58 98 100 door 58 105 100 door 61 62 100 door 61 65 100 door 62 63 100 
+door 62 65 100 door 63 64 100 door 63 65 100 door 63 66 100 door 64 68 100 door 64 96 100 door 65 66 100 door 65 67 100 door 66 67 100 door 66 68 100 
+door 67 69 100 door 68 69 100 door 68 71 100 door 68 96 100 door 69 70 100 door 70 71 100 door 70 72 100 door 71 72 100 door 71 73 100 door 71 96 100 
+door 72 74 100 door 73 74 100 door 73 75 100 door 74 77 100 door 75 76 100 door 75 77 100 door 76 78 100 door 76 79 100 door 77 78 100 door 78 79 100 
+door 78 83 100 door 79 80 100 door 79 83 100 door 80 81 100 door 80 84 100 door 81 82 100 door 81 85 100 door 82 86 100 door 82 87 100 door 83 84 100 
+door 84 85 100 door 85 86 100 door 86 90 100 door 87 88 100 door 87 90 100 door 88 89 100 door 88 91 100 door 89 92 100 door 90 91 100 door 91 92 100 
+door 116 117 100 door 116 121 100 door 117 118 100 door 117 121 100 door 117 122 100 door 118 119 100 door 118 123 100 door 119 120 100 door 119 124 100 door 120 125 100 
+door 120 126 100 door 98 105 100 door 121 122 100 door 122 123 100 door 123 124 100 door 124 125 100 door 125 126 100 door 126 127 100 door 127 128 100 door 128 130 50 
+door 128 131 50 door 128 136 100 door 129 130 100 door 129 137 100 door 131 132 100 door 131 135 100 door 131 172 100 door 132 133 100 door 132 172 100 door 132 173 100 
+door 133 134 100 door 133 174 100 door 135 157 100 door 135 171 100 door 136 146 100 door 137 138 100 door 138 139 100 door 139 140 100 door 140 141 100 door 141 142 100 
+door 142 143 100 door 142 175 50 door 143 144 100 door 144 145 100 door 99 100 50 door 99 114 50 door 146 147 100 door 146 157 100 door 147 148 100 door 147 158 100 
+door 148 149 100 door 148 159 100 door 149 150 100 door 149 160 100 door 150 151 100 door 150 161 100 door 151 152 100 door 151 162 100 door 152 153 100 door 152 163 100 
+door 153 154 100 door 153 155 100 door 153 156 100 door 154 155 100 door 100 101 50 door 155 156 100 door 156 163 100 door 156 164 100 door 157 158 100 door 157 170 100 
+door 158 159 100 door 158 169 100 door 159 160 100 door 159 168 100 door 160 161 100 door 160 167 100 door 161 162 100 door 161 166 100 door 162 163 100 door 162 164 100 
+door 162 165 100 door 163 164 100 door 164 165 100 door 165 166 100 door 166 167 100 door 167 168 100 door 168 169 100 door 169 170 100 door 170 171 100 door 171 172 100 
+door 172 173 100 door 173 174 100 door 184 201 100 door 184 254 0 door 185 186 0 door 185 213 0 door 185 215 0 door 185 216 0 door 185 217 0 door 185 232 0 
+door 185 233 0 door 185 255 0 door 185 260 0 door 186 187 100 door 186 195 50 door 186 199 100 door 186 213 0 door 186 251 100 door 186 252 100 door 187 194 50 
+door 187 197 100 door 187 198 100 door 188 189 100 door 188 197 100 door 188 198 100 door 189 190 100 door 189 196 100 door 190 200 100 door 191 192 100 door 191 200 50 
+door 191 235 100 door 192 193 100 door 192 196 50 door 192 235 100 door 193 194 100 door 193 197 50 door 193 235 100 door 193 236 100 door 194 195 100 door 194 236 100 
+door 194 237 100 door 195 233 100 door 195 238 100 door 196 197 100 door 196 200 100 door 198 252 100 door 199 214 0 door 199 251 100 door 201 202 100 door 201 208 100 
+door 201 241 100 door 202 203 100 door 202 208 100 door 202 241 100 door 203 204 100 door 203 209 100 door 204 205 100 door 204 210 100 door 205 211 100 door 206 207 100 
+door 206 208 10 door 206 258 10 door 207 257 100 door 208 209 100 door 208 258 100 door 209 210 100 door 210 211 100 door 211 212 100 door 213 214 0 door 213 215 0 
+door 214 215 0 door 215 216 100 door 216 217 100 door 217 222 100 door 217 255 0 door 218 219 0 door 218 220 0 door 218 221 0 door 218 230 0 door 218 231 0 
+door 218 260 0 door 219 220 100 door 219 254 0 door 220 221 100 door 221 222 100 door 221 255 0 door 221 256 50 door 221 260 50 door 222 255 0 door 223 224 100 
+door 223 227 100 door 223 256 100 door 224 225 100 door 225 226 100 door 101 102 50 door 101 114 50 door 227 228 100 door 227 256 50 door 228 229 100 door 102 103 50 
+door 102 115 50 door 230 231 100 door 230 240 100 door 230 257 100 door 231 240 100 door 231 259 100 door 232 233 100 door 232 239 100 door 232 259 100 door 233 234 100 
+door 234 238 100 door 234 239 100 door 235 236 100 door 236 237 100 door 237 238 100 door 239 240 100 door 239 259 100 door 240 259 100 door 241 242 100 door 242 243 100 
+door 243 244 100 door 244 245 100 door 245 246 100 door 246 247 100 door 247 248 100 door 248 249 100 door 249 250 100 door 250 253 100 door 251 252 100 door 251 253 100 
+door 261 262 100 door 262 263 100 door 263 264 100 door 264 265 100 door 265 266 100 door 266 267 100 door 267 268 100 door 268 269 50 door 269 270 100 door 269 276 50 
+door 270 271 100 door 271 272 100 door 272 273 100 door 273 274 100 door 274 275 100 door 276 279 100 door 276 335 50 door 276 356 100 door 277 287 100 door 277 312 50 
+door 277 335 50 door 277 344 100 door 278 295 100 door 278 312 50 door 278 332 50 door 278 333 50 door 278 342 100 door 279 280 100 door 279 287 100 door 279 335 50 
+door 280 281 100 door 280 288 100 door 281 282 100 door 281 289 100 door 282 283 100 door 282 290 100 door 283 284 100 door 283 291 100 door 283 303 50 door 283 324 50 
+door 284 285 100 door 284 292 100 door 284 303 50 door 285 286 100 door 285 292 100 door 285 293 100 door 285 320 50 door 286 293 100 door 286 294 100 door 286 323 50 
+door 287 288 100 door 287 313 50 door 287 314 50 door 288 289 100 door 288 314 50 door 289 290 100 door 289 315 50 door 290 291 100 door 290 316 50 door 291 292 100 
+door 291 317 50 door 292 293 100 door 292 318 50 door 293 294 100 door 293 319 50 door 294 302 100 door 294 319 50 door 295 296 100 door 295 313 50 door 295 331 50 
+door 296 297 100 door 296 308 100 door 296 314 50 door 296 331 50 door 297 298 100 door 297 307 100 door 297 315 50 door 298 299 100 door 298 306 100 door 298 316 50 
+door 299 300 100 door 299 305 100 door 299 317 50 door 300 301 100 door 300 304 100 door 300 318 50 door 301 302 100 door 301 319 50 door 301 330 100 door 302 330 100 
+door 303 320 50 door 303 321 50 door 303 324 50 door 303 325 50 door 304 305 100 door 304 330 100 door 305 306 100 door 306 307 100 door 307 308 100 door 308 309 100 
+door 309 310 100 door 309 331 50 door 310 332 50 door 310 345 100 door 311 312 50 door 311 339 50 door 311 340 50 door 311 341 50 door 311 342 50 door 311 343 50 
+door 311 344 50 door 311 351 50 door 312 313 50 door 313 314 50 door 314 315 50 door 315 316 50 door 316 317 50 door 317 318 50 door 318 319 50 door 320 322 50 
+door 320 323 50 door 321 322 100 door 321 325 100 door 321 326 100 door 322 323 50 door 322 326 100 door 322 327 100 door 323 327 100 door 324 325 50 door 325 326 100 
+door 326 327 100 door 326 328 100 door 327 329 100 door 328 329 100 door 331 332 50 door 332 333 50 door 333 334 50 door 333 340 50 door 333 341 50 door 333 342 50 
+door 333 345 50 door 333 346 50 door 333 347 50 door 334 348 50 door 334 349 50 door 334 350 50 door 334 352 50 door 334 355 50 door 335 336 50 door 336 337 0 
+door 336 343 50 door 336 344 50 door 336 356 50 door 336 357 50 door 337 338 100 door 337 339 0 door 337 358 0 door 338 351 0 door 338 353 0 door 338 354 0 
+door 338 359 0 door 338 360 0 door 338 361 0 door 339 343 100 door 339 351 100 door 340 341 100 door 340 350 100 door 341 342 100 door 343 344 100 door 345 346 100 
+door 346 347 100 door 347 348 100 door 348 349 100 door 103 106 50 door 350 351 100 door 350 352 100 door 351 353 100 door 352 353 100 door 352 355 100 door 353 354 100 
+door 354 355 100 door 356 357 100 door 357 358 100 door 358 359 100 door 359 360 100 door 360 361 100 door 362 363 100 door 363 364 100 door 364 365 100 door 365 366 100 
+door 366 367 100 door 367 368 100 door 367 374 100 door 368 369 100 door 369 370 100 door 370 371 100 door 371 372 100 door 371 442 50 door 372 373 100 door 374 375 100 
+door 375 376 100 door 376 377 100 door 377 378 100 door 377 388 50 door 377 442 50 door 378 379 100 door 379 380 100 door 380 381 100 door 381 382 100 door 382 383 100 
+door 383 384 100 door 384 385 100 door 385 386 100 door 386 387 100 door 387 422 100 door 388 389 100 door 388 394 50 door 388 403 100 door 389 390 100 door 390 391 100 
+door 391 392 100 door 392 393 100 door 393 400 100 door 394 395 100 door 394 401 100 door 395 396 100 door 396 397 100 door 397 398 100 door 398 399 100 door 401 402 100 
+door 402 425 0 door 403 404 100 door 404 405 100 door 405 406 100 door 407 408 100 door 407 422 100 door 408 409 100 door 408 423 50 door 409 410 100 door 409 411 50 
+door 410 411 50 door 411 413 50 door 411 414 50 door 411 415 50 door 411 416 50 door 411 423 50 door 412 413 100 door 412 417 50 door 413 414 100 door 413 417 50 
+door 414 415 100 door 414 417 50 door 415 416 100 door 415 417 50 door 416 424 100 door 416 429 50 door 417 418 50 door 417 419 50 door 417 420 50 door 417 421 50 
+door 417 429 50 door 418 419 100 door 419 420 100 door 419 434 50 door 420 421 100 door 420 434 50 door 421 430 100 door 421 434 50 door 423 424 50 door 443 455 50 
+door 443 464 50 door 443 466 50 door 444 445 50 door 444 451 50 door 444 452 100 door 444 465 100 door 444 483 100 door 444 488 100 door 444 504 100 door 444 505 50 
+door 445 453 50 door 445 504 50 door 446 452 50 door 446 480 50 door 446 484 50 door 447 463 50 door 447 472 50 door 447 473 50 door 447 478 50 door 448 449 50 
+door 448 456 50 door 448 465 100 door 449 450 50 door 449 465 50 door 450 451 50 door 450 465 100 door 451 465 50 door 452 453 100 door 452 483 100 door 452 484 100 
+door 452 504 100 door 453 504 100 door 454 455 50 door 454 459 50 door 454 464 50 door 455 464 100 door 456 457 50 door 456 465 50 door 457 458 50 door 457 465 100 
+door 458 465 50 door 458 466 50 door 459 460 50 door 459 464 100 door 460 461 50 door 460 464 50 door 461 462 50 door 461 464 100 door 462 463 50 door 462 464 50 
+door 463 464 100 door 463 471 100 door 463 472 100 door 464 466 100 door 464 469 100 door 464 471 100 door 464 503 100 door 465 466 100 door 465 467 50 door 465 489 100 
+door 465 492 100 door 465 505 50 door 466 494 100 door 466 502 100 door 467 489 50 door 467 491 50 door 467 492 50 door 468 469 50 door 468 471 50 door 468 498 50 
+door 468 501 50 door 469 471 100 door 469 501 100 door 469 503 100 door 470 471 50 door 470 472 50 door 470 473 50 door 470 499 50 door 471 472 100 door 471 498 100 
+door 471 499 100 door 472 473 100 door 473 478 100 door 473 495 100 door 473 496 100 door 473 497 100 door 473 499 100 door 474 478 50 door 474 479 50 door 474 480 50 
+door 475 478 50 door 475 479 50 door 475 487 50 door 475 493 50 door 475 495 50 door 475 496 50 door 476 493 50 door 476 495 50 door 476 497 50 door 476 500 50 
+door 477 492 50 door 477 493 50 door 477 494 50 door 477 500 50 door 477 501 50 door 478 479 100 door 478 496 100 door 479 480 100 door 479 481 100 door 479 487 100 
+door 480 481 100 door 480 484 100 door 481 484 100 door 481 485 100 door 482 486 50 door 482 488 50 door 482 489 50 door 482 490 50 door 483 484 100 door 483 485 100 
+door 483 486 100 door 483 488 100 door 484 485 100 door 485 486 100 door 485 487 100 door 485 490 100 door 485 491 100 door 486 490 100 door 487 491 100 door 487 492 100 
+door 488 489 100 door 488 505 50 door 489 490 100 door 489 491 100 door 489 505 50 door 490 491 100 door 491 492 100 door 492 493 100 door 492 494 100 door 493 495 100 
+door 493 500 100 door 494 501 100 door 494 502 100 door 495 496 100 door 495 497 100 door 497 499 100 door 497 500 100 door 498 499 100 door 498 500 100 door 498 501 100 
+door 499 500 100 door 500 501 100 door 501 502 100 door 501 503 100 door 502 503 100 door 507 508 100 door 507 509 100 door 175 176 100 door 175 180 100 door 176 177 100 
+door 177 178 100 door 178 179 100 door 104 105 100 door 180 181 100 door 181 182 100 door 182 183 100 door 425 426 0 door 426 427 100 door 427 428 100 door 428 440 0 
+door 429 430 50 door 430 431 100 door 431 432 100 door 432 433 100 door 434 435 50 door 434 436 50 door 435 436 100 door 436 441 0 door 437 438 100 door 437 441 0 
+door 438 439 0 door 439 440 0 door 255 260 0 door 508 509 100 door 259 260 50 door 106 107 50 door 107 108 50 door 108 109 50 door 109 110 50 door 110 111 50 
+door 111 112 50 door 112 113 50 door 114 115 50 
+rate 0 0 1.000000 0.000000 1.000000
+rate 0 1 1.000000 0.001000 1.000000
+rate 0 2 0.800000 0.010000 0.700000
+rate 0 3 0.900000 0.050000 1.000000
+rate 0 4 0.000000 0.000000 0.000000
+rate 0 5 1.000000 0.100000 0.100000
+rate 0 6 0.990000 0.001000 0.800000
+rate 0 7 0.990000 0.001000 0.800000
+rate 0 8 0.990000 0.001000 0.800000
+rate 0 9 0.990000 0.001000 0.800000
+rate 0 10 0.990000 0.001000 0.800000
+rate 0 11 0.990000 0.001000 0.800000
+rate 0 12 0.990000 0.001000 0.800000
+rate 0 13 0.990000 0.001000 0.800000
+rate 0 14 0.990000 0.001000 0.800000
+rate 0 15 0.990000 0.001000 0.950000
+rate 0 16 0.990000 0.001000 0.950000
+rate 0 17 0.990000 0.001000 0.930000
+rate 0 18 0.990000 0.001000 0.800000
+rate 0 19 0.990000 0.001000 0.800000
+
+rate 1 0 0.000000 0.000000 0.000000
+rate 1 1 1.000000 0.001000 1.000000
+rate 1 2 0.600000 0.001000 0.700000
+rate 1 3 0.300000 0.900000 1.000000
+rate 1 4 0.000000 0.000000 0.000000
+rate 1 5 1.000000 0.500000 1.000000
+rate 1 6 0.990000 0.001000 0.800000
+rate 1 7 0.990000 0.001000 0.800000
+rate 1 8 0.990000 0.001000 0.800000
+rate 1 9 0.990000 0.001000 0.800000
+rate 1 10 0.990000 0.001000 0.800000
+rate 1 11 0.990000 0.001000 0.800000
+rate 1 12 0.990000 0.001000 0.800000
+rate 1 13 0.990000 0.001000 0.800000
+rate 1 14 0.990000 0.001000 0.800000
+rate 1 15 0.990000 0.001000 0.950000
+rate 1 16 0.990000 0.001000 0.950000
+rate 1 17 0.990000 0.001000 0.930000
+rate 1 18 0.990000 0.001000 0.800000
+rate 1 19 0.990000 0.001000 0.800000
+
+rate 2 0 1.000000 0.000000 1.000000
+rate 2 1 1.000000 0.001000 1.000000
+rate 2 2 0.600000 0.001000 0.700000
+rate 2 3 0.300000 0.900000 1.000000
+rate 2 4 0.000000 0.000000 0.000000
+rate 2 5 1.000000 0.500000 1.000000
+rate 2 6 0.990000 0.001000 0.800000
+rate 2 7 0.990000 0.001000 0.800000
+rate 2 8 0.990000 0.001000 0.800000
+rate 2 9 0.990000 0.001000 0.800000
+rate 2 10 0.990000 0.001000 0.800000
+rate 2 11 0.990000 0.001000 0.800000
+rate 2 12 0.990000 0.001000 0.800000
+rate 2 13 0.990000 0.001000 0.800000
+rate 2 14 0.990000 0.001000 0.800000
+rate 2 15 0.990000 0.001000 0.950000
+rate 2 16 0.990000 0.001000 0.950000
+rate 2 17 0.990000 0.001000 0.930000
+rate 2 18 0.990000 0.001000 0.800000
+rate 2 19 0.990000 0.001000 0.800000
+
+rate 3 0 0.000000 0.000000 0.000000
+rate 3 1 1.000000 0.001000 1.000000
+rate 3 2 0.800000 0.010000 0.700000
+rate 3 3 0.300000 0.900000 1.000000
+rate 3 4 0.000000 0.000000 0.000000
+rate 3 5 1.000000 0.500000 1.000000
+rate 3 6 0.990000 0.001000 0.800000
+rate 3 7 0.990000 0.001000 0.800000
+rate 3 8 0.990000 0.001000 0.800000
+rate 3 9 0.990000 0.001000 0.800000
+rate 3 10 0.990000 0.001000 0.800000
+rate 3 11 0.990000 0.001000 0.800000
+rate 3 12 0.990000 0.001000 0.800000
+rate 3 13 0.990000 0.001000 0.800000
+rate 3 14 0.990000 0.001000 0.800000
+rate 3 15 0.990000 0.001000 0.950000
+rate 3 16 0.990000 0.001000 0.950000
+rate 3 17 0.990000 0.001000 0.930000
+rate 3 18 0.990000 0.001000 0.800000
+rate 3 19 0.990000 0.001000 0.800000
+
+rate 4 0 0.000000 0.000000 0.000000
+rate 4 1 1.000000 0.001000 1.000000
+rate 4 2 0.800000 0.010000 0.700000
+rate 4 3 0.300000 0.900000 1.000000
+rate 4 4 0.000000 0.000000 0.000000
+rate 4 5 1.000000 0.500000 1.000000
+rate 4 6 0.990000 0.001000 0.800000
+rate 4 7 0.990000 0.001000 0.800000
+rate 4 8 0.990000 0.001000 0.800000
+rate 4 9 0.990000 0.001000 0.800000
+rate 4 10 0.990000 0.001000 0.800000
+rate 4 11 0.990000 0.001000 0.800000
+rate 4 12 0.990000 0.001000 0.800000
+rate 4 13 0.990000 0.001000 0.800000
+rate 4 14 0.990000 0.001000 0.800000
+rate 4 15 0.990000 0.001000 0.950000
+rate 4 16 0.990000 0.001000 0.950000
+rate 4 17 0.990000 0.001000 0.930000
+rate 4 18 0.990000 0.001000 0.800000
+rate 4 19 0.990000 0.001000 0.800000
+
+rate 5 0 1.000000 0.000000 1.000000
+rate 5 1 1.000000 0.001000 1.000000
+rate 5 2 0.800000 0.010000 0.700000
+rate 5 3 1.000000 0.005000 1.000000
+rate 5 4 1.000000 0.001000 0.900000
+rate 5 5 1.000000 0.500000 1.000000
+rate 5 6 0.400000 0.001000 0.800000
+rate 5 7 0.400000 0.001000 0.800000
+rate 5 8 0.400000 0.001000 0.800000
+rate 5 9 0.400000 0.001000 0.800000
+rate 5 10 0.400000 0.001000 0.800000
+rate 5 11 0.400000 0.001000 0.800000
+rate 5 12 0.400000 0.001000 0.800000
+rate 5 13 0.400000 0.001000 0.800000
+rate 5 14 0.400000 0.001000 0.800000
+rate 5 15 0.400000 0.001000 0.950000
+rate 5 16 0.400000 0.001000 0.950000
+rate 5 17 0.400000 0.001000 0.930000
+rate 5 18 0.400000 0.001000 0.800000
+rate 5 19 0.400000 0.001000 0.010000
+
+rate 6 0 1.000000 0.000000 1.000000
+rate 6 1 1.000000 0.001000 1.000000
+rate 6 2 0.800000 0.010000 0.700000
+rate 6 3 1.000000 0.001000 1.000000
+rate 6 4 1.000000 0.001000 0.900000
+rate 6 5 1.000000 0.500000 1.000000
+rate 6 6 0.400000 0.001000 0.800000
+rate 6 7 0.400000 0.001000 0.800000
+rate 6 8 0.400000 0.001000 0.800000
+rate 6 9 0.400000 0.001000 0.800000
+rate 6 10 0.400000 0.001000 0.800000
+rate 6 11 0.400000 0.001000 0.800000
+rate 6 12 0.400000 0.001000 0.800000
+rate 6 13 0.400000 0.001000 0.800000
+rate 6 14 0.400000 0.001000 0.800000
+rate 6 15 0.400000 0.001000 0.950000
+rate 6 16 0.400000 0.001000 0.950000
+rate 6 17 0.400000 0.001000 0.930000
+rate 6 18 0.400000 0.001000 0.800000
+rate 6 19 0.400000 0.001000 0.010000
+
+rate 7 0 1.000000 0.000000 1.000000
+rate 7 1 1.000000 0.001000 1.000000
+rate 7 2 0.800000 0.010000 0.700000
+rate 7 3 1.000000 0.010000 1.000000
+rate 7 4 1.000000 0.001000 0.900000
+rate 7 5 1.000000 0.500000 1.000000
+rate 7 6 0.400000 0.001000 0.800000
+rate 7 7 0.400000 0.001000 0.800000
+rate 7 8 0.400000 0.001000 0.800000
+rate 7 9 0.400000 0.001000 0.800000
+rate 7 10 0.400000 0.001000 0.800000
+rate 7 11 0.400000 0.001000 0.800000
+rate 7 12 0.400000 0.001000 0.800000
+rate 7 13 0.400000 0.001000 0.800000
+rate 7 14 0.400000 0.001000 0.800000
+rate 7 15 0.400000 0.001000 0.950000
+rate 7 16 0.400000 0.001000 0.950000
+rate 7 17 0.400000 0.001000 0.930000
+rate 7 18 0.400000 0.001000 0.800000
+rate 7 19 0.400000 0.001000 0.010000
+
+rate 8 0 1.000000 0.000000 1.000000
+rate 8 1 1.000000 0.001000 1.000000
+rate 8 2 0.000000 0.000000 0.000000
+rate 8 3 1.000000 0.000100 1.000000
+rate 8 4 0.000000 0.000000 0.000000
+rate 8 5 0.900000 0.001000 1.000000
+rate 8 6 0.990000 0.001000 0.800000
+rate 8 7 0.990000 0.001000 0.800000
+rate 8 8 0.990000 0.001000 0.800000
+rate 8 9 0.990000 0.001000 0.800000
+rate 8 10 0.990000 0.001000 0.800000
+rate 8 11 0.990000 0.001000 0.800000
+rate 8 12 0.990000 0.001000 0.800000
+rate 8 13 0.990000 0.001000 0.800000
+rate 8 14 0.990000 0.001000 0.800000
+rate 8 15 0.990000 0.001000 0.950000
+rate 8 16 0.990000 0.001000 0.950000
+rate 8 17 0.990000 0.001000 0.930000
+rate 8 18 0.990000 0.001000 0.800000
+rate 8 19 0.400000 0.001000 0.010000
+
+rate 9 0 0.000000 0.000000 0.000000
+rate 9 1 1.000000 0.001000 1.000000
+rate 9 2 0.000000 0.000000 0.000000
+rate 9 3 1.000000 0.000100 1.000000
+rate 9 4 0.000000 0.000000 0.000000
+rate 9 5 0.900000 0.001000 1.000000
+rate 9 6 0.990000 0.001000 0.800000
+rate 9 7 0.990000 0.001000 0.800000
+rate 9 8 0.990000 0.001000 0.800000
+rate 9 9 0.990000 0.001000 0.800000
+rate 9 10 0.990000 0.001000 0.800000
+rate 9 11 0.990000 0.001000 0.800000
+rate 9 12 0.990000 0.001000 0.800000
+rate 9 13 0.990000 0.001000 0.800000
+rate 9 14 0.990000 0.001000 0.800000
+rate 9 15 0.990000 0.001000 0.950000
+rate 9 16 0.990000 0.001000 0.950000
+rate 9 17 0.990000 0.001000 0.930000
+rate 9 18 0.990000 0.001000 0.800000
+rate 9 19 0.400000 0.001000 0.010000
+
+rate 10 0 0.000000 0.000000 0.000000
+rate 10 1 1.000000 0.001000 1.000000
+rate 10 2 0.800000 0.010000 0.700000
+rate 10 3 0.300000 0.900000 1.000000
+rate 10 4 0.000000 0.000000 0.000000
+rate 10 5 1.000000 0.500000 1.000000
+rate 10 6 0.990000 0.001000 0.800000
+rate 10 7 0.990000 0.001000 0.800000
+rate 10 8 0.990000 0.001000 0.800000
+rate 10 9 0.990000 0.001000 0.800000
+rate 10 10 0.990000 0.001000 0.800000
+rate 10 11 0.990000 0.001000 0.800000
+rate 10 12 0.990000 0.001000 0.800000
+rate 10 13 0.990000 0.001000 0.800000
+rate 10 14 0.990000 0.001000 0.800000
+rate 10 15 0.990000 0.001000 0.950000
+rate 10 16 0.990000 0.001000 0.950000
+rate 10 17 0.990000 0.001000 0.980000
+rate 10 18 0.000000 0.001000 0.800000
+rate 10 19 0.000000 0.000000 0.000000
+
+rate 11 0 0.000000 0.000000 0.000000
+rate 11 1 1.000000 0.001000 1.000000
+rate 11 2 0.000000 0.000000 0.000000
+rate 11 3 0.000000 0.000000 0.000000
+rate 11 4 0.000000 0.000000 0.000000
+rate 11 5 0.000000 0.000000 0.000000
+rate 11 6 0.000000 0.000000 0.000000
+rate 11 7 0.000000 0.000000 0.000000
+rate 11 8 0.000000 0.000000 0.000000
+rate 11 9 0.000000 0.000000 0.000000
+rate 11 10 0.000000 0.000000 0.000000
+rate 11 11 0.000000 0.000000 0.000000
+rate 11 12 0.000000 0.000000 0.000000
+rate 11 13 0.000000 0.000000 0.000000
+rate 11 14 0.000000 0.000000 0.000000
+rate 11 15 0.000000 0.000000 0.000000
+rate 11 16 0.000000 0.000000 0.000000
+rate 11 17 0.000000 0.000000 0.000000
+rate 11 18 0.000000 0.000000 0.000000
+rate 11 19 0.000000 0.000000 0.000000
+
+rate 12 0 0.000000 0.000000 0.000000
+rate 12 1 1.000000 0.001000 1.000000
+rate 12 2 0.000000 0.000000 0.000000
+rate 12 3 0.000000 0.000000 0.000000
+rate 12 4 0.000000 0.000000 0.000000
+rate 12 5 0.000000 0.000000 0.000000
+rate 12 6 0.000000 0.000000 0.000000
+rate 12 7 0.000000 0.000000 0.000000
+rate 12 8 0.000000 0.000000 0.000000
+rate 12 9 0.000000 0.000000 0.000000
+rate 12 10 0.000000 0.000000 0.000000
+rate 12 11 0.000000 0.000000 0.000000
+rate 12 12 0.000000 0.000000 0.000000
+rate 12 13 0.000000 0.000000 0.000000
+rate 12 14 0.000000 0.000000 0.000000
+rate 12 15 0.000000 0.000000 0.000000
+rate 12 16 0.000000 0.000000 0.000000
+rate 12 17 0.000000 0.000000 0.000000
+rate 12 18 0.000000 0.000000 0.000000
+rate 12 19 0.000000 0.000000 0.000000
+
+rate 13 0 0.000000 0.000000 0.000000
+rate 13 1 1.000000 0.001000 1.000000
+rate 13 2 0.000000 0.000000 0.000000
+rate 13 3 0.000000 0.000000 0.000000
+rate 13 4 0.000000 0.000000 0.000000
+rate 13 5 0.000000 0.000000 0.000000
+rate 13 6 0.000000 0.000000 0.000000
+rate 13 7 0.000000 0.000000 0.000000
+rate 13 8 0.000000 0.000000 0.000000
+rate 13 9 0.000000 0.000000 0.000000
+rate 13 10 0.000000 0.000000 0.000000
+rate 13 11 0.000000 0.000000 0.000000
+rate 13 12 0.000000 0.000000 0.000000
+rate 13 13 0.000000 0.000000 0.000000
+rate 13 14 0.000000 0.000000 0.000000
+rate 13 15 0.000000 0.000000 0.000000
+rate 13 16 0.000000 0.000000 0.000000
+rate 13 17 0.000000 0.000000 0.000000
+rate 13 18 0.000000 0.000000 0.000000
+rate 13 19 0.000000 0.000000 0.000000
+
+rate 14 0 0.000000 0.000000 0.000000
+rate 14 1 1.000000 0.001000 1.000000
+rate 14 2 0.000000 0.000000 0.000000
+rate 14 3 0.000000 0.000000 0.000000
+rate 14 4 0.000000 0.000000 0.000000
+rate 14 5 0.000000 0.000000 0.000000
+rate 14 6 0.000000 0.000000 0.000000
+rate 14 7 0.000000 0.000000 0.000000
+rate 14 8 0.000000 0.000000 0.000000
+rate 14 9 0.000000 0.000000 0.000000
+rate 14 10 0.000000 0.000000 0.000000
+rate 14 11 0.000000 0.000000 0.000000
+rate 14 12 0.000000 0.000000 0.000000
+rate 14 13 0.000000 0.000000 0.000000
+rate 14 14 0.000000 0.000000 0.000000
+rate 14 15 0.000000 0.000000 0.000000
+rate 14 16 0.000000 0.000000 0.000000
+rate 14 17 0.000000 0.000000 0.000000
+rate 14 18 0.000000 0.000000 0.000000
+rate 14 19 0.000000 0.000000 0.000000
+
+rate 15 0 0.000000 0.000000 0.000000
+rate 15 1 1.000000 0.001000 1.000000
+rate 15 2 0.000000 0.000000 0.000000
+rate 15 3 0.000000 0.000000 0.000000
+rate 15 4 0.000000 0.000000 0.000000
+rate 15 5 0.000000 0.000000 0.000000
+rate 15 6 0.000000 0.000000 0.000000
+rate 15 7 0.000000 0.000000 0.000000
+rate 15 8 0.000000 0.000000 0.000000
+rate 15 9 0.000000 0.000000 0.000000
+rate 15 10 0.000000 0.000000 0.000000
+rate 15 11 0.000000 0.000000 0.000000
+rate 15 12 0.000000 0.000000 0.000000
+rate 15 13 0.000000 0.000000 0.000000
+rate 15 14 0.000000 0.000000 0.000000
+rate 15 15 0.000000 0.000000 0.000000
+rate 15 16 0.000000 0.000000 0.000000
+rate 15 17 0.000000 0.000000 0.000000
+rate 15 18 0.000000 0.000000 0.000000
+rate 15 19 0.000000 0.000000 0.000000
+
+meta 0 -1 -1 0

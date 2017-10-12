@@ -1,0 +1,630 @@
+
+
+
+
+
+
+
+
+
+setv game "engine_multiple_birth_first_chance" 0.04
+setv game "engine_multiple_birth_subsequent_chance" 0.01
+setv game "engine_multiple_birth_maximum" 6
+setv game "engine_multiple_birth_identical_chance" 0.5
+
+
+scrp 3 4 0 1000
+	lock
+	seta va99 carr
+
+	newc 4 targ 1 ov01 0
+	accg game "c3_creature_accg"
+	bhvr game "c3_creature_bhvr"
+
+	attr 0
+	perm game "c3_creature_perm"
+	setv va91 11
+	addv va91 gnus
+	emit va91 0.5
+	drea 1
+	seta va05 targ
+
+	seta ov53 va99
+	spas va99 va05
+	wait 160
+
+	seta ov53 null
+
+
+	targ va99
+	loop
+		wait 1
+		inst
+	untl code = -1
+	mesg writ targ 3001
+	wait 1
+	kill ownr
+endm
+
+
+
+
+scrp 3 4 1 9
+	inst
+	lock
+
+	dbg: asrt game "c3_max_norns" > 0
+	dbg: asrt game "c3_max_creatures" > 0
+	dbg: asrt game "c3_max_norns" <= game "c3_max_creatures"
+
+	tick 0
+
+	doif pose eq 7
+
+		kill targ
+		stop
+	endi
+
+	doif rtyp room ownr = 8 or rtyp room ownr = 9
+
+		tick 600
+		stop
+	endi
+
+	doif carr ne null
+		tick 600
+		stop
+	endi
+
+	doif fall eq 1
+
+		tick 600
+		stop
+	endi
+
+	doif pose lt 3
+
+		setv va00 pose
+		addv va00 1
+		pose va00
+		doif pose eq 3
+
+			anim [4 5 6 5 4 5 6 6 5 4 4 5 3 3 3 3 3 4 5 6 4 5 6 5 6 5 6 6 5 4 3]
+		endi
+		tick 600
+		stop
+	else
+
+
+		setv va98 0
+		enum 4 1 0
+			doif dead = 0
+				addv va98 1
+			endi
+		next
+		setv va99 game "c3_max_norns"
+		doif va98 ge va99
+
+			tick 1200
+			stop
+		endi
+
+		setv va98 0
+		enum 4 0 0
+			doif dead = 0
+				addv va98 1
+			endi
+		next
+		setv va99 game "c3_max_creatures"
+		doif va98 ge va99
+
+			tick 1200
+			stop
+		endi
+
+
+
+
+
+		targ ownr
+		setv va03 attr
+		andv va03 1020
+		attr va03
+
+
+		new: crea 4 targ 1 ov01 0
+		accg game "c3_creature_accg"
+		bhvr game "c3_creature_bhvr"
+		attr game "c3_creature_attr"
+		perm game "c3_creature_perm"
+		setv va91 11
+		addv va91 gnus
+		emit va91 0.5
+
+		drea 1
+		seta va05 targ
+
+
+		targ ownr
+		anim [4 5 6 4 5 6 4 5 6 3 3 6 4 5 6 4 4 5 6 3]
+		snde "crak"
+		over
+		stpc
+		wait 30
+		anim [4 5 6 4 5 6 4 5 6 3 3 6 4 5 6 4 4 5 6 3]
+		snde "crak"
+		over
+		stpc
+		wait 40
+		anim [4 5 4 5 4 5 6 5 3 3 4 5 6 6 5 6 5 6 5 6 5 3]
+		snde "crak"
+		over
+		stpc
+		wait 40
+		anim [4 5 4 5 4 5 6 5 3 3 4 5 6 6 5 6 5 6 5 6 5 3]
+		snde "crak"
+		over
+		stpc
+		wait 20
+		anim [4 5 6 4 5 6 4 5 6 5 6 5 6 4 5 6 4 5 6 6 6 5 6 5 6 5 6 5 4 5 6]
+		snde "crak"
+
+		setv va00 posl
+		setv va01 posb
+		over
+		pose 7
+		fade
+		inst
+
+
+		targ va05
+
+		pose 75
+
+		subv va01 10
+		mvsf va00 va01
+
+		aslp 0
+		born
+		targ ownr
+		tick 200
+	endi
+endm
+
+
+
+scrp 3 4 0 9
+	inst
+	lock
+
+	tick 0
+	doif pose eq 6
+		kill ownr
+	endi
+
+	doif rtyp room ownr = 8 or rtyp room ownr = 9
+
+		tick 600
+		stop
+	endi
+
+	doif carr ne null
+		tick 600
+		stop
+	endi
+
+	doif fall eq 1
+
+		tick 600
+		stop
+	endi
+
+	doif pose lt 3
+		setv va00 pose
+		addv va00 1
+		pose va00
+		tick 100
+	else
+
+		setv va98 0
+		enum 4 0 0
+			doif dead = 0
+				addv va98 1
+			endi
+		next
+		setv va99 game "c3_max_creatures"
+		doif va98 ge va99
+
+			tick 1200
+			stop
+		endi
+
+		anim [3 4 5 3]
+		addv ov99 1
+		doif ov99 ge 2
+
+
+
+			targ ownr
+			setv va03 attr
+			andv va03 1020
+			attr va03
+
+			new: crea 4 ownr 1 ov01 0
+			accg game "c3_creature_accg"
+			bhvr game "c3_creature_bhvr"
+			attr game "c3_creature_attr"
+			perm game "c3_creature_perm"
+			drea 1
+			wait 170
+			aslp 0
+
+			doif gnus eq 2
+				emit 13 0.5
+			else
+				emit 14 0.5
+			endi
+
+			inst
+			seta va99 targ
+			targ ownr
+			snde "crak"
+			pose 6
+			tick 50
+			setv va00 posl
+			setv va01 post
+
+			targ va99
+
+			pose 75
+
+			subv va01 10
+			mvsf va00 va01
+			born
+
+		else
+			tick 30
+			stop
+		endi
+	endi
+endm
+
+
+scrp 3 4 1 255
+	inst
+	pose 7
+	tick 200
+endm
+scrp 3 4 0 255
+	inst
+	pose 6
+	tick 200
+endm
+
+
+
+scrp 3 4 2 6
+	inst
+
+
+	doif plne lt 1000
+		plne 1000
+	endi
+endm
+
+scrp 3 4 3 6
+	inst
+
+
+	doif plne lt 1000
+		plne 1000
+	endi
+endm
+
+
+
+
+
+
+scrp 3 4 0 4
+	inst
+	doif from ne pntr
+		setv va00 wdth
+		divv va00 2
+		puhl pose va00 hght
+		targ from
+		doif fmly eq 4
+			stim writ targ 93 1
+		endi
+	endi
+endm
+
+
+
+
+scrp 4 0 0 33
+	mesg writ ownr 34
+endm
+
+
+scrp 4 0 0 34
+
+
+	appr
+
+
+	inst
+	doif _it_ eq null
+		stop
+	endi
+
+	pose 37
+
+
+	targ ownr
+	setv va00 spcs
+	setv va02 gnus
+	targ _it_
+
+	nohh
+
+	setv va01 spcs
+	setv va03 gnus
+
+	doif va02 ne va03
+		targ ownr
+
+		stim writ targ 0 1
+		doif rand 0 4 eq 1
+			pose 39
+		else
+			pose 45
+		endi
+		wait 10
+		stop
+	endi
+
+	doif va00 eq va01
+		targ ownr
+
+		stim writ targ 0 1
+
+		doif rand 0 4 eq 1
+			pose 39
+		else
+			pose 45
+		endi
+		wait 10
+
+		stop
+	endi
+
+
+
+
+	setv va05 0
+	doif driv 13 gt 0.15
+		addv va05 1
+	endi
+	doif cage ge 2
+		addv va05 1
+	endi
+
+	targ ownr
+	doif driv 13 gt 0.15
+		addv va05 1
+	endi
+	doif cage ge 2
+		addv va05 1
+	endi
+
+
+	doif byit eq 0
+
+		stim writ targ 0 1
+		doif rand 0 4 eq 1
+			pose 39
+		else
+			pose 45
+		endi
+		wait 10
+		stop
+	endi
+
+
+	targ _it_
+	doif dead eq 1 or aslp eq 1
+		targ ownr
+
+		stim writ targ 0 1
+		doif rand 0 4 eq 1
+			pose 39
+		else
+			pose 45
+		endi
+		wait 10
+		stop
+	endi
+	targ ownr
+
+
+	doif va05 eq 4
+		snde "kis2"
+
+
+		mesg writ _it_ 0
+
+		setv va74 0
+
+		setv va73 0
+		enum 4 0 0
+			doif dead = 0
+				addv va73 1
+			endi
+		next
+		doif va73 ge game "c3_max_creatures"
+
+			setv va74 1
+		endi
+
+		targ ownr
+		doif gnus = 1
+			setv va73 0
+			enum 4 1 0
+				doif dead = 0
+					addv va73 1
+				endi
+			next
+			doif va73 ge game "c3_max_norns"
+
+				setv va74 1
+			endi
+		endi
+
+		doif va74 = 0
+
+
+			doif va00 eq 1
+
+
+				mate
+			else
+
+
+				anim [036 037 036 037]
+				mesg wrt+ _it_ 200 0 0 0
+			endi
+
+
+			stim writ ownr 45 1
+			stim writ _it_ 45 1
+		endi
+	else
+
+		snde "kis1"
+
+		mesg writ _it_ 0
+
+		stim writ targ 13 1
+	endi
+
+	wait 15
+	pose 12
+	wait 20
+
+endm
+
+
+
+
+
+
+
+
+scrp 4 0 0 200
+	mate
+endm
+
+
+
+
+
+scrp 4 0 0 65
+	ltcy 1 8 64
+
+	doif movs ne 0
+		stop
+	endi
+
+	doif gtos 1 ne ""
+		pose 108
+		wait 40
+		pose 109
+
+		inst
+		seta va00 targ
+		sets va04 gtos 0
+
+
+
+		setv va50 1
+		loop
+			addv va50 1
+		untl gtos va50 = ""
+		subv va50 1
+
+		targ ownr
+		dbg: asrt gtos va50 <> ""
+		setv va01 posl
+		addv va01 rand 14 18
+
+		setv va02 dfty
+		setv va03 rand 0 10
+		mulv va03 8
+
+		setv va99 gnus
+
+		doif va99 = 2
+
+			new: simp 3 4 2 "greneggmask" 7 1 10
+		elif va99 = 3
+
+			new: simp 3 4 3 "greneggmask" 7 8 10
+		else
+
+			new: simp 3 4 1 "eggs" 8 va03 2000
+		endi
+		pose 0
+		elas 10
+		fric 100
+		attr 195
+		bhvr 32
+		aero 10
+		accg 4
+		perm 60
+		subv va02 hght
+		mvsf va01 va02
+
+		doif va99 eq 1
+			emit 11 0.65
+		endi
+
+
+
+
+		gene move targ 1 va00 va50
+
+
+		setv ov01 0
+		doif sean = 0 or sean = 2
+
+			setv ov01 rand 0 1
+		endi
+		doif sean = 0
+
+			mulv ov01 2
+		endi
+		dbg: asrt ov01 = 0 or ov01 = 1 or ov01 = 2
+
+
+		hist evnt gtos 1 11 va04 ""
+
+		hist evnt va04 12 gtos 1 ""
+		tick 900
+		slow
+
+		targ ownr
+		pose 110
+
+		stim writ ownr 29 1
+		wait 60
+	endi
+
+endm
+
+
+rscr
+enum 3 4 0
+	kill targ
+next
+endm

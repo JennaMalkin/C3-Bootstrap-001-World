@@ -1,0 +1,219 @@
+reps 1
+	new: comp 3 8 13 "delayer" 0 0 5000
+
+	elas 0
+	bhvr 41
+	attr 198
+	accg 5
+	perm 100
+	clac 1002
+
+
+	pat: butt 1 "delayer" 21 0 15 35 0 [] 1000 1
+
+	pat: butt 2 "delayer" 22 0 35 35 0 [] 1001 1
+
+	pat: dull 3 "delayer" 0 9 7 0
+
+	pat: dull 4 "delayer" 0 15 10 0
+
+	prt: inew 0 "signal ear" "awaiting a signal" 57 13 1003
+	prt: onew 0 "signal mouth" "emitting a delayed signal" 57 26
+
+
+	setv ov00 0
+
+
+
+	setv ov61 100
+
+	part 4
+	frat 2
+	anim [33 28 29 30 31 32 33 32 31 30 29 255]
+	part 3
+	pose 33
+
+	part 0
+	frat 1
+	anim [25 25 25 26 26 27 26 26 255]
+
+
+	mvto 6050 3900
+
+	emit 18 .25
+repe
+
+scrp 3 8 13 1000
+	lock
+	doif ov00 = 1
+		doif ov01 > 1
+			part 1
+			pose 2
+			subv ov01 1
+			snde "bep2"
+		else
+			snde "excl"
+		endi
+
+		part 3
+		pose ov01
+		part 1
+		pose 0
+	else
+		snde "excl"
+	endi
+endm
+
+scrp 3 8 13 1001
+	lock
+	doif ov00 = 1
+		doif ov01 < 20
+			part 2
+			pose 2
+			addv ov01 1
+			snde "bep2"
+		else
+			snde "excl"
+		endi
+
+		part 3
+		pose ov01
+		part 2
+		pose 0
+	else
+		snde "excl"
+	endi
+endm
+
+scrp 3 8 13 1002
+	lock
+	snde "bep2"
+	doif ov00 = 0
+		part 4
+		pose 33
+		setv ov00 1
+		part 0
+		anim [27]
+		setv ov01 1
+		part 3
+		pose ov01
+	elif ov00 = 1
+		setv ov00 0
+
+		part 3
+		pose 33
+
+		part 4
+		frat 2
+		anim [33 28 29 30 31 32 33 32 31 30 29 255]
+
+		part 0
+		frat 1
+		anim [25 25 25 26 26 27 26 26 255]
+
+		setv ov02 0
+	endi
+endm
+
+scrp 3 8 13 1003
+	lock
+	setv va00 _p1_
+	doif ov00 = 1
+		doif va00 <> 0
+			part 1
+			pose 2
+			part 2
+			pose 2
+
+			setv va01 ov01
+			setv va02 ov01
+			wait 10
+			reps va01
+				subv va02 1
+				snde "spdn"
+				doif va02 > 0
+					part 3
+					pose va02
+					wait 10
+				elif va02 = 0
+					part 3
+					pose ov01
+				endi
+			repe
+			snde "spup"
+			part 3
+			pose ov01
+			prt: send 0 va00
+			part 1
+			pose 0
+			part 2
+			pose 0
+		endi
+	endi
+endm
+
+scrp 3 8 13 1
+	lock
+	inst
+	stim writ from 90 1
+	doif ov02 = 0 and ov01 <> 20
+		mesg writ ownr 1000
+	elif ov02 = 1 and ov01 <> 1
+		mesg writ ownr 1001
+	elif ov02 = 0 and ov01 = 20
+		setv ov02 1
+		mesg writ ownr 1000
+	elif ov02 = 1 and ov01 = 1
+		setv ov02 0
+		mesg writ ownr 1001
+	endi
+endm
+
+scrp 3 8 13 2
+	lock
+	inst
+	stim writ from 90 1
+	doif ov02 = 0 and ov01 <> 20
+		mesg writ ownr 1000
+	elif ov02 = 1 and ov01 <> 1
+		mesg writ ownr 1001
+	elif ov02 = 0 and ov01 = 20
+		setv ov02 1
+		mesg writ ownr 1000
+	elif ov02 = 1 and ov01 = 1
+		setv ov02 0
+		mesg writ ownr 1001
+	endi
+endm
+
+scrp 3 8 13 3
+	sndc "hit_"
+	velo 0 rand -5 -10
+	prt: bang rand 60 100
+	stim writ from 92 1
+endm
+
+scrp 3 8 13 4
+	targ from
+	doif fmly = 4
+		stim writ targ 91 1
+	endi
+endm
+
+scrp 3 8 13 6
+	snde "dr10"
+endm
+
+rscr
+enum 3 8 13
+	kill targ
+next
+scrx 3 8 13 1
+scrx 3 8 13 2
+scrx 3 8 13 3
+scrx 3 8 13 4
+scrx 3 8 13 6
+scrx 3 8 13 1000
+scrx 3 8 13 1001
+scrx 3 8 13 1002
+scrx 3 8 13 1003

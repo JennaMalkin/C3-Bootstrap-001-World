@@ -1,0 +1,41 @@
+
+setv game "engine_usemidimusicsystem" 0
+
+sets game "engine_near_death_track_name" "events.mng\\NearDeath"
+
+
+setv game "engine_LengthOfDayInMinutes" 20
+setv game "engine_LengthOfSeasonInDays" 4
+setv game "engine_NumberOfSeasons" 4
+
+
+setv game "engine_creature_template_size_in_mb" 2
+
+
+setv game "c3_max_norns" 10
+setv game "c3_max_creatures" 14
+
+
+
+setv game "Grettin" 0
+
+
+setv game "c3_creature_accg" 5
+setv game "c3_creature_bhvr" 15
+setv game "c3_creature_attr" 198
+setv game "c3_creature_perm" 100
+
+
+setv game "c3_meta_transition" 0
+
+
+setv game "engine_synchronous_learning" 0
+
+
+setv game "engine_zlib_compression" 5
+
+setv game "engine_plane_for_lines" 8500
+
+
+
+rgam

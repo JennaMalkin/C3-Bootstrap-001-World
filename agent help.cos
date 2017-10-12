@@ -1,0 +1,347 @@
+
+new: simp 1 2 4 "blnk" 0 1 0
+imsk 1
+attr 272
+seta ov00 null
+setv ov01 0
+pure 0
+
+
+scrp 1 2 4 73
+	inst
+	doif _p1_ = 112
+		targ pntr
+		doif held ne null
+			sndc "buzz"
+			stop
+		endi
+		doif pure = 1
+			targ pntr
+			pose 0
+			rtar 1 2 14
+			setv ov00 0
+			part 1
+			pose 0
+			targ ownr
+			pure 0
+			imsk 1
+			doif ov00 <> null
+				kill ov00
+				seta ov00 null
+			endi
+		else
+			targ hhld
+			nohh
+			targ pntr
+			pose 18
+			rtar 1 2 14
+			setv ov00 1
+			part 1
+			pose 1
+			targ ownr
+			pure 1
+			imsk 9
+		endi
+	endi
+
+endm
+
+
+scrp 1 2 4 76
+	inst
+	mesg wrt+ ownr 1000 _p1_ hots 0
+endm
+
+
+scrp 1 2 4 1000
+	inst
+	seta va10 ov00
+	seta va05 _p2_
+	doif va05 <> null
+
+		doif _p1_ = 1
+			targ va05
+
+			setv va98 cati fmly gnus spcs
+			sets va99 catx va98
+
+
+			doif fmly eq 1 and gnus eq 2 and spcs eq 14
+
+				mesg wrt+ ownr 73 112 0 0
+
+			elif fmly eq 1 and gnus eq 2 and spcs eq 5
+
+				enum 1 2 5
+					mesg wrt+ pntr 2006 targ 0 0
+				next
+			else
+
+				doif va98 <> 39
+
+					rtar 1 2 10
+					mesg wrt+ targ 126 va99 va05 0
+
+					targ va05
+					ordr shou va99
+				endi
+			endi
+
+
+		elif _p1_ = 2
+
+			targ va05
+
+			doif fmly = 4
+				new: comp 1 2 23 "creature_history" 32 0 8520
+				mesg wrt+ targ 1000 va05 1001 0
+				rtar 1 2 4
+				mesg wrt+ targ 73 112 0 0
+				stop
+			else
+				doif va10 = null
+					new: comp 1 2 5 "new_agent_help" 1 0 9050
+					attr 304
+
+					pat: fixd 1 "new_agent_help" 1 25 59 1 "WhiteOnTransparentChars"
+					part 1
+					frmt 8 8 8 18 3 0 0
+
+					pat: butt 2 "new_agent_help" 2 2 237 22 0 [] 1000 0
+
+					pat: butt 4 "new_agent_help" 9 3 228 296 0 [] 1001 0
+
+					pat: butt 5 "new_agent_help" 6 3 20 296 0 [] 1002 0
+
+					pat: fixd 6 "new_agent_help" 15 119 306 1 "WhiteOnTransparentChars"
+					part 6
+					frmt 0 0 0 0 3 0 2
+
+					pat: fixd 3 "new_agent_help" 12 22 22 1 "WhiteOnTransparentChars"
+					part 3
+					frmt 8 0 37 0 2 0 8
+
+					pat: butt 7 "new_agent_help" 4 2 198 25 1 [] 2000 0
+
+					seta ov02 va05
+					setv va90 wndw
+					divv va90 2
+					setv va91 wndh
+					divv va91 2
+					setv va92 wdth
+					divv va92 2
+					setv va93 hght
+					divv va93 2
+
+					subv va90 va92
+					subv va91 va93
+
+					flto va90 va91
+
+					seta va10 targ
+				endi
+				targ va05
+				sets va00 wild fmly gnus spcs "Agent Help" 0
+				sets va01 wild fmly gnus spcs "Agent Help" 1
+				doif va01 = "***"
+					sets va01 read "Agent Help Something" 0
+					adds va01 vtos fmly
+					adds va01 " "
+					adds va01 vtos gnus
+					adds va01 " "
+					adds va01 vtos spcs
+				endi
+
+				targ va10
+				part 3
+				ptxt va00
+				part 1
+				ptxt va01
+
+
+				targ ownr
+				seta ov00 va10
+				mesg writ ov00 1003
+			endi
+		endi
+	endi
+	targ ownr
+	seta ov00 va10
+endm
+
+scrp 1 2 5 1000
+	part 2
+	anim [0 1]
+	rtar 1 2 4
+	seta ov00 null
+	wait 10
+	kill ownr
+endm
+
+
+
+scrp 1 2 5 1001
+	part 1
+	setv va99 page
+	setv va06 npgs
+	addv va99 1
+
+	doif va99 < npgs
+		part 4
+		anim [ 2 2 2 ]
+		over
+		part 1
+		page va99
+	endi
+
+
+	mesg writ ownr 1003
+endm
+
+
+scrp 1 2 5 1002
+	part 1
+	setv va99 page
+
+	doif va99 > 0
+		part 5
+		anim [ 2 2 2 ]
+		over
+		part 1
+		subv va99 1
+		page va99
+	endi
+
+
+	mesg writ ownr 1003
+endm
+
+
+scrp 1 2 5 1003
+	inst
+
+
+	part 1
+	setv va06 npgs
+	setv va07 page
+	addv va07 1
+
+
+	sets va08 vtos va07
+	adds va08 "/"
+	adds va08 vtos va06
+	part 6
+	ptxt va08
+
+
+	part 5
+	doif va07 = 1
+		anim [0]
+	else
+		anim [1]
+	endi
+
+
+	part 4
+	doif va07 = va06
+		anim [0]
+	else
+		anim [1]
+	endi
+endm
+
+
+
+
+
+
+scrp 1 2 5 2000
+	inst
+	lock
+	part 7
+	anim [0 1]
+	sets va90 ""
+	doif ov02 <> null
+		econ ov02
+			addv va66 1
+		next
+	endi
+	part 1
+	doif ov02 <> null
+		seta va49 ov02
+		sets va67 ptxt
+		setv va89 strl va67
+		sets va90 subs va67 va89 1
+	endi
+	doif va66 > 1 and va90 <> "-" and ov02 <> null
+		targ ov02
+		setv va50 posl
+		setv va51 post
+		targ ownr
+		new: simp 1 1 100 "pick-ups" 0 0 5000
+		attr 199
+		perm 60
+		elas 10
+		fric 90
+		accg 2
+		sets ov98 ""
+		setv ov61 1
+		doif tmvt va50 va51 <> 1
+
+			subv va51 20
+			doif tmvt va50 va51 <> 1
+
+				kill targ
+			else
+				mvto va50 va51
+				setv va88 1
+				mesg wrt+ targ 1000 va49 0 0
+			endi
+			targ ownr
+		else
+			mvto va50 va51
+			setv va88 1
+			mesg wrt+ targ 1000 va49 0 0
+		endi
+
+	else
+
+	endi
+	targ ownr
+	part 7
+	over
+	anim [1 0]
+	doif va88 = 1 and ov02 <> null
+		part 1
+		sets va67 ptxt
+		setv va89 strl va67
+		sets va90 subs va67 va89 1
+		doif va90 <> "-"
+			adds va67 read "Blueprint" 4
+		endi
+		ptxt va67
+	else
+		part 1
+		sets va67 ptxt
+		setv va89 strl va67
+		sets va90 subs va67 va89 1
+		doif va90 <> "-"
+			adds va67 read "Blueprint" 5
+		endi
+		ptxt va67
+	endi
+endm
+
+
+rscr
+enum 1 2 4
+	kill targ
+next
+enum 1 2 5
+	kill targ
+next
+enum 1 2 23
+	kill targ
+next
+scrx 1 2 4 76
+scrx 1 2 5 1000

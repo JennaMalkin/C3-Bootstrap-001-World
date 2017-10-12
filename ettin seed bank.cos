@@ -1,0 +1,376 @@
+
+
+
+
+new: comp 3 3 69 "ettinseedbank" 4 0 1
+mvto 5607 716
+
+pat: dull 1 "ettinseedbank" 4 46 0 0
+
+pat: dull 2 "ettinseedbank" 8 93 0 0
+
+pat: dull 3 "ettinseedbank" 12 138 -1 0
+
+pat: butt 4 "ettinseedbank" 18 2 35 -17 0 [] 1000 0
+pat: butt 5 "ettinseedbank" 18 2 82 -17 0 [] 1000 0
+pat: butt 6 "ettinseedbank" 18 2 129 -17 0 [] 1000 0
+pat: butt 7 "ettinseedbank" 18 2 174 -17 0 [] 1000 0
+
+pat: butt 8 "ettinseedbank" 16 2 35 -25 0 [] 1001 0
+pat: butt 9 "ettinseedbank" 16 2 82 -25 0 [] 1001 0
+pat: butt 10 "ettinseedbank" 16 2 129 -25 0 [] 1001 0
+pat: butt 11 "ettinseedbank" 16 2 174 -25 0 [] 1001 0
+
+tick 3600
+
+
+
+
+new: simp 1 1 122 "targ" 1 0 0
+mvto 5790 760
+tran 0 0
+prt: inew 0 "input" "" 4 8 1000
+prt: onew 0 "output" "" 4 25
+
+
+scrp 1 1 122 1000
+	doif _p1_ ne 0
+
+
+
+		rtar 3 3 69
+		doif targ ne null
+			part 8
+			doif pose eq 1
+				mesg wrt+ targ 1000 4 0 0
+				stop
+			endi
+			part 9
+			doif pose eq 1
+				mesg wrt+ targ 1000 5 0 0
+				stop
+			endi
+			part 10
+			doif pose eq 1
+				mesg wrt+ targ 1000 6 0 0
+				stop
+			endi
+			part 11
+			doif pose eq 1
+				mesg wrt+ targ 1000 7 0 0
+				stop
+			endi
+
+			setv va00 _p1_
+			doif va00 lt 0
+				negv va00
+			endi
+			doif va00 gt 0 and va00 le 64
+				mesg wrt+ targ 1000 4 0 0
+				stop
+			elif va00 ge 65 and va00 le 128
+				mesg wrt+ targ 1000 5 0 0
+				stop
+			elif va00 ge 129 and va00 le 192
+				mesg wrt+ targ 1000 6 0 0
+				stop
+			elif va00 ge 193 and va00 le 255
+				mesg wrt+ targ 1000 7 0 0
+				stop
+			endi
+		endi
+	endi
+	prt: send 0 _p1_
+endm
+
+scrp 1 1 122 1001
+	prt: send 0 _p1_
+endm
+
+
+scrp 3 3 69 9
+	doif totl 2 13 9 lt 1
+		mesg wrt+ ownr 1000 6 0 0
+		stop
+	endi
+	doif totl 2 15 23 lt 1
+		mesg wrt+ ownr 1000 7 0 0
+		stop
+	endi
+endm
+
+
+
+scrp 3 3 69 1000
+	sndc "esb1"
+	part _p1_
+	anim [0 1 0 1 0]
+
+	setv va00 _p1_
+	subv va00 4
+	part va00
+	anim [0 1 2 3 0 1 2 3 0 1 2 3]
+
+	inst
+
+
+	doif _p1_ eq 4
+		rtar 1 1 122
+		doif targ ne null
+			mesg wrt+ targ 1001 64 0 0
+		endi
+		targ ownr
+		doif totl 2 6 4 ge 100
+			sndc "buzz"
+			stop
+		elif totl 2 3 13 ge 100
+			sndc "buzz"
+			stop
+		endi
+
+		setv va80 game "Bioenergy"
+		doif va80 lt 50
+			sndc "buzz"
+			sets va81 read "Energy" 0
+			enum 1 1 91
+				doif ov00 eq 6
+					mesg wrt+ targ 1001 va81 0 0
+				endi
+			next
+			stop
+		else
+			subv game "Bioenergy" 50
+			subv va80 50
+			sets va81 read "Energy" 4
+			adds va81 vtos va80
+			enum 1 1 91
+				doif ov00 eq 6
+					mesg wrt+ targ 1001 va81 0 0
+				endi
+			next
+		endi
+
+
+		reps 5
+			setv va98 rand 0 3
+			mulv va98 4
+			addv va98 25
+			new: simp 2 3 13 "desertgrass" 4 va98 100
+			attr 195
+			bhvr 48
+			elas 0
+			fric 50
+
+
+			setv ov00 1
+
+			setv ov02 100
+
+			setv ov70 100
+			setv ov71 600
+
+			setv ov72 50
+
+			setv ov80 1
+			setv ov81 0.01
+
+			setv ov82 1
+			setv ov83 0.01
+			setv ov84 0.001
+
+			setv ov85 1
+			setv ov86 0.01
+
+			velo rand -5 5 rand -2 0
+			anim [0 1 2 3 255]
+			tick ov70
+
+			mvto 5617 746
+
+			emit 7 0.3
+		repe
+		sndc "pop_"
+
+	elif _p1_ eq 5
+		rtar 1 1 122
+		doif targ ne null
+			mesg wrt+ targ 1001 128 0 0
+		endi
+		targ ownr
+		doif totl 2 5 2 ge 100
+			sndc "buzz"
+			stop
+		elif totl 2 3 9 ge 100
+			sndc "buzz"
+			stop
+		endi
+
+		setv va80 game "Bioenergy"
+		doif va80 lt 50
+			sndc "buzz"
+			sets va81 read "Energy" 0
+			enum 1 1 91
+				doif ov00 eq 6
+					mesg wrt+ targ 1001 va81 0 0
+				endi
+			next
+			stop
+		else
+			subv game "Bioenergy" 50
+			subv va80 50
+			sets va81 read "Energy" 4
+			adds va81 vtos va80
+			enum 1 1 91
+				doif ov00 eq 6
+					mesg wrt+ targ 1001 va81 0 0
+				endi
+			next
+		endi
+
+
+		reps 5
+			new: simp 2 3 9 "cacbana" 12 0 50
+			attr 195
+			bhvr 16
+
+			elas 40
+			fric 50
+			aero 5
+			accg 1
+			rnge 500
+			mvto 5655 735
+			tick 15
+			velo rand -10 10 rand -5 -0
+			setv ov81 rand 8 15
+		repe
+		sndc "pop_"
+
+	elif _p1_ eq 6
+		rtar 1 1 122
+		doif targ ne null
+			mesg wrt+ targ 1001 192 0 0
+		endi
+		targ ownr
+		doif totl 2 13 9 ge 100
+			sndc "buzz"
+			stop
+		endi
+
+		setv va80 game "Bioenergy"
+		doif va80 lt 50
+			sndc "buzz"
+			sets va81 read "Energy" 0
+			enum 1 1 91
+				doif ov00 eq 6
+					mesg wrt+ targ 1001 va81 0 0
+				endi
+			next
+			stop
+		else
+			subv game "Bioenergy" 50
+			subv va80 50
+			sets va81 read "Energy" 4
+			adds va81 vtos va80
+			enum 1 1 91
+				doif ov00 eq 6
+					mesg wrt+ targ 1001 va81 0 0
+				endi
+			next
+		endi
+
+
+		reps 2
+			new: simp 2 13 9 "balloonbug" 42 0 3000
+			attr 198
+			clac 0
+
+			elas 0
+
+			setv ov61 40
+			mvto 5709 735
+
+			setv ov10 rand 0 1
+			doif ov10 eq 0
+				setv ov10 -1
+			endi
+			setv ov11 rand 0 1
+			doif ov11 eq 0
+				setv ov11 -1
+			endi
+			tick 5
+		repe
+		sndc "pop_"
+
+	elif _p1_ eq 7
+		rtar 1 1 122
+		doif targ ne null
+			mesg wrt+ targ 1001 255 0 0
+		endi
+		targ ownr
+		doif totl 2 15 23 ge 100
+			sndc "buzz"
+			stop
+		endi
+
+		setv va80 game "Bioenergy"
+		doif va80 lt 50
+			sndc "buzz"
+			sets va81 read "Energy" 0
+			enum 1 1 91
+				doif ov00 eq 6
+					mesg wrt+ targ 1001 va81 0 0
+				endi
+			next
+			stop
+		else
+			subv game "Bioenergy" 50
+			subv va80 50
+			sets va81 read "Energy" 4
+			adds va81 vtos va80
+			enum 1 1 91
+				doif ov00 eq 6
+					mesg wrt+ targ 1001 va81 0 0
+				endi
+			next
+		endi
+
+
+		new: simp 2 15 23 "meerk" 145 0 2500
+		attr 194
+		elas 0
+		fric 10
+		accg 2
+		setv ov10 rand 0 1
+		doif ov10 eq 0
+			setv ov10 -1
+		endi
+
+		tick 8
+
+		setv ov02 rand 10 50
+		anim [47 48 49 50 51]
+		mvto 5730 730
+		sndc "pop_"
+		over
+	endi
+endm
+
+
+scrp 3 3 69 1001
+	part _p1_
+	doif pose eq 0
+		pose 1
+	else
+		pose 0
+	endi
+
+endm
+
+
+rscr
+enum 3 3 69
+	kill targ
+next
+enum 1 1 122
+	kill targ
+next

@@ -1,0 +1,61 @@
+
+
+
+
+setv va00 0
+
+inst
+
+
+new: simp 3 5 1 "blnk" 2 0 0
+attr 18
+pose va00
+mvto 780 712
+emit 15 .025
+
+new: simp 3 5 2 "blnk" 2 0 0
+attr 18
+pose va00
+mvto 2360 467
+emit 15 .01
+
+
+
+new: simp 3 6 1 "blnk" 2 0 0
+attr 18
+pose va00
+mvto 1948 2310
+emit 16 .01
+
+
+
+new: simp 3 7 1 "blnk" 2 0 0
+attr 18
+pose va00
+mvto 4872 704
+emit 17 .004
+
+new: simp 3 7 1 "blnk" 2 0 0
+attr 18
+pose va00
+mvto 6200 704
+emit 17 .007
+
+new: simp 3 7 1 "blnk" 2 0 0
+attr 18
+pose va00
+mvto 6363 704
+emit 17 .000
+
+
+
+rscr
+enum 3 5 0
+	kill targ
+next
+enum 3 6 1
+	kill targ
+next
+enum 3 7 1
+	kill targ
+next

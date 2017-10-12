@@ -1,0 +1,88 @@
+scrp 1 1 100 809
+	inst
+
+
+
+
+
+	sets va00 ov98
+	adds va00 ".cos"
+	file oope 0 va00 0
+	outs "* Automatically generated COS for blueprint\n"
+	outs "new: simp 1 1 100 \"pick-ups\" 0 0 5000\n"
+	outs "attr 199\n"
+	outs "perm 60\n"
+	outs "elas 10\n"
+	outs "fric 90\n"
+	outs "accg 2\n"
+	setv va10 0
+	loop
+		gsub write_var
+		addv va10 1
+	untl va10 = 100
+
+	outs "mvto 5440 3580\n"
+	outs "velo 30 -10\n"
+
+	file oclo
+
+
+
+	sets va01 ov98
+	adds va01 ".pray_source"
+	file oope 0 va01 0
+	outx "en-gb"
+	outs "\n"
+	outs "group AGNT "
+	outx ov98
+	outs "\n"
+	outs "\"Agent Type\" 0\n"
+	outs "\"Dependency Count\" 0\n"
+	outs "\"Script Count\" 1\n"
+	outx "Script 1"
+	outs " @ "
+	outx va00
+	outs "\n"
+	outs "\"Agent Animation File\" \"pick-ups.c16\"\n"
+	outs "\"Agent Animation Gallery\" \"pick-ups\"\n"
+	outs "\"Agent Animation String\" \"0\"\n"
+	outs "\"Agent Bioenergy Value\" 1\n"
+	outs "\"Agent Description\" \"It's a blueprint dafty!\"\n"
+
+	file oclo
+
+	sets va02 ov98
+	adds va02 ".blueprint"
+	dbg: asrt pray make 0 va01 0 va02 va03 = 0
+	outs va03
+
+	file jdel 0 va00
+	file jdel 0 va01
+
+	pray refr
+	stop
+
+	subr write_var
+		doif type avar targ va10 < 0 or type avar targ va10 > 2
+
+			outs "seta avar targ "
+			outv va10
+			outs " null\n"
+		elif type avar targ va10 = 0 or type avar targ va10 = 1
+
+			outs "setv avar targ "
+			outv va10
+			outs " "
+			outv avar targ va10
+			outs "\n"
+		elif type avar targ va10 = 2
+
+			outs "sets avar targ "
+			outv va10
+			outs " "
+			outx avar targ va10
+			outs "\n"
+		endi
+	retn
+
+endm

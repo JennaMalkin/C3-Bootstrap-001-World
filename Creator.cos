@@ -1,0 +1,656 @@
+iscr
+
+addv game "Bioenergy" 200
+
+new: vhcl 3 3 21 "creator" 49 0 10
+attr 8
+perm 60
+mvto 5348 3515
+clac -1
+bhvr 0
+cabn 0 50 150 150
+
+setv ov02 19
+
+setv ov90 60
+
+
+
+part 0
+anim [0]
+
+
+
+
+pat: butt 1 "creator" 1 2 333 95 0 [] 2000 0
+part 1
+anim [0 0 0 0 0 0 0 0 0 0 0 1 255]
+
+
+pat: butt 2 "creator" 3 3 484 32 0 [] 2001 0
+part 2
+anim [0]
+
+
+
+
+
+
+
+pat: butt 4 "creator" 12 2 459 10 0 [] 2002 0
+part 4
+anim [0]
+
+
+pat: butt 5 "creator" 14 2 459 28 0 [] 2003 0
+part 5
+anim [0]
+
+
+pat: dull 6 "creator" 20 242 0 0
+part 6
+anim [19]
+
+
+pat: dull 7 "creator" 40 77 47 0
+part 7
+anim [0]
+
+
+
+
+
+
+
+pat: dull 8 "creator" 48 -12 50 7990
+part 8
+anim [1]
+
+
+
+
+
+
+
+
+
+pat: cmra 10 "creator" 1 300 7 2 280 160 140 80
+
+
+
+scam targ 10
+cmrp 4250 1350 0
+
+
+pat: butt 11 "creator_remove_button" 0 5 492 7 0 [] 2011 0
+part 11
+anim [0]
+sets ov88 ""
+
+
+new: simp 3 3 22 "creator" 2 16 11
+attr 0
+
+setv ov90 60
+mvto 5620 3670
+clac -1
+seta va01 targ
+
+
+new: simp 3 3 23 "creator" 2 18 11
+attr 0
+
+setv ov90 60
+mvto 5620 3690
+clac -1
+seta va02 targ
+
+
+rtar 3 3 21
+seta ov18 va01
+seta ov19 va02
+
+
+endm
+
+
+
+
+
+
+
+scrp 3 3 21 2000
+	snde "bp_1"
+	sndl "cyc1"
+	doif ov00 = 0
+
+		part 1
+		anim [1]
+
+
+
+
+		part 4
+		anim [1 0 1 0 1 0 ]
+		part 5
+		anim [0 1 0 1 0 1 0]
+		mesg wrt+ ov18 500 150 1 0
+
+		setv ov00 1
+
+		doif ov02 < 19
+			tick 2
+		endi
+
+		mesg writ ownr 2002
+	else
+		doif ov77 = 1
+			part 11
+			anim [3 2 1 0]
+			setv ov77 0
+			over
+		endi
+
+		snde "bp_1"
+
+
+
+
+		rtar 3 3 66
+		doif targ <> null
+			kill targ
+		endi
+		targ ownr
+		mesg wrt+ ov18 500 0 0 0
+		mesg wrt+ ov19 500 0 0 0
+		targ ownr
+
+		part 1
+		fade
+		anim [0 0 0 0 0 0 0 0 0 0 0 1 255]
+
+		setv ov00 0
+		setv ov01 0
+
+		doif ov02 < 19
+			tick 2
+		endi
+	endi
+endm
+
+
+scrp 3 3 21 2001
+	lock
+	setv ov03 0
+	snde "sc_2"
+
+	targ ov18
+	setv va52 posx
+	targ ownr
+	targ ov19
+	setv va53 posx
+	targ ownr
+
+	pray refr
+
+	doif pray test ov88 eq 0
+
+
+		sets va69 "Agent file has been moved"
+		enum 1 1 91
+			doif ov00 = 1
+				mesg wrt+ targ 1001 va69 0 0
+			endi
+		next
+		targ ownr
+
+
+		stop
+	endi
+
+
+	doif ov01 = 0 and ov02 = 19 and ov00 = 1 and va52 >= va53
+
+		doif ov88 = ""
+			sets ov88 pray next "AGNT" ov88
+		endi
+		doif pray test ov88 = 0
+			stop
+		endi
+
+		part 2
+		anim [1 2 1 2 1 2]
+		part 6
+
+		snde "stm1"
+		anim [19 18 17 16 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1 0]
+
+		setv ov01 1
+		setv ov02 0
+		over
+		snde "crea"
+
+		setv va50 pray agti ov88 "Camera X" 0
+		setv va51 pray agti ov88 "Camera Y" 0
+
+
+
+
+		doif va50 <> 0 and va51 <> 0
+			setv ov03 1
+
+			new: simp 1 1 47 "teleport" 9 11 9000
+			attr 0
+			subv va50 100
+			subv va51 70
+			mvto va50 va51
+			anim [0 1 2 3 4 5 6 7 8]
+			tick 10
+			targ ownr
+			addv va50 100
+			addv va51 70
+
+
+			scam targ 10
+			cmrp va50 va51 0
+			zoom ov80 -1 -1
+
+		endi
+		targ ownr
+		part 7
+
+		doif ov03 = 0
+			anim [0 1 2 3 4 5]
+		endi
+
+
+
+		part 8
+		anim [0]
+		over
+		setv va04 pray injt ov88 0 va03
+		doif va04 = 0
+			setv va04 pray injt ov88 1 va03
+
+			subv game "Bioenergy" pray agti ov88 "Agent Bioenergy Value" -1
+		elif va04 = -1
+
+			part 7
+			anim [0 5 255]
+
+
+			sets va69 "Script not found"
+			enum 1 1 91
+				doif ov00 = 1
+					mesg wrt+ targ 1001 va69 0 0
+				endi
+			next
+			targ ownr
+
+		elif va04 = -2
+
+			part 7
+			anim [2 3 255]
+
+
+			sets va69 "Injection failed"
+			enum 1 1 91
+				doif ov00 = 1
+					mesg wrt+ targ 1001 va69 0 0
+				endi
+			next
+			targ ownr
+
+		elif va04 = -3
+
+			part 7
+			anim [0 1 2 3 255]
+
+
+			sets va69 "A required file was not found"
+			enum 1 1 91
+				doif ov00 = 1
+					mesg wrt+ targ 1001 va69 0 0
+				endi
+			next
+			targ ownr
+
+		endi
+		setv va88 pray agti ov88 "Agent Bioenergy Value" -1
+		mesg writ ov18 500
+		mesg wrt+ ov19 500 va88 0 0
+		wait 2
+		slow
+
+		part 8
+		anim [1]
+		part 7
+		doif ov03 = 0
+			anim [5 4 3 2 1 0]
+		endi
+
+
+
+	else
+		doif ov00 = 1
+			enum 1 1 91
+				doif ov00 = 1
+					mesg wrt+ targ 1001 read "Energy" 0 0 0
+				endi
+			next
+			targ ownr
+			doif ov00 = 1
+				part 2
+				anim [2 1 2 1 0 1 0]
+				setv ov01 0
+				tick 10
+			endi
+			fade
+		endi
+	endi
+	tick 2
+	wait 15
+	scam targ 10
+	cmrp 4390 1430 0
+	doif ov03 eq 1
+		negv ov80
+		zoom ov80 4390 1430
+		negv ov80
+	endi
+
+endm
+
+scrp 1 1 47 9
+	kill targ
+endm
+
+
+scrp 3 3 21 5000
+	inst
+
+	doif pray test ov88 = 0
+
+		sets ov88 pray next "AGNT" ""
+		doif ov88 eq ""
+			stop
+		endi
+	endi
+	scam targ 10
+	zoom ov80 -1 -1
+	rtar 3 3 66
+	doif targ <> ownr and targ <> null
+		kill targ
+	endi
+	enum 99 99 99
+		kill targ
+	next
+	targ ownr
+	lock
+	inst
+	setv va60 0
+
+	setv va88 pray agti ov88 "Agent Bioenergy Value" -1
+	mesg writ ov18 500
+	mesg wrt+ ov19 500 va88 0 0
+
+	sets va53 pray agts ov88 "Agent Animation String" ""
+
+
+	sets va69 ov88
+	enum 1 1 91
+		doif ov00 = 1
+			mesg wrt+ targ 1001 va69 0 0
+		endi
+	next
+
+
+	setv va23 pray file pray agts ov88 "Agent Animation File" "blnk.s16" 2 1
+	doif va23 <> 0
+		enum 1 1 91
+			doif ov00 = 1
+				mesg wrt+ targ 1001 va69 0 0
+			endi
+		next
+		snde "buzz"
+		stop
+	endi
+
+
+	new: simp 3 3 66 pray agts ov88 "Agent Animation Gallery" "" 0 0 13
+
+	anms va53
+	wait 2
+	inst
+	attr 7
+	seta va66 targ
+
+
+	setv va60 wdth
+
+	setv va61 hght
+
+	setv va00 va60
+	setv va01 va61
+	divv va00 2
+	divv va01 2
+
+	setv va02 4390
+	setv va03 1430
+
+	subv va02 va00
+	subv va03 va01
+	mvto va02 va03
+	setv va50 posx
+	setv va51 posy
+
+
+	setv va90 wndw
+	setv va91 wndh
+
+
+
+	subv va91 va61
+	setv va99 va91
+
+	targ ownr
+
+	negv va99
+
+	setv ov80 va99
+
+	doif targ eq null
+		stop
+	endi
+
+	scam targ 10
+	cmrp va50 va51 0
+	zoom ov80 va50 va51
+
+	negv ov80
+	targ va66
+
+	unlk
+endm
+
+
+scrp 3 3 21 9
+	addv ov02 1
+	doif ov02 <= 19 and ov02 >= 0
+		part 6
+		pose ov02
+	endi
+	doif ov02 >= 20
+		setv ov02 19
+		tick 0
+		setv ov01 0
+	endi
+endm
+
+
+scrp 3 3 21 2002
+	snde "sc_1"
+	doif ov00 = 1
+		doif ov77 = 1
+			part 11
+			anim [3 2 1 0]
+			setv ov77 0
+			over
+		endi
+
+		pray refr
+
+
+		doif pray test ov88 eq 0
+			sets ov88 pray next "AGNT" ""
+		endi
+
+		sets ov88 pray next "AGNT" ov88
+		part 4
+		anim [1 1 1 1 0]
+		part 2
+		anim [1 0 1 0]
+		mesg writ ownr 5000
+	endi
+endm
+
+
+scrp 3 3 21 2003
+	snde "sc_1"
+	doif ov00 = 1
+		doif ov77 = 1
+			part 11
+			anim [3 2 1 0]
+			setv ov77 0
+			over
+		endi
+		pray refr
+
+
+		doif pray test ov88 eq 0
+			sets ov88 pray next "AGNT" ""
+		endi
+
+		sets ov88 pray prev "AGNT" ov88
+		part 5
+		anim [1 1 1 1 0]
+		part 2
+		anim [1 0 1 0]
+		mesg writ ownr 5000
+	endi
+endm
+
+
+scrp 3 3 22 500
+	inst
+	rtar 3 3 21
+	seta va16 targ
+	targ ownr
+	doif avar va16 0 = 1
+		enum 1 1 91
+			doif ov00 = 1
+				setv va77 ov02
+			endi
+		next
+
+		setv va50 5620
+		setv va51 3670
+		setv va00 150.0
+		divv va00 1000
+		doif game "Bioenergy" > 1000
+			setv game "Bioenergy" 1000
+		endi
+		divv va77 100.0
+		mulv va00 game "Bioenergy"
+		mulv va00 va77
+		addv va50 va00
+		mvto va50 va51
+	else
+		mvto 5620 3670
+	endi
+
+endm
+
+
+scrp 3 3 23 500
+
+	setv va50 5620
+	setv va51 3690
+
+
+	setv va00 _p1_
+
+	setv va01 150.0
+	divv va01 1000
+	mulv va01 va00
+	addv va50 va01
+	mvto va50 va51
+
+
+	doif va50 <= 5775 and va50 >= 5620
+		mvto va50 va51
+	elif va50 > 5775
+		mvto 5775 va51
+	elif va50 < 5620
+		mvto 5620 va51
+	endi
+
+
+endm
+
+scrp 3 3 21 2011
+	doif ov00 = 1
+		doif ov77 = 0
+			lock
+			part 11
+			anim [0 1 2 3]
+			over
+			setv ov77 1
+		elif ov77 = 1
+			lock
+			sets va88 pray agts ov88 "Remove script" ""
+			sets va66 caos 0 0 0 0 va88 0 0 va67
+
+			part 11
+			anim [3 2 1 0]
+			setv ov77 0
+			over
+		endi
+	endi
+endm
+
+scrp 3 3 21 255
+	stop
+endm
+
+rscr
+enum 3 3 21
+	kill targ
+next
+scrx 3 3 21 1
+scrx 3 3 21 2
+scrx 3 3 21 9
+scrx 3 3 21 1000
+scrx 3 3 21 2000
+scrx 3 3 21 2001
+scrx 3 3 21 2002
+scrx 3 3 21 2003
+scrx 3 3 21 5000
+
+enum 3 3 22
+	kill targ
+next
+enum 3 3 23
+	kill targ
+next
+enum 3 3 66
+	kill targ
+next
+enum 1 1 47
+	kill targ
+next
+
+
+
+
+setv game "Bioenergy" 50
+endm

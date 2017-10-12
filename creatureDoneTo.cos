@@ -1,0 +1,263 @@
+
+
+
+
+
+
+scrp 4 0 0 4
+	doif from eq pntr
+		zomb 0
+	endi
+endm
+
+
+
+scrp 4 0 0 6
+	inst
+
+
+
+
+
+
+
+
+	doif _p1_ > _p2_
+		setv va00 _p1_
+	else
+		setv va00 _p2_
+	endi
+	divv va00 50
+	doif va00 > 10
+		setv va00 10
+	endi
+
+
+	doif va00 >= 1
+
+
+		doif aslp eq 1
+
+			aslp 0
+		endi
+
+		reps va00
+			stim writ ownr 39 1
+		repe
+	endi
+
+	doif _p2_ > 10
+		setv va01 0
+		subv va01 _p2_
+		divv va01 5
+		setv vely va01
+	endi
+endm
+
+
+
+scrp 4 0 0 7
+	doif movs = 0
+
+		stim writ targ 0 1
+	endi
+endm
+
+
+
+
+scrp 4 0 0 0
+	forf from
+
+
+	doif dead ne 0
+		stop
+	endi
+	doif from eq pntr
+
+		stim writ targ 3 1
+
+	else
+
+		stim writ targ 4 1
+	endi
+
+	doif uncs ne 0
+		stop
+	endi
+	doif aslp ne 0
+		aslp 0
+	endi
+
+	doif gnus ne 2
+		setv va00 rand 0 4
+		doif va00 lt 3
+			snde "ow!1"
+		endi
+		doif va00 eq 3
+			snde "ow!2"
+		endi
+		doif va00 eq 4
+			snde "ow!3"
+		endi
+	else
+		snde "glaf"
+	endi
+
+	doif rand 1 5 eq 5
+		like from
+	endi
+endm
+
+
+
+
+
+
+
+
+scrp 4 0 0 2
+	dbg: asrt 0 = 1
+endm
+
+
+scrp 4 0 0 1
+
+	forf from
+
+
+	doif dead ne 0
+		stop
+	endi
+
+	doif from eq pntr
+
+		stim writ targ 1 1
+	else
+
+		stim writ targ 2 1
+	endi
+
+	doif uncs ne 0
+		stop
+	endi
+	doif aslp gt 0
+		aslp 0
+	endi
+
+
+	inst
+	doif from ne null
+		setv va00 fmly
+		setv va01 gnus
+		setv va02 spcs
+		targ from
+		doif fmly eq va00 and gnus eq va01
+			doif spcs ne va02
+
+				stim writ ownr 46 1
+			else
+				stim writ ownr 47 1
+			endi
+		endi
+		targ ownr
+	endi
+	slow
+
+
+
+	doif driv 0 lt 0.1
+
+		doif driv 12 lt 0.1
+
+			dirn 1
+			pose 0
+			face 4
+
+			doif gnus eq 1
+				wait 3
+				setv va00 rand 0 4
+				doif va00 lt 3
+					snde "gig1"
+				endi
+				doif va00 eq 3
+					snde "gig2"
+				endi
+				doif va00 eq 4
+					snde "gig3"
+				endi
+			else
+				doif gnus eq 2
+					wait 3
+					snde "glaf"
+				else
+					wait 3
+					snde "elaf"
+				endi
+			endi
+		endi
+	endi
+
+	doif rand 1 5 eq 5
+		like from
+	endi
+endm
+
+
+
+
+scrp 4 0 0 3
+	forf from
+
+
+	doif dead ne 0
+		stop
+	endi
+
+	doif from eq pntr
+
+		stim writ targ 3 1
+	else
+
+
+
+
+	endi
+
+	doif uncs ne 0
+		stop
+	endi
+	doif aslp ne 0
+		aslp 0
+	endi
+
+	doif gnus ne 2
+		setv va00 rand 0 4
+		doif va00 lt 3
+			snde "ow!1"
+		endi
+		doif va00 eq 3
+			snde "ow!2"
+		endi
+		doif va00 eq 4
+			snde "ow!3"
+		endi
+	else
+
+		snde "glaf"
+	endi
+
+	doif rand 1 5 eq 5
+		like from
+	endi
+
+endm
+
+
+rscr
+scrx 4 0 0 0
+scrx 4 0 0 1
+scrx 4 0 0 2
+scrx 4 0 0 4
+scrx 4 0 0 6
+endm
